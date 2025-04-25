@@ -1,12 +1,12 @@
-  @font-face {
-    font-family: 'KIMM_Bold', sans-serif;
+@font-face {
+    font-family: 'KIMM_Bold';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
   }
   
   :root {
-    font-family: 'KIMM_Bold', sans-serif;
+    font-family: 'KIMM_Bold';
     font-size: 1.7rem;
     color: rgba(0, 0, 0, 0.87);
     background-color: #ffffff;
