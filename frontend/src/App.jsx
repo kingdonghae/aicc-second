@@ -1,6 +1,7 @@
 import Home from "./pages/home"
 import Rank from "./pages/Rank"
-import Login from './pages/Login'
+// import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 function App() {
 
@@ -9,7 +10,8 @@ function App() {
     <div>
       {/* <Home></Home> */}
       {/* <Rank></Rank> */}
-      <Login></Login>
+      {/* <Login></Login> */}
+      <Signup></Signup>
     </div>
 
   )
