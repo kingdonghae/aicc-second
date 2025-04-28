@@ -4,9 +4,11 @@ import Rank from "./pages/Rank"
 function App() {
 
   return (
+
     <div>
       <Rank></Rank>
     </div>
+    
   )
 }
 
