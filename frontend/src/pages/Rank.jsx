@@ -20,7 +20,7 @@ const Rank = () => {
             <div id='check-rank'>
                 <h1>순위 확인하기</h1>
                 <form id='input-box'>
-                    <input type="text" placeholder='주소를 입력해주세요.' />
+                    <input type="text" placeholder='주소를 입력해주세요.' id='white-text'/>
                     <button id='input-button'></button>
                 </form>
                 <h3>오늘의 순위 <span id='check-number'>12</span>위</h3>
