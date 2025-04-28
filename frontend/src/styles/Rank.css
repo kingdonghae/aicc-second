@@ -1,55 +1,79 @@
 @font-face {
     font-family: 'KIMM_Bold';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
 }
 
-#root, html, body {
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+html, body, #root {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
     font-family: 'KIMM_Bold';
+    text-align: center;
     font-size: 1.2rem;
+    background-color: #DEEBF7; /* 여기서 배경 칠해줘 */
   }
   
+
+/* .whole-section {
+  display: flex;
+  width: 100%;
+  height: auto; 
+  align-items: stretch;
+} */
+   
 .whole-section {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    /* min-height: 100vh; */
     display: flex;
 }
 
 section {
     padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* min-height: 100vh; */
+    overflow: hidden;
 }
 
 #one {
-    width: 50%;
     background-color: rgb(255, 255, 255);
+    height: 100vh;
 }
 
 #two {
-    width: 50%;
     background-color: #DEEBF7;
+    /* overflow-x: hidden; */
 }
 
+
 header {
-    height: 4rem;
+    height: 1rem;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 2.5rem 0rem 1rem 0rem;
+    font-size: 2rem;
+    margin: 2rem 0rem 1rem 0rem;
 }
 
 hr {
     height: 0.2rem;
-    margin-top: 3.5rem;
+    margin-top: 1.5rem;
     background-color: #6EA8DC;
     border: 1px solid #6EA8DC;
     border-radius: 2rem;
@@ -61,15 +85,6 @@ hr {
     align-items: center;
 }
 
-input {
-    text-align: center;
-    font-family: 'KIMM_Bold', sans-serif;
-    font-size: 100%;
-    text-indent: 3.5rem;
-    width: 90%;
-    height: 90%;
-    border-radius: 2rem;
-}
 
 #input-box {
     width: 85%;
@@ -79,12 +94,12 @@ input {
     align-items: center;
     background-color: white;
     border: 5px solid black;
-    margin: 1rem;
+    margin: 0.2rem;
     padding: 0.1rem;
     border-radius: 2rem;
 }
   
-input {
+#white-text {
     text-align: center;
     font-family: 'KIMM_Bold', sans-serif;
     font-size: 100%;
@@ -93,6 +108,7 @@ input {
     height: 90%;
     border-radius: 2rem;
     border: none;
+    background-color: white;
 }
   
 input:focus {
@@ -128,5 +144,6 @@ input:focus {
 }
 
 h3 {
-    margin-left: 20rem;
+    margin: 1.5rem 1rem 1rem 13rem;
+    /* margin-left: 20rem; */
 }
