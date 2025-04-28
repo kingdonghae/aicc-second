@@ -2,6 +2,7 @@ import Home from "./pages/home"
 import Rank from "./pages/Rank"
 // import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Mypage from './pages/Mypage'
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
       {/* <Home></Home> */}
       {/* <Rank></Rank> */}
       {/* <Login></Login> */}
-      <Signup></Signup>
+      {/* <Signup></Signup> */}
+      <Mypage>  </Mypage>
     </div>
 
   )
