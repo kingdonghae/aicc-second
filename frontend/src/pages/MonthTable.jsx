@@ -22,21 +22,13 @@ const rows = [
 export default function MonthTable() {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650, fontFamily:'KIMM_Bold', fontSize:'1rem' }} aria-label="simple table">
-        {/* <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead> */}
+      <Table sx={{ fontSize:'0.5rem', padding: '0rem'}} aria-label="simple table">
+      
         <TableBody>
             {rows.map((row) => (
                 <TableRow key={row.location}>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold'}}>{row.rank}</TableCell>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold'}}>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem 1rem'}}>{row.rank}</TableCell>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem'}}>
                     {row.rankChange > 0 ? (
                     <ArrowUpwardIcon sx={{ fontSize: 16, color: 'red' }} />
                     ) : row.rankChange < 0 ? (
@@ -46,7 +38,7 @@ export default function MonthTable() {
                     )}
                     {Math.abs(row.rankChange)}
                 </TableCell>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold'}}>{row.location}</TableCell>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0.4rem'}}>{row.location}</TableCell>
                 </TableRow>
             ))}
             </TableBody>

@@ -1,10 +1,11 @@
 import Home from "./pages/home"
+import Rank from "./pages/Rank"
 
 function App() {
 
   return (
     <div>
-      <Home></Home>
+      <Rank></Rank>
     </div>
   )
 }
