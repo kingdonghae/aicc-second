@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/Rank.css'
 import BasicTable from '../components/BasicTable'
 import MonthTable from '../components/MonthTable'
