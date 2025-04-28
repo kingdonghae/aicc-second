@@ -9,7 +9,6 @@ import Paper from '@mui/material/Paper';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import RemoveIcon from '@mui/icons-material/Remove';
-// import '../styles/Rank.css'
 
 const rows = [
     { rank: 1, rankChange: 3, location: '서울시 양천구 신월로' },

@@ -5,11 +5,13 @@ import Signup from './pages/Signup'
 function App() {
 
   return (
+
     <div>
-      {/* <Home></Home> */}
+      {/* <Rank></Rank> */}
       <Rank></Rank>
       {/* <Signup></Signup> */}
     </div>
+    
   )
 }
 
