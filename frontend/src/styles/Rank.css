@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+#root, html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
+    font-family: 'KIMM_Bold';
+    font-size: 1.2rem;
+  }
+  
+.whole-section {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+section {
+    padding: 1.5rem 2rem;
+}
+
+#one {
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+}
+
+#two {
+    width: 50%;
+    background-color: #DEEBF7;
+}
+
+header {
+    height: 4rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 2.5rem 0rem 1rem 0rem;
+}
+
+hr {
+    height: 0.2rem;
+    margin-top: 3.5rem;
+    background-color: #6EA8DC;
+    border: 1px solid #6EA8DC;
+    border-radius: 2rem;
+}
+
+#check-rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    text-align: center;
+    font-family: 'KIMM_Bold', sans-serif;
+    font-size: 100%;
+    text-indent: 3.5rem;
+    width: 90%;
+    height: 90%;
+    border-radius: 2rem;
+}
+
+#input-box {
+    width: 85%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 5px solid black;
+    margin: 1rem;
+    padding: 0.1rem;
+    border-radius: 2rem;
+}
+  
+input {
+    text-align: center;
+    font-family: 'KIMM_Bold', sans-serif;
+    font-size: 100%;
+    text-indent: 3.5rem;
+    width: 90%;
+    height: 90%;
+    border-radius: 2rem;
+    border: none;
+}
+  
+input:focus {
+    outline: none;
+}
+  
+#input-button {
+    margin: 1rem;
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: 2rem;
+    background-image: url('../assets/search.png');
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.12s ease;
+}
+  
+#input-button:hover {
+    transform: scale(1.2) translateY(-2px);
+}
+  
+#input-button:active {
+    transform: scale(1.2) translateY(-2px);
+}
+
+#check-number {
+    font-size: 3rem;
+    color: #0070C0;
+}
+
+h3 {
+    margin-left: 20rem;
+}
