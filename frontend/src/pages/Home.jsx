@@ -1,7 +1,9 @@
-import React from 'react';
 import '../styles/Home.css';
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
 
@@ -29,7 +31,7 @@ const Home = () => {
         </div>
 
         <div>
-          <button id='rank'></button>
+          <button id='rank' onClick={()=>navigate('/rank')}></button>
           <p>검색 순위 보기</p>
         </div>
 
