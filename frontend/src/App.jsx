@@ -1,3 +1,4 @@
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/home"
 import Rank from "./pages/Rank"
 import Mypage from "./pages/Mypage"
@@ -10,15 +11,14 @@ function App() {
 
   return (
 
-    <div>
-      {/* <Home></Home> */}
-      {/* <Rank></Rank> */}
-      {/* <Login></Login> */}
-      {/* <Signup></Signup> */}
-      {/* <Mypage></Mypage> */}
-      {/* <Write></Write> */}
-      <TextDetail></TextDetail>
-    </div>
+    <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rank" element={<Rank />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+    </Router>
 
   )
 }
