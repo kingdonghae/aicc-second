@@ -6,7 +6,7 @@
 설명     : 검색어 랭킹 조회 API (오늘, 이번주, 이번달)
 ====================================================================
 """
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from backend.config import get_connection
 
 rank_bp = Blueprint('rank', __name__)
@@ -37,8 +37,8 @@ def get_search_rankings():
                         keyword,
                         count,
                         ROW_NUMBER() OVER (ORDER BY count DESC) AS current_rank,
-                        NULL AS rank_change,
-                        'weekly' AS period_type
+                        previous_ranking - ROW_NUMBER() OVER (ORDER BY count DESC) AS rankChange,
+                            'weekly' AS period_type
                     FROM search_ranking_weekly
                     WHERE ranking_week = YEARWEEK(NOW())
                     ORDER BY count DESC
@@ -52,8 +52,8 @@ def get_search_rankings():
                         keyword,
                         count,
                         ROW_NUMBER() OVER (ORDER BY count DESC) AS current_rank,
-                        NULL AS rank_change,
-                        'monthly' AS period_type
+                        previous_ranking - ROW_NUMBER() OVER (ORDER BY count DESC) AS rankChange,
+                            'monthly' AS period_type
                     FROM search_ranking_monthly
                     WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT(CURDATE(), '%Y-%m')
                     ORDER BY count DESC
@@ -61,6 +61,30 @@ def get_search_rankings():
                 );
             """
             cursor.execute(sql)
+            result = cursor.fetchall()
+            return jsonify({"rankings": result})
+    finally:
+         connection.close()
+
+
+@rank_bp.route('/search-ranking', methods=['GET'])
+def get_search_ranking():
+    keyword = request.args.get('keyword', '')
+
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            sql = """
+                SELECT
+                    keyword,    
+                    count,
+                    ROW_NUMBER() OVER (ORDER BY count DESC) AS rank,
+                FROM search_ranking_daily
+                WHERE keyword LIKE %s
+                ORDER BY count DESC
+                LIMIT 1
+            """
+            cursor.execute(sql, (f"%{keyword}%",))
             result = cursor.fetchall()
             return jsonify({"rankings": result})
     finally:
