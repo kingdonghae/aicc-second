@@ -138,11 +138,6 @@ const handleFileChange = (e) => {
             {/* <input type="range" /> */}
           </div>
         </div>
-
-
-
-
-
       </div>
     </div>
   );
