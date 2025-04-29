@@ -15,8 +15,8 @@ function App() {
       {/* <Login></Login> */}
       {/* <Signup></Signup> */}
       {/* <Mypage></Mypage> */}
-      {/* <Write></Write> */}
-      <TextDetail></TextDetail>
+      <Write></Write>
+      {/* <TextDetail></TextDetail> */}
     </div>
 
   )
