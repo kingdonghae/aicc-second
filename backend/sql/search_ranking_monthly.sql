@@ -1,0 +1,10 @@
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (11, '서울특별시 은평구 불광동', 35, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (12, '서울특별시 강서구 화곡동', 32, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (13, '서울특별시 중랑구 묵동', 30, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (14, '서울특별시 노원구 상계동', 28, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (15, '서울특별시 강북구 수유동', 27, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (16, '경기도 고양시 일산동구', 40, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (17, '경기도 안양시 동안구', 38, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (18, '경기도 부천시 중동', 36, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (19, '경기도 평택시 비전동', 34, 0, '2025-04', '2025-04-29 14:32:10');
+INSERT INTO zippt.search_ranking_monthly (id, keyword, count, previous_ranking, ranking_month, created_at) VALUES (20, '경기도 의정부시 가능동', 33, 0, '2025-04', '2025-04-29 14:32:10');

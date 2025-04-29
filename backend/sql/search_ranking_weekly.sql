@@ -1,0 +1,10 @@
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (1, '경기도 남양주시 다산동', 85, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (2, '경기도 광주시 오포읍', 80, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (3, '경기도 시흥시 정왕동', 78, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (4, '경기도 김포시 장기동', 75, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (5, '경기도 구리시 교문동', 70, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (6, '경기도 안산시 상록구', 68, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (7, '경기도 오산시 갈곶동', 65, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (8, '경기도 이천시 창전동', 63, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (9, '경기도 양주시 고읍동', 60, 0, 202517, '2025-04-29 14:33:30');
+INSERT INTO zippt.search_ranking_weekly (id, keyword, count, `previous _ranking`, ranking_week, created_at) VALUES (10, '경기도 하남시 망월동', 58, 0, 202517, '2025-04-29 14:33:30');
