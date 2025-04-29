@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Rank.css'
-import BasicTable from './BasicTable'
-import MonthTable from './MonthTable'
+import BasicTable from '../components/BasicTable'
+import MonthTable from '../components/MonthTable'
 
 
 const Rank = () => {
