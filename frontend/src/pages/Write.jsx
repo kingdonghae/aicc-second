@@ -72,7 +72,7 @@ const handleFileChange = (e) => {
   return (
     <div className='write-page'>
       <div className='write-box'>
-        <header></header>
+        <header className='menu-header'></header>
 
         <div className='content-box'>
           <div>
