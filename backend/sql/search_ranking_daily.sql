@@ -1,0 +1,10 @@
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (1, '서울특별시 강남구 역삼동', 16, 1, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (2, '서울특별시 서초구 반포동', 17, 4, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (3, '서울특별시 송파구 잠실동', 15, 5, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (4, '서울특별시 마포구 상암동', 11, 6, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (5, '서울특별시 종로구 청운동', 9, 7, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (6, '서울특별시 동대문구 회기동', 10, 8, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (7, '서울특별시 용산구 한남동', 7, 9, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (8, '서울특별시 관악구 신림동', 6, 10, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (9, '경기도 성남시 분당구', 20, 2, '2025-04-29 14:28:42', '2025-04-29 14:39:56');
+INSERT INTO zippt.search_ranking_daily (id, keyword, count, snapshot_rank, created_at, updated_at) VALUES (10, '경기도 수원시 영통구', 19, 3, '2025-04-29 14:28:42', '2025-04-29 14:39:56');

@@ -1,18 +1,25 @@
+import os
 from flask import Flask
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
+from dotenv import load_dotenv
+from routes import all_blueprints
 
-import models, routes
+load_dotenv()
 
-app = Flask(__name__)
-CORS(app)
+def create_app() :
+    app = Flask(__name__)
+    CORS(app)
 
-app.config['JWT_SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-db = SQLAlchemy(app)
-jwt = JWTManager(app)
+    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 
+    jwt = JWTManager(app)
+
+    for bp, url_prefix in all_blueprints:
+        app.register_blueprint(bp, url_prefix=url_prefix)
+
+    return app
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app = create_app()
+    app.run(host="0.0.0.0", port=5000, debug=True)

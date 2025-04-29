@@ -10,30 +10,16 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-const rows = [
-    { rank: 1, rankChange: 3, location: '서울시 양천구 신월로' },
-    { rank: 2, rankChange: -1, location: '서울시 서초구 서초중앙로' },
-    { rank: 3, rankChange: 0, location: '서울시 영등포구 선유서로' },
-    { rank: 4, rankChange: 12, location: '경기 안산시 단원구 예술대학로' },
-    { rank: 5, rankChange: 6, location: '경기 용인시 기흥구 구갈로' },
-];
 
-export default function BasicTable() {
+
+export default function MonthYearTable({ rows }) {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{fontSize:'0.5rem'}} aria-label="simple table">
-        {/* <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead> */}
+      <Table sx={{ fontSize:'0.5rem', padding: '0rem'}} aria-label="simple table">
+      
         <TableBody>
             {rows.map((row) => (
-                <TableRow key={row.location}>
+                <TableRow key={row.keyword}>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem 1rem'}}>{row.rank}</TableCell>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem'}}>
                     {row.rankChange > 0 ? (
@@ -45,7 +31,7 @@ export default function BasicTable() {
                     )}
                     {Math.abs(row.rankChange)}
                 </TableCell>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0.4rem'}}>{row.location}</TableCell>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0.4rem'}}>{row.keyword}</TableCell>
                 </TableRow>
             ))}
             </TableBody>
