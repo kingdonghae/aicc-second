@@ -8,7 +8,7 @@ const Login = () => {
                 <div id='login'>
                     <h2>로그인</h2>
                     <input type="text" placeholder='아이디를 입력하세요.'/>
-                    <input type="text" placeholder='비밀번호를 입력하세요.'/>
+                    <input type="password" placeholder='비밀번호를 입력하세요.' id='login-password'/>
                     <span></span>
                     <button>로그인</button>
                     <button>회원가입</button>

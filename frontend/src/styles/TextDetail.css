@@ -1,0 +1,264 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'KIMM_Bold';
+    font-weight: 300;
+    background-color: #DEEBF7
+}
+
+
+.write-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+    /* background-color: black; */
+    padding: 3rem;
+}
+
+.write-page button {
+    border-radius: 0.1rem;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 0.5rem;
+    /* padding: 0.3rem; */
+    /* margin: 0.3rem 0.1rem; */
+}
+
+.write-box {
+    width: 60%;
+}
+
+.menu-header {
+    height: 4rem;
+}
+
+#write-title {
+    font-size: 0.9rem;
+    width: 35rem;
+    height: 2rem;
+    border: none;
+    margin: 0.6rem 0 0 0 ;
+    background-color: transparent;
+}
+
+#write-hr {
+    border: none;
+    border-radius: 0;
+    width: 90%;
+    background-color: rgb(213, 213, 213);
+    margin: 0;
+}
+
+.content-box {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    height: 26.5rem;
+    /* padding: 0.5rem; */
+    /* margin: 0.5rem 0rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: beige; */
+    width: 85%;
+    height: 5rem;
+    text-align: left;
+}
+
+.title-box h4 {
+    margin-bottom: 2rem;
+}
+
+#writer {
+    font-size: 0.5rem;
+    margin: -1rem 0 0.1rem 0;
+}
+
+.edit-box {
+    width: 8rem;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    /* background-color: firebrick; */
+    margin-top: 1.5rem;
+}
+
+.other-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+    cursor: pointer;
+}
+
+.buttons {
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    justify-content: space-between;
+    /* background-color: goldenrod; */
+    gap: 0.2rem ;
+}
+
+#edit-button {
+    width: 3.5rem;
+    height: 1.5rem;
+    font-family: 'KIMM_Bold';
+    cursor: pointer;
+    /* margin: 0 4rem 0.4rem 4rem; */
+    background-color: #6EA8DC;
+    border-radius: 1.5rem;
+    font-size: 0.5rem;
+    border: none;
+}
+
+#list-button {
+    width: 3.5rem;
+    height: 1.5rem;
+    font-family: 'KIMM_Bold';
+    cursor: pointer;
+    /* margin: 0 4rem 0.4rem     4rem; */
+    background-color: #DEEBF7;
+    color: #6C757D;
+    border-radius: 1.5rem;
+    font-size: 0.5rem;
+    border: none;
+}
+
+#edit-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#list-button:hover {
+    background-color: #a5d3ff;
+    color: #6C757D;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.text-box {
+    /* background-color: rgb(152, 152, 152); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem 0 0 0;
+    /* margin-top: 1rem; */
+    line-height: 1.2rem;
+    width: 90%;
+    /* height: 70%; */
+    /* background-color: rgb(255, 255, 255); */
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-family: 'Pretendard', sans-serif;
+    text-align: left;
+}
+
+/* .text-box .ProseMirror, .text-box .ProseMirror p  {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 0.6rem;
+    outline: none;
+    text-align: left;
+}
+
+.text-box .ProseMirror {
+    padding: 0;
+} */
+
+/* .text-box .ProseMirror img {
+    max-width: 300px; 
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.5rem auto; 
+  } */
+  
+
+/* .is-editor-empty::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: #adb5bd;
+    pointer-events: none;
+    height: 0;
+    font-size: 0.8rem;
+  } */
+
+.comment-box {
+    width: 95%;
+    background-color: #6EA8DC;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-box p {
+    width: 4rem;
+    /* background-color: yellow; */
+    margin: 0;
+}
+
+.comment-box textarea {
+    width: 25rem;
+    height: 2.5rem;
+    /* text-wrap: wrap; */
+    border: none;
+    padding: 0.4rem 1rem;
+    font-family: 'Pretendard';
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+    border-radius: 2rem;
+    resize: none;
+    box-sizing: border-box;
+    overflow-x: hidden;    /* 가로 스크롤 제거 */
+    overflow-y: auto; 
+    white-space: pre-wrap;    /* 줄바꿈 허용 */
+    word-break: break-word;
+}
+
+.comment-box textarea:focus {
+    outline: none;
+}
+
+.comment-box button {
+    background-color: #DEEBF7;
+    font-family: 'KIMM_Bold';
+    font-size: 0.7rem;
+    border: none;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 2rem;
+}

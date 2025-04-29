@@ -9,12 +9,12 @@ const Home = () => {
 
     <section id='top'>
       {/* <nav></nav> */}
-      <header>
-        <h1>집PT</h1>
+      <header id='main-header'>
+        <h1 id='main-title'>집PT</h1>
         <p>Zip Place Tool</p>
       </header>
 
-      <form id='input-box'>
+      <form id='main-input-box'>
         <input type="text" placeholder='주소를 입력해주세요.' />
         <button id='input-button'></button>
       </form>

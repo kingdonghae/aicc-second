@@ -18,7 +18,7 @@ const Rank = () => {
         <div className='whole-section'>
 
             <section id='one'>
-                <header></header>
+                <header id='search-header'></header>
                 <h1>오늘 검색 순위</h1>
                 <div>
                     <TodayTable rows={todayRanks}></TodayTable>

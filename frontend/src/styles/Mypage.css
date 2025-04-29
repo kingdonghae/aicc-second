@@ -33,7 +33,7 @@ input {
   align-items: center;
 }
 
-.signup-form {
+.mypage-form {
   background-color: #ffffff;
   padding: 1.2rem;
   border: 4px solid black;
@@ -42,6 +42,10 @@ input {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+}
+
+.hold-data::placeholder {
+  color: black;
 }
 
 input:focus
@@ -120,7 +124,7 @@ input::placeholder {
   background-color: #f2f2f2;
   border-radius: 2rem;
   font-family: 'KIMM_Bold';
-  color: #bbb;
+  color: #000000;
 }
 
 .check-box {
@@ -139,8 +143,14 @@ p {
   font-size: 0.8rem;
 }
 
-.submit-button {
+#modify-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-button {
   background-color: #6EA8DC;
+  width: 8rem;
   color: white;
   padding: 0.6rem;
   border: none;
@@ -150,7 +160,7 @@ p {
   font-family: 'KIMM_Bold';
 }
 
-.submit-button:hover {
+.mypage-button:hover {
   background-color: #DEEBF7;
   color: #6C757D;
 }
