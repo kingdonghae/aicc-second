@@ -5,4 +5,3 @@ instance/
 .env
 *.sqlite3
 *.db
-config,py
