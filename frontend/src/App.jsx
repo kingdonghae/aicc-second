@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Write from "./pages/Write"
 import TextDetail from "./pages/TextDetail"
+import Map from "./pages/Map"
 
 function App() {
 
@@ -12,11 +13,12 @@ function App() {
 
     <div>
       {/* <Home></Home> */}
+      <Map></Map>
       {/* <Rank></Rank> */}
       {/* <Login></Login> */}
       {/* <Signup></Signup> */}
       {/* <Mypage></Mypage> */}
-      <Write></Write>
+      {/* <Write></Write> */}
       {/* <TextDetail></  TextDetail> */}
     </div>
 

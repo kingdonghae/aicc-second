@@ -1,50 +1,51 @@
-import React from 'react';
-import '../styles/Home.css';
+  import React from 'react';
+  import '../styles/Home.css';
 
-const Home = () => {
-  return (
-    <div>
+  const Home = () => {
 
-    <section id='top'>
-      {/* <nav></nav> */}
-      <header id='main-header'>
-        <h1 id='main-title'>집PT</h1>
-        <p>Zip Place Tool</p>
-      </header>
+    return (
+      <div>
 
-      <form id='main-input-box'>
-        <input type="text" placeholder='주소를 입력해주세요.' />
-        <button id='input-button'></button>
-      </form>
+      <section id='top'>
+        {/* <nav></nav> */}
+        <header id='main-header'>
+          <h1 id='main-title'>집PT</h1>
+          <p>Zip Place Tool</p>
+        </header>
 
-    </section>
+        <form id='main-input-box'>
+          <input type="text" placeholder='주소를 입력해주세요.' />
+          <button id='input-button'></button>
+        </form>
 
-    <section id='bottom'>
-      
-      <div id='button-box'>
+      </section>
 
-        <div>
-          <button id='map'></button>
-          <p>지도 보기</p>
+      <section id='bottom'>
+        
+        <div id='button-box'>
+
+          <div>
+            <button id='map-button'></button>
+            <p>지도 보기</p>
+          </div>
+
+          <div>
+            <button id='rank-button'></button>
+            <p>검색 순위 보기</p>
+          </div>
+
+          <div>
+            <button id='speak-button'></button>
+            <p>정보마당</p>
+          </div>
+
         </div>
 
-        <div>
-          <button id='rank'></button>
-          <p>검색 순위 보기</p>
-        </div>
+      </section>
 
-        <div>
-          <button id='speak'></button>
-          <p>정보마당</p>
-        </div>
+    </div>
+  )
+    
+  }
 
-      </div>
-
-    </section>
-
-  </div>
-)
-  
-}
-
-export default Home
+  export default Home
