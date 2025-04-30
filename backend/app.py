@@ -1,25 +1,14 @@
-import os
 from flask import Flask
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager
-from dotenv import load_dotenv
-from routes import all_blueprints
+from routes.signup_route import signup_bp
+from routes.login_route import login_bp
 
-load_dotenv()
+app = Flask(__name__)
+CORS(app)
 
-def create_app() :
-    app = Flask(__name__)
-    CORS(app)
+# 블루프린트 등록
+app.register_blueprint(signup_bp)
+app.register_blueprint(login_bp)
 
-    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
-
-    jwt = JWTManager(app)
-
-    for bp, url_prefix in all_blueprints:
-        app.register_blueprint(bp, url_prefix=url_prefix)
-
-    return app
-
-if __name__ == "__main__":
-    app = create_app()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
