@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getSearchALLRank } from '../services/RankService';
 
-export const useSearchRank = () => {
+export const useAllRank = () => {
     const [Ranks, setRanks] = useState([]);
 
     useEffect(() => {

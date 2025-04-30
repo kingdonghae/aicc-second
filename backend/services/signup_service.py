@@ -1,5 +1,6 @@
-import bcrypt
 import re
+
+import bcrypt
 from models.user_model import create_user
 
 def is_valid_email(email):

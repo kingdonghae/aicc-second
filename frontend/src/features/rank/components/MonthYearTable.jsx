@@ -20,7 +20,7 @@ export default function MonthYearTable({ rows }) {
         <TableBody>
             {rows.map((row) => (
                 <TableRow key={row.keyword}>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem 1rem'}}>{row.rank}</TableCell>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem 1rem'}}>{row.currentRank}</TableCell>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem'}}>
                     {row.rankChange > 0 ? (
                     <ArrowUpwardIcon sx={{ fontSize: 16, color: 'red' }} />
