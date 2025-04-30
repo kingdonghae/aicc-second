@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-import '../styles/Home.css';
-import {useNavigate} from "react-router-dom";
-
-const Home = () => {
-  const navigate = useNavigate();
-
-  return (
-    <div>
-=======
   import React from 'react';
   import '../styles/Home.css';
   import { useState } from 'react';
   import { useNavigate } from 'react-router-dom';
 
   const Home = () => {
->>>>>>> 3f5ecfb010b64a7a3d5319472caeebca60b8a473
 
     const navigate = useNavigate();
     const [address, setAddress] = useState('')
@@ -79,14 +68,7 @@ const Home = () => {
 
         </div>
 
-<<<<<<< HEAD
-        <div>
-          <button id='rank' onClick={()=>navigate('/rank')}></button>
-          <p>검색 순위 보기</p>
-        </div>
-=======
       </section>
->>>>>>> 3f5ecfb010b64a7a3d5319472caeebca60b8a473
 
     </div>
   )

@@ -22,48 +22,11 @@ const Rank = () => {
         useKeywordRank(inputValue).then((res) => {setKeywordData(res.rankings[0].currentRank)});
     };
 
-<<<<<<< HEAD
-=======
             <hr/>
->>>>>>> 3f5ecfb010b64a7a3d5319472caeebca60b8a473
 
     return (
         <div className='whole-section'>
 
-<<<<<<< HEAD
-            <section id='one'>
-                <header id='search-header'></header>
-                <h1>오늘 검색 순위</h1>
-                <div>
-                    <TodayTable rows={todayRanks}></TodayTable>
-                </div>
-
-                <hr />
-
-                <div id='check-rank'>
-                    <h1>순위 확인하기</h1>
-                    <form id='input-box'>
-                        <input type="text" placeholder='주소를 입력해주세요.' id='white-text' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
-                        <button id='input-button' type='button' onClick={handleSearchClick}></button>
-                    </form>
-                    <h3>오늘의 순위 <span id='check-number'> {keywordData ?? '-'}</span>위</h3>
-                </div>
-            </section>
-
-            <section id='two'>
-                <header></header>
-                <h1>월별 검색 순위</h1>
-                <div>
-                    <MonthYearTable rows={weeklyRanks}/>
-                </div>
-
-                <h1>주별 검색 순위</h1>
-                <div>
-                    <MonthYearTable rows={monthlyRanks}/>
-                </div>
-            </section>
-        </div>
-=======
         <section id='two'>
             <header></header>
             <div className='table-with-input'>
@@ -90,7 +53,6 @@ const Rank = () => {
             </div>
         </section>
     </div>
->>>>>>> 3f5ecfb010b64a7a3d5319472caeebca60b8a473
   )
 }
 
