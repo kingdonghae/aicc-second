@@ -32,7 +32,17 @@ def fetch_all_rankings():
                 ({get_monthly_rank_query()});
             """
             cursor.execute(combined_query)
-            return cursor.fetchall()
+            results = cursor.fetchall()
+            for row in results:
+                current = row.get('currentRank')
+                previous = row.get('previousRank')
+
+                if isinstance(current, int) and isinstance(previous, int):
+                    row['rankChange'] = previous - current
+                else:
+                    row['rankChange'] = 0
+
+            return results
     finally:
         connection.close()
 

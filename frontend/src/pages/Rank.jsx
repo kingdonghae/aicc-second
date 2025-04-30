@@ -2,8 +2,9 @@ import '../styles/Rank.css'
 import TodayTable from '../features/rank/components/TodayTable.jsx'
 import MonthYearTable from '../features/rank/components/MonthYearTable.jsx'
 import {useAllRank} from "../features/rank/hook/useAllRank.jsx";
-import {useRef, useState} from "react";
+import {useState} from "react";
 import {useKeywordRank} from "../features/rank/hook/useKeywordRank.jsx";
+import WeekSelector from "@/features/rank/components/WeekSelector.jsx";
 
 
 const Rank = () => {
@@ -17,7 +18,6 @@ const Rank = () => {
     const todayRanks = ranksData.rankings.filter(rank => rank.periodType === 'daily');
     const weeklyRanks = ranksData.rankings.filter(rank => rank.periodType === 'weekly');
     const monthlyRanks = ranksData.rankings.filter(rank => rank.periodType === 'monthly');
-    // const { data: keywordRankData } = useKeywordRank(searchKeyword, !!searchKeyword)||[];
 
     const handleSearchClick = () => {
         useKeywordRank(inputValue).then((res) => {setKeywordData(res.rankings[0].currentRank)});
@@ -63,10 +63,7 @@ const Rank = () => {
 
             <div className='table-with-input'>
                 <h1>- 주별 검색 순위</h1>
-                <div className='calendar'>
-                    <input type="week" id='week-rank'/>
-                    <p>달력을 열어 기간을 설정해보세요 ▲</p>
-                </div>
+                <WeekSelector />
             </div>
             <div>
                 <MonthYearTable rows={monthlyRanks}/>

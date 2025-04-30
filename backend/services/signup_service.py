@@ -1,7 +1,9 @@
 import re
 
 import bcrypt
-from models.user_model import create_user
+
+from backend.models.user_model import create_user
+
 
 def is_valid_email(email):
     # re lib 매서드
