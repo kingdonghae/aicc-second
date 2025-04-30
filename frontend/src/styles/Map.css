@@ -15,6 +15,37 @@
     margin: 1rem;
 }
 
+
+/* 지도 말풍선 */
+
+.custom-overlay {
+    /* max-width: 150px; */
+    background: white;
+    padding: 10px 15px;
+    border: 2px solid #6EA8DC;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+
 /* 항목 보기 */
 .toggle-list-button {
     position: absolute;
@@ -30,15 +61,18 @@
     background-color: #6EA8DC;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
 }
 
 .toggle-list-button:hover {
-    background-color: #FFF2CC;
+    background-color: #6EA8DC;
     transform: scale(1.1);
+    opacity: 1;
 }
 
 .toggle-list-button:focus {
     outline: none;
+    opacity: 1;
 }
 
 

@@ -1,7 +1,28 @@
   import React from 'react';
   import '../styles/Home.css';
+  import { useState } from 'react';
+  import { useNavigate } from 'react-router-dom';
 
   const Home = () => {
+
+    const navigate = useNavigate();
+    const [address, setAddress] = useState('')
+
+    const handleKeyDown = (e) => {
+      if(e.key === "Enter"){
+        e.preventDefault();
+        if(address.trim()){
+          navigate(`/map?address=${encodeURIComponent(address.trim())}`);
+        }
+      }
+    };
+
+    const handleClick = (e) => {
+      e.preventDefault();
+      if (address.trim()) {
+        navigate(`/map?address=${encodeURIComponent(address.trim())}`);
+      }
+    };
 
     return (
       <div>
@@ -14,8 +35,14 @@
         </header>
 
         <form id='main-input-box'>
-          <input type="text" placeholder='주소를 입력해주세요.' />
-          <button id='input-button'></button>
+          <input type="text"
+          placeholder='주소를 입력해주세요.' 
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          onKeyDown={handleKeyDown}/>
+          <button id='input-button'
+          type='submit'
+          onClick={handleClick}></button>
         </form>
 
       </section>

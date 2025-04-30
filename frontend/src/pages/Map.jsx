@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import APIMap from '../components/APIMap';
 import Searchbox from '../components/Searchbox';
 import DetailList from '../components/DetailList';
@@ -8,13 +9,18 @@ import '../styles/Map.css'
 
 const Map = () => {
   
-  const [showList, setShowList] = useState(true)
+  const [showList, setShowList] = useState(true);
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const address = searchParams.get('address');
+  const key = location.key;
   
 
   return (
     <div className="mapbackground">
 
-      <div id="map"><APIMap/></div>
+      <APIMap address={address} rerenderKey={key}/>
 
       <div className='search-box'><Searchbox/></div>
 

@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/home"
 import Rank from "./pages/Rank"
 import Mypage from "./pages/Mypage"
@@ -12,8 +13,12 @@ function App() {
   return (
 
     <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<Map />} />
+      </Routes>
       {/* <Home></Home> */}
-      <Map></Map>
+      {/* <Map></Map> */}
       {/* <Rank></Rank> */}
       {/* <Login></Login> */}
       {/* <Signup></Signup> */}
