@@ -1,6 +1,5 @@
 import '../styles/Home.css';
 import {useNavigate} from "react-router-dom";
-import MainInputBox from "@/features/home/components/MainInputBox.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,7 +14,10 @@ const Home = () => {
         <p>Zip Place Tool</p>
       </header>
 
-      <MainInputBox />
+      <form id='main-input-box'>
+        <input type="text" placeholder='주소를 입력해주세요.' />
+        <button id='input-button'></button>
+      </form>
 
     </section>
 

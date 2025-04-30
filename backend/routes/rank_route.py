@@ -28,7 +28,7 @@ def get_search_rankings():
                     "count": 20,
                     "rank": 1,
                     "rankChange": 2,
-                    "period_type": "daily"
+                    "period_type": "daily"      //daily or weekly or monthly
                 },
                 ...
             ]

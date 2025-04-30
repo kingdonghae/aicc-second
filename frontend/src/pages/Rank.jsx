@@ -13,6 +13,7 @@ const Rank = () => {
     if (!ranksData || !Array.isArray(ranksData.rankings)) {
         return <div>로딩 중...</div>;
     }
+
     const todayRanks = ranksData.rankings.filter(rank => rank.periodType === 'daily');
     const weeklyRanks = ranksData.rankings.filter(rank => rank.periodType === 'weekly');
     const monthlyRanks = ranksData.rankings.filter(rank => rank.periodType === 'monthly');
@@ -53,6 +54,10 @@ const Rank = () => {
                     <input type="month" id='month-rank'/>
                     <p>달력을 열어 기간을 설정해보세요 ▲</p>
                 </div>
+
+            </div>
+            <div>
+                <MonthYearTable rows={weeklyRanks}/>
             </div>
 
 
@@ -64,7 +69,7 @@ const Rank = () => {
                 </div>
             </div>
             <div>
-                <MonthTable/>
+                <MonthYearTable rows={monthlyRanks}/>
             </div>
         </section>
     </div>
