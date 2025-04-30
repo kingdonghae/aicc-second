@@ -15,7 +15,7 @@ const Rank = () => {
                 <BasicTable></BasicTable>
             </div>
 
-            <hr />
+            <hr/>
 
             <div id='check-rank'>
                 <h1>순위 확인하기</h1>
@@ -29,16 +29,25 @@ const Rank = () => {
 
         <section id='two'>
             <header></header>
-            <h1>- 월별 검색 순위</h1>
-            <p>달력을 열어 기간을 설정해보세요 ▲ </p>
-            <input type="month" id='month-rank'/>   
+            <div className='table-with-input'>
+                <h1>- 월별 검색 순위</h1>
+                <div className='calendar'>
+                    <input type="month" id='month-rank'/>
+                    <p>달력을 열어 기간을 설정해보세요 ▲</p>
+                </div>
+            </div>
             <div>
                 <MonthTable/>
             </div>
+            
 
-            <h1>- 주별 검색 순위</h1>
-            <p>달력을 열어 기간을 설정해보세요 ▲ </p>   
-            <input type="week" id='week-rank'/>
+            <div className='table-with-input'>
+                <h1>- 주별 검색 순위</h1>
+                <div className='calendar'>
+                    <input type="week" id='week-rank'/>
+                    <p>달력을 열어 기간을 설정해보세요 ▲</p>
+                </div>
+            </div>
             <div>
                 <MonthTable/>
             </div>
