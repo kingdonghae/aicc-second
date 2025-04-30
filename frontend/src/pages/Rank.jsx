@@ -29,12 +29,16 @@ const Rank = () => {
 
         <section id='two'>
             <header></header>
-            <h1>월별 검색 순위</h1>
+            <h1>- 월별 검색 순위</h1>
+            <p>달력을 열어 기간을 설정해보세요 ▲ </p>
+            <input type="month" id='month-rank'/>   
             <div>
                 <MonthTable/>
             </div>
 
-            <h1>주별 검색 순위</h1>
+            <h1>- 주별 검색 순위</h1>
+            <p>달력을 열어 기간을 설정해보세요 ▲ </p>   
+            <input type="week" id='week-rank'/>
             <div>
                 <MonthTable/>
             </div>
