@@ -22,10 +22,15 @@ const Rank = () => {
         useKeywordRank(inputValue).then((res) => {setKeywordData(res.rankings[0].currentRank)});
     };
 
+<<<<<<< HEAD
+=======
+            <hr/>
+>>>>>>> 3f5ecfb010b64a7a3d5319472caeebca60b8a473
 
     return (
         <div className='whole-section'>
 
+<<<<<<< HEAD
             <section id='one'>
                 <header id='search-header'></header>
                 <h1>오늘 검색 순위</h1>
@@ -58,6 +63,34 @@ const Rank = () => {
                 </div>
             </section>
         </div>
+=======
+        <section id='two'>
+            <header></header>
+            <div className='table-with-input'>
+                <h1>- 월별 검색 순위</h1>
+                <div className='calendar'>
+                    <input type="month" id='month-rank'/>
+                    <p>달력을 열어 기간을 설정해보세요 ▲</p>
+                </div>
+            </div>
+            <div>
+                <MonthTable/>
+            </div>
+            
+
+            <div className='table-with-input'>
+                <h1>- 주별 검색 순위</h1>
+                <div className='calendar'>
+                    <input type="week" id='week-rank'/>
+                    <p>달력을 열어 기간을 설정해보세요 ▲</p>
+                </div>
+            </div>
+            <div>
+                <MonthTable/>
+            </div>
+        </section>
+    </div>
+>>>>>>> 3f5ecfb010b64a7a3d5319472caeebca60b8a473
   )
 }
 

@@ -31,7 +31,7 @@ export default function MonthYearTable({ rows }) {
                     )}
                     {Math.abs(row.rankChange)}
                 </TableCell>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0.4rem'}}>{row.keyword}</TableCell>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', fontSize: '0.85rem',padding: '0.4rem'}}>{row.location}</TableCell>
                 </TableRow>
             ))}
             </TableBody>
