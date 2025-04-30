@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-html, body, #root {
+html, #root {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -30,6 +30,7 @@ html, body, #root {
     height: 100vh;
     /* background-color: black; */
     padding: 3rem;
+    
 }
 
 .write-page button {
@@ -83,6 +84,7 @@ html, body, #root {
     /* padding: 0.3rem; */
     border-radius: 0.5rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.3rem;
 }
 
