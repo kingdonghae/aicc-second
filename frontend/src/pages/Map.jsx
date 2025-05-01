@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import APIMap from '../components/APIMap';
 import Searchbox from '../components/Searchbox';
@@ -10,19 +10,35 @@ import '../styles/Map.css'
 const Map = () => {
   
   const [showList, setShowList] = useState(true);
+  const [address, setAddress] = useState('');
+  const [searchAddress, setSearchAddress] = useState('');
 
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const address = searchParams.get('address');
   const key = location.key;
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const addressUrl = searchParams.get('address') || '';
+    if (addressUrl) {
+      setAddress(addressUrl);
+      setSearchAddress(addressUrl);
+    }
+  }, [location.search]);
   
 
   return (
     <div className="mapbackground">
+      
+      {searchAddress && (
+        <APIMap address={searchAddress} rerenderKey={key}/>
+      )}
+      <APIMap address={searchAddress} rerenderKey={key}/>
 
-      <APIMap address={address} rerenderKey={key}/>
-
-      <div className='search-box'><Searchbox/></div>
+      <div className='search-box'>
+        <Searchbox
+        inputValue={address}
+        setInputValue={setAddress}
+        onSearch={setAddress}/></div>
 
       {!showList && (<button className='toggle-list-button' onClick={() => setShowList((prev) => !prev)}>항목<br/>보기</button>)}
       {showList && (<div className='list-box'><DetailList onClose={()=> setShowList(false)}/></div>)}

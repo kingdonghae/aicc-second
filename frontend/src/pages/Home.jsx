@@ -24,6 +24,10 @@
       }
     };
 
+    const goMap = () => {
+      navigate('/map')
+    }
+
     return (
       <div>
 
@@ -34,15 +38,14 @@
           <p>Zip Place Tool</p>
         </header>
 
-        <form id='main-input-box'>
+        <form id='main-input-box' onSubmit={handleClick}>
           <input type="text"
           placeholder='주소를 입력해주세요.' 
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           onKeyDown={handleKeyDown}/>
           <button id='input-button'
-          type='submit'
-          onClick={handleClick}></button>
+          type='submit'></button>
         </form>
 
       </section>
@@ -52,7 +55,7 @@
         <div id='button-box'>
 
           <div>
-            <button id='map-button'></button>
+            <button id='map-button' onClick={goMap}></button>
             <p>지도 보기</p>
           </div>
 
