@@ -1,6 +1,4 @@
-import apiClient from '../../../api/ApiClient.jsx';
-import {data} from "react-router-dom";
-
+import apiClient from "@/api/ApiClient.jsx";
 
 // 기간별 주소 검색어 랭킹 가져오기
 export const fetchAllRankings = () => {

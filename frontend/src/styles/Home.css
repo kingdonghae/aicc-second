@@ -67,7 +67,8 @@ background-color: white;
 border: 5px solid black;
 /* margin: 1rem; */
 padding: 0.1rem;
-border-radius: 2rem;
+/*border-radius: 2rem;*/
+position: relative;
 }
 
 #main-input-box  input {
@@ -82,6 +83,43 @@ border-radius: 2rem;
   background-color: transparent;
 }
 
+/* jungeun추가 start*/
+.input-focused {
+  border-radius: 2rem 2rem 0 0
+}
+.input-blured {
+  border-radius: 2rem
+}
+
+.recommendation-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  max-height: 93px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  list-style: none;
+  margin: -5px;
+  padding: 0;
+  border: 5px solid black;
+  border-top: none;
+}
+
+.recommendation-list li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.recommendation-list li:hover {
+  background-color: #f2f2f2;
+}
+
+/* jungeun추가 end*/
 input:focus
   {
   outline: none;
