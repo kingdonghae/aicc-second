@@ -1,12 +1,19 @@
 .mapbackground {
-    display: flex;
+    /* display: flex; */
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 
 #map {
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .search-box {
@@ -46,7 +53,7 @@
 }
 
 
-/* 항목 보기 */
+/* 항목 보기 DetailList 열기 */
 .toggle-list-button {
     position: absolute;
     z-index: 20;
@@ -77,13 +84,21 @@
 
 
 
-/* 검색창 */
+/* 검색창 SearchBox */
 
 
 .search-page {
     display: flex;
     justify-content: center;
     width: 40rem;
+}
+
+.search-box {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 #search-input-box {
@@ -113,7 +128,7 @@
 
 
 
-/* 선택 항목 팝업 */
+/* 선택 항목 팝업 DetailList */
 
 .list-box {
     position: absolute;
@@ -191,11 +206,11 @@
 
 
 
-/* 상세보기 팝업 */
+/* 상세보기 팝업 DetailPreview */
 
 .preview-box {
     position: absolute;
-    z-index: 20;
+    z-index: 20;    
     top: 8rem;
     right: 2rem; 
 }
@@ -208,19 +223,14 @@
     padding: 2rem 1.5rem;
 }
 
-.preview-score-frame {
+.preview-text-frame {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-.preview-score-frame h3 {
-    font-size: 1rem;
-    margin: 0;
-}
-
-.preview-score-frame p {
+.preview-text-frame p {
     font-size: 0.7rem;
     margin: 0;
     word-break: keep-all;
@@ -228,17 +238,22 @@
     line-height: 1rem;
 }
 
-#preview-score {
+.preview-text-frame h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+#preview-text {
     background-color: #DEEBF7;
     text-align: center;
-    width: 7rem;
+    width: 11rem;
     height: 7rem;
-    margin: 1rem;
+    margin: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    font-size: 3rem;
+    border-radius: 1rem;
+    font-size: 1rem;
 }
 
 #detail-move {
