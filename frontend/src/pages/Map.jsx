@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import APIMap from '../components/APIMap';
 import Searchbox from '../components/Searchbox';
 import DetailList from '../components/DetailList';
 import DetailPreview from '../components/DetailPreview';
 import '../styles/Map.css'
+import APIMap from "@/components/APIMap.jsx";
 
 const Map = () => {
   

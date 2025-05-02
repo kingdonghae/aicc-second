@@ -67,11 +67,11 @@ background-color: white;
 border: 5px solid black;
 /* margin: 1rem; */
 padding: 0.1rem;
-/*border-radius: 2rem;*/
+border-radius: 2rem;
 position: relative;
 }
 
-#main-input-box input {
+#main-input-box  input {
   text-align: center;
   font-family: 'KIMM_Bold', sans-serif;
   font-size: 100%;

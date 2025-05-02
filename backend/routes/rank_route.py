@@ -27,7 +27,7 @@ def get_search_rankings():
                     "keyword": "서울특별시 송파구 잠실동",
                     "count": 20,
                     "rank": 1,
-                    "rankChange": 2,
+                    "diffRank": 2,
                     "period_type": "daily"      //daily or weekly or monthly
                 },
                 ...

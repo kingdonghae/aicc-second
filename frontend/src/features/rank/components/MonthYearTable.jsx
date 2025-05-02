@@ -21,16 +21,16 @@ export default function MonthYearTable({ rows }) {
                 <TableRow key={row.keyword}>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem 1rem'}}>{row.currentRank}</TableCell>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem'}}>
-                    {row.rankChange > 0 ? (
+                    {row.diffRank > 0 ? (
                     <ArrowUpwardIcon sx={{ fontSize: 16, color: 'red' }} />
-                    ) : row.rankChange < 0 ? (
+                    ) : row.diffRank < 0 ? (
                     <ArrowDownwardIcon sx={{ fontSize: 16, color: 'blue' }} />
                     ) : (
                     <RemoveIcon sx={{ fontSize: 16, color: 'gray' }} />
                     )}
-                    {Math.abs(row.rankChange)}
+                    {Math.abs(row.diffRank)}
                 </TableCell>
-                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', fontSize: '0.85rem',padding: '0.4rem'}}>{row.keyword}</TableCell>
+                <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0.4rem'}}>{row.keyword}</TableCell>
                 </TableRow>
             ))}
             </TableBody>

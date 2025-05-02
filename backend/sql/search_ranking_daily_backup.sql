@@ -1,4 +1,4 @@
-create table search_ranking_daily
+create table search_ranking_daily_backup
 (
     id               bigint auto_increment
         primary key,

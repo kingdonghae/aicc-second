@@ -16,8 +16,6 @@ from backend.models.rank_model import (
     get_weekly_rank_query,
     get_monthly_rank_query,
     get_keyword_rank_query,
-    check_duplicate_search_rank_query,
-    update_search_count_query,
     insert_search_keyword_query
 )
 
@@ -36,15 +34,6 @@ def fetch_all_rankings():
             """
             cursor.execute(combined_query)
             results = cursor.fetchall()
-            for row in results:
-                current = row.get('currentRank')
-                previous = row.get('previousRank')
-
-                if isinstance(current, int) and isinstance(previous, int):
-                    row['rankChange'] = previous - current
-                else:
-                    row['rankChange'] = 0
-
             return results
     finally:
         connection.close()
@@ -60,29 +49,6 @@ def fetch_keyword_ranking(keyword):
     finally:
         connection.close()
 
-# 당일 검색어 순위 테이블에 검색어 중복 확인
-def has_searched_rank(keyword):
-    if not keyword :
-        return False
-    sql = check_duplicate_search_rank_query()
-    conn = get_connection()
-    try:
-        with conn.cursor() as cursor:
-            cursor.execute(sql, (keyword))
-            return cursor.fetchone() is not None
-    finally:
-        conn.close()
-
-# 당일 검색어 순위 테이블 검색 수 업데이트
-def update_search_count(keyword):
-    sql = update_search_count_query()
-    conn = get_connection()
-    try:
-        with conn.cursor() as cursor:
-            cursor.execute(sql, (keyword,))
-        conn.commit()
-    finally:
-        conn.close()
 
 # 당일 검색어 순위 테이블 데이터 삽입
 def insert_search_keyword(keyword):

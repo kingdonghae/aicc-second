@@ -60,7 +60,7 @@
           </div>
 
           <div>
-            <button id='rank-button'></button>
+            <button id='rank-button' onClick={()=>navigate('/rank')}></button>
             <p>검색 순위 보기</p>
           </div>
 
