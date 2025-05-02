@@ -4,8 +4,7 @@ import Rank from "./pages/Rank"
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import TextDetail from "./pages/TextDetail"
-import Write from "./pages/Write"
-import Mypage from "./pages/Mypage"
+import Map from "./pages/Map"
 
 function App() {
 

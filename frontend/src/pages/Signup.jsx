@@ -13,6 +13,15 @@ const Signup = () => {
   const [detailAddress, setDetailAddress] = useState('');
   const [agreePrivacy, setAgreePrivacy] = useState(false);
 
+  const handleAddressSearch = () => {
+    new window.daum.Postcode({
+      oncomplete: function (data) {
+        let mainAddress = data.address;
+        setAddress(mainAddress);
+      },
+    }).open();
+  }
+  
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -97,9 +106,9 @@ const Signup = () => {
             type="text" id='address' 
             placeholder="주소를 검색해주세요" 
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required/>
-          <button type="button" className="check-button">주소 검색</button>
+            onClick={handleAddressSearch}
+            readOnly required/>
+          <button type="button" className="check-button" onClick={handleAddressSearch}>주소 검색</button>
         </div>
         <input 
           type="text" 
@@ -107,6 +116,7 @@ const Signup = () => {
           value={detailAddress}
           onChange={(e) => setDetailAddress(e.target.value)}
           id='detail-address'/>
+          
 
         <div className="check-box">
         <p>개인정보 활용에 동의하십니까?</p>
