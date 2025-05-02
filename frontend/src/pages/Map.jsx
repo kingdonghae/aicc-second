@@ -12,9 +12,11 @@ const Map = () => {
   const [showList, setShowList] = useState(true);
   const [address, setAddress] = useState('');
   const [searchAddress, setSearchAddress] = useState('');
+  const [rerenderKey, setRerenderKey] = useState(Date.now());
+
 
   const location = useLocation();
-  const key = location.key;
+  const key = location.key || new Date().getTime();
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -30,15 +32,18 @@ const Map = () => {
     <div className="mapbackground">
       
       {searchAddress && (
-        <APIMap address={searchAddress} rerenderKey={key}/>
+        <APIMap address={searchAddress} rerenderkey={key}/>
       )}
-      <APIMap address={searchAddress} rerenderKey={key}/>
+      {/* <APIMap address={searchAddress} rerenderKey={key}/> */}
 
       <div className='search-box'>
         <Searchbox
         inputValue={address}
         setInputValue={setAddress}
-        onSearch={setAddress}/></div>
+        onSearch={(value) => {
+          setAddress(value);
+          setRerenderKey(Date.now());
+        }}/></div>
 
       {!showList && (<button className='toggle-list-button' onClick={() => setShowList((prev) => !prev)}>항목<br/>보기</button>)}
       {showList && (<div className='list-box'><DetailList onClose={()=> setShowList(false)}/></div>)}

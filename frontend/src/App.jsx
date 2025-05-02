@@ -5,6 +5,7 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import TextDetail from "./pages/TextDetail"
 import Map from "./pages/Map"
+import InfoDetail from './pages/InfoDetail';
 import Mypage from "@/pages/Mypage.jsx";
 import Write from "@/pages/Write.jsx";
 
