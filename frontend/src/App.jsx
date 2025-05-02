@@ -6,8 +6,8 @@ import Login from './pages/Login'
 import TextDetail from "./pages/TextDetail"
 import Map from "./pages/Map"
 import InfoDetail from './pages/InfoDetail';
-import Mypage from "@/pages/Mypage.jsx";
 import Write from "@/pages/Write.jsx";
+import Mypage from "@/pages/Mypage.jsx";
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
               <Route path="/mypage" element={<Mypage />} />
               <Route path="/write" element={<Write />} />
               <Route path="/textDetail" element={<TextDetail />} />
+              <Route path="/infoDetail" element={<InfoDetail />} />
               <Route path="/map" element={<Map />} />
             </Routes>
       </Router>

@@ -7,5 +7,5 @@ create table search_ranking_daily
     diff_rank       int          null,
     primary key (start_date, keyword)
 )
-    collate = utf8mb4_uca1400_ai_ci;
+    collate = utf8mb4_0900_ai_ci;
 

@@ -7,8 +7,7 @@
 ====================================================================
 """
 from flask import Blueprint, request, jsonify
-
-from backend.services.search_service import log_search_keyword
+from services.search_service import log_search_keyword
 
 search_bp = Blueprint('search', __name__)
 
