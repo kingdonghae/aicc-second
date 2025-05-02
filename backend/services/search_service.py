@@ -10,9 +10,9 @@
 """
 from flask import jsonify
 
-from backend.db import get_connection
-from backend.models.search_model import insert_search_log_query
-from backend.services.rank_service import insert_search_keyword
+from db import get_connection
+from models.search_model import insert_search_log_query
+from services.rank_service import insert_search_keyword
 
 
 # 주소 검색 시 로그 저장

@@ -12,7 +12,7 @@ create table search_log
     constraint uniq_user
         unique (search_date, keyword, user_id)
 )
-    collate = utf8mb4_uca1400_ai_ci;
+    collate = utf8mb4_0900_ai_ci;
 
 create index idx_keyword
     on search_log (keyword);

@@ -19,7 +19,7 @@ def get_daily_rank_query():
                     , DIFF_RANK                                                 AS diffRank        # 변동율    
                     , 'daily'                                                   AS periodType      # 기간 구분
                 FROM SEARCH_RANKING_DAILY
-                WHERE DATE(START_DATE) = CURDATE()
+                WHERE DATE(START_DATE) = DATE(now())
                 ORDER BY COUNT DESC
                 LIMIT 5
            """
