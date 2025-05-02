@@ -10,8 +10,8 @@
 ====================================================================
 """
 
-from backend.db import get_connection
-from backend.models.rank_model import (
+from db import get_connection
+from models.rank_model import (
     get_daily_rank_query,
     get_weekly_rank_query,
     get_monthly_rank_query,

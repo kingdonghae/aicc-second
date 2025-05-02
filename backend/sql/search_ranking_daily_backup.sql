@@ -9,5 +9,5 @@ create table search_ranking_daily_backup
     created_at       datetime default current_timestamp() null,
     updated_at       datetime default current_timestamp() null on update current_timestamp()
 )
-    collate = utf8mb4_uca1400_ai_ci;
+    collate = utf8mb4_0900_ai_ci;
 

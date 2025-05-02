@@ -7,7 +7,7 @@
 ====================================================================
 """
 from flask import Blueprint, jsonify, request
-from backend.services.rank_service import fetch_all_rankings, fetch_keyword_ranking
+from services.rank_service import fetch_all_rankings, fetch_keyword_ranking
 
 rank_bp = Blueprint('rank', __name__)
 
