@@ -14,22 +14,24 @@ export default function TodayTable({ rows }) {
     <TableContainer component={Paper}>
       <Table sx={{fontSize:'0.5rem'}} aria-label="simple table">
         <TableBody>
-            {rows.map((row) => (
+            {rows.length > 0 ?
+                rows.map((row) => (
                 <TableRow key={row.keyword}>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem 1rem'}}>{row.currentRank}</TableCell>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', padding: '0rem'}}>
-                    {row.rankChange > 0 ? (
+                    {row.diffRank > 0 ? (
                     <ArrowUpwardIcon sx={{ fontSize: 16, color: 'red' }} />
-                    ) : row.rankChange < 0 ? (
+                    ) : row.diffRank < 0 ? (
                     <ArrowDownwardIcon sx={{ fontSize: 16, color: 'blue' }} />
                     ) : (
                     <RemoveIcon sx={{ fontSize: 16, color: 'gray' }} />
                     )}
-                    {Math.abs(row.rankChange)}
+                    {Math.abs(row.diffRank)}
                 </TableCell>
                 <TableCell align="center" sx={{fontFamily:'KIMM_Bold', fontSize: '0.85rem', padding: '0.4rem'}}>{row.keyword}</TableCell>
                 </TableRow>
-            ))}
+            )): <div style={{minHeight:'280px',fontSize:'20px', textAlign:'center',padding:'140px'}}> 오늘의 검색 키워드가 존재하지 않습니다. </div>
+            }
             </TableBody>
       </Table>
     </TableContainer>

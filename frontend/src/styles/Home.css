@@ -67,7 +67,7 @@ background-color: white;
 border: 5px solid black;
 /* margin: 1rem; */
 padding: 0.1rem;
-/*border-radius: 2rem;*/
+border-radius: 2rem;
 position: relative;
 }
 
@@ -183,7 +183,7 @@ input:focus
 }
 
 
-#map {
+#map-button {
   background-image: url('../assets/locate.png');
   background-size: 60%;
   background-position: center;
@@ -191,7 +191,7 @@ input:focus
   background-color: transparent;
 }
 
-#rank {
+#rank-button {
   background-image: url('../assets/rank4.png');
   background-size: 65%;
   background-position: center;
@@ -200,7 +200,7 @@ input:focus
   cursor: pointer;
 }
 
-#speak {
+#speak-button {
   background-image: url('../assets/speak3.png');
   background-size: 70%;
   background-position: center;

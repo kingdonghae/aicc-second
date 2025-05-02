@@ -1,10 +1,10 @@
 from flask import Flask
 from flask_cors import CORS
 
-from backend.routes.search_route import search_bp
-from routes.rank_route import rank_bp
 from routes.signup_route import signup_bp
 from routes.login_route import login_bp
+from routes.search_route import search_bp
+from routes.rank_route import rank_bp
 
 app = Flask(__name__)
 CORS(app)
