@@ -1,4 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import MenuIcon from '@mui/icons-material/Menu';
+import MapIcon from '@mui/icons-material/Map';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
@@ -7,7 +13,6 @@ import Color from '@tiptap/extension-color';
 import TextAlign from '@tiptap/extension-text-align';
 import Placeholder from '@tiptap/extension-placeholder';
 import Image from '@tiptap/extension-image';
-import '../styles/Write.css'
 import FormatBoldIcon from '@mui/icons-material/FormatBold';
 import FormatItalicIcon from '@mui/icons-material/FormatItalic';
 import StrikethroughSIcon from '@mui/icons-material/StrikethroughS';
@@ -22,11 +27,18 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
 import ImageIcon from '@mui/icons-material/Image';
+import '../styles/Write.css'
 
 
 
 const Write = () => {
-  const [title, setTitle] = useState('');  // 제목 상태 추가
+  const [title, setTitle] = useState('');
+  const navigate = useNavigate();
+  const [menu, setMenu] = useState(false);
+  
+  const toggleMenu = () => {
+      setMenu(prev => !prev )
+  }
 
   const editor = useEditor({
     extensions: [
@@ -71,8 +83,19 @@ const handleFileChange = (e) => {
 
   return (
     <div className='write-page'>
+      <div className='menu-box'>
+        <button className='menu-button' onClick={()=>navigate('/')}><HomeIcon/></button>
+        <button className='menu-button' onClick={toggleMenu}><MenuIcon/></button>
+      </div>
+      {menu &&
+      <nav className='menu-popup'>
+        <ul className='menu-group'>
+          <li className='menu-list' onClick={()=>navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }}/>지도 보기</button></li>
+          <li className='menu-list' onClick={()=>navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }}/>검색 순위</button></li>
+          <li className='menu-list'onClick={()=>navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }}/>정보 마당</button></li>
+        </ul>
+      </nav>}
       <div className='write-box'>
-        <header className='menu-header'></header>
 
         <div className='content-box'>
           <div>

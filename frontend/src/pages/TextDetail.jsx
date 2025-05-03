@@ -1,11 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import MenuIcon from '@mui/icons-material/Menu';
+import MapIcon from '@mui/icons-material/Map';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 import '../styles/TextDetail.css'
 
 const TextDetail = () => {
+
+    const navigate = useNavigate();
+    const [menu, setMenu] = useState(false);
+    
+    const toggleMenu = () => {
+        setMenu(prev => !prev )
+    }
+
   return (
+    
     <div className='write-page'>
+        <div className='menu-box'>
+            <button className='menu-button' onClick={()=>navigate('/')}><HomeIcon/></button>
+            <button className='menu-button' onClick={toggleMenu}><MenuIcon/></button>
+        </div>
+        {menu &&
+        <nav className='menu-popup'>
+            <ul className='menu-group'>
+            <li className='menu-list' onClick={()=>navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }}/>지도 보기</button></li>
+            <li className='menu-list' onClick={()=>navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }}/>검색 순위</button></li>
+            <li className='menu-list'onClick={()=>navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }}/>정보 마당</button></li>
+        </ul>
+        </nav>}
+        
+        
         <div className='write-box'>
-        <header className='menu-header'></header>
+
 
             <div className='content-box'>
                 <div className='title-box'>

@@ -28,9 +28,58 @@ html, body, #root {
   height: 100vh;
   overflow-x: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #DEEBF7;
+}
+
+.menu-box {
+  z-index: 20;
+}
+
+.menu-popup {
+  position: absolute;
+  top: 3.5rem;
+  right: 1rem;
+  z-index: 30;
+}
+
+.menu-group {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  border-radius: 1rem;
+  padding: 2rem 1.8rem;
+  opacity: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'KIMM_Bold';
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.menu-list button:hover {
+  color: #6EA8DC;
+  transform: scale(1.05);
+}
+
+.menu-list button:active {
+  transform: scale(1.05) translateY(-2px);
+  filter: brightness(0.92);
 }
 
 #house {

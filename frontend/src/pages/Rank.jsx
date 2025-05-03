@@ -1,13 +1,29 @@
-import '../styles/Rank.css'
+import { useState } from "react";
+import { useAllRank } from "../features/rank/hook/useAllRank.jsx";
+import { useKeywordRank } from "../features/rank/hook/useKeywordRank.jsx";
+import { useNavigate } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import MenuIcon from '@mui/icons-material/Menu';
+import MapIcon from '@mui/icons-material/Map';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 import TodayTable from '../features/rank/components/TodayTable.jsx'
 import MonthYearTable from '../features/rank/components/MonthYearTable.jsx'
-import {useAllRank} from "../features/rank/hook/useAllRank.jsx";
-import {useState} from "react";
-import {useKeywordRank} from "../features/rank/hook/useKeywordRank.jsx";
 import WeekSelector from "@/features/rank/components/WeekSelector.jsx";
+import '../styles/Rank.css'
 
 
 const Rank = () => {
+
+    const navigate = useNavigate();
+    const [menu, setMenu] = useState(false);
+    
+    const toggleMenu = () => {
+        setMenu(prev => !prev )
+    }
+
+
+
     const [inputValue, setInputValue] = useState('');
     const [keywordData, setKeywordData] = useState(null);
     const ranksData =  useAllRank();
@@ -26,6 +42,19 @@ const Rank = () => {
 
     return (
         <div className='whole-section'>
+
+            <div className='menu-box'>
+                <button className='menu-button' onClick={()=>navigate('/')}><HomeIcon/></button>
+                <button className='menu-button' onClick={toggleMenu}><MenuIcon/></button>
+            </div>
+            {menu &&
+            <nav className='menu-popup'>
+                <ul className='menu-group'>
+                    <li className='menu-list' onClick={()=>navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }}/>지도 보기</button></li>
+                    <li className='menu-list' onClick={()=>navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }}/>검색 순위</button></li>
+                    <li className='menu-list'onClick={()=>navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }}/>정보 마당</button></li>
+                </ul>
+            </nav>}
 
             <section className='rank-section' id='one'>
                 <header id='search-header'></header>

@@ -55,7 +55,7 @@ const Home = () => {
           <div className='menu-box'>
             {/* <button className='menu-button'>로그인</button> */}
 
-            <button className='menu-button'>마이페이지</button>
+            <button className='menu-button' onClick={()=>navigate('/mypage')}>마이페이지</button>
             <button className='menu-button'>로그아웃  </button>
           </div>
             <h1 id='main-title'>집PT</h1>

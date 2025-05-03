@@ -8,14 +8,15 @@
     align-items: center;
   }
 
-.chart-header {
+/* .chart-header {
     margin-top: 3rem;
-}
+} */
 
 .address-info {
+    margin-top: 2rem;
     background-color: #F2F2F2;
-    width: 80%;
-    height: 7rem;
+    width: 70%;
+    height: 10rem;
     border-radius: 1rem;
     display: flex;
     justify-content: center;
@@ -24,7 +25,7 @@
   
 .chart-area {
     position: relative;
-    width: 100%;
+    width: 85%;
     height: 60%;
     padding: 0rem 4rem 2rem 4rem;
     box-sizing: border-box;

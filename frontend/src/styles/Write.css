@@ -33,21 +33,6 @@ html, #root {
     
 }
 
-.write-page button {
-    border-radius: 0.1rem;
-    /* font-family: Arial, Helvetica, sans-serif; */
-    font-size: 0.5rem;
-    /* padding: 0.3rem; */
-    /* margin: 0.3rem 0.1rem; */
-}
-
-.write-box {
-    width: 60%;
-}
-
-.menu-header {
-    height: 4rem;
-}
 
 #write-title {
     font-size: 0.9rem;
