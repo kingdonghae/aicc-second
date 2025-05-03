@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SearchIcon from '@mui/icons-material/Search';
+import MapIcon from '@mui/icons-material/Map';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 import '../styles/Home.css'
 
 const Home = () => {
   const navigate = useNavigate();
   const [address, setAddress] = useState('');
+  // const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,8 +52,15 @@ const Home = () => {
     <div>
       <section id='top'>
         <header id='main-header'>
-          <h1 id='main-title'>집PT</h1>
-          <p>Zip Place Tool</p>
+          <div className='menu-box'>
+            {/* <button className='menu-button'>로그인</button> */}
+
+            <button className='menu-button'>마이페이지</button>
+            <button className='menu-button'>로그아웃  </button>
+          </div>
+            <h1 id='main-title'>집PT</h1>
+            <p>Zip Place Tool</p>
+          
         </header>
 
         <form id='main-input-box' onSubmit={handleSubmit}>
@@ -59,23 +71,23 @@ const Home = () => {
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)}
           />
-          <button id='input-button' type='submit'></button>
+          <button id='input-button' type='submit'><SearchIcon/></button>
         </form>
-        <p>e.g. 서울시 영등포구 선유서로</p>
+        <p>e.g. 서울시 영등포구 선유서로 │ 검색 불가 : 코드랩 아카데미, 서울시청</p>
       </section>
 
       <section id='bottom'>
         <div id='button-box'>
           <div>
-            <button id='map-button' onClick={goMap}></button>
+            <button onClick={goMap} ><MapIcon style={{ fontSize: '3rem' }}/></button>
             <p>지도 보기</p>
           </div>
           <div>
-            <button id='rank-button' onClick={()=>navigate('/rank')}></button>
+            <button onClick={()=>navigate('/rank')}><TrendingUpIcon style={{ fontSize: '3rem' }}/></button>
             <p>검색 순위 보기</p>
           </div>
           <div>
-            <button id='speak-button'></button>
+            <button><Diversity3Icon style={{ fontSize: '3rem' }}/></button>
             <p>정보마당</p>
           </div>
         </div>

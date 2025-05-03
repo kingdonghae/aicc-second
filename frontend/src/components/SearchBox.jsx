@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Searchbox = ({ inputValue, setInputValue, onSearch }) => {
+const SearchBox = ({ inputValue, setInputValue, onSearch }) => {
   const navigate = useNavigate();
 
   const submitSearch = () => {
     if (inputValue.trim()) {
       // ✅ alertShown 초기화
       window.alertShown = false;
-
+      
       setInputValue(inputValue.trim());
       onSearch(inputValue.trim());
       navigate(`/map?address=${encodeURIComponent(inputValue.trim())}&key=${Date.now()}`);
@@ -43,4 +43,4 @@ const Searchbox = ({ inputValue, setInputValue, onSearch }) => {
   );
 };
 
-export default Searchbox;
+export default SearchBox;

@@ -27,7 +27,7 @@ const Rank = () => {
     return (
         <div className='whole-section'>
 
-            <section id='one'>
+            <section className='rank-section' id='one'>
                 <header id='search-header'></header>
                 <h1>오늘 검색 순위</h1>
                 <div>
@@ -46,7 +46,7 @@ const Rank = () => {
                 </div>
             </section>
 
-        <section id='two'>
+        <section className='rank-section' id='two'>
             <header></header>
             <div className='table-with-input'>
                 <h1>- 월별 검색 순위</h1>
