@@ -11,7 +11,8 @@
     box-sizing: border-box;
 }
 
-html, #root {
+html,
+#root {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -19,8 +20,6 @@ html, #root {
     font-weight: 300;
     background-color: #DEEBF7
 }
-
-
 
 .write-page {
     display: flex;
@@ -30,7 +29,7 @@ html, #root {
     height: 100vh;
     /* background-color: black; */
     padding: 3rem;
-    
+
 }
 
 
@@ -39,7 +38,7 @@ html, #root {
     width: 35rem;
     height: 2rem;
     border: none;
-    margin: 0.7rem 0 0 0 ;
+    margin: 0.7rem 0 0 0;
     background-color: transparent;
 }
 
@@ -100,7 +99,7 @@ html, #root {
     align-items: center;
     justify-content: center;
 }
-  
+
 .color-button input[type="color"] {
     width: 50%;
     height: 55%;
@@ -126,7 +125,8 @@ html, #root {
     overflow-x: auto;
 }
 
-.text-box .ProseMirror, .text-box .ProseMirror p  {
+.text-box .ProseMirror,
+.text-box .ProseMirror p {
     font-family: 'Pretendard', sans-serif;
     font-weight: 400;
     font-size: 0.6rem;
@@ -139,13 +139,13 @@ html, #root {
 }
 
 .text-box .ProseMirror img {
-    max-width: 300px; 
+    max-width: 300px;
     width: 100%;
     height: auto;
     display: block;
-    margin: 0.5rem auto; 
-  }
-  
+    margin: 0.5rem auto;
+}
+
 
 .is-editor-empty::before {
     content: attr(data-placeholder);
@@ -154,7 +154,7 @@ html, #root {
     pointer-events: none;
     height: 0;
     font-size: 0.8rem;
-  }
+}
 
 
 .button-group {

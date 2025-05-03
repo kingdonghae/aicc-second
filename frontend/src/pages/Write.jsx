@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import MapIcon from '@mui/icons-material/Map';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -32,138 +33,147 @@ import '../styles/Write.css'
 
 
 const Write = () => {
-  const [title, setTitle] = useState('');
-  const navigate = useNavigate();
-  const [menu, setMenu] = useState(false);
-  
-  const toggleMenu = () => {
-      setMenu(prev => !prev )
-  }
+    const [title, setTitle] = useState('');
+    const navigate = useNavigate();
+    const [menu, setMenu] = useState(false);
 
-  const editor = useEditor({
-    extensions: [
-      Placeholder.configure({
-        placeholder: '글을 작성해보세요!',
-        emptyEditorClass: 'is-editor-empty',
-      }),
-      StarterKit,
-      Underline,
-      TextStyle,
-      Color,
-      TextAlign.configure({
-        types: ['heading', 'paragraph'],
-      }),
+    const toggleMenu = () => {
+        setMenu(prev => !prev)
+    }
 
-      Image.configure({
-        inline: false,
-        allowBase64: true,
-      }),
-    ],
-    content: '<p><양식><br/>- 내 거주지역 : <br/>- 평가 : 상 / 중 / 하</p>',
-  });
+    const editor = useEditor({
+        extensions: [
+            Placeholder.configure({
+                placeholder: '글을 작성해보세요!',
+                emptyEditorClass: 'is-editor-empty',
+            }),
+            StarterKit,
+            Underline,
+            TextStyle,
+            Color,
+            TextAlign.configure({
+                types: ['heading', 'paragraph'],
+            }),
 
-  const handleSave = () => {
-    console.log('제목:', title);
-    console.log('내용:', editor.getHTML());
-  };
+            Image.configure({
+                inline: false,
+                allowBase64: true,
+            }),
+        ],
+        content: '<p><양식><br/>- 내 거주지역 : <br/>- 평가 : 상 / 중 / 하</p>',
+    });
 
-  const fileInputRef = useRef();
+    const handleSave = () => {
+        console.log('제목:', title);
+        console.log('내용:', editor.getHTML());
+    };
 
-const handleFileChange = (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+    const fileInputRef = useRef();
 
-  const reader = new FileReader();
-  reader.onload = () => {
-    const base64 = reader.result;
-    editor.chain().focus().setImage({ src: base64 }).run();
-  };
-  reader.readAsDataURL(file);
-};
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-  return (
-    <div className='write-page'>
-      <div className='menu-box'>
-        <button className='menu-button' onClick={()=>navigate('/')}><HomeIcon/></button>
-        <button className='menu-button' onClick={toggleMenu}><MenuIcon/></button>
-      </div>
-      {menu &&
-      <nav className='menu-popup'>
-        <ul className='menu-group'>
-          <li className='menu-list' onClick={()=>navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }}/>지도 보기</button></li>
-          <li className='menu-list' onClick={()=>navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }}/>검색 순위</button></li>
-          <li className='menu-list'onClick={()=>navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }}/>정보 마당</button></li>
-        </ul>
-      </nav>}
-      <div className='write-box'>
+        const reader = new FileReader();
+        reader.onload = () => {
+            const base64 = reader.result;
+            editor.chain().focus().setImage({ src: base64 }).run();
+        };
+        reader.readAsDataURL(file);
+    };
 
-        <div className='content-box'>
-          <div>
-            <input type="text" 
-            placeholder="제목을 입력하세요"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            id='write-title'/>
-          </div>
-          <hr id='write-hr'/>
-          <div className="toolbar">
-            <button onClick={() => editor.chain().focus().toggleBold().run()}><FormatBoldIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleItalic().run()}><FormatItalicIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleStrike().run()}><StrikethroughSIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleUnderline().run()}><FormatUnderlinedIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleCode().run()}><CodeIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}><TitleIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleBulletList().run()}><FormatListBulletedIcon /></button>
-            <button onClick={() => editor.chain().focus().toggleBlockquote().run()}><FormatQuoteIcon /></button>
-            <button onClick={() => editor.chain().focus().undo().run()}><UndoIcon /></button>
-            <button onClick={() => editor.chain().focus().redo().run()}><RedoIcon /></button>
-            <button onClick={() => editor.chain().focus().setTextAlign('left').run()}>
-              <FormatAlignLeftIcon />
-            </button>
-            <button onClick={() => editor.chain().focus().setTextAlign('center').run()}>
-              <FormatAlignCenterIcon />
-            </button>
-            <button onClick={() => editor.chain().focus().setTextAlign('right').run()}>
-              <FormatAlignRightIcon />
-            </button>
-            <button className="color-button">
-              <input
-                type="color"
-                onChange={(e) => editor.chain().focus().setColor(e.target.value).run()}
-              />
-            </button>
-            <input
-              type="file"
-              accept="image/*"
-              style={{ display: 'none' }}
-              ref={fileInputRef}
-              onChange={handleFileChange}
-            />
+    return (
+        <div className='write-page'>
+            <button className='home-menu' onClick={() => navigate('/')}>집PT</button><div className='menu-box'>
 
-            <button onClick={() => fileInputRef.current.click()}>
-              <ImageIcon />
-            </button>
-
-          </div>
+                <button className='menu-button' onClick={() => navigate('/mypage')}><PersonIcon /></button>
+                <button className='menu-button' onClick={() => navigate('/')}><LogoutIcon /></button>
+                {/* <button className='menu-button' onClick={()=>navigate('/')}>Login</button> */}
 
 
-          <div className='text-box'>
-            <EditorContent editor={editor} />
-          </div>
+                <button className='menu-button'
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        toggleMenu();
+                    }}><MenuIcon /></button>
+            </div>
+            {menu &&
+                <nav className='menu-popup'>
+                    <ul className='menu-group'>
+                        <li className='menu-list' onClick={() => navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }} />지도 보기</button></li>
+                        <li className='menu-list' onClick={() => navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }} />검색 순위</button></li>
+                        <li className='menu-list' onClick={() => navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }} />정보 마당</button></li>
+                    </ul>
+                </nav>}
+            <div className='write-box'>
 
-          <div className='button-group'>
-            <button onClick={handleSave} id='save-button'>
-            저장
-            </button>
-            <button onClick={handleSave} id='cancel-button'>
-            취소
-            </button>
-            {/* <input type="range" /> */}
-          </div>
+                <div className='content-box'>
+                    <div>
+                        <input type="text"
+                            placeholder="제목을 입력하세요"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            id='write-title' />
+                    </div>
+                    <hr id='write-hr' />
+                    <div className="toolbar">
+                        <button onClick={() => editor.chain().focus().toggleBold().run()}><FormatBoldIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleItalic().run()}><FormatItalicIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleStrike().run()}><StrikethroughSIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleUnderline().run()}><FormatUnderlinedIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleCode().run()}><CodeIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}><TitleIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleBulletList().run()}><FormatListBulletedIcon /></button>
+                        <button onClick={() => editor.chain().focus().toggleBlockquote().run()}><FormatQuoteIcon /></button>
+                        <button onClick={() => editor.chain().focus().undo().run()}><UndoIcon /></button>
+                        <button onClick={() => editor.chain().focus().redo().run()}><RedoIcon /></button>
+                        <button onClick={() => editor.chain().focus().setTextAlign('left').run()}>
+                            <FormatAlignLeftIcon />
+                        </button>
+                        <button onClick={() => editor.chain().focus().setTextAlign('center').run()}>
+                            <FormatAlignCenterIcon />
+                        </button>
+                        <button onClick={() => editor.chain().focus().setTextAlign('right').run()}>
+                            <FormatAlignRightIcon />
+                        </button>
+                        <button className="color-button">
+                            <input
+                                type="color"
+                                onChange={(e) => editor.chain().focus().setColor(e.target.value).run()}
+                            />
+                        </button>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            ref={fileInputRef}
+                            onChange={handleFileChange}
+                        />
+
+                        <button onClick={() => fileInputRef.current.click()}>
+                            <ImageIcon />
+                        </button>
+
+                    </div>
+
+
+                    <div className='text-box'>
+                        <EditorContent editor={editor} />
+                    </div>
+
+                    <div className='button-group'>
+                        <button onClick={handleSave} id='save-button'>
+                            저장
+                        </button>
+                        <button onClick={handleSave} id='cancel-button'>
+                            취소
+                        </button>
+                        {/* <input type="range" /> */}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Write;
