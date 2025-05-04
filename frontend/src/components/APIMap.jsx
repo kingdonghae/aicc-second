@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import Marker from './Marker';
 
-function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
+function APIMap({ address, rerenderkey, onDragStart, onDragEnd, category }) {
+    const mapRef = useRef(null);
+    const [center, setCenter] = useState(null);
+
     useEffect(() => {
         window.alertShown = false;
         const existingScript = document.getElementById('kakao-map-script');
@@ -31,6 +35,8 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
                 level: 3,
             });
 
+            mapRef.current = map;
+
             if (onDragStart) {
                 window.kakao.maps.event.addListener(map, 'dragstart', onDragStart);
             }
@@ -46,6 +52,7 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
                 if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
                     const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
                     map.setCenter(coords);
+                    setCenter(coords);
                     showMarker(map, coords, address);
                 } else {
                     if (!window.alertShown) {
@@ -89,7 +96,14 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
         }
     }, [address, rerenderkey]);
 
-    return <div id="map" style={{ width: '100vw', height: '100vh' }}></div>;
+    return (
+        <>
+            <div id="map" style={{ width: '100vw', height: '100vh' }}></div>
+            {mapRef.current && center && (
+                <Marker map={mapRef.current} category={category} center={center} />
+            )}
+        </>
+    );
 }
 
 export default APIMap;

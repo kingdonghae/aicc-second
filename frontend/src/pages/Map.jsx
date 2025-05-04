@@ -10,12 +10,27 @@ import SearchBox from '../components/SearchBox';
 import DetailList from '../components/DetailList';
 import DetailPreview from '../components/DetailPreview';
 import APIMap from "@/components/APIMap.jsx";
-import '../styles/Map.css'
+import '../styles/Map.css';
 
 const Map = () => {
     const navigate = useNavigate();
-    const [menu, setMenu] = useState(false);
     const menuRef = useRef();
+    
+    const [menu, setMenu] = useState(false);
+    const [showList, setShowList] = useState(true);
+    const [address, setAddress] = useState('');
+    const [searchAddress, setSearchAddress] = useState('');
+    const [rerenderKey, setRerenderKey] = useState(Date.now());
+    const [isDrag, setIsDrag] = useState(false);
+    const [category, setCategory] = useState({
+        subway: true,
+        school: true,
+        mart: true,
+        hospital: true
+    })
+
+    const location = useLocation();
+    const key = location.key || new Date().getTime();
 
     const toggleMenu = () => {
         setMenu(prev => !prev)
@@ -33,17 +48,6 @@ const Map = () => {
             document.removeEventListener('click', handleClickOutside);
         };
     }, [menu]);
-
-    const [showList, setShowList] = useState(true);
-    const [address, setAddress] = useState('');
-    const [searchAddress, setSearchAddress] = useState('');
-    const [rerenderKey, setRerenderKey] = useState(Date.now());
-
-    const [isDrag, setIsDrag] = useState(false);
-
-
-    const location = useLocation();
-    const key = location.key || new Date().getTime();
 
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
@@ -92,6 +96,7 @@ const Map = () => {
                 <APIMap
                     address={searchAddress}
                     rerenderkey={key}
+                    category={category}
                     onDragStart={() => {
                         setIsDrag(true);
                         setMenu(false)
@@ -115,7 +120,9 @@ const Map = () => {
             {showList && (<div className='list-box'>
                 <DetailList
                     onClose={() => setShowList(false)}
-                    isDrag={isDrag} /></div>)}
+                    isDrag={isDrag}
+                    category={category}
+                    setCategory={setCategory} /></div>)}
 
             <div className='preview-box'><DetailPreview /></div>
 
