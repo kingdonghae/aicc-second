@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {logSearchKeyword} from "@/features/home/services/HomeService.jsx";
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
@@ -38,6 +39,7 @@ const Home = () => {
             geocoder.addressSearch(address.trim(), (result, status) => {
                 if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
                     navigate(`/map?address=${encodeURIComponent(address.trim())}`);
+                    logSearchKeyword(address);
                 } else {
                     alert('정확한 주소를 입력해주세요!');
                 }

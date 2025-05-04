@@ -12,6 +12,7 @@ import TodayTable from '../features/rank/components/TodayTable.jsx'
 import MonthYearTable from '../features/rank/components/MonthYearTable.jsx'
 import WeekSelector from "@/features/rank/components/WeekSelector.jsx";
 import '../styles/Rank.css'
+import MonthSelector from "@/features/rank/components/MonthSelector.jsx";
 
 
 const Rank = () => {
@@ -86,10 +87,7 @@ const Rank = () => {
                 <header></header>
                 <div className='table-with-input'>
                     <h1>- 월별 검색 순위</h1>
-                    <div className='calendar'>
-                        <input type="month" id='month-rank' />
-                        <p>달력을 열어 기간을 설정해보세요 ▲</p>
-                    </div>
+                    <MonthSelector />
 
                 </div>
                 <div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
+import {logSearchKeyword} from "@/features/home/services/HomeService.jsx";
 
 const SearchBox = ({ inputValue, setInputValue, onSearch }) => {
     const navigate = useNavigate();
@@ -12,6 +13,7 @@ const SearchBox = ({ inputValue, setInputValue, onSearch }) => {
             setInputValue(inputValue.trim());
             onSearch(inputValue.trim());
             navigate(`/map?address=${encodeURIComponent(inputValue.trim())}&key=${Date.now()}`);
+            logSearchKeyword(inputValue.trim());
         }
     };
 

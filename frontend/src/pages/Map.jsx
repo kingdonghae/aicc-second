@@ -41,7 +41,6 @@ const Map = () => {
 
     const [isDrag, setIsDrag] = useState(false);
 
-
     const location = useLocation();
     const key = location.key || new Date().getTime();
 
@@ -120,7 +119,6 @@ const Map = () => {
             <div className='preview-box'><DetailPreview /></div>
 
         </div>
-
 
     )
 }

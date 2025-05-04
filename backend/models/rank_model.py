@@ -65,6 +65,19 @@ def get_keyword_rank_query():
                 WHERE KEYWORD = %s 
     """
 
+#  당일, 같은 유저 또는 ip로 중복 키워드 검색 유무 체크
+def check_search_keyword_duplicate():
+    return """
+               SELECT COUNT(1)
+                FROM SEARCH_LOG
+                   WHERE (USER_ID  = %s AND KEYWORD = %s)
+                      OR (IP_ADDRESS  = %s AND KEYWORD = %s)
+                     AND DATE(SEARCHED_AT)   = DATE(NOW());
+           """
+
+
+
+
 # 주소 검색 시 실시간 카운트 증가
 def insert_search_keyword_query():
     return """
