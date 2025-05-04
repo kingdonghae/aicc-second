@@ -19,7 +19,7 @@
 .search-box {
     position: absolute;
     z-index: 1;
-    margin: 1rem;
+    /* margin: 1rem; */
 }
 
 
@@ -33,7 +33,7 @@
     border-radius: 10px;
     font-size: 14px;
     color: #333;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
 }
 
@@ -57,8 +57,8 @@
 .toggle-list-button {
     position: absolute;
     z-index: 20;
-    top: 8rem;
-    left: 2rem; 
+    bottom: 2rem;
+    right: 2rem;
     font-family: 'KIMM_Bold', sans-serif;
     font-size: 1rem;
     width: 4rem;
@@ -133,8 +133,8 @@
 .list-box {
     position: absolute;
     z-index: 20;
-    top: 8rem;
-    left: 2rem; 
+    bottom: 2rem;
+    right: 2rem;
 }
 
 
@@ -143,15 +143,20 @@
     border: 3px solid #6EA8DC;
     width: 15rem;
     border-radius: 1rem;
-    padding: 0.5rem;
+    padding: 0.3rem;
     display: flex;
     flex-direction: column;
+}
+
+.list-popup.drag {
+    opacity: 0.5;
 }
 
 
 .list-top {
     display: flex;
-    
+    justify-content: space-between;
+
 }
 
 .list-top p {
@@ -179,11 +184,11 @@
 
 
 .custom-button-group {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     z-index: 20;
     text-align: left;
-    font-size: 1rem;
+    font-size: 0.8rem;
     gap: 1.5rem;
     padding: 1rem;
 }
@@ -210,9 +215,9 @@
 
 .preview-box {
     position: absolute;
-    z-index: 20;    
+    z-index: 20;
     top: 8rem;
-    right: 2rem; 
+    left: 2rem;
 }
 
 .preview-popup {
