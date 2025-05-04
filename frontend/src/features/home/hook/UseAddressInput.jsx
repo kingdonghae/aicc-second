@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import {useKakaoAddress} from "@/features/home/hook/UseKakaoAddress.jsx";
 import {logSearchKeyword} from "@/features/home/services/HomeService.jsx";
 
-export const useAddressInput = (onSelect) => {
+export const useAddressInput = () => {
 
     const [inputValue, setInputValue] = useState("");
     const [isFocused, setIsFocused] = useState(false);
@@ -21,7 +21,7 @@ export const useAddressInput = (onSelect) => {
         setInputValue(address);
         setIsFocused(false);
         setHighlightIndex(-1);
-        onSelect?.(address);
+        // onSelect?.(address);
         logSearchKeyword(address)
     };
 
