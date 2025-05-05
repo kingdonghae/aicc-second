@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const categoryList = [
     { id: 'subway', label: '지하철', color: 'red' },
     { id: 'school', label: '학교', color: 'green' },
     { id: 'mart', label: '마트', color: 'blue' },
-    { id: 'park', label: '공원', color: 'purple' }
+    { id: 'hospital', label: '병원', color: 'purple' }
 ];
 
-const DetailList = ({ onClose, isDrag }) => {
+const DetailList = ({ onClose, isDrag, category, setCategory }) => {
 
-    const [active, setActive] = useState({
-        subway: true,
-        school: true,
-        mart: true,
-        park: true
-    });
 
     const toggleCategory = (id) => {
-        setActive((prev) => ({ ...prev, [id]: !prev[id] }));
+        setCategory((prev) => ({ ...prev, [id]: !prev[id] }));
     };
 
     return (
@@ -34,13 +28,13 @@ const DetailList = ({ onClose, isDrag }) => {
                         className="custom-button-frame"
                         onClick={() => toggleCategory(id)}
                         style={{
-                            color: active[id] ? color : 'gray',
+                            color: category[id] ? color : 'gray',
                         }}
                     >
                         <button
                             className="custom-button"
                             style={{
-                                backgroundColor: active[id] ? color : 'gray',
+                                backgroundColor: category[id] ? color : 'gray',
                                 border: 'none'
                             }}
                         ></button>

@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MapIcon from '@mui/icons-material/Map';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
-import '../styles/Home.css'
+import '../styles/Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
