@@ -30,7 +30,8 @@ const Map = () => {
     })
 
     const location = useLocation();
-    const key = location.key || new Date().getTime();
+    const searchParams = new URLSearchParams(location.search);
+    const key = Number(searchParams.get('key')) || Date.now();
 
     const toggleMenu = () => {
         setMenu(prev => !prev)

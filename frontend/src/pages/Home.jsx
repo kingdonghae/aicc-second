@@ -37,7 +37,7 @@ const Home = () => {
             const geocoder = new window.kakao.maps.services.Geocoder();
             geocoder.addressSearch(address.trim(), (result, status) => {
                 if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
-                    navigate(`/map?address=${encodeURIComponent(address.trim())}`);
+                    navigate(`/map?address=${encodeURIComponent(address.trim())}&key=${Date.now()}`);
                 } else {
                     alert('정확한 주소를 입력해주세요!');
                 }
