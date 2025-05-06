@@ -96,7 +96,7 @@ const Map = () => {
             {searchAddress && (
                 <APIMap
                     address={searchAddress}
-                    rerenderkey={key}
+                    rerenderkey={Date.now()}
                     category={category}
                     onDragStart={() => {
                         setIsDrag(true);

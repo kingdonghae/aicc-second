@@ -15,7 +15,7 @@ function APIMap({ address, onDragStart, onDragEnd, category }) {
         }
 
         const script = document.createElement('script');
-        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAOMAP_KEY}&autoload=false&libraries=services`;
+        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAOMAP_KEY}&autoload=false&libraries=services,clusterer`;
         script.async = true;
         script.id = 'kakao-map-script';
         document.head.appendChild(script);

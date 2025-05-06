@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 
 const categoryMap = {
-  subway: { code: 'SW8', label: '지하철', image: '/icons/subway2.png' },
-  school: { code: 'SC4', label: '학교', image: '/icons/school2.png' },
-  mart: { code: 'MT1', label: '마트', image: '/icons/mart2.png' },
-  hospital: { code: 'HP8', label: '병원', image: '/icons/hospital2.png' },
+  subway: { code: 'SW8', label: '지하철', image: '/icons/subway.png' },
+  school: { code: 'SC4', label: '학교', image: '/icons/school.png' },
+  mart: { code: 'MT1', label: '마트', image: '/icons/mart.png' },
+  hospital: { code: 'HP8', label: '병원', image: '/icons/hospital.png' },
 };
 
 const Marker = ({ map, category, center }) => {
@@ -15,22 +15,41 @@ const Marker = ({ map, category, center }) => {
     hospital: []
   });
 
+  const clustererRef = useRef(null);
+
   useEffect(() => {
     if (!map || !center) return;
 
     const ps = new window.kakao.maps.services.Places();
 
     Object.keys(markersRef.current).forEach((key) => {
-      if (!category[key]) {
-        markersRef.current[key].forEach((marker) => marker.setMap(null));
-        markersRef.current[key] = [];
-      }
+      markersRef.current[key].forEach((marker) => marker.setMap(null));
+      markersRef.current[key] = [];
     });
+
+    if (clustererRef.current) {
+      clustererRef.current.clear();
+    }
+
+    const clusterer = new window.kakao.maps.MarkerClusterer({
+      map: map,
+      averageCenter: true,
+      minLevel: 3 ,
+      disableClickZoom: true,
+    });
+
+    window.kakao.maps.event.addListener(clusterer, 'clusterclick', (cluster) => {
+      const level = map.getLevel();
+      map.setLevel(level - 1, { anchor: cluster.getCenter() });
+    });
+
+    clustererRef.current = clusterer;
 
     Object.entries(category).forEach(([key, isActive]) => {
       if (!isActive) return;
+
       const kind = categoryMap[key];
-      if (!kind || markersRef.current[key].length > 0) return;
+      if (!kind) return;
 
       ps.categorySearch(
         kind.code,
@@ -39,13 +58,12 @@ const Marker = ({ map, category, center }) => {
             const newMarkers = result.map((place) => {
               const markerImage = new kakao.maps.MarkerImage(
                 kind.image,
-                new kakao.maps.Size(50, 50)
+                new kakao.maps.Size(55, 55)
               );
 
               const marker = new window.kakao.maps.Marker({
-                map,
                 position: new kakao.maps.LatLng(place.y, place.x),
-                image: markerImage
+                image: markerImage,
               });
 
               const overlayContent = `
@@ -57,32 +75,33 @@ const Marker = ({ map, category, center }) => {
 
               const overlay = new kakao.maps.CustomOverlay({
                 content: overlayContent,
-                map: null,
                 position: marker.getPosition(),
-                yAnchor: 2
+                yAnchor: 2,
               });
 
-              window.kakao.maps.event.addListener(marker, 'mouseover', () => {
-                overlay.setMap(map);
-              });
-              window.kakao.maps.event.addListener(marker, 'mouseout', () => {
-                overlay.setMap(null);
+              let fixed = false;
+
+              kakao.maps.event.addListener(marker, 'mouseover', () => {
+                if (!fixed) overlay.setMap(map);
               });
 
-              // 클릭으로 했다가 호버로 바꿨어요
-              // let isOpen = false;
-              // window.kakao.maps.event.addListener(marker, 'click', () => {
-              //   if (isOpen) {
-              //     overlay.setMap(null);
-              //   } else {
-              //     overlay.setMap(map);
-              //   }
-              //   isOpen = !isOpen;
-              // });
+              kakao.maps.event.addListener(marker, 'mouseout', () => {
+                if (!fixed) overlay.setMap(null);
+              });
+
+              kakao.maps.event.addListener(marker, 'click', () => {
+                fixed = !fixed;
+                if (fixed) {
+                  overlay.setMap(map);
+                } else {
+                  overlay.setMap(null);
+                }
+              });
 
               return marker;
             });
 
+            newMarkers.forEach((m) => clusterer.addMarker(m));
             markersRef.current[key] = newMarkers;
           }
         },
@@ -96,6 +115,7 @@ const Marker = ({ map, category, center }) => {
     return () => {
       Object.values(markersRef.current).flat().forEach((marker) => marker.setMap(null));
       Object.keys(markersRef.current).forEach((key) => (markersRef.current[key] = []));
+      if (clustererRef.current) clustererRef.current.clear();
     };
   }, [map, center, category]);
 
