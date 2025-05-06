@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Marker from './Marker';
 
-function APIMap({ address, rerenderkey, onDragStart, onDragEnd, category }) {
+function APIMap({ address, onDragStart, onDragEnd, category }) {
     const mapRef = useRef(null);
     const [center, setCenter] = useState(null);
 
@@ -65,13 +65,22 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd, category }) {
         }
 
         function showMarker(map, coords, address) {
-            const marker = new window.kakao.maps.Marker({ position: coords });
+            const imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
+            const imageSize = new window.kakao.maps.Size(24, 35);
+            const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            const marker = new window.kakao.maps.Marker({
+                position: coords,
+                image: markerImage
+            });
+
             const content = `
-        <div class="custom-overlay">
-          ${address}
-          <button class="close-btn">X</button>
-        </div>
-      `;
+                <div class="custom-overlay">
+                  ${address}
+                  <button class="close-btn">X</button>
+                </div>
+            `;
+
             const overlay = new window.kakao.maps.CustomOverlay({
                 map,
                 position: coords,
@@ -94,7 +103,7 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd, category }) {
                 overlay.setMap(map);
             });
         }
-    }, [address, rerenderkey]);
+    }, [address]);
 
     return (
         <>
