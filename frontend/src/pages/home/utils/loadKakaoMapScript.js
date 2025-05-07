@@ -6,7 +6,7 @@ export function loadKakaoMapScript() {
     }
 
     const script = document.createElement('script');
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAOMAP_KEY}&autoload=false&libraries=services`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAOMAP_KEY}&autoload=false&libraries=services,clusterer`;
     script.async = true;
     script.onload = () => resolve();
     script.onerror = (err) => reject(err);

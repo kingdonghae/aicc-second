@@ -12,5 +12,6 @@ export const useNavigation = () => {
         goLogin: () => navigate(ROUTES.LOGIN),
         goSignup: () => navigate(ROUTES.SIGNUP),
         goMyPage: () => navigate(ROUTES.MYPAGE),
+        goInfoDetail: () => navigate(ROUTES.INFO_DETAIL),
     };
 };

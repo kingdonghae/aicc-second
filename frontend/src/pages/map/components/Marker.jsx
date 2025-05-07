@@ -1,17 +1,42 @@
+
 import { useEffect, useRef } from 'react';
 import { CATEGORY_MAP, DEFAULT_RADIUS } from '@/constants/mapDefaults.js';
 
 const Marker = ({ map, center, category }) => {
-    const markersRef = useRef({});
+    const markersRef = useRef({
+        subway: [],
+        school: [],
+        mart: [],
+        hospital: []
+    });
+    const clustererRef = useRef(null);
 
     useEffect(() => {
-        if (!map || !center) return;
+        if (!map || !center || !category) return;
         const ps = new window.kakao.maps.services.Places();
 
         Object.keys(markersRef.current).forEach((key) => {
-            markersRef.current[key].forEach((m) => m.setMap(null));
+            markersRef.current[key].forEach((marker) => marker.setMap(null));
+            markersRef.current[key] = [];
         });
-        markersRef.current = {};
+
+        if (clustererRef.current) {
+            clustererRef.current.clear();
+        }
+
+        const clusterer = new window.kakao.maps.MarkerClusterer({
+            map: map,
+            averageCenter: true,
+            minLevel: 3 ,
+            disableClickZoom: true,
+        });
+
+        window.kakao.maps.event.addListener(clusterer, 'clusterclick', (cluster) => {
+            const level = map.getLevel();
+            map.setLevel(level - 1, { anchor: cluster.getCenter() });
+        });
+
+        clustererRef.current = clusterer;
 
         Object.entries(category).forEach(([key, isActive]) => {
             if (!isActive || !CATEGORY_MAP[key]) return;
@@ -25,7 +50,7 @@ const Marker = ({ map, center, category }) => {
                         position: new window.kakao.maps.LatLng(place.y, place.x),
                         image: new window.kakao.maps.MarkerImage(
                             CATEGORY_MAP[key].image,
-                            new window.kakao.maps.Size(50, 50)
+                            new window.kakao.maps.Size(55, 55)
                         ),
                     });
 
@@ -34,19 +59,34 @@ const Marker = ({ map, center, category }) => {
                         position: marker.getPosition(),
                         yAnchor: 2,
                     });
+                    let fixed = false;
 
-                    kakao.maps.event.addListener(marker, 'mouseover', () => overlay.setMap(map));
-                    kakao.maps.event.addListener(marker, 'mouseout', () => overlay.setMap(null));
+                    kakao.maps.event.addListener(marker, 'mouseover', () => {
+                        if (!fixed) overlay.setMap(map);
+                    });
+                    kakao.maps.event.addListener(marker, 'mouseout', () => {
+                        if (!fixed) overlay.setMap(null);
+                    });
+                    kakao.maps.event.addListener(marker, 'click', () => {
+                        fixed = !fixed;
+                        if (fixed) {
+                            overlay.setMap(map);
+                        } else {
+                            overlay.setMap(null);
+                        }
+                    });
+
                     return marker;
                 });
-
+                newMarkers.forEach((m) => clusterer.addMarker(m));
                 markersRef.current[key] = newMarkers;
             }, { location: center, radius: DEFAULT_RADIUS });
         });
 
         return () => {
-            Object.values(markersRef.current).flat().forEach((m) => m.setMap(null));
-            markersRef.current = {};
+            Object.values(markersRef.current).flat().forEach((marker) => marker.setMap(null));
+            Object.keys(markersRef.current).forEach((key) => (markersRef.current[key] = []));
+            if (clustererRef.current) clustererRef.current.clear();
         };
     }, [map, center, category]);
 

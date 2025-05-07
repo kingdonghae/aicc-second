@@ -17,25 +17,25 @@ export const CATEGORY_MAP = {
     subway: {
         code: 'SW8',
         label: '지하철',
-        image: '/icons/subway2.png',
+        image: '/icons/subway.png',
         color: 'red',
     },
     school: {
         code: 'SC4',
         label: '학교',
-        image: '/icons/school2.png',
+        image: '/icons/school.png',
         color: 'green',
     },
     mart: {
         code: 'MT1',
         label: '마트',
-        image: '/icons/mart2.png',
+        image: '/icons/mart.png',
         color: 'blue',
     },
     hospital: {
         code: 'HP8',
         label: '병원',
-        image: '/icons/hospital2.png',
+        image: '/icons/hospital.png',
         color: 'purple',
     },
 };

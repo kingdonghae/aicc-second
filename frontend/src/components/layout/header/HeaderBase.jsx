@@ -5,8 +5,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
+import {useNavigation} from "@/hook/useNavigation.js";
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
+    const { goMyPage, goLogin } = useNavigation();
     const navigate = useNavigate();
     const auth = useRecoilValue(authState);
     const setAuth = useSetRecoilState(authState);
@@ -38,7 +40,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
         if (auth?.isLoggedIn) {
             return (
                 <>
-                    <button className="menu-button" onClick={() => navigate('/mypage')}>
+                    <button className="menu-button" onClick={goMyPage}>
                         <PersonIcon />
                     </button>
                     <button className="menu-button" onClick={handleLogout}>
@@ -48,7 +50,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
             );
         } else {
             return (
-                <button className="menu-button" onClick={() => navigate('/login')}>
+                <button className="menu-button" onClick={goLogin}>
                     Login
                 </button>
             );

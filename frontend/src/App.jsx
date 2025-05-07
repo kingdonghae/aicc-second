@@ -4,7 +4,7 @@ import { ROUTES } from "@/constants/routes";
 
 import Home from "@/pages/home/Home.jsx";
 import Rank from "@/pages/rank/Rank.jsx";
-import Signup from "@/pages/Signup.jsx";
+import Signup from "@/pages/signup/Signup.jsx";
 import Login from "@/pages/Login.jsx";
 import Mypage from "@/pages/Mypage.jsx";
 import Write from "@/pages/Write.jsx";

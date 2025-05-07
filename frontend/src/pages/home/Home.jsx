@@ -9,7 +9,6 @@ import SearchBox from "@/components/SearchBox.jsx";
 const Home = () => {
     const { goMap, goRank, goBoard } = useNavigation();
 
-
     return (
         <div className="home-container">
             <section id='top'>

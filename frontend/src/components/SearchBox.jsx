@@ -20,10 +20,10 @@ const SearchBox = ({ defaultValue = '', onSearch }) => {
         await searchAddress(
             trimmed,
             (coords) => {
+                logSearchKeyword(trimmed);
                 if (onSearch) {
                     onSearch(trimmed, coords);
                 } else {
-                    logSearchKeyword(trimmed);
                     navigate('/map', {
                         state: {
                             key: Date.now(),
