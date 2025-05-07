@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MapIcon from '@mui/icons-material/Map';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
-import '../styles/Home.css'
+import '../styles/Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Home = () => {
             const geocoder = new window.kakao.maps.services.Geocoder();
             geocoder.addressSearch(address.trim(), (result, status) => {
                 if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
-                    navigate(`/map?address=${encodeURIComponent(address.trim())}`);
+                    navigate(`/map?address=${encodeURIComponent(address.trim())}&key=${Date.now()}`);
                 } else {
                     alert('정확한 주소를 입력해주세요!');
                 }
