@@ -9,7 +9,7 @@ import Login from "@/pages/Login.jsx";
 import Mypage from "@/pages/Mypage.jsx";
 import Write from "@/pages/Write.jsx";
 import TextDetail from "@/pages/TextDetail.jsx";
-import InfoDetail from "@/pages/InfoDetail.jsx";
+import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
 import MapPage from "@/pages/map/MapPage.jsx";
 
 function App() {
