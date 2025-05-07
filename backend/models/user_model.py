@@ -24,3 +24,17 @@ def get_user_by_userid(userid):
             return user
     finally:
         connection.close()
+        
+def get_userid_by_userid(userid):
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            sql = "SELECT userid FROM users WHERE userid = %s"
+            cursor.execute(sql, (userid,))
+            user = cursor.fetchone()
+            print("user: ",user)
+
+            return user
+    finally:
+        connection.close()
+

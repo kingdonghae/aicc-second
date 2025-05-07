@@ -1,10 +1,10 @@
 import re
 
 import bcrypt
-from models.user_model import create_user, get_user_by_userid
+from models.user_model import create_user, get_userid_by_userid
 
 def is_userid_available(userid):
-    user = get_user_by_userid(userid)
+    user = get_userid_by_userid(userid)
     return user is None
 
 def is_valid_email(email):

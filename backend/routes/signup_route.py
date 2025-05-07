@@ -14,7 +14,7 @@ def check_userid():
     available = is_userid_available(userid)
     return jsonify({'available': available}), 200
 
-@signup_bp.route('/', methods=['POST'])
+@signup_bp.route('', methods=['POST'])
 def signup():
     data = request.get_json()
     response, status_code = signup_user(data)
