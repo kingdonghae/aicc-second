@@ -21,11 +21,11 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
 import ImageIcon from '@mui/icons-material/Image';
-import '../styles/Write.css'
+import '../../styles/Write.css'
 
 
 
-const Write = () => {
+const WritePage = () => {
     const [title, setTitle] = useState('');
 
     const editor = useEditor({
@@ -142,4 +142,4 @@ const Write = () => {
     );
 };
 
-export default Write;
+export default WritePage;

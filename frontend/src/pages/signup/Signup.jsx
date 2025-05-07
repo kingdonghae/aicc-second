@@ -29,8 +29,6 @@ const Signup = () => {
     const [useridMessage, setUseridMessage] = useState('');
     const [isUseridAvailable, setIsUseridAvailable] = useState(false);
 
-    const toggleMenu = () => setMenu(prev => !prev);
-
     const handleCheckUserid = async () => {
         if (!userid) {
             setUseridMessage("아이디를 입력해주세요.");
