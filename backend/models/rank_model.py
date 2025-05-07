@@ -34,7 +34,7 @@ def get_weekly_rank_query():
                     , DIFF_RANK                                                     AS diffRank            # 변동율 
                     , 'weekly'                                                      AS periodType          # 기간 구분
                 FROM SEARCH_RANKING_WEEKLY
-                WHERE WEEK_START = DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)
+                WHERE WEEK_START = STR_TO_DATE(CONCAT(%s, %s, '1'), '%%X%%V%%w')
                 ORDER BY COUNT DESC
                 LIMIT 5
     """
@@ -49,7 +49,7 @@ def get_monthly_rank_query():
                     , DIFF_RANK                                                    AS diffRank            # 변동율    
                     , 'monthly'                                                    AS periodType          # 기간 구분
                 FROM SEARCH_RANKING_MONTHLY
-                WHERE YEAR = YEAR(CURDATE()) AND MONTH = MONTH(CURDATE())
+                WHERE YEAR = %s AND MONTH = %s
                 ORDER BY COUNT DESC
                 LIMIT 5
     """
@@ -74,8 +74,6 @@ def check_search_keyword_duplicate():
                       OR (IP_ADDRESS  = %s AND KEYWORD = %s)
                      AND DATE(SEARCHED_AT)   = DATE(NOW());
            """
-
-
 
 
 # 주소 검색 시 실시간 카운트 증가

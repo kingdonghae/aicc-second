@@ -99,7 +99,7 @@ body {
     margin-top: 1.5rem;
 }
 
-#main-input-box {
+.home-container #search-input-box {
     width: 50%;
     height: 3rem;
     display: flex;
@@ -113,7 +113,7 @@ body {
     position: relative;
 }
 
-#main-input-box input {
+.home-container #search-input-box input {
     text-align: center;
     font-family: 'KIMM_Bold', sans-serif;
     font-size: 100%;

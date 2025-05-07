@@ -1,51 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import PersonIcon from '@mui/icons-material/Person';
-import LogoutIcon from '@mui/icons-material/Logout';
-import MenuIcon from '@mui/icons-material/Menu';
-import MapIcon from '@mui/icons-material/Map';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
 import '../styles/TextDetail.css'
 
 const TextDetail = () => {
 
-    const navigate = useNavigate();
-    const [menu, setMenu] = useState(false);
-
-    const toggleMenu = () => {
-        setMenu(prev => !prev)
-    }
-
     return (
 
         <div className='write-page'>
-            <button className='home-menu' onClick={() => navigate('/')}>집PT</button><div className='menu-box'>
-
-                <button className='menu-button' onClick={() => navigate('/mypage')}><PersonIcon /></button>
-                <button className='menu-button' onClick={() => navigate('/')}><LogoutIcon /></button>
-                {/* <button className='menu-button' onClick={()=>navigate('/')}>Login</button> */}
-
-
-                <button className='menu-button'
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        toggleMenu();
-                    }}><MenuIcon /></button>
-            </div>
-            {menu &&
-                <nav className='menu-popup'>
-                    <ul className='menu-group'>
-                        <li className='menu-list' onClick={() => navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }} />지도 보기</button></li>
-                        <li className='menu-list' onClick={() => navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }} />검색 순위</button></li>
-                        <li className='menu-list' onClick={() => navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }} />정보 마당</button></li>
-                    </ul>
-                </nav>}
-
-
             <div className='write-box'>
-
-
                 <div className='content-box'>
                     <div className='title-box'>
                         <div>

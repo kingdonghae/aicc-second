@@ -62,19 +62,19 @@ const Signup = () => {
 
     return (
         <div className="background">
-            <button className='home-menu' onClick={() => navigate('/')}>집PT</button>
-            <div className='menu-box'>
-                {/* <button className='menu-button' onClick={()=>navigate('/')}><HomeIcon/></button> */}
-                <button className='menu-button' onClick={toggleMenu}><MenuIcon /></button>
-            </div>
-            {menu &&
-                <nav className='menu-popup'>
-                    <ul className='menu-group'>
-                        <li className='menu-list' onClick={() => navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }} />지도 보기</button></li>
-                        <li className='menu-list' onClick={() => navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }} />검색 순위</button></li>
-                        <li className='menu-list' onClick={() => navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }} />정보 마당</button></li>
-                    </ul>
-                </nav>}
+            {/*<button className='home-menu' onClick={() => navigate('/')}>집PT</button>*/}
+            {/*<div className='menu-box'>*/}
+            {/*    /!* <button className='menu-button' onClick={()=>navigate('/')}><HomeIcon/></button> *!/*/}
+            {/*    <button className='menu-button' onClick={toggleMenu}><MenuIcon /></button>*/}
+            {/*</div>*/}
+            {/*{menu &&*/}
+            {/*    <nav className='menu-popup'>*/}
+            {/*        <ul className='menu-group'>*/}
+            {/*            <li className='menu-list' onClick={() => navigate('/map')}><button><MapIcon style={{ fontSize: '2.5rem' }} />지도 보기</button></li>*/}
+            {/*            <li className='menu-list' onClick={() => navigate('/rank')}><button><TrendingUpIcon style={{ fontSize: '2.5rem' }} />검색 순위</button></li>*/}
+            {/*            <li className='menu-list' onClick={() => navigate('/board')}><button><Diversity3Icon style={{ fontSize: '2.5rem' }} />정보 마당</button></li>*/}
+            {/*        </ul>*/}
+            {/*    </nav>}*/}
             <form className="signup-form" onSubmit={handleSignup}>
 
                 <div className="input-group">
