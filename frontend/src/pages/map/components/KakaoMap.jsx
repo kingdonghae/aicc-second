@@ -12,9 +12,7 @@ function KakaoMap({ address, coords, onDragStart, onDragEnd, category }) {
                 ref={mapContainerRef}
                 style={{ width: '100vw', height: '100vh' }}
             />
-            {mapInstance && center && (
-                <Marker map={mapInstance} category={category} center={center} />
-            )}
+            <Marker map={mapInstance} category={category} center={center} />
         </>
     );
 }
