@@ -1,3 +1,4 @@
+
 import apiClient from "@/api/ApiClient.jsx";
 
 // 기간별 주소 검색어 랭킹 가져오기

@@ -1,7 +1,9 @@
+
 import {fetchAllRankings, fetchSearchRanking} from '../api/PostRankingApi.jsx';
 
 export const getSearchALLRank = async () => {
     const { data } = await fetchAllRankings();
+    pritn(await fetchAllRankings())
     return data;
 };
 
