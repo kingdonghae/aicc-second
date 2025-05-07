@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import Marker from './Marker';
 
-function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
+function APIMap({ address, onDragStart, onDragEnd, category }) {
+    const mapRef = useRef(null);
+    const [center, setCenter] = useState(null);
+
     useEffect(() => {
         window.alertShown = false;
         const existingScript = document.getElementById('kakao-map-script');
@@ -11,7 +15,7 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
         }
 
         const script = document.createElement('script');
-        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAOMAP_KEY}&autoload=false&libraries=services`;
+        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAOMAP_KEY}&autoload=false&libraries=services,clusterer`;
         script.async = true;
         script.id = 'kakao-map-script';
         document.head.appendChild(script);
@@ -31,6 +35,8 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
                 level: 3,
             });
 
+            mapRef.current = map;
+
             if (onDragStart) {
                 window.kakao.maps.event.addListener(map, 'dragstart', onDragStart);
             }
@@ -46,6 +52,7 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
                 if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
                     const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
                     map.setCenter(coords);
+                    setCenter(coords);
                     showMarker(map, coords, address);
                 } else {
                     if (!window.alertShown) {
@@ -58,13 +65,22 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
         }
 
         function showMarker(map, coords, address) {
-            const marker = new window.kakao.maps.Marker({ position: coords });
+            const imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
+            const imageSize = new window.kakao.maps.Size(24, 35);
+            const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            const marker = new window.kakao.maps.Marker({
+                position: coords,
+                image: markerImage
+            });
+
             const content = `
-        <div class="custom-overlay">
-          ${address}
-          <button class="close-btn">X</button>
-        </div>
-      `;
+                <div class="custom-overlay">
+                  ${address}
+                  <button class="close-btn">X</button>
+                </div>
+            `;
+
             const overlay = new window.kakao.maps.CustomOverlay({
                 map,
                 position: coords,
@@ -87,9 +103,16 @@ function APIMap({ address, rerenderkey, onDragStart, onDragEnd }) {
                 overlay.setMap(map);
             });
         }
-    }, [address, rerenderkey]);
+    }, [address]);
 
-    return <div id="map" style={{ width: '100vw', height: '100vh' }}></div>;
+    return (
+        <>
+            <div id="map" style={{ width: '100vw', height: '100vh' }}></div>
+            {mapRef.current && center && (
+                <Marker map={mapRef.current} category={category} center={center} />
+            )}
+        </>
+    );
 }
 
 export default APIMap;
