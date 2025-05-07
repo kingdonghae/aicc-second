@@ -1,32 +1,33 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/home"
-import Rank from "./pages/Rank"
-import Signup from './pages/Signup'
-import Login from './pages/Login'
-import TextDetail from "./pages/TextDetail"
-import Map from "./pages/Map"
-import InfoDetail from './pages/InfoDetail';
-import Write from "@/pages/Write.jsx";
+import { Routes, Route } from "react-router-dom";
+import Layout from "@/components/layout/Layout.jsx";
+import { ROUTES } from "@/constants/routes";
+
+import Home from "@/pages/home/Home.jsx";
+import Rank from "@/pages/rank/Rank.jsx";
+import Signup from "@/pages/signup/Signup.jsx";
+import Login from "@/pages/Login.jsx";
 import Mypage from "@/pages/Mypage.jsx";
+import Write from "@/pages/Write.jsx";
+import TextDetail from "@/pages/TextDetail.jsx";
+import InfoDetail from "@/pages/InfoDetail.jsx";
+import MapPage from "@/pages/map/MapPage.jsx";
 
 function App() {
-
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/rank" element={<Rank />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/mypage" element={<Mypage />} />
-                <Route path="/write" element={<Write />} />
-                <Route path="/textDetail" element={<TextDetail />} />
-                <Route path="/infoDetail" element={<InfoDetail />} />
-                <Route path="/map" element={<Map />} />
-            </Routes>
-        </Router>
-    )
+        <Routes>
+            <Route path={ROUTES.HOME} element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path={ROUTES.RANK} element={<Rank />} />
+                <Route path={ROUTES.SIGNUP} element={<Signup />} />
+                <Route path={ROUTES.LOGIN} element={<Login />} />
+                <Route path={ROUTES.MYPAGE} element={<Mypage />} />
+                <Route path={ROUTES.WRITE} element={<Write />} />
+                <Route path={ROUTES.TEXT_DETAIL} element={<TextDetail />} />
+                <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
+                <Route path={ROUTES.MAP} element={<MapPage />} />
+            </Route>
+        </Routes>
+    );
 }
 
-export default App
+export default App;
