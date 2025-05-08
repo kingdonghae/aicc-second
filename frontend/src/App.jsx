@@ -9,8 +9,8 @@ import Login from "@/pages/Login.jsx";
 import Mypage from "@/pages/Mypage.jsx";
 import Write from "@/pages/Write.jsx";
 import TextDetail from "@/pages/TextDetail.jsx";
-import InfoDetail from "@/pages/InfoDetail.jsx";
-import Board from "@/pages/Board.jsx";
+import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
+import Board from "@/pages/board/Board";
 import MapPage from "@/pages/map/MapPage.jsx";
 
 

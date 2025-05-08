@@ -1,3 +1,5 @@
+import { CATEGORY_MAP } from "../../../constants/mapDefaults";
+
 const CategoryButton = ({ id, label, color, isActive, onToggle }) => {
     return (
         <div
@@ -8,10 +10,11 @@ const CategoryButton = ({ id, label, color, isActive, onToggle }) => {
             }}
         >
             <button
-                className="custom-button"
                 style={{
-                    backgroundColor: isActive ? color : 'gray',
-                    border: 'none',
+                    backgroundImage: `url(${CATEGORY_MAP[id].image})`,
+                    backgroundColor:"white",
+                    filter: isActive ? 'none' : 'grayscale(100%)',
+                    // backgroundColor: isActive ? color : 'gray',
                 }}
             />
             {label}
