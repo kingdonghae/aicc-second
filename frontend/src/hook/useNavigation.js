@@ -8,11 +8,12 @@ export const useNavigation = () => {
         goHome: () => navigate(ROUTES.HOME),
         goMap: () => navigate(ROUTES.MAP),
         goRank: () => navigate(ROUTES.RANK),
-        goBoard: () => navigate(ROUTES.WRITE),
+        goBoard: () => navigate(ROUTES.BOARD),
         goLogin: () => navigate(ROUTES.LOGIN),
         goSignup: () => navigate(ROUTES.SIGNUP),
         goMyPage: () => navigate(ROUTES.MYPAGE),
         goInfoDetail: () => navigate(ROUTES.INFO_DETAIL),
         goWrite: () => navigate(ROUTES.WRITE),
+        goTextDetail: (id) => navigate(`${ROUTES.TEXT_DETAIL}/${id}`),
     };
 };
