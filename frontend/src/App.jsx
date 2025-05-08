@@ -10,7 +10,9 @@ import Mypage from "@/pages/Mypage.jsx";
 import Write from "@/pages/Write.jsx";
 import TextDetail from "@/pages/TextDetail.jsx";
 import InfoDetail from "@/pages/InfoDetail.jsx";
+import Board from "@/pages/Board.jsx";
 import MapPage from "@/pages/map/MapPage.jsx";
+
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                 <Route path={ROUTES.TEXT_DETAIL} element={<TextDetail />} />
                 <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
                 <Route path={ROUTES.MAP} element={<MapPage />} />
+                <Route path={ROUTES.BOARD} element={<Board />} />
+
             </Route>
         </Routes>
     );
