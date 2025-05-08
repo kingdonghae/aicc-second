@@ -27,8 +27,9 @@ def get_post_detail(post_id):
 
 @post_bp.route('/posts/count', methods=['GET'])
 def get_post_count():
+    search = request.args.get('search', '')
     try:
-        return get_count_posts()
+        return get_count_posts(search)
     except Exception as e:
         return jsonify({ 'error': str(e) }), 500
 

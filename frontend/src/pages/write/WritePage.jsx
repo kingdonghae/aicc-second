@@ -57,9 +57,19 @@ const WritePage = () => {
         handleFileChange
     } = useImageUpload(editor);
 
-    const { handleSave } = useSavePost();
+    const { save } = useSavePost();
 
-
+    const handleSave = async () => {
+        try {
+            const html = editor.getHTML();
+            const result = await save({ title, content: html, writer: 'test111' });
+            alert('저장 완료!');
+            goBoard()
+        } catch (e) {
+            console.error('저장 중 오류:', e);
+            alert('저장 실패');
+        }
+    };
 
 
     return (

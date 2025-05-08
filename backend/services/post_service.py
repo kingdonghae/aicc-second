@@ -51,12 +51,15 @@ def get_post_detail_service(post_id):
         connection.close()
 
 
-def get_count_posts():
+def get_count_posts(search):
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            sql = count_posts_query()
-            cursor.execute(sql)
+            sql = count_posts_query(search)
+            if search:
+                cursor.execute(sql, f"%{search}%")
+            else:
+                cursor.execute(sql)
             return cursor.fetchone()
 
     except Exception as e:
