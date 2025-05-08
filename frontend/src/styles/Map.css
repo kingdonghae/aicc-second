@@ -195,6 +195,7 @@
 
 .custom-button-frame {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
     cursor: pointer;
     width: fit-content;
@@ -202,10 +203,11 @@
 
 .custom-button-frame button {
     background-color: white;
+    background-size: cover;
+    border: none;
     margin-top: 0.1rem;
-    border-radius: 50%;
-    width: 1rem;
-    height: 1rem;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -226,6 +228,10 @@
     width: 15rem;
     border-radius: 1rem;
     padding: 2rem 1.5rem;
+}
+
+.preview-popup.drag {
+    opacity: 0.5;
 }
 
 .preview-text-frame {
