@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+    
+  /* html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: 'KIMM_Bold';
+  } */
+  
+  .info-title h1 {
+    margin: 3.5% 0 0.7% 3.5%;
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: normal;
+  }
+
+  .info-title p {
+    margin: 0% 0 0 3.5%;
+    font-size: 1.35rem;
+  }
+
+  /* #root {
+    background-color: #DEEBF7;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  } */
+
+  .info-main{
+    background-color: #ffffff;
+    width: 2700px;
+    height: 1200px;
+    margin: 100px auto 0 auto; /* 여기서 상단 마진을 100px로 지정 */
+  }
+
+  .info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .info-title {
+    flex: 2;
+  }
+
+  .functions {
+    margin: 1.5% 0 0 0;
+    flex: 1;
+  }
+
+  .home-btn{
+    margin: 15px 35px 15px 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .home-btn button{
+    border: 6px solid black;
+    border-radius: 2rem;
+  }
+
+  .home-btn img{
+    padding: 5px;
+    height: 80px;
+  }
+
+  .info-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px; /* 요소 간 간격 */
+  }
+  
+  .search-info {
+    flex: 5; /* info-search 전체 7 중 5 */
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 4px solid black;
+    border-radius: 2rem;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+
+  .write-btn {
+    flex: 2; /* info-search 전체 7 중 2 */
+    margin: 10px;
+  }
+
+  .write-btn input {
+    font-size: 35px;
+    width: 75%;
+    height: 70px;
+    text-align: center;
+    border: none;
+    border-radius: 2rem;
+    font-family: 'KIMM_Bold';
+    background-color: #cacaca;
+  }
+
+  .input-word{
+    flex: 4;
+    margin: 5px;
+    font-size: 25px;
+    border: none;
+    background-color: #ffffff;
+  }
+
+  .submit-btn{
+    flex: 1;
+    height: 60px;
+    border: none;
+    border-radius: 2rem;
+  }
+
+  .submit-btn img {
+    height: 45px;
+  }
+
+  .info-table table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .info-table th {
+    padding: 15px;
+    font-size: larger;
+    text-align: center;
+  }
+  
+  .info-table td {
+    border-bottom: 1px solid #000;
+    padding: 12px;
+    text-align: center;
+  }
+
+  /* 제목 열 왼쪽 정렬, 너비는 테이블 너비의 35%로 지정 */
+  .info-table td:nth-child(2) {
+    text-align: left;
+    width: 35%;
+  }
+  
+  .info-table th {
+    background-color: #6EA8DC;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .notice-row {
+    background-color: #fffac8;
+    font-weight: bolder;
+    font-size: larger;
+  }
+  
+  /* 페이지네이션을 아래쪽 끝 정렬 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding-bottom: 20px;
+}
+
+.pagination button,
+.pagination .page-number {
+  background-color: #f0f8ff;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 4px;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination .page-number.active {
+  background-color: #cce5ff;
+}
+  
