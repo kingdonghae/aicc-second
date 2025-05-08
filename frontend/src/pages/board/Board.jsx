@@ -8,7 +8,7 @@ import {usePostList} from "@/pages/board/hook/usePosts.js";
 
 const Board = () => {
   const { goWrite } = useNavigation();
-  const { searchTerm, setSearchTerm, posts, totalCount, loading, error,handleSearch,page,setPage,limit } = usePostList();
+  const { searchTerm, setSearchTerm, posts, totalPages, loading, error,handleSearch,page,setPage,limit } = usePostList();
   return (
       <div className="board-background">
         <div className="board-box">
@@ -20,14 +20,16 @@ const Board = () => {
 
             <div className="board-menu-box">
               <div className="content-search-box">
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button type="submit" className="content-search-btn">
-                  <SearchIcon />
-                </button>
+                <form style={{display:"flex",alignItems:"center"}} onSubmit={handleSearch}>
+                  <input
+                      type="text"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <button type="submit" className="content-search-btn">
+                    <SearchIcon />
+                  </button>
+                </form>
               </div>
               <button type="submit" className="write-btn" onClick={goWrite}>글쓰기</button>
             </div>
@@ -37,7 +39,7 @@ const Board = () => {
             <div className="board-table">
               <PostTable
                 posts={posts}
-                totalCount={totalCount}
+                totalPages={totalPages}
                 setPage={setPage}
                 page={page}
                 loading={loading}

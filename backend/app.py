@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from config.file_config import WRITE_UPLOAD_FOLDER
+from routes.population_route import population_bp
 from routes.post_route import post_bp
 
 from routes.signup_route import signup_bp
@@ -20,6 +21,6 @@ app.register_blueprint(rank_bp, url_prefix='/rank')
 app.register_blueprint(search_bp, url_prefix='/search')
 app.register_blueprint(upload_bp)
 app.register_blueprint(post_bp)
-
+app.register_blueprint(population_bp)
 if __name__ == '__main__':
     app.run(debug=True)

@@ -29,7 +29,7 @@ const NoticeTableCell = styled(TableCell)({
   fontWeight: "bolder",
 });
 
-export default function PostTable({ posts, totalCount, loading, error, page, setPage,limit }) {
+export default function PostTable({ posts, totalPages, loading, error, page, setPage,limit }) {
   const { goTextDetail } = useNavigation();
 
 
@@ -69,9 +69,9 @@ export default function PostTable({ posts, totalCount, loading, error, page, set
                     </TableCell>
                   </TableRow>
               ) : (
-                posts.map((row) => (
+                posts.map((row,index) => (
                   <TableRow key={row.id} sx={{cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
-                    <NoticeTableCell align="center">{row.id}</NoticeTableCell>
+                    <NoticeTableCell align="center">{index+1}</NoticeTableCell>
                     <NoticeTableCell align="left">{row.title}</NoticeTableCell>
                     <NoticeTableCell align="center">{row.writer}</NoticeTableCell>
                     <NoticeTableCell align="center">{formatTime(row.created_at)}</NoticeTableCell>
@@ -85,7 +85,7 @@ export default function PostTable({ posts, totalCount, loading, error, page, set
         <Pagination
             page={page}
             setPage={setPage}
-            totalCount={totalCount}
+            totalPages={totalPages}
             limit={limit}
         />
       </>

@@ -1,6 +1,5 @@
-const Pagination = ({ page, setPage, totalCount, limit, blockSize = 10 }) => {
-    const totalPages = Math.max(1, Math.ceil(totalCount / limit));
-    const currentBlock = Math.floor((page - 1) / blockSize);
+const Pagination = ({ page, setPage, totalPages, limit, blockSize = 10 }) => {
+   const currentBlock = Math.floor((page - 1) / blockSize);
     const startPage = currentBlock * blockSize + 1;
     const endPage = Math.min(startPage + blockSize - 1, totalPages);
 
