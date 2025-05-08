@@ -6,9 +6,9 @@ export const postSignup = (userData) => {
     return apiClient.post('/signup', userData);
 };
 
-// 아이디 중복 확인 요청
-export const getCheckUserid = (userid) => {
+// 이메일 중복 확인 요청
+export const getCheckEmail = (email) => {
     return apiClient.get('/signup/check', {
-        params: { userid: userid.trim() }
+        params: { email: email.trim() }
     });
 };
