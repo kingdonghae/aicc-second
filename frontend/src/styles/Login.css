@@ -141,6 +141,7 @@ body,
     padding: 20px;
     border-radius: 0rem 0rem 1rem 1rem;
     width: 50%;
+    min-width: 600px;
     height: 75%;
     margin-top: 10.5rem;
 }
