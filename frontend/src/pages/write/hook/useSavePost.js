@@ -1,5 +1,13 @@
 import { useState } from 'react';
 import {savePostService} from "@/pages/write/services/savePostService.js";
+import {useEditor} from "@tiptap/react";
+import Placeholder from "@tiptap/extension-placeholder";
+import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
+import TextStyle from "@tiptap/extension-text-style";
+import Color from "@tiptap/extension-color";
+import TextAlign from "@tiptap/extension-text-align";
+import Image from "@tiptap/extension-image";
 
 export const useSavePost = () => {
     const [loading, setLoading] = useState(false);
@@ -34,5 +42,6 @@ export const useSavePost = () => {
             alert('저장 실패');
         }
     };
+
     return { save, handleSave, loading, error };
 };
