@@ -8,7 +8,7 @@ import { authState } from '@/atoms/authState';
 import {useNavigation} from "@/hook/useNavigation.js";
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
-    const { goMyPage, goLogin } = useNavigation();
+    const { goMyPage, goLogin, goHome } = useNavigation();
     const navigate = useNavigate();
     const auth = useRecoilValue(authState);
     const setAuth = useSetRecoilState(authState);
@@ -58,22 +58,21 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     };
 
     return (
-        <header className="common-header">
+        <header className="common-header" ref={menuRef}>
             {showMenuButton && (
-                <button className="home-menu" onClick={() => navigate('/')}>집PT</button>
+                <button className="home-menu" onClick={goHome}>집PT</button>
             )}
-            <div className="menu-box">
+            <div className="menu-box" ref={menuRef}>
                 {renderAuthButtons()}
                 {showMenuButton && (
                     <button className="menu-button" onClick={(e) => {
-                        e.stopPropagation();
                         toggleMenu();
                     }}>
                         <MenuIcon />
                     </button>
                 )}
             </div>
-            {menu && children(menuRef)}
+            {menu && children()}
         </header>
     );
 };
