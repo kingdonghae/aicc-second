@@ -8,10 +8,11 @@ export const useNavigation = () => {
         goHome: () => navigate(ROUTES.HOME),
         goMap: () => navigate(ROUTES.MAP),
         goRank: () => navigate(ROUTES.RANK),
-        goBoard: () => navigate(ROUTES.BOARD),
+        goBoard: () => navigate(ROUTES.WRITE),
         goLogin: () => navigate(ROUTES.LOGIN),
         goSignup: () => navigate(ROUTES.SIGNUP),
         goMyPage: () => navigate(ROUTES.MYPAGE),
         goInfoDetail: () => navigate(ROUTES.INFO_DETAIL),
+        goWrite: () => navigate(ROUTES.WRITE),
     };
 };
