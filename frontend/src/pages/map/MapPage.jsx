@@ -5,7 +5,7 @@ import KakaoMap from "@/pages/map/components/KakaoMap.jsx";
 import SearchBox from "@/components/SearchBox.jsx";
 import DetailList from "@/pages/map/components/DetailList.jsx";
 import DetailPreview from "@/pages/map/components/DetailPreview.jsx";
-import {useMapController} from "@/pages/map/hook/useMapController.js";
+import { useMapController } from "@/pages/map/hook/useMapController.js";
 
 const MapPage = () => {
     const {
@@ -57,7 +57,8 @@ const MapPage = () => {
             )}
 
             <div className="preview-box">
-                <DetailPreview />
+                <DetailPreview
+                    isDrag={isDrag} />
             </div>
         </div>
     );
