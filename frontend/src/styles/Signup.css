@@ -5,14 +5,6 @@
     font-style: normal;
 }
 
-/* html, body, #root {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: 'KIMM_Bold';
-  background-color: #DEEBF7
-} */
-
 input {
     font-size: 0.5rem;
     margin: -0.1rem;
@@ -127,7 +119,7 @@ input::placeholder {
 
 p {
     margin: 3px 1rem;
-    font-size: 0.8rem;
+    font-size: 0.rem;
 }
 
 .submit-button {
@@ -149,13 +141,65 @@ p {
 .success { 
     color: green;
     font-size: 0.5rem; 
-    padding: 0;
-    margin: 0;
 }
 
 .error { 
     color: red;
     font-size: 0.5rem;
-    padding: 0;
-    margin: 0;
+}
+
+.message-space {
+    min-height: 0.6rem; /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
+}
+
+.message {
+    min-height: 0.6rem;
+}
+
+.submit-button.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.submit-button.disabled:hover {
+    background-color: #cccccc; /* hover 시에도 색상 변화 없음 */
+    color: #666666;
+}
+
+.social-button {
+    background-color: #fee500; /* 카카오 노란색 */
+    color: #000000;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.social-button:hover {
+    background-color: #ffea00;
+    transform: translateY(-2px);
+}
+
+.direct-button {
+    background-color: #6ea8dc;
+    color: white;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    margin-top: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.direct-button:hover {
+    background-color: #deebf7;
+    color: #6c757d;
+    transform: translateY(-2px);
 }

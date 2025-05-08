@@ -1,7 +1,7 @@
 # services/login_service.py
 
 import bcrypt
-from models.user_model import get_user_by_userid
+from models.user_model import get_user_by_email
 
 def login_user(data):
     userid = data.get('userid')
@@ -10,7 +10,7 @@ def login_user(data):
     if not userid or not password:
         return {'error': 'userid와 password는 필수입니다.'}, 400
 
-    user = get_user_by_userid(userid)
+    user = get_user_by_email(userid)
 
     if not user or not bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
         return {'error': '아이디 또는 비밀번호가 일치하지 않습니다.'}, 401
