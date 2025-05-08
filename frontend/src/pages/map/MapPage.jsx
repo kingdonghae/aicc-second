@@ -58,7 +58,8 @@ const MapPage = () => {
 
             <div className="preview-box">
                 <DetailPreview
-                    isDrag={isDrag} />
+                    isDrag={isDrag}
+                    address={address} />
             </div>
         </div>
     );
