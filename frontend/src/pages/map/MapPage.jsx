@@ -24,6 +24,7 @@ const MapPage = () => {
                 category={category}
                 onDragStart={() => setIsDrag(true)}
                 onDragEnd={() => setIsDrag(false)}
+                setCoords={setCoords}
             />
             <div className="search-box">
                 <div className="search-page">
