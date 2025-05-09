@@ -6,7 +6,9 @@
     font-style: normal;
 }
 
-html, body, #root {
+html,
+body,
+#root {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -18,8 +20,8 @@ html, body, #root {
     text-align: center;
     /* font-size: 1.2rem; */
     background-color: #DEEBF7;
-  }
-  
+}
+
 
 /* .whole-section {
   display: flex;
@@ -27,7 +29,7 @@ html, body, #root {
   height: auto; 
   align-items: stretch;
 } */
-   
+
 
 /* .whole-section {
   display: flex;
@@ -35,7 +37,7 @@ html, body, #root {
   height: auto; 
   align-items: stretch;
 } */
-   
+
 .whole-section {
     margin: 0;
     padding: 0;
@@ -46,7 +48,7 @@ html, body, #root {
     min-height: 100vh; */
 }
 
-section {
+.rank-section {
     padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
@@ -55,7 +57,7 @@ section {
     overflow: hidden;
 }
 
-section h1 {
+.rank-section h1 {
     font-size: 1.8rem;
     margin: 3rem 0rem 1rem 0rem;
 }
@@ -116,7 +118,7 @@ hr {
     padding: 0.1rem;
     border-radius: 2rem;
 }
-  
+
 #white-text {
     text-align: center;
     font-family: 'KIMM_Bold', sans-serif;
@@ -128,12 +130,12 @@ hr {
     border: none;
     background-color: white;
 }
-  
-input:focus {
+
+/* input:focus {
     outline: none;
-}
-  
-#input-button {
+} */
+
+/* #input-button {
     margin: 1rem;
     height: 90%;
     aspect-ratio: 1 / 1;
@@ -154,7 +156,7 @@ input:focus {
   
 #input-button:active {
     transform: scale(1.2) translateY(-2px);
-}
+} */
 
 #check-number {
     font-size: 3rem;
@@ -166,7 +168,7 @@ h3 {
 }
 
 .table-with-input {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
 }

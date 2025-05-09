@@ -50,6 +50,38 @@ def fetch_keyword_ranking(keyword):
         connection.close()
 
 
+# 주별 기간 검색 옵션에 따른 데이터 조회
+def fetch_week_ranking(year, week):
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(get_weekly_rank_query(), (year, week,))
+            return cursor.fetchall()
+    finally:
+        connection.close()
+
+
+# 오늘자 검색 데이터 순위 조회
+def fetch_today_ranking():
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(get_daily_rank_query())
+            return cursor.fetchall()
+    finally:
+        connection.close()
+
+# 월별 기간 검색 옵션에 따른 데이터 조회
+def fetch_month_ranking(year, month):
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(get_monthly_rank_query(), (int(year), int(month)))
+            return cursor.fetchall()
+    finally:
+        connection.close()
+
+
 # 당일 검색어 순위 테이블 데이터 삽입
 def insert_search_keyword(keyword):
     sql = insert_search_keyword_query()

@@ -15,11 +15,6 @@
     "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
     "@mui/styled-engine": "^7.0.2",
-    "axios": "^1.9.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.0.2",
-    "@mui/material": "^7.0.2",
     "@tiptap/extension-color": "^2.11.7",
     "@tiptap/extension-image": "^2.11.7",
     "@tiptap/extension-placeholder": "^2.11.7",
@@ -28,11 +23,13 @@
     "@tiptap/extension-underline": "^2.11.7",
     "@tiptap/react": "^2.11.7",
     "@tiptap/starter-kit": "^2.11.7",
-    "react": "^19.0.0",
+    "axios": "^1.9.0",
+    "react": "^18.3.1",
     "react-countup": "^6.5.3",
-    "react-dom": "^19.0.0",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^7.5.3",
-    "recharts": "^2.15.3"
+    "recharts": "^2.15.3",
+    "recoil": "^0.7.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

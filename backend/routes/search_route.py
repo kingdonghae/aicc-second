@@ -41,6 +41,5 @@ def log_search_route():
     user_id = data.get("user_id")
     ip_address = request.remote_addr
 
-    result = log_search_keyword(keyword,user_id, ip_address)
-    return jsonify({"result": result})
+    return log_search_keyword(keyword,user_id, ip_address)
 

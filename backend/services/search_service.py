@@ -23,10 +23,6 @@ def log_search_keyword(keyword, user_id=None, ip_address=None):
     if not user_id and not ip_address:
         return jsonify({"error": "user_id 또는 ip_address는 필수입니다."}), 400
 
-
-    # 검색 카운트 업데이트
-    insert_search_keyword(keyword)
-
     # 검색 로그 저장
     sql = insert_search_log_query()
     connection = get_connection()
@@ -39,12 +35,16 @@ def log_search_keyword(keyword, user_id=None, ip_address=None):
                 ip_address
             ))
         connection.commit()
-
+        if cursor.rowcount == 0 :
+            return jsonify({"status": "ok", "message": "이미 검색한 기록이 있습니다."}), 200
+        if cursor.rowcount == 1 :
+            # 검색 카운트 업데이트
+            insert_search_keyword(keyword)
         return jsonify({"status": "ok", "message": "로그 저장 및 카운트 갱신 완료"}), 200
-
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
     finally:
         connection.close()
+        return jsonify({"status": "ok", "message": "로그 저장 및 카운트 갱신 완료"}), 200
 
