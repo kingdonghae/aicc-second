@@ -19,10 +19,10 @@ def get_user_by_email_basic(email):
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            sql = "SELECT 1 FROM users WHERE email = %s"
+            sql = "SELECT id FROM users WHERE email = %s"
             cursor.execute(sql, (email,))
             result = cursor.fetchone()
-            return result is not None
+            return result
     finally:
         connection.close()
 
