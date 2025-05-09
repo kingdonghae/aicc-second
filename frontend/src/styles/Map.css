@@ -46,6 +46,7 @@
     font-weight: bold;
     cursor: pointer;
     color: #999;
+    z-index: 999;
 }
 
 .close-btn:hover {
