@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { CATEGORY_MAP, DEFAULT_RADIUS } from '@/constants/mapDefaults.js';
 
-const Marker = ({ map, center, category, setCoords }) => {
+const Marker = ({ map, center, category }) => {
     const markersRef = useRef({
         subway: [],
         school: [],
