@@ -42,33 +42,6 @@ const Marker = ({ map, center, category, setCoords }) => {
             });
         }
 
-        // ✅ 중앙 마커 추가 (한 번만 생성, 이후 위치만 이동)
-        const centerLatLng = new window.kakao.maps.LatLng(center.lat, center.lng);
-
-        if (!window.centerMarker) {
-            const marker = new window.kakao.maps.Marker({
-                position: centerLatLng,
-                draggable: true,
-                map,
-                image: new window.kakao.maps.MarkerImage(
-                    '/icons/center-marker.png',
-                    new window.kakao.maps.Size(48, 48)
-                ),
-            });
-
-            kakao.maps.event.addListener(marker, 'dragend', () => {
-                const newPos = marker.getPosition();
-                setCoords({
-                    lat: newPos.getLat(),
-                    lng: newPos.getLng(),
-                });
-            });
-
-            window.centerMarker = marker;
-        } else {
-            window.centerMarker.setPosition(centerLatLng);
-        }
-
         Object.entries(CATEGORY_MAP).forEach(([key, { code, image }]) => {
             ps.categorySearch(code, (result, status) => {
                 if (status !== window.kakao.maps.services.Status.OK) return;
