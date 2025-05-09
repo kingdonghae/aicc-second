@@ -10,7 +10,7 @@ def get_population_query():
                         SQRT(
                             POWER(SIN(RADIANS((lat - %s) / 2)), 2) +
                             COS(RADIANS(%s)) * COS(RADIANS(lat)) *
-                            POWER(SIN(RADIANS((lon - %s) / 2)), 2)
+                            POWER(SIN(RADIANS((lng - %s) / 2)), 2)
                         )
-                    ) < 500;
+                    ) < 500;           # 반경(미터 기준)
      """
