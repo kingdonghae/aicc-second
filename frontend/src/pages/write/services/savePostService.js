@@ -1,13 +1,9 @@
-import {fetchSavePost} from "@/pages/write/api/postUploadApi.js";
+import {fetchSavePost, fetchUpdatePost} from "@/pages/write/api/postUploadApi.js";
 
-export const savePostService = async ({ title, content, writer }) => {
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('content', content);
-    formData.append('writer', writer);
-
-    const response = await fetchSavePost(formData)
-
-    return response.data.url;
+export const savePostService = async (contentData) => {
+    return await fetchSavePost(contentData);
 };
 
+export const updatePostService = async (editId, contentData) => {
+    return await fetchUpdatePost(editId, contentData);
+};

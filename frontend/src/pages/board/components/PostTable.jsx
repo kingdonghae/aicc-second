@@ -69,9 +69,9 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
                     </TableCell>
                   </TableRow>
               ) : (
-                posts.map((row,index) => (
+                posts.map((row) => (
                   <TableRow key={row.id} sx={{cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
-                    <NoticeTableCell align="center">{index+1}</NoticeTableCell>
+                    <NoticeTableCell align="center">{row.id}</NoticeTableCell>
                     <NoticeTableCell align="left">{row.title}</NoticeTableCell>
                     <NoticeTableCell align="center">{row.writer}</NoticeTableCell>
                     <NoticeTableCell align="center">{formatTime(row.created_at)}</NoticeTableCell>

@@ -57,19 +57,7 @@ const WritePage = () => {
         handleFileChange
     } = useImageUpload(editor);
 
-    const { save } = useSavePost();
-
-    const handleSave = async () => {
-        try {
-            const html = editor.getHTML();
-            const result = await save({ title, content: html, writer: 'test111' });
-            alert('저장 완료!');
-            goBoard()
-        } catch (e) {
-            console.error('저장 중 오류:', e);
-            alert('저장 실패');
-        }
-    };
+    const { handleSave } = useSavePost(editor,title);
 
 
     return (
@@ -132,7 +120,7 @@ const WritePage = () => {
 
                     <div className='button-group'>
                         <button onClick={handleSave} id='save-button'>
-                            저장
+                            {editId ? '수정' : '저장'}
                         </button>
                         <button onClick={goBoard} id='cancel-button'>
                             취소

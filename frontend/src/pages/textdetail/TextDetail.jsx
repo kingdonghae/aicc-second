@@ -5,7 +5,7 @@ import {usePostDetail} from "@/pages/textdetail/hook/usePostDetail.js";
 
 const TextDetail = () => {
   const { id } = useParams();
-  const { goBoard } = useNavigation();
+  const { goBoard, goEdit, goTextDetail } = useNavigation();
   const { post, loading, error } = usePostDetail(id);
 
   if (loading) return <p>로딩 중...</p>;
@@ -26,11 +26,11 @@ const TextDetail = () => {
             </div>
             <div className="edit-box">
               <div className="other-content">
-                <div>◀ 이전글</div>
-                <div>다음글 ▶</div>
+                <div onClick={()=>goTextDetail(parseInt(id)-1)}>◀ 이전글</div>
+                <div onClick={()=>goTextDetail(parseInt(id)+1)}>다음글 ▶</div>
               </div>
               <div className="buttons">
-                <button id="edit-button" onClick={() => navigate(`/write?id=${id}`)}>수정</button>
+                <button id="edit-button" onClick={()=>goEdit(id)}>수정</button>
                 <button id="list-button" onClick={goBoard}>목록</button>
               </div>
             </div>
