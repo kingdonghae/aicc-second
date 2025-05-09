@@ -4,12 +4,13 @@ import {getPostCountService, getPostListService} from "@/pages/board/services/ge
 /**
  * 게시글 리스트 및 총 개수 조회 훅
  */
-export const usePostList = (search='' ) => {
+export const usePostList = () => {
     const [posts, setPosts] = useState([]);
-    const [totalCount, setTotalCount] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
     const limit = 8;
     useEffect(() => {
@@ -21,7 +22,7 @@ export const usePostList = (search='' ) => {
                     getPostCountService(search)
                 ]);
                 setPosts(list);
-                setTotalCount(count.data.count);
+                setTotalPages(Math.max(1, Math.ceil(count.data.count / limit)))
             } catch (err) {
                 setError(err);
             } finally {
@@ -32,8 +33,8 @@ export const usePostList = (search='' ) => {
     }, [page, limit, search]);
     const handleSearch = (e) => {
         e.preventDefault();
-        setPage(1); // 검색 시 1페이지로 초기화
+        setSearch(searchTerm);
     };
-    return { searchTerm, setSearchTerm, posts, totalCount, loading, error,handleSearch,page,setPage,limit };
+    return { searchTerm, setSearchTerm, posts, totalPages, loading, error, handleSearch, page, setPage, limit };
 };
 

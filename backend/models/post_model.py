@@ -27,7 +27,7 @@ def get_posts_query(search):
     """
 
     where_clause = " WHERE title LIKE %s" if search else ""
-    order_limit_clause = " ORDER BY id DESC LIMIT %s OFFSET %s"
+    order_limit_clause = " ORDER BY id LIMIT %s OFFSET %s"
 
     return base_query + where_clause + order_limit_clause
 
@@ -50,7 +50,9 @@ def update_views_query():
                  WHERE ID = %s
      """
 
-def count_posts_query():
-    return """
-                SELECT COUNT(*) as count FROM posts
-     """
+def count_posts_query(search):
+    base_query = """
+                    SELECT COUNT(*) as count FROM posts 
+                """
+    where_clause = " WHERE title LIKE %s" if search else ""
+    return base_query + where_clause
