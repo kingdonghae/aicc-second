@@ -123,6 +123,13 @@
     color: black;
 }
 
+.login-error-msg {
+    height: 1.5rem;
+    color: red;
+    font-size: 0.7rem;
+    margin: 0;
+}
+
 
 .login button:hover {
     background-color: #6EA8DC;
@@ -136,7 +143,6 @@
 .signup {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
     gap: 0.5rem;
 }
 
