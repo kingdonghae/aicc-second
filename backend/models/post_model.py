@@ -14,6 +14,14 @@ def insert_post_query():
                 VALUES (%s, %s, %s)
            """
 
+def update_post_query():
+    return """
+                UPDATE posts 
+                   SET title = %s
+                     , content = %s 
+                 WHERE id = %s
+           """
+
 def get_posts_query(search):
     base_query = """
         SELECT 

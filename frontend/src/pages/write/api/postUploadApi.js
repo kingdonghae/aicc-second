@@ -12,3 +12,7 @@ export const fetchUploadImages = (image) => {
 export const fetchSavePost = (content) => {
     return apiClient.post('/save-post', content);
 };
+
+export const fetchUpdatePost = (id, data) => {
+    return apiClient.put(`/update-post/${id}`, data);
+};

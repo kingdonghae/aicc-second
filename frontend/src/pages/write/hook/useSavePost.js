@@ -1,47 +1,50 @@
-import { useState } from 'react';
-import {savePostService} from "@/pages/write/services/savePostService.js";
-import {useEditor} from "@tiptap/react";
-import Placeholder from "@tiptap/extension-placeholder";
-import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import TextStyle from "@tiptap/extension-text-style";
-import Color from "@tiptap/extension-color";
-import TextAlign from "@tiptap/extension-text-align";
-import Image from "@tiptap/extension-image";
+import {useEffect, useState} from 'react';
+import {savePostService, updatePostService} from "@/pages/write/services/savePostService.js";
+import {useParams} from "react-router-dom";
+import {usePostDetail} from "@/pages/textdetail/hook/usePostDetail.js";
 
-export const useSavePost = () => {
+export const useSavePost = (editor,title) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const save = async ({ title, content, writer }) => {
+    const { id: editId } = useParams();
+
+    useEffect(() => {
+        if (editId) {
+            const { post, loading: detailLoading, error } = usePostDetail(editId);
+
+        }
+    }, []);
+    const handleSave = async () => {
         setLoading(true);
         setError(null);
-        try {
-            return savePostService({ title, content, writer });
-        } catch (err) {
-            setError(err.response?.data?.error || '저장 실패');
-            throw err;
-        } finally {
-            setLoading(false);
-        }
-    };
 
-    const handleSave = async () => {
         try {
-            const html = editor.getHTML();
-            const result = await save({ title, content: html, writer: 'test111' });
+            const content = editor.getHTML();
+            const payload = { title, content, writer: 'test111' };
+            let result;
 
-            if (result?.status === 'success') {
+            if (editId) {
+                result = await updatePostService(editId, payload);
+            } else {
+                result = await savePostService(payload);
+            }
+
+            if (result?.data?.status === 'success') {
                 alert('저장 완료!');
                 goBoard();
             } else {
                 alert('저장에 실패했습니다.');
             }
-        } catch (e) {
-            console.error('저장 중 오류:', e);
+        } catch (err) {
+            console.error('저장 실패:', err);
+            setError(err.response?.data?.error || '저장 실패');
             alert('저장 실패');
+        } finally {
+            setLoading(false);
         }
     };
 
-    return { save, handleSave, loading, error };
+
+    return { handleSave, loading, error };
 };

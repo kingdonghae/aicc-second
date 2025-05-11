@@ -9,8 +9,8 @@ def get_average_score():
     try:
         data = request.get_json()
         lat = data.get('lat')
-        lon = data.get('lon')
-        return get_population_score(lon,lat)
+        lng = data.get('lng')
+        return get_population_score(lng,lat)
 
     except (TypeError, ValueError):
         return jsonify({'error': 'Invalid or missing parameters'}), 400

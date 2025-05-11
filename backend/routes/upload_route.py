@@ -24,11 +24,21 @@ def save_post():
     content = data.get('content')
     writer = data.get('writer')
 
-    if not all([title, content, writer]):
-        return jsonify({ 'error': 'title, content, writer 모두 필요합니다.' }), 400
-
     try:
         save_post_service(title, content, writer)
         return jsonify({ 'status': 'success' })
     except Exception as e:
         return jsonify({ 'error': str(e) }), 500
+
+@upload_bp.route('/update-post/<int:post_id>', methods=['PUT'])
+def update_post(post_id):
+    data = request.get_json()
+    title = data.get('title')
+    content = data.get('content')
+
+    try:
+        update_post_service(title, content)
+        return jsonify({ 'status': 'success' })
+    except Exception as e:
+        return jsonify({ 'error': str(e) }), 500
+

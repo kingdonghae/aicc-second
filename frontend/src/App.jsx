@@ -25,6 +25,7 @@ function App() {
                 <Route path={ROUTES.MYPAGE} element={<Mypage />} />
                 <Route path={ROUTES.WRITE} element={<WritePage />} />
                 <Route path={`${ROUTES.TEXT_DETAIL}/:id`} element={<TextDetail />} />
+                <Route path={`${ROUTES.WRITE}/:id`} element={<WritePage />} />
                 <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
                 <Route path={ROUTES.MAP} element={<MapPage />} />
                 <Route path={ROUTES.BOARD} element={<Board />} />
