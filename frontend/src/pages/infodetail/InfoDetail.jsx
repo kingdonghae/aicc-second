@@ -1,17 +1,13 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { useState, useEffect } from 'react';
+import {
+    Radar, RadarChart, PolarGrid, PolarAngleAxis,
+    PolarRadiusAxis, ResponsiveContainer
+} from 'recharts';
 import CountUp from 'react-countup';
 import CustomLegend from './components/CustomLegend';
 import InfoGPT from './components/InfoGPT';
+import { getSearchScore } from './service/ScoreService';
 import '@/styles/InfoDetail.css';
-
-const data = [
-    { name: '🚗교통', uv: 90 },
-    { name: '🌳생활 인프라', uv: 75 },
-    { name: '💰시세', uv: 10 },
-    { name: '👨‍✈️치안', uv: 85 },
-    { name: '🔊소음', uv: 40 },
-    { name: '👩‍👩‍👧‍👦인구 밀도', uv: 55 },
-];
 
 const renderLabel = ({ x, y, width, value }) => {
     return (
@@ -23,24 +19,33 @@ const renderLabel = ({ x, y, width, value }) => {
     );
 };
 
-
-
-
 const InfoDetail = () => {
+    const [scoreData, setScoreData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const score = await getSearchScore(37.5665, 126.9780);
+            const chartData = [
+                { name: '🚗교통', uv: score.traffic },
+                { name: '🌳생활 인프라', uv: score.infrastructure },
+                { name: '💰시세', uv: score.price },
+                { name: '👨‍✈️치안', uv: score.safety },
+                { name: '🔊소음', uv: score.noise },
+                { name: '👩‍👩‍👧‍👦인구 밀도', uv: score.population },
+            ];
+            setScoreData(chartData);
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className='chart-background'>
-            <InfoGPT/>
+            <InfoGPT />
 
             <div className='chart-area'>
                 <div className='chart-box'>
-                    <ResponsiveContainer
-                        width="100%"
-                        height={800}>
-                        <RadarChart
-                            data={data}
-                            style={{ backgroundColor: '#FFFFFF' }}
-                            // margin={{ top: 5, bottom: 5 }}
-                            strokeLinecap='round'>
+                    <ResponsiveContainer width="100%" height={800}>
+                        <RadarChart data={scoreData}>
                             <PolarGrid />
                             <PolarAngleAxis dataKey="name" />
                             <PolarRadiusAxis />
@@ -57,7 +62,7 @@ const InfoDetail = () => {
                         </RadarChart>
                     </ResponsiveContainer>
                 </div>
-                <CustomLegend/>
+                <CustomLegend />
             </div>
         </div>
     );
