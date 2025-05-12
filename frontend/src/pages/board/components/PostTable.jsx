@@ -40,13 +40,32 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
   const normalRows = posts.filter(p => !p.title.includes('공지 │'));
 
   const formatTime = (dateString) => {
-    const date = new Date(dateString);
+    const date = new Date(dateString); // UTC 기준
+
+    // pad 함수로 두 자리 맞춤
+    const pad = (n) => String(n).padStart(2, '0');
+
+    // UTC 기준 날짜 추출
+    const y = date.getUTCFullYear();
+    const m = pad(date.getUTCMonth() + 1);
+    const d = pad(date.getUTCDate());
+    const hh = pad(date.getUTCHours());
+    const mm = pad(date.getUTCMinutes());
+
     const today = new Date();
-    const isToday = date.toDateString() === today.toDateString();
-    return isToday
-        ? `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
-        : date.toISOString().split('T')[0];
+    const todayY = today.getUTCFullYear();
+    const todayM = today.getUTCMonth() + 1;
+    const todayD = today.getUTCDate();
+
+    // 날짜 비교도 UTC 기준으로
+    const isToday =
+        y === todayY &&
+        (m == pad(todayM)) &&
+        (d == pad(todayD));
+
+    return isToday ? `${hh}:${mm}` : `${y}.${m}.${d}`;
   };
+
 
   return (
       <>

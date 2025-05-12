@@ -31,7 +31,7 @@ export function useWeekSelector() {
 
         const [year, week] = newVal.split('-W');
         const data = await getWeekRanking(year, week);
-        setWeekRank([...data.rankings]);
+        setWeekRank(data.rankings);
     };
 
     return {

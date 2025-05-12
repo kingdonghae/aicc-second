@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import WeekSelector from "@/pages/rank/components/WeekSelector.jsx";
 import MonthSelector from "@/pages/rank/components/MonthSelector.jsx";
 import RankTable from "@/pages/rank/components/RankTable.jsx";
@@ -11,33 +11,46 @@ import * as React from "react";
 
 const Rank = () => {
     const { monthRank, monthValue, handleChange: handleMonthChange } = useMonthSelector();
-    const { weekRank, weekValue, handleChange: handleWeekChange } = useWeekSelector();
-    const { todayRank } = useTodaySelector();
-
-    console.log(monthRank)
+    const { weekRank, weekValue,weekLabel, handleChange: handleWeekChange } = useWeekSelector();
+    const { todayRank , useKeywordRank} = useTodaySelector();
+    console.log("1111"+monthRank)
     console.log(weekRank)
     console.log(todayRank)
-
+    useEffect(() => {
+        console.log(monthRank)
+    }, [monthRank]);
     const [inputValue, setInputValue] = useState('');
     const [keywordData, setKeywordData] = useState(null);
 
-    const handleSearchClick = () => {
-        useKeywordRank(inputValue).then((res) => {
+    const handleSearchSubmit = async (e) => {
+        e.preventDefault(); // ✅ form 새로고침 방지
+
+        if (!inputValue.trim()) {
+            alert("검색어를 입력해주세요.");
+            return;
+        }
+
+        try {
+            const res = await useKeywordRank(inputValue);
             setKeywordData(res.rankings[0]?.currentRank ?? '-');
-        });
+        } catch (error) {
+            console.error("검색 실패:", error);
+            setKeywordData('-'); // 검색 실패 시 기본값
+        }
     };
+
 
     return (
         <div className='whole-section'>
             <section className='rank-section' id='one'>
                 <div>
                     <h1>오늘 검색 순위</h1>
-                    <RankTable rankData={[...todayRank]} />
+                    <RankTable rankData={todayRank} type="today" />
                 </div>
                 <hr />
                 <div id='check-rank'>
                     <h1>순위 확인하기</h1>
-                    <form id='input-box' onSubmit={handleSearchClick}>
+                    <form id='input-box' onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
                             placeholder='주소를 입력해주세요.'
@@ -58,15 +71,16 @@ const Rank = () => {
                     <MonthSelector value={monthValue} onChange={handleMonthChange} />
                 </div>
                 <div>
-                    <RankTable rankData={[...monthRank]} />
+                    <RankTable key={monthRank} rankData={monthRank} />
+
                 </div>
 
                 <div className='table-with-input'>
                     <h1>- 주별 검색 순위</h1>
-                    <WeekSelector value={weekValue} onChange={handleWeekChange} />
+                    <WeekSelector value={weekValue} label={weekLabel} onChange={handleWeekChange} />
                 </div>
                 <div>
-                    <RankTable rankData={[...weekRank]} />
+                    <RankTable rankData={weekRank} type="week" />
                 </div>
             </section>
         </div>

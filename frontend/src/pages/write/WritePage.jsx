@@ -57,7 +57,7 @@ const WritePage = () => {
         handleFileChange
     } = useImageUpload(editor);
 
-    const { handleSave } = useSavePost(editor,title);
+    const { handleSave, editId } = useSavePost(editor,title,setTitle);
 
 
     return (

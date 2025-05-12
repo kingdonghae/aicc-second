@@ -24,14 +24,14 @@ def update_post_query():
 
 def get_posts_query(search):
     base_query = """
-        SELECT 
-               id
-             , title
-             , content
-             , writer
-             , view_count
-             , created_at 
-        FROM posts
+                        SELECT 
+                               id
+                             , title
+                             , content
+                             , writer
+                             , view_count
+                             , created_at 
+                        FROM posts
     """
 
     where_clause = " WHERE title LIKE %s" if search else ""
@@ -48,6 +48,10 @@ def get_post_detail_query():
                      , writer
                      , view_count
                      , created_at 
+                     ,(SELECT 
+                            COUNT(*) 
+                         FROM posts
+                      )                     AS total_count
                  FROM posts WHERE id = %s
            """
 
