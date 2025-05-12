@@ -4,7 +4,7 @@ FROM
     rent_score
 WHERE 
     ST_Distance_Sphere(
-        POINT(lon, lat),
+        POINT(lng, lat),
         POINT(126.97794, 37.52008)    #경도, 위도
     ) <= 1000;
 
@@ -16,7 +16,7 @@ FROM
     population_score
 WHERE 
     ST_Distance_Sphere(
-        POINT(lon, lat),
+        POINT(lng, lat),
         POINT(126.97794, 37.52008)    #경도, 위도
     ) <= 1000;
 

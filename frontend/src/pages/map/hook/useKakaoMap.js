@@ -3,7 +3,7 @@ import { loadKakaoMapScript } from "@/pages/home/utils/loadKakaoMapScript.js";
 import { DEFAULT_CENTER, DEFAULT_LEVEL } from "@/constants/mapDefaults.js";
 import { createMarkerWithOverlay } from "@/pages/map/utils/createMarkerWithOverlay.js";
 
-export const useKakaoMap = ({ coords, address, onDragStart, onDragEnd, mapRef }) => {
+export const useKakaoMap = ({ coords, address, onDragStart, onDragEnd, mapRef, setCoords }) => {
     const mapInstanceRef = useRef(null);
     const [center, setCenter] = useState(null);
 
@@ -35,7 +35,7 @@ export const useKakaoMap = ({ coords, address, onDragStart, onDragEnd, mapRef })
                     }
 
                     if (coords?.lat && coords?.lng) {
-                        createMarkerWithOverlay(map, latLng, address);
+                        createMarkerWithOverlay(map, latLng, address, setCoords);
                     }
                 });
             }

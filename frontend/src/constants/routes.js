@@ -7,6 +7,6 @@ export const ROUTES = {
     SIGNUP: '/signup',
     MYPAGE: '/mypage',
     WRITE: '/write',
-    TEXT_DETAIL: '/textDetail',
-    INFO_DETAIL: '/infoDetail',
+    TEXT_DETAIL: '/textdetail',
+    INFO_DETAIL: '/infodetail',
 };
