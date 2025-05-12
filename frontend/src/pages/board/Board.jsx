@@ -20,7 +20,10 @@ import ReactTable from './componenets/ReactTable.jsx'
 // ];
 
 const Board = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const write = () => {
+    navigate('/write');
+  }
   // const goHome = () => {
   //     navigate('/');
   // };
@@ -56,7 +59,7 @@ const Board = () => {
                 <SearchIcon />
               </button>
             </div>
-            <button type='submit' className="write-btn">글쓰기</button>
+            <button type='submit' className="write-btn" onClick={write}>글쓰기</button>
             {/* <div className="write-btn">
               <input type="submit" value="글쓰기" />
             </div> */}

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
+import { useNavigate } from 'react-router-dom';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
 import TextStyle from '@tiptap/extension-text-style';
@@ -50,6 +51,11 @@ const Write = () => {
         content: '<p><양식><br/>- 내 거주지역 : <br/>- 평가 : 상 / 중 / 하</p>',
     });
 
+    const navigate = useNavigate();
+      const cancelWriting = () => {
+        navigate('/board');
+    }
+
     const handleSave = () => {
         console.log('제목:', title);
         console.log('내용:', editor.getHTML());
@@ -72,7 +78,6 @@ const Write = () => {
     return (
         <div className='write-page'>
             <div className='write-box'>
-
                 <div className='content-box'>
                     <div>
                         <input type="text"
@@ -131,7 +136,7 @@ const Write = () => {
                         <button onClick={handleSave} id='save-button'>
                             저장
                         </button>
-                        <button onClick={handleSave} id='cancel-button'>
+                        <button onClick={cancelWriting} id='cancel-button'>
                             취소
                         </button>
                         {/* <input type="range" /> */}

@@ -1,11 +1,50 @@
+import { useState } from 'react'
 import '../styles/TextDetail.css'
 
 const TextDetail = () => {
+    const [comment, setComment] = useState('')
+    const [comments, setComments] = useState([]) // 배열로 변경
+
+    const handleRegister = () => {
+        if (comment.trim() === '') return
+        setComments(prev => [...prev, comment])
+        setComment('') // 입력창 비우기
+    }
+
+    const deleteComment = (indexToDelete) => {
+        const isConfirmed = window.confirm('정말 이 댓글을 삭제하시겠습니까?');
+        if (!isConfirmed) return;
+
+        setComments(prev => prev.filter((_, index) => index !== indexToDelete));
+    }
 
     return (
-
         <div className='write-page'>
-            <div className='write-box'>
+            <div className='comment-list'>
+                <h2>댓글 목록</h2>
+                <hr id='write-hr' />
+                <div className='commends-area'>
+                    {comments.length > 0 ? (
+                        comments.map((cmt, index) => (
+                            <div key={index} className='commends'>
+                                <div className='commend-head'>
+                                    <h3>사용자</h3>
+                                    <button id='delete-commend' onClick={() => deleteComment(index)}>삭제</button>
+                                </div>
+                                <p>{cmt.split('\n').map((line, i) => (
+                                    <span key={i}>
+                                        {line}
+                                        <br />
+                                    </span>
+                                ))}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p className='no-commends'>댓글이 없습니다.</p>
+                    )}
+                </div>
+            </div>
+            <div className='write-box'>            
                 <div className='content-box'>
                     <div className='title-box'>
                         <div>
@@ -38,8 +77,8 @@ const TextDetail = () => {
                     </div>
                     <div className='comment-box'>
                         <p>사용자</p>
-                        <textarea name="commnet"></textarea>
-                        <button>등록</button>
+                        <textarea name="commnet" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+                        <button onClick={handleRegister}>등록</button>
                     </div>
 
                 </div>
