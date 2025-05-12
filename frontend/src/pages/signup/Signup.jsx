@@ -128,7 +128,7 @@ const Signup = () => {
                 <input type="text" placeholder="휴대폰 번호 입력 ('-' 제외 11자리 입력)" value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
                 <div className="input-group">
-                    <input type="text" id="address" placeholder="주소를 검색해주세요" value={address} onClick={handleAddressSearch} readOnly required />
+                    <input type="text" id="address" placeholder="주소를 검색해주세요" value={address} readOnly required />
                     <button type="button" className="check-button" onClick={handleAddressSearch}>주소 검색</button>
                 </div>
                 <input type="text" placeholder="상세 주소를 입력해주세요" value={detailAddress} onChange={(e) => setDetailAddress(e.target.value)} id="detail-address" />

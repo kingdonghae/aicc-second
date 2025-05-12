@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import AuthInitializer from "./components/AuthInitializer";
+
 import Layout from "@/components/layout/Layout.jsx";
 import { ROUTES } from "@/constants/routes";
 
@@ -6,12 +8,13 @@ import Home from "@/pages/home/Home.jsx";
 import Rank from "@/pages/rank/Rank.jsx";
 import Signup from "@/pages/signup/Signup.jsx";
 import Login from "@/pages/login/Login.jsx";
-import Mypage from "@/pages/Mypage.jsx";
+import Mypage from "@/pages/mypage/Mypage.jsx";
 import WritePage from "@/pages/write/WritePage.jsx";
 import TextDetail from "@/pages/textdetail/TextDetail.jsx";
 import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
 import Board from "@/pages/board/Board";
 import MapPage from "@/pages/map/MapPage.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 function App() {
@@ -22,8 +25,10 @@ function App() {
                 <Route path={ROUTES.RANK} element={<Rank />} />
                 <Route path={ROUTES.SIGNUP} element={<Signup />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
-                <Route path={ROUTES.MYPAGE} element={<Mypage />} />
-                <Route path={ROUTES.WRITE} element={<WritePage />} />
+                <Route path={ROUTES.MYPAGE} element={
+                    <ProtectedRoute><Mypage /></ProtectedRoute>}/>
+                <Route path={ROUTES.WRITE} element={
+                    <ProtectedRoute><WritePage /></ProtectedRoute>}/>
                 <Route path={`${ROUTES.TEXT_DETAIL}/:id`} element={<TextDetail />} />
                 <Route path={`${ROUTES.WRITE}/:id`} element={<WritePage />} />
                 <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
