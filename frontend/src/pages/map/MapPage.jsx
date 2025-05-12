@@ -24,6 +24,7 @@ const MapPage = () => {
                 category={category}
                 onDragStart={() => setIsDrag(true)}
                 onDragEnd={() => setIsDrag(false)}
+                setCoords={setCoords}
             />
             <div className="search-box">
                 <div className="search-page">
@@ -58,7 +59,8 @@ const MapPage = () => {
 
             <div className="preview-box">
                 <DetailPreview
-                    isDrag={isDrag} />
+                    isDrag={isDrag}
+                    address={address} />
             </div>
         </div>
     );

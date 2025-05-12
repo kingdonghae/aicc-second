@@ -1,17 +1,11 @@
-create table users
-(
-    id            int auto_increment
-        primary key,
-    userid        varchar(50)                            not null,
-    username      varchar(50)                            not null,
-    password      varchar(100)                           not null,
-    email         varchar(100)                           null,
-    phone_number  varchar(20)                            null,
-    address       varchar(255)                           null,
-    birthdate     date                                   null,
-    agree_privacy tinyint(1) default 0                   null,
-    created_at    timestamp  default current_timestamp() null,
-    constraint userid
-        unique (userid)
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    phone_number VARCHAR(20),
+    address VARCHAR(255),
+    birthdate DATE,
+    agree_privacy TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-

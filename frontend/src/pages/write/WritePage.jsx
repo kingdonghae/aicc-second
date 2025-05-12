@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
-import { useNavigate } from 'react-router-dom';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
 import TextStyle from '@tiptap/extension-text-style';
@@ -22,13 +21,14 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
 import ImageIcon from '@mui/icons-material/Image';
-import '../styles/Write.css'
+import '../../styles/Write.css'
+import useImageUpload from "@/pages/write/hook/useImageUpload.js";
+import {useSavePost} from "@/pages/write/hook/useSavePost.js";
+import {useNavigation} from "@/hook/useNavigation.js";
 
-
-
-const Write = () => {
+const WritePage = () => {
     const [title, setTitle] = useState('');
-
+    const { goBoard } = useNavigation();
     const editor = useEditor({
         extensions: [
             Placeholder.configure({
@@ -51,33 +51,19 @@ const Write = () => {
         content: '<p><양식><br/>- 내 거주지역 : <br/>- 평가 : 상 / 중 / 하</p>',
     });
 
-    const navigate = useNavigate();
-      const cancelWriting = () => {
-        navigate('/board');
-    }
+    const {
+        fileInputRef,
+        triggerFileInput,
+        handleFileChange
+    } = useImageUpload(editor);
 
-    const handleSave = () => {
-        console.log('제목:', title);
-        console.log('내용:', editor.getHTML());
-    };
+    const { handleSave } = useSavePost(editor,title);
 
-    const fileInputRef = useRef();
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = () => {
-            const base64 = reader.result;
-            editor.chain().focus().setImage({ src: base64 }).run();
-        };
-        reader.readAsDataURL(file);
-    };
 
     return (
         <div className='write-page'>
             <div className='write-box'>
+
                 <div className='content-box'>
                     <div>
                         <input type="text"
@@ -118,7 +104,7 @@ const Write = () => {
                             accept="image/*"
                             style={{ display: 'none' }}
                             ref={fileInputRef}
-                            onChange={handleFileChange}
+                            onChange={(e)=>handleFileChange(e)}
                         />
 
                         <button onClick={() => fileInputRef.current.click()}>
@@ -134,9 +120,9 @@ const Write = () => {
 
                     <div className='button-group'>
                         <button onClick={handleSave} id='save-button'>
-                            저장
+                            {editId ? '수정' : '저장'}
                         </button>
-                        <button onClick={cancelWriting} id='cancel-button'>
+                        <button onClick={goBoard} id='cancel-button'>
                             취소
                         </button>
                         {/* <input type="range" /> */}
@@ -147,4 +133,4 @@ const Write = () => {
     );
 };
 
-export default Write;
+export default WritePage;

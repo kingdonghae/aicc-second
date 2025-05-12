@@ -180,10 +180,9 @@
   height: 22.5rem;
 }
 
-/* .board-table {
-  background-color: white;
-  margin: 1rem;
-} */
+ .board-table {
+  min-height: 550px;
+}
 
 .board-table th {
   padding: 15px;
@@ -222,8 +221,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
   /* gap: 10px; */
   /* padding-bottom: 20px; */
+}
+
+.page-number.active {
+  background-color: #6EA8DC;
+  color: white;
+  font-weight: bold;
 }
 
 .pagination button,

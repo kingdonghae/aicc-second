@@ -3,7 +3,7 @@ import pymysql
 
 # MySQL 연결
 conn = pymysql.connect(
-    host="192.168.10.13",
+    host="192.168.10.14",
     user="root",
     password="0000",
     database="data_load",
