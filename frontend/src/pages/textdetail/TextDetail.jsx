@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../styles/TextDetail.css'
+import '../../styles/TextDetail.css'
 
 const TextDetail = () => {
     const [comment, setComment] = useState('')
@@ -77,7 +77,7 @@ const TextDetail = () => {
                     </div>
                     <div className='comment-box'>
                         <p>사용자</p>
-                        <textarea name="commnet" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+                        <textarea name="comment" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                         <button onClick={handleRegister}>등록</button>
                     </div>
 
