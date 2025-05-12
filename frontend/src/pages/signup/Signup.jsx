@@ -5,7 +5,6 @@ import '@/styles/Signup.css';
 
 const Signup = () => {
     const navigate = useNavigate();
-    const [showEmailForm, setShowEmailForm] = useState(false);
     const [isEmailAvailable, setIsEmailAvailable] = useState(false);
     const [checkMessage, setCheckMessage] = useState('');
 
@@ -92,20 +91,6 @@ const Signup = () => {
 
         return () => clearTimeout(timer);
     }, [password, confirmPassword]);
-
-    if (!showEmailForm) {
-        return (
-            <div className="background">
-                <div className="signup-form">
-                    <h2>회원가입</h2>
-                    <button className="social-button" onClick={() => alert('카카오 소셜 로그인 연결')}>카카오로 가입하기</button>
-                    <button className="social-button" onClick={() => alert('구글 소셜 로그인 연결')}>구글로 가입하기</button>
-                    <hr />
-                    <button className="direct-button" onClick={() => setShowEmailForm(true)}>이메일로 직접 가입하기</button>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="background">
