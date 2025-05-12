@@ -63,6 +63,7 @@ def get_keyword_rank_query():
                     , CURRENT_RANKING                         AS currentRank     # 현재 순위
                 FROM SEARCH_RANKING_DAILY
                 WHERE KEYWORD = %s 
+                and start_date = current_date
     """
 
 #  당일, 같은 유저 또는 ip로 중복 키워드 검색 유무 체크

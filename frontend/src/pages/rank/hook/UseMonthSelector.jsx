@@ -3,7 +3,7 @@ import {getISOMonthString, getMonthRanking} from "@/pages/rank/services/MonthSel
 
 export function useMonthSelector() {
     const [monthValue, setMonthValue] = useState("");
-    const [monthRank, setMonthRank] = useState([]);
+    const [monthRank, setMonthRank] = useState();
 
     useEffect(() => {
         const fetchInitialMonthRank = async () => {
@@ -13,7 +13,7 @@ export function useMonthSelector() {
             const [year, month] = initialMonth.split('-');
             try {
                 const data = await getMonthRanking(year, month);
-                setMonthRank([...data.rankings]);
+                setMonthRank(data.rankings);
             } catch (error) {
                 console.error("월간 랭킹 불러오기 실패:", error);
             }
@@ -21,6 +21,7 @@ export function useMonthSelector() {
 
         fetchInitialMonthRank();
     }, []);
+
 
     const handleChange = async (e) => {
         const value = e.target.value;
@@ -31,6 +32,7 @@ export function useMonthSelector() {
         try {
             const data = await getMonthRanking(year, month);
             setMonthRank(data.rankings);
+            console.log(monthRank)
         } catch (error) {
             console.error("월간 랭킹 불러오기 실패:", error);
         }

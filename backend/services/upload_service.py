@@ -43,7 +43,7 @@ def save_post_service(title, content,writer):
         connection.close()
         return jsonify({"status": "ok", "message": "게시물 등록 완료"}), 200
 
-def update_post_service(title, content):
+def update_post_service(title, content, id):
     if not title:
         return jsonify({"error": "제목이 없습니다."}), 400
 
@@ -58,6 +58,7 @@ def update_post_service(title, content):
             cursor.execute(sql, (
                 title,
                 content,
+                id
             ))
         connection.commit()
     except Exception as e:

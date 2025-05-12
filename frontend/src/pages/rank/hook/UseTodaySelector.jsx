@@ -8,7 +8,7 @@ export function useTodaySelector() {
             try {
                 const data = await getTodayRanking();
                 console.log(data.rankings);
-                setTodayRank([...data.rankings]);
+                setTodayRank(data.rankings);
             } catch (error) {
                 console.error("랭킹 데이터를 가져오는 중 오류 발생:", error);
             }

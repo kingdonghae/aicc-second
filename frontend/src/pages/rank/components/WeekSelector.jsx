@@ -1,7 +1,6 @@
 import {useWeekSelector} from "@/pages/rank/hook/UseWeekSelector.jsx";
 
-export default function WeekSelector() {
-    const { weekValue, weekLabel, handleChange } = useWeekSelector();
+export default function WeekSelector({value,onChange,label}) {
 
     return (
         <div className='calendar'>
@@ -10,7 +9,7 @@ export default function WeekSelector() {
                     type="text"
                     readOnly
                     id='week-rank'
-                    value={weekLabel}
+                    value={label}
                     onClick={() => {
                         document.getElementById("week-hidden").showPicker?.();
                     }}
@@ -19,7 +18,7 @@ export default function WeekSelector() {
                         border: "1px solid black",
                         textAlign: "left",
                     }}
-                    onChange={handleChange}
+                    onChange={onChange}
                 />
                 <img
                     src="./assets/calender.png"
@@ -37,8 +36,8 @@ export default function WeekSelector() {
             <input
                 type="week"
                 id="week-hidden"
-                value={weekValue}
-                onChange={handleChange}
+                value={value}
+                onChange={onChange}
                 style={{
                     opacity: 0,
                     pointerEvents: "none",

@@ -1,7 +1,7 @@
 # routes/upload_route.py
 from flask import Blueprint, request, jsonify
 
-from services.upload_service import save_uploaded_file, save_post_service
+from services.upload_service import save_uploaded_file, save_post_service, update_post_service
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -37,7 +37,7 @@ def update_post(post_id):
     content = data.get('content')
 
     try:
-        update_post_service(title, content)
+        update_post_service(title, content, post_id)
         return jsonify({ 'status': 'success' })
     except Exception as e:
         return jsonify({ 'error': str(e) }), 500
