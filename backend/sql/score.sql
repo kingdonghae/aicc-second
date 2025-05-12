@@ -5,7 +5,7 @@ FROM
 WHERE 
     ST_Distance_Sphere(
         POINT(lng, lat),
-        POINT(126.97794, 37.52008)    #경도, 위도
+        POINT(%s, %s)    #경도, 위도
     ) <= 1000;
 
 
@@ -17,6 +17,17 @@ FROM
 WHERE 
     ST_Distance_Sphere(
         POINT(lng, lat),
-        POINT(126.97794, 37.52008)    #경도, 위도
+        POINT(%s, %s)    #경도, 위도
     ) <= 1000;
 
+
+
+SELECT 
+    AVG(score) AS avg_score
+FROM 
+    cctv_score
+WHERE 
+    ST_Distance_Sphere(
+        POINT(lng, lat),
+        POINT(%s, %s)    #경도, 위도
+    ) <= 1000;
