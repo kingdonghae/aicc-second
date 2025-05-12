@@ -13,6 +13,9 @@ const TextDetail = () => {
     const { post, loading, error } = usePostDetail(id);
     const currentUser = 'test111';
 
+    if (loading) return <p>로딩 중...</p>;
+    if (error || !post) return <p>게시글을 불러오지 못했습니다.</p>;
+
     const handleRegister = () => {
         if (comment.trim() === '') return
         setComments(prev => [...prev, comment])
