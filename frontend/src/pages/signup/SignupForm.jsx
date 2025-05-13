@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signup, checkEmail } from './services/SignupService';
-import '@/styles/Signup.css';
+import '@/styles/SignupForm.css';
 
-const Signup = () => {
+const SignupForm = () => {
     const navigate = useNavigate();
     const [isEmailAvailable, setIsEmailAvailable] = useState(false);
     const [checkMessage, setCheckMessage] = useState('');
@@ -199,4 +199,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignupForm;

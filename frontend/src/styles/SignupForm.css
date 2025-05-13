@@ -1,0 +1,226 @@
+.home-menu {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 30;
+    font-family: 'KIMM_Bold';
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    background-color: transparent;
+    border: none;
+    color: #111;
+    text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.3),
+        2px 2px 2px rgba(0, 0, 0, 0.25),
+        3px 3px 3px rgba(0, 0, 0, 0.2),
+        4px 4px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.home-menu:hover {
+    color: #6EA8DC;
+    text-shadow: 0 0 5px white;
+    transition: all 0.2s ease;
+    text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.3),
+        2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    font-size: 0.5rem;
+    margin: -0.1rem;
+    text-indent: 0;
+    text-align: left;
+    height: 1.8rem;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-form {
+    background-color: #ffffff;
+    padding: 1.2rem;
+    border: 4px solid black;
+    border-radius: 1.5rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-group input {
+    flex: 1;
+    background-color: #f2f2f2;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+}
+
+.input-group button {
+    background-color: #6EA8DC;
+    color: white;
+    border: none;
+    padding: 0rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'KIMM_Bold';
+    ;
+}
+
+.input-group button:hover {
+    background-color: #DEEBF7;
+    color: #6C757D;
+    transform: translateY(-2px);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.8rem 1.4rem;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    font-family: 'KIMM_Bold';
+}
+
+input[type="password"] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input::placeholder {
+    color: #bbb;
+    font-family: 'KIMM_Bold';
+}
+
+#address:focus {
+    outline: none;
+    cursor: no-drop;
+}
+
+#detail-address {
+    margin-top: -0.5rem;
+}
+
+.birth-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.birth-group input {
+    flex: 1;
+    padding: 0.8rem 1.4rem;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    border-radius: 2rem;
+    font-family: 'KIMM_Bold';
+    color: #bbb;
+}
+
+.check-box {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-box input {
+    height: 0.5rem;
+}
+
+p {
+    margin: 3px 1rem;
+    font-size: 0.rem;
+}
+
+.submit-button {
+    background-color: #6EA8DC;
+    color: white;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+}
+
+.submit-button:hover {
+    background-color: #DEEBF7;
+    color: #6C757D;
+}
+
+.success { 
+    color: green;
+    font-size: 0.5rem; 
+}
+
+.error { 
+    color: red;
+    font-size: 0.5rem;
+}
+
+.message-space {
+    min-height: 0.6rem; /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
+}
+
+.message {
+    min-height: 0.6rem;
+}
+
+.submit-button.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.submit-button.disabled:hover {
+    background-color: #cccccc; /* hover 시에도 색상 변화 없음 */
+    color: #666666;
+}
+
+.social-button {
+    background-color: #fee500; /* 카카오 노란색 */
+    color: #000000;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.social-button:hover {
+    background-color: #ffea00;
+    transform: translateY(-2px);
+}
+
+.direct-button {
+    background-color: #6ea8dc;
+    color: white;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    margin-top: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.direct-button:hover {
+    background-color: #deebf7;
+    color: #6c757d;
+    transform: translateY(-2px);
+}

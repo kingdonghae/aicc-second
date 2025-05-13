@@ -45,9 +45,9 @@ def create_social_user(provider, provider_id, email, username):
     try:
         with connection.cursor() as cursor:
             sql = """
-                INSERT INTO users (username, email, provider, provider_id)
-                VALUES (%s, %s, %s, %s)
-            """
+                INSERT INTO users (email, username, provider, provider_id, agree_privacy, agree_marketing)
+                VALUES (%s, %s, %s, %s, 1, 0)
+                """
             cursor.execute(sql, (username, email, provider, provider_id))
         connection.commit()
     finally:

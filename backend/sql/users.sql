@@ -10,6 +10,7 @@ CREATE TABLE users (
     detail_address VARCHAR(255),
     birthdate DATE,
     agree_privacy BOOLEAN DEFAULT 0,
+    agree_marketing BOOLEAN DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY unique_provider (provider, provider_id)
