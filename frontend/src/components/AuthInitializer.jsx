@@ -12,6 +12,12 @@ const AuthInitializer = () => {
     if (token) {
       try {
         const decoded = jwtDecode(token);
+        console.log("Authinitializer.jsx decoded: ",decoded)
+        const isExpired = decoded.exp * 1000 < Date.now();
+        if (isExpired) {
+            removeToken();
+            return ;
+        }
         setAuth({
           isLoggedIn: true,
           user: { id: decoded.user_id },

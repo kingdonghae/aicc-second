@@ -97,6 +97,13 @@
     flex-direction: column;
 }
 
+.login-item input {
+    margin: 0.2rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
 .login-button {
     height: 90%;
     background-color: #FFF2CC;
@@ -104,14 +111,8 @@
     border-radius: 1rem;
     cursor: pointer;
     font-family: 'KIMM_Bold';
-    font-size: 1rem;
-}
-
-.login-item input {
-    margin: 0.2rem;
-    height: 2rem;
-    text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    border: none;
 }
 
 .login-password::placeholder {
@@ -154,7 +155,8 @@
     border-radius: 1.5rem;
     cursor: pointer;
     font-family: 'KIMM_Bold';
-    font-size: 1rem;
+    font-size: 0.7rem;
+    border: none;
 }
 
 .signup button:hover {
@@ -166,7 +168,7 @@
     transform: scale(0.98);
 }
 
-.direct-signup {
+.local-signup {
     background-color: #FFF2CC;
 }
 

@@ -1,15 +1,21 @@
 from db import get_connection
 import pymysql
 
-def create_user(username, hashed_password, email, phone_number, address, birthdate, agree_privacy):
+def create_user(username, hashed_password, email, phone_number, address, detail_address, birthdate, agree_privacy):
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
             sql = """
-                INSERT INTO users (username, password, email, phone_number, address, birthdate, agree_privacy, provider)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, 'local')
+                INSERT INTO users (
+                    username, password, email, phone_number, 
+                    address, detail_address, birthdate, agree_privacy, provider
+                )
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'local')
             """
-            cursor.execute(sql, (username, hashed_password, email, phone_number, address, birthdate, agree_privacy))
+            cursor.execute(sql, (
+                username, hashed_password, email, phone_number, 
+                address, detail_address, birthdate, agree_privacy
+            ))
         connection.commit()
     finally:
         connection.close()

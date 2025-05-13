@@ -2,7 +2,7 @@ import '@/styles/Login.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { login } from './services/LoginService';
+import { login, kakaoLogin } from './services/LoginService';
 import { useNavigation } from '@/hook/useNavigation.js';
 import { initKakao } from '@/utils/kakaoSignup'; // SDK 초기화 함수
 
@@ -43,48 +43,20 @@ const Login = () => {
         initKakao();
     }, []);
 
-    const handleKakaoLogin = () => {
-        if (!window.Kakao) {
-            alert('Kakao SDK가 로드되지 않았습니다.');
-            return;
+    const handleKakaoLogin = async () => {
+        try {
+            const { token, decoded } = await kakaoLogin();
+            setAuth({
+                isLoggedIn: true,
+                user: { id: decoded.user_id },
+                token
+            });
+            alert('카카오 로그인 성공!');
+            navigate('/');
+        } catch (errMsg) {
+            alert(errMsg);
         }
-    
-        window.Kakao.Auth.login({
-            success: function (authObj) {
-                const access_token = authObj.access_token;
-    
-                fetch('http://localhost:5000/social/kakao', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ access_token })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.token) {
-                        saveToken(data.token);
-                        const decoded = jwtDecode(data.token);
-                        setAuth({
-                            isLoggedIn: true,
-                            user: { id: decoded.user_id },
-                            token: data.token
-                        });
-                        alert('카카오 로그인 성공!');
-                        navigate('/');
-                    } else {
-                        alert(data.error || '서버 응답 오류');
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert('서버 요청 실패');
-                });
-            },
-            fail: function (err) {
-                console.error(err);
-                alert('카카오 로그인 실패');
-            }
-        });
-    }; 
+    };
 
     const handleLogin = async () => {
         if (!email.trim()) {
@@ -101,11 +73,12 @@ const Login = () => {
             const token = result.token;
             saveToken(token);
             const userInfo = jwtDecode(token);
-            setAuth({ 
-                isLoggedIn: true, 
-                user: userInfo, 
-                token // ✅ token 포함해서 저장
-            });
+            if (userInfo.exp * 1000 < Date.now()) {
+                removeToken();
+                setErrorMessage("만료된 토큰입니다. 다시 로그인해주세요.");
+                return;
+            }
+            setAuth({ isLoggedIn: true, user: userInfo, token });
             navigate('/');
         } catch (error) {
             const msg = error || '로그인 중 오류가 발생했습니다.';
@@ -114,7 +87,7 @@ const Login = () => {
     };
 
     return (
-        <div className='background'> 
+        <div className='background'>
             <div className='modal'>
                 <div className='login'>
                     <div className='login-item'>
@@ -136,7 +109,7 @@ const Login = () => {
                                 setErrorMessage('');
                             }}
                             onKeyDown={(e) => {
-                              if (e.key === 'Enter') handleLogin();
+                                if (e.key === 'Enter') handleLogin();
                             }}
                         />
                     </div>
@@ -147,10 +120,10 @@ const Login = () => {
                 </p>
                 <div className='signup'>
                     <button className="google-signup">
-                        <img 
-                            src="https://developers.google.com/identity/images/g-logo.png" 
-                            alt="Google logo" 
-                            style={{ width: '20px', height: '20px', verticalAlign: 'middle' }} 
+                        <img
+                            src="https://developers.google.com/identity/images/g-logo.png"
+                            alt="Google logo"
+                            style={{ width: '20px', height: '20px', verticalAlign: 'middle' }}
                         />
                         <span style={{ marginLeft: '8px' }}>구글로 로그인</span>
                     </button>

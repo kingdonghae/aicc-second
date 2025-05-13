@@ -17,7 +17,6 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     const menuRef = useRef();
     const { logout } = useAuth();
 
-
     const toggleMenu = () => setMenu((prev) => !prev);
     const closeMenu = () => setMenu(false);
 
@@ -39,6 +38,8 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     };
 
     const renderAuthButtons = () => {
+        if (location.pathname === '/login') return null;
+        
         if (auth?.isLoggedIn) {
             return (
                 <>
