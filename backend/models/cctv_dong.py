@@ -19,7 +19,7 @@ engine = create_engine(
 df = pd.read_sql("SELECT * FROM cctv", engine)
 
 # ▶ 2. geometry 생성
-df["geometry"] = df.apply(lambda row: Point(row["lon"], row["lat"]), axis=1)
+df["geometry"] = df.apply(lambda row: Point(row["lng"], row["lat"]), axis=1)
 points_gdf = gpd.GeoDataFrame(df, geometry="geometry", crs="EPSG:4326")
 
 # ▶ 3. 행정동 GeoJSON 파일 로드

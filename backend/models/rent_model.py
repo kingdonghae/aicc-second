@@ -1,10 +1,10 @@
 
-def get_population_query():
+def get_rent_query():
     return """
                 SELECT 
                     AVG(score) AS avg_score
                 FROM 
-                    population_score
+                    rent_score
                 WHERE 
                     ST_Distance_Sphere(
                         POINT(lng, lat),
