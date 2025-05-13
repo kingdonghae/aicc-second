@@ -16,6 +16,7 @@ def signup_user(data):
     email = data.get('email')
     phone_number = data.get('phone_number')
     address = data.get('address')
+    detail_address = data.get('detail_address')
     birthdate = data.get('birthdate')
     agree_privacy = data.get('agree_privacy', 0)
 
@@ -27,6 +28,7 @@ def signup_user(data):
 
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
-    create_user(username, hashed_password, email, phone_number, address, birthdate, agree_privacy)
+    create_user(username, hashed_password, email, phone_number, address, detail_address, birthdate, agree_privacy)
+
 
     return {'message': '회원가입 성공!'}, 201

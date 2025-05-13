@@ -3,8 +3,8 @@ from utils.jwt_utils import generate_jwt
 
 def handle_social_login(provider, user_info):
     provider_id = str(user_info['id'])
-    email = user_info.get('kakao_account', {}).get('email')
-    nickname = user_info.get('properties', {}).get('nickname')
+    email = user_info.get('kakao_account', {}).get('email') or f'{provider_id}@{provider}.com'
+    nickname = user_info.get('properties', {}).get('nickname') or '소셜사용자'
 
     user = get_user_by_provider(provider, provider_id)
 
@@ -15,3 +15,4 @@ def handle_social_login(provider, user_info):
     token = generate_jwt(user['id'], provider)
 
     return {'message': '소셜 로그인 성공!', 'token': token}, 200
+

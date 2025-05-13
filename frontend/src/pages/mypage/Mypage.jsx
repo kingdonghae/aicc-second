@@ -19,34 +19,10 @@ const Mypage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
 
-    useEffect(() => {
-        const token = getToken();
-        if (!token) return;
-
-        const decoded = jwtDecode(token);
-        const id = decoded.user_id;
-        setUserId(id);
-
-        getUserInfo(id)
-            .then(data => {
-                setUsername(data.username);
-                setBirthdate(data.birthdate);
-                setPhone(data.phone_number);
-                setEmail(data.email);
-                const [addr, ...rest] = (data.address || '').split(' ');
-                setAddress(addr || '');
-                setDetailAddress(rest.join(' ') || '');
-            })
-            .catch(err => {
-                console.error(err);
-                alert(err);
-            });
-    }, []);
-
     const handleAddressSearch = () => {
         new window.daum.Postcode({
             oncomplete: function (data) {
-                setAddress(data.address);
+                setForm((prev) => ({ ...prev, address: data.address }));
             },
         }).open();
     };
@@ -63,7 +39,8 @@ const Mypage = () => {
             await patchUserInfo(userId, {
                 password,
                 phone_number: phone,
-                address: `${address} ${detailAddress}`,
+                address,
+                detail_address: detailAddress,
             });
             alert('사용자 정보가 성공적으로 수정되었습니다.');
             navigate('/');
@@ -72,6 +49,29 @@ const Mypage = () => {
             alert(err);
         }
     };
+    
+    useEffect(() => {
+        const token = getToken();
+        if (!token) return;
+
+        const decoded = jwtDecode(token);
+        const id = decoded.user_id;
+        setUserId(id);
+
+        getUserInfo(id)
+            .then(data => {
+                setUsername(data.username);
+                setBirthdate(data.birthdate);
+                setPhone(data.phone_number);
+                setEmail(data.email);
+                setAddress(data.address || '');
+                setDetailAddress(data.detail_address || '');
+            })
+            .catch(err => {
+                console.error(err);
+                alert(err);
+        });
+    }, []);
 
     return (
         <div className="background">

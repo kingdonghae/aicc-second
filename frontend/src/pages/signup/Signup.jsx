@@ -22,20 +22,33 @@ const Signup = () => {
 
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
 
-    const isFormValid = email && password && confirmPassword && username && birthdate && phone && address && agreePrivacy && isEmailAvailable;
+    const isFormValid = () => (
+        email && password && confirmPassword && username &&
+        birthdate && phone && address && agreePrivacy && isEmailAvailable
+    );
+
+    const getPasswordValidationMessage = (pw, confirmPw) => {
+        if (!pw) return '';
+        if (!passwordRegex.test(pw)) return '❌ 형식: 문자, 숫자, 특수문자 포함 8~20자';
+        if (!confirmPw) return '비밀번호를 다시 한 번 입력해주세요.';
+        if (pw !== confirmPw) return '❌ 비밀번호가 일치하지 않습니다.';
+        return '✅ 비밀번호가 일치합니다.'; 
+    };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setConfirmPasswordMessage(getPasswordValidationMessage(password, confirmPassword));
+        }, 700);
+        return () => clearTimeout(timer);
+    }, [password, confirmPassword]);
 
     const handleCheckEmail = async () => {
         if (!email) return;
 
         try {
             const res = await checkEmail(email);
-            if (res.available) {
-                setIsEmailAvailable(true);
-                setCheckMessage('✅ 사용 가능한 이메일입니다.');
-            } else {
-                setIsEmailAvailable(false);
-                setCheckMessage('❌ 이미 존재하는 이메일입니다.');
-            }
+            setIsEmailAvailable(res.available);
+            setCheckMessage(res.available ? '✅ 사용 가능한 이메일입니다.' : '❌ 이미 존재하는 이메일입니다.');
         } catch {
             setIsEmailAvailable(false);
             setCheckMessage('⚠️ 중복 확인 중 오류 발생');
@@ -53,15 +66,14 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        const fullAddress = `${address} ${detailAddress}`.trim();
-
         const userData = {
             username,
             password,
             birthdate,
             phone_number: phone,
             email,
-            address: fullAddress,
+            address,
+            detail_address: detailAddress.trim(),
             agree_privacy: agreePrivacy ? 1 : 0,
         };
 
@@ -69,28 +81,10 @@ const Signup = () => {
             const result = await signup(userData);
             alert(result.message || '회원가입 성공');
             navigate('/');
-        } catch (errorMessage) {
-            alert(errorMessage);
+        } catch (err) {
+            alert(err);
         }
     };
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (password === '') {
-                setConfirmPasswordMessage('');
-            } else if (!passwordRegex.test(password)) {
-                setConfirmPasswordMessage('❌ 형식: 문자, 숫자, 특수문자 포함 8~20자');
-            } else if (confirmPassword === '') {
-                setConfirmPasswordMessage('비밀번호를 다시 한 번 입력해주세요.');
-            } else if (password !== confirmPassword) {
-                setConfirmPasswordMessage('❌ 비밀번호가 일치하지 않습니다.');
-            } else {
-                setConfirmPasswordMessage('✅ 비밀번호가 일치합니다.');
-            }
-        }, 700);
-
-        return () => clearTimeout(timer);
-    }, [password, confirmPassword]);
 
     return (
         <div className="background">
@@ -107,7 +101,10 @@ const Signup = () => {
                         }}
                         required
                     />
-                    <button type="button" className="check-button" onClick={handleCheckEmail}>
+                    <button 
+                        type="button" 
+                        className="check-button" 
+                        onClick={handleCheckEmail}>
                         중복 확인
                     </button>
                 </div>
@@ -115,30 +112,88 @@ const Signup = () => {
                     {checkMessage || ' '}
                 </p>
 
-                <input type="password" placeholder="비밀번호 입력 (문자, 숫자, 특수문자 포함 8~20자)" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <input type="password" placeholder="비밀번호 재확인" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                <input 
+                    type="password" 
+                    placeholder="비밀번호 입력 (문자, 숫자, 특수문자 포함 8~20자)" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    required
+                />
+                <input 
+                    type="password" 
+                    placeholder="비밀번호 재확인" 
+                    value={confirmPassword} 
+                    onChange={(e) => setConfirmPassword(e.target.value)} 
+                    required
+                />
                 {confirmPasswordMessage && (
-                    <p className={`message ${confirmPasswordMessage.startsWith('✅') ? 'success' : 'error'}`}>{confirmPasswordMessage}</p>
-                ) || <p className='message'> </p>}
+                    <p 
+                    className={`message ${confirmPasswordMessage.startsWith('✅') ? 'success' : 'error'}`}>
+                        {confirmPasswordMessage}
+                    </p>
+                    ) || <p className='message'> </p>
+                }
 
-                <input type="text" placeholder="이름을 입력해주세요." value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <input 
+                    type="text" 
+                    placeholder="이름을 입력해주세요." 
+                    value={username} 
+                    onChange={(e) => setUsername(e.target.value)} 
+                    required
+                />
                 <div className="birth-group">
-                    <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} max={new Date().toISOString().split('T')[0]} required />
+                    <input 
+                        type="date" 
+                        value={birthdate} 
+                        onChange={(e) => setBirthdate(e.target.value)} 
+                        max={new Date().toISOString().split('T')[0]} 
+                        required 
+                    />
                 </div>
-                <input type="text" placeholder="휴대폰 번호 입력 ('-' 제외 11자리 입력)" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                <input 
+                    type="text" 
+                    placeholder="휴대폰 번호 입력 ('-' 제외 11자리 입력)" 
+                    value={phone} 
+                    onChange={(e) => setPhone(e.target.value)} 
+                    required 
+                />
 
                 <div className="input-group">
-                    <input type="text" id="address" placeholder="주소를 검색해주세요" value={address} readOnly required />
-                    <button type="button" className="check-button" onClick={handleAddressSearch}>주소 검색</button>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        placeholder="주소를 검색해주세요" 
+                        value={address} 
+                        readOnly required 
+                    />
+                    <button 
+                        type="button" 
+                        className="check-button" 
+                        onClick={handleAddressSearch}>주소 검색
+                    </button>
                 </div>
-                <input type="text" placeholder="상세 주소를 입력해주세요" value={detailAddress} onChange={(e) => setDetailAddress(e.target.value)} id="detail-address" />
+                <input 
+                    type="text" 
+                    placeholder="상세 주소를 입력해주세요" 
+                    value={detailAddress} 
+                    onChange={(e) => setDetailAddress(e.target.value)} id="detail-address" 
+                />
 
                 <div className="check-box">
                     <p>개인정보 활용에 동의하십니까?</p>
-                    <input type="checkbox" checked={agreePrivacy} onChange={(e) => setAgreePrivacy(e.target.checked)} required />
+                    <input 
+                        type="checkbox" 
+                        checked={agreePrivacy} 
+                        onChange={(e) => setAgreePrivacy(e.target.checked)} required 
+                    />
                 </div>
 
-                <button type="submit" className={`submit-button ${!isFormValid ? 'disabled' : ''}`} disabled={!isFormValid}>가입하기</button>
+                <button 
+                    type="submit" 
+                    className={`submit-button ${!isFormValid() ? 'disabled' : ''}`} 
+                    disabled={!isFormValid()}>
+                    가입하기
+                </button>
             </form>
         </div>
     );

@@ -8,7 +8,7 @@ def check_email():
     email = request.args.get('email')
     if not email:
         return jsonify({'error': '이메일을 입력해주세요.'}), 400
-
+ 
     available = is_email_available(email)
     return jsonify({'available': available}), 200
 

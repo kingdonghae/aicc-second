@@ -7,6 +7,7 @@ CREATE TABLE users (
     provider_id VARCHAR(255),  -- 소셜 서비스의 유저 고유 ID (local 가입자는 NULL)
     phone_number VARCHAR(20),
     address VARCHAR(255),
+    detail_address VARCHAR(255),
     birthdate DATE,
     agree_privacy BOOLEAN DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
