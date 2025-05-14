@@ -32,9 +32,9 @@ df = df.merge(agg[["full_adrs_admin", "score"]], on="full_adrs_admin", how="left
 
 # ▶ 6. 테이블 생성 및 데이터 저장
 with conn.cursor() as cursor:
-    cursor.execute("DROP TABLE IF EXISTS cctv_dong_score")
+    cursor.execute("DROP TABLE IF EXISTS cctv_score")
     cursor.execute("""
-        CREATE TABLE cctv_dong_score (
+        CREATE TABLE cctv_score (
             ID INT PRIMARY KEY,
             parcAdrs TEXT,
             rnAdrs TEXT,
@@ -49,6 +49,8 @@ with conn.cursor() as cursor:
     """)
 
     insert_sql = """
+        INSERT INTO cctv_score (
+            ID, parcAdrs, rnAdrs, lat, lon, instPur, numOfCam,
         INSERT INTO cctv_dong_score (
             ID, parcAdrs, rnAdrs, lat, lng, instPur, numOfCam,
             full_adrs_admin, dong_admin, score
