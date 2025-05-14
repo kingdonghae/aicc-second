@@ -26,7 +26,7 @@ def create_google_user(social_id, username, email):
         with connection.cursor() as cursor:
             sql = """
                 INSERT INTO users (
-                    username, email, login_type, social_id
+                    username, email, provider, provider_id
                 )
                 VALUES (%s, %s, 'google', %s)
             """

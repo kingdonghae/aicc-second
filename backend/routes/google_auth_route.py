@@ -1,8 +1,4 @@
 from flask import Blueprint, redirect, request, jsonify, current_app
-import requests
-
-from db import get_connection
-from models.user_model import get_user_by_email_basic, create_user, create_google_user
 from services.google_service import process_google_auth
 
 google_auth = Blueprint('google_auth', __name__)

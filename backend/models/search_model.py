@@ -15,7 +15,7 @@ def insert_search_log_query():
                 ( 
                     KEYWORD
                   , USER_ID
-                  , IP_ADDRESS
+                  , CLIENT_ID
                 )
                 VALUES (%s, %s, %s)
        """

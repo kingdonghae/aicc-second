@@ -1,7 +1,7 @@
 import requests
 from flask import current_app
-from models.user_model import get_user_by_email_basic, create_google_user
-from utils.jwt_utils import create_jwt
+from models.user_model import get_user_by_email, create_google_user, get_user_by_provider
+from utils.jwt_utils import generate_jwt
 
 def process_google_auth(code):
     client_id = current_app.config["GOOGLE_CLIENT_ID"]
@@ -27,10 +27,10 @@ def process_google_auth(code):
     email = userinfo_res.get('email')
     name = userinfo_res.get('name')
 
-    user = get_user_by_email_basic(email)
+    user = get_user_by_provider('google',google_id)
     if not user:
         create_google_user(google_id, name, email)
-        user = get_user_by_email_basic(email)
+        user = get_user_by_provider('google',google_id)
 
-    token = create_jwt(user)
+    token = generate_jwt(user)
     return token

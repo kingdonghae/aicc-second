@@ -15,7 +15,7 @@ def login_user(data):
         return {'error': '이메일 또는 비밀번호가 일치하지 않습니다.'}, 401
 
     # ✅ JWT 발급
-    token = generate_jwt(user['id'], 'local')
+    token = generate_jwt(user)
 
     return {
         'message': '로그인 성공!',
