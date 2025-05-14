@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { fetchGPTResponse } from '../service/GPTService';
 
-const InfoGPT = () => {
+const InfoGPT = ({address}) => {
 
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(true); // 초기부터 로딩 시작
@@ -25,7 +25,7 @@ const InfoGPT = () => {
   return (
     <div className='gpt-background'>
         <div className='gpt-box'>
-          <h2>여기가 주소 자리입니다</h2>
+          <h2>{address}</h2>
           <div className='gpt-talk'>{loading ? 'GPT가 생각 중...' : response}</div>
         </div>
     </div>

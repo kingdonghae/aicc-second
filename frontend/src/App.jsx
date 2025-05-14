@@ -15,7 +15,9 @@ import TextDetail from "@/pages/textdetail/TextDetail.jsx";
 import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
 import Board from "@/pages/board/Board";
 import MapPage from "@/pages/map/MapPage.jsx";
+import OAuthSuccess from "@/pages/login/OAuthSuccess.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
+import RentReportIframe from "@/pages/RentReportIframe.jsx";
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path={ROUTES.RANK} element={<Rank />} />
                 <Route path="/login" element={<LoginSelect />} />
+                <Route path={ROUTES.OAUTH_SUCCESS} element={<OAuthSuccess />} />
                 <Route path="/login/email" element={<EmailLogin />} />
                 <Route path="/signup" element={<SignupTerms />} />
                 <Route path="/signup/form" element={<SignupForm />} />
@@ -37,7 +40,7 @@ function App() {
                 <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
                 <Route path={ROUTES.MAP} element={<MapPage />} />
                 <Route path={ROUTES.BOARD} element={<Board />} />
-
+                <Route path='/rentReport' element={<RentReportIframe />} />
             </Route>
         </Routes>
     );

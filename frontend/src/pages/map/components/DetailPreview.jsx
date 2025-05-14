@@ -9,7 +9,7 @@ const DetailPreview = ({ isDrag, address, coords }) => {
             <h3>입력한 주소</h3>
                 <p>{address}</p>
                 <div id='preview-text'>시끄럽군요.<br /> 이사는 어때요?</div>
-                <button id='detail-move'  onClick={() => goInfoDetail(coords) }>상세 보기</button>
+                <button id='detail-move'  onClick={() => goInfoDetail(coords,address) }>상세 보기</button>
             </div>
         </div>
     )

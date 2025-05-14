@@ -5,9 +5,11 @@ import { kakaoLogin } from '@/pages/login/services/LoginService';
 import { initKakao } from '@/utils/kakaoSignup';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
-import { getToken, saveToken, removeToken } from '@/utils/authService';
+import { getToken, removeToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
+import {useGoogleLogin} from "@/pages/login/hook/useGoogleLogin.js";
 
+const { handleGoogleLogin } = useGoogleLogin();
 const LoginSelect = () => {
     const navigate = useNavigate();
     const setAuth = useSetRecoilState(authState);
@@ -48,7 +50,7 @@ const LoginSelect = () => {
 
                 <div className="divider">또는</div>
 
-                <button className="google-login-button">
+                <button className="google-login-button" onClick={handleGoogleLogin}>
                     <img
                         src="https://developers.google.com/identity/images/g-logo.png"
                         alt="google"

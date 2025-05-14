@@ -1,23 +1,41 @@
-# jwt_utils.py
+
+
+
+
+
+
 import jwt
-import os
 from datetime import datetime, timedelta, timezone
-from dotenv import load_dotenv
+from flask import current_app
 
-# ✅ 환경 변수 불러오기
-load_dotenv()
-SECRET_KEY = os.getenv('JWT_SECRET_KEY')
+def get_jwt_secret():
+    secret = current_app.config.get("JWT_SECRET_KEY")
+    if not secret:
+        raise RuntimeError("JWT_SECRET_KEY 환경변수가 설정되어 있지 않습니다.")
+    return secret
 
-# ✅ JWT 생성 함수
-def generate_jwt(user_id, provider, expires_in_hours=2):
-    if not SECRET_KEY:
-        raise ValueError("JWT_SECRET_KEY 환경변수가 설정되어 있지 않습니다.")
-
-    exp_time = datetime.now(timezone.utc) + timedelta(hours=expires_in_hours)
+def generate_jwt(user,expires_in_hours=2):
     payload = {
-        'user_id': user_id,
-        'provider': provider,
-        'exp': exp_time
+        "user_id": user["id"],
+        "username": user["username"],
+        "email": user["email"],
+        "exp": datetime.now(timezone.utc) + timedelta(hours=expires_in_hours),
+        "type": "access"
     }
-    token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
-    return token
+    return jwt.encode(payload, get_jwt_secret(), algorithm="HS256")
+
+def create_refresh_token(user):
+    payload = {
+        "user_id": user["id"],
+        "exp": datetime.now(timezone.utc) + timedelta(days=7),
+        "type": "refresh"
+    }
+    return jwt.encode(payload, get_jwt_secret(), algorithm="HS256")
+
+def decode_jwt(token):
+    try:
+        return jwt.decode(token, get_jwt_secret(), algorithms=["HS256"])
+    except jwt.ExpiredSignatureError:
+        return None
+    except jwt.InvalidTokenError:
+        return None

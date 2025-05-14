@@ -13,8 +13,25 @@ def create_user(username, hashed_password, email, phone_number, address, detail_
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'local')
             """
             cursor.execute(sql, (
-                username, hashed_password, email, phone_number, 
+                username, hashed_password, email, phone_number,
                 address, detail_address, birthdate, agree_privacy
+            ))
+        connection.commit()
+    finally:
+        connection.close()
+
+def create_google_user(social_id, username, email):
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            sql = """
+                INSERT INTO users (
+                    username, email, provider, provider_id
+                )
+                VALUES (%s, %s, 'google', %s)
+            """
+            cursor.execute(sql, (
+                username, email, social_id
             ))
         connection.commit()
     finally:

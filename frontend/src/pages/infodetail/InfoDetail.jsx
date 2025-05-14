@@ -12,9 +12,12 @@ import '@/styles/InfoDetail.css';
 const InfoDetail = () => {
   const location = useLocation();
   const initialCoords = location.state?.coords || { lat: 37.5665, lng: 126.9780 };
+  const initialAddress = location.state?.address || '';
+  console.log('location.state'+location.state)
 
   const [scoreData, setScoreData] = useState([]);
   const [coords, setCoords] = useState(initialCoords);
+  const [address, setAddress] = useState(initialAddress);
 
   useEffect(() => {
     if (!coords.lat || !coords.lng) return;
@@ -44,7 +47,9 @@ const InfoDetail = () => {
 
   return (
     <div className='chart-background'>
-      <InfoGPT />
+      <InfoGPT
+        address={address}
+      />
       <div className='chart-area'>
         <div className='chart-box'>
           <ResponsiveContainer width="100%" height={800}>
