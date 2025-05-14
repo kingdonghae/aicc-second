@@ -12,7 +12,7 @@ const SignupForm = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [confirmPasswordMessage, setConfirmPasswordMessage] = useState('');
 
-    const [username, setUsername]  = useState('');
+    const [username, setUsername] = useState('');
     const [birthdate, setBirthdate] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
