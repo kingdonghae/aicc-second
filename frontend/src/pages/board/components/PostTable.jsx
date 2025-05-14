@@ -29,7 +29,7 @@ const NoticeTableCell = styled(TableCell)({
   fontWeight: "bolder",
 });
 
-export default function PostTable({ posts, totalPages, loading, error, page, setPage,limit }) {
+export default function PostTable({ posts, totalPages, loading, error, page, setPage, limit }) {
   const { goTextDetail } = useNavigation();
 
 

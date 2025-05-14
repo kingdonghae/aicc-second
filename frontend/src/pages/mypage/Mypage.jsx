@@ -74,7 +74,7 @@ const Mypage = () => {
     }, []);
 
     return (
-        <div className="background">
+        <div className="mypage-background">
             <form className="mypage-form" onSubmit={handleSubmit}>
                 <input type="text" value={email} readOnly className='hold-data' />
 

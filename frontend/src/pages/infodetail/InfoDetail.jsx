@@ -1,78 +1,83 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
-  Radar, RadarChart, PolarGrid, PolarAngleAxis,
-  PolarRadiusAxis, ResponsiveContainer
+    Radar, RadarChart, PolarGrid, PolarAngleAxis,
+    PolarRadiusAxis, ResponsiveContainer
 } from 'recharts';
 import CustomLegend from './components/CustomLegend';
 import InfoGPT from './components/InfoGPT';
 import { getScore } from './service/ScoreService';
 import '@/styles/InfoDetail.css';
+// import { legendList } from './components/legendList';
+import { legendList } from './components/LegendList';
 
 const InfoDetail = () => {
-  const location = useLocation();
-  const initialCoords = location.state?.coords || { lat: 37.5665, lng: 126.9780 };
-  const initialAddress = location.state?.address || '';
-  console.log('location.state'+location.state)
+    const location = useLocation();
+    const initialCoords = location.state?.coords || { lat: 37.5665, lng: 126.9780 };
+    const initialAddress = location.state?.address || '';
+    console.log('location.state' + location.state)
 
-  const [scoreData, setScoreData] = useState([]);
-  const [coords, setCoords] = useState(initialCoords);
-  const [address, setAddress] = useState(initialAddress);
+    const [scoreData, setScoreData] = useState([]);
+    const [coords, setCoords] = useState(initialCoords);
+    const [address, setAddress] = useState(initialAddress);
 
-  useEffect(() => {
-    if (!coords.lat || !coords.lng) return;
+    useEffect(() => {
+        if (!coords.lat || !coords.lng) return;
 
-    const fetchScore = async () => {
-      try {
-        const score = await getScore(coords.lat, coords.lng);
-        console.log("✅ 전체 점수 응답:", score);
+        const fetchScore = async () => {
+            try {
+                const score = await getScore(coords.lat, coords.lng);
+                console.log("✅ 전체 점수 응답:", score);
 
-        const chartData = [
-          { name: '🚗교통', uv: score.traffic ?? 5 },
-          { name: '🌳생활 인프라', uv: score.infra ?? 5 },
-          { name: '💰시세', uv: score.rent ?? 5 },
-          { name: '👨‍✈️치안', uv: score.safety ?? 5 },
-          { name: '🔊소음', uv: score.noise ?? 5 },
-          { name: '👩‍👩‍👧‍👦인구 밀도', uv: score.population ?? 5 }
-        ];
+                const chartData = [
+                    { name: '교통', uv: score.traffic ?? 5 },
+                    { name: '생활 인프라', uv: score.infra ?? 5 },
+                    { name: '시세', uv: score.rent ?? 5 },
+                    { name: '치안', uv: score.cctv ?? 5 },
+                    { name: '소음', uv: score.noise ?? 5 },
+                    { name: '인구 밀도', uv: score.population ?? 5 }
+                ];
 
-        setScoreData(chartData);
-      } catch (err) {
-        console.error("❌ 점수 요청 실패:", err);
-      }
-    };
+                setScoreData(chartData);
+            } catch (err) {
+                console.error("❌ 점수 요청 실패:", err);
+            }
+        };
 
-    fetchScore();
-  }, [coords]);
+        fetchScore();
+    }, [coords]);
 
-  return (
-    <div className='chart-background'>
-      <InfoGPT
-        address={address}
-      />
-      <div className='chart-area'>
-        <div className='chart-box'>
-          <ResponsiveContainer width="100%" height={800}>
-            <RadarChart data={scoreData}>
-              <PolarGrid />
-              <PolarAngleAxis dataKey="name" />
-              <PolarRadiusAxis />
-              <Radar
-                dataKey="uv"
-                fill="#6EA8DC"
-                fillOpacity={0.6}
-                stroke='#6EA8DC'
-                strokeLinecap='round'
-                animationDuration={1000}
-                animationBegin={0}
-              />
-            </RadarChart>
-          </ResponsiveContainer>
+    return (
+        <div className='chart-background'>
+            {/* infoGPT가 위치가 바뀌었어요! */}
+            <InfoGPT />
+            <div className='chart-area'>
+                <CustomLegend legends={legendList} />
+
+                <div className='chart-box'>
+                    <ResponsiveContainer width="100%" height={650}>
+                        <RadarChart data={scoreData}>
+                            <PolarGrid />
+                            <PolarAngleAxis dataKey="name" />
+                            <PolarRadiusAxis />
+                            <Radar
+                                dataKey="uv"
+                                fill="#6EA8DC"
+                                fillOpacity={0.6}
+                                stroke='#6EA8DC'
+                                strokeLinecap='round'
+                                animationDuration={1000}
+                                animationBegin={0}
+                            />
+                        </RadarChart>
+                    </ResponsiveContainer>
+                </div>
+
+            </div>
+
+            <InfoGPT address={address} />
         </div>
-        <CustomLegend />
-      </div>
-    </div>
-  );
+    );
 };
 
 export default InfoDetail;
