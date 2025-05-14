@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import AuthInitializer from "./components/AuthInitializer";
 
 import Layout from "@/components/layout/Layout.jsx";
 import { ROUTES } from "@/constants/routes";
