@@ -16,7 +16,7 @@ engine = create_engine(
 )
 
 # ▶ 1. 원본 cctv 테이블 전체 로드
-df = pd.read_sql("SELECT * FROM cctv", engine)
+df = pd.read_sql("SELECT * FROM subway", engine)
 
 # ▶ 2. geometry 생성
 df["geometry"] = df.apply(lambda row: Point(row["lng"], row["lat"]), axis=1)
@@ -37,6 +37,6 @@ final_cols = list(df.columns) + ["full_adrs_admin", "dong_admin"]
 result = joined[final_cols]
 
 # ▶ 7. 새 테이블로 저장
-result.to_sql("cctv_dong", con=engine, index=False, if_exists="replace")
+result.to_sql("subway_dong", con=engine, index=False, if_exists="replace")
 
-print("✅ 'cctv_dong' 테이블 생성 완료 (행정동 전체주소 및 동명만 포함)")
+print("✅ 'subway_dong' 테이블 생성 완료 (행정동 전체주소 및 동명만 포함)")
