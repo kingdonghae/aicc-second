@@ -12,6 +12,7 @@ import TextDetail from "@/pages/textdetail/TextDetail.jsx";
 import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
 import Board from "@/pages/board/Board";
 import MapPage from "@/pages/map/MapPage.jsx";
+import OAuthSuccess from "@/pages/login/OAuthSuccess.jsx";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                 <Route path={ROUTES.RANK} element={<Rank />} />
                 <Route path={ROUTES.SIGNUP} element={<Signup />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
+                <Route path={ROUTES.OAUTH_SUCCESS} element={<OAuthSuccess />} />
                 <Route path={ROUTES.MYPAGE} element={<Mypage />} />
                 <Route path={ROUTES.WRITE} element={<WritePage />} />
                 <Route path={`${ROUTES.TEXT_DETAIL}/:id`} element={<TextDetail />} />

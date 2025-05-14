@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_cors import CORS
 from config.file_config import WRITE_UPLOAD_FOLDER
+from config.googleLogin_config import GoogleConfig
+from routes.google_auth_route import google_auth
 from routes.population_route import population_bp
 from routes.post_route import post_bp
 
@@ -12,11 +14,13 @@ from routes.upload_route import upload_bp
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.config['WRITE_UPLOAD_FOLDER'] = WRITE_UPLOAD_FOLDER
+app.config.from_object(GoogleConfig)
 CORS(app)
 
 # 블루프린트 등록
 app.register_blueprint(signup_bp)
 app.register_blueprint(login_bp)
+app.register_blueprint(google_auth)
 app.register_blueprint(rank_bp, url_prefix='/rank')
 app.register_blueprint(search_bp, url_prefix='/search')
 app.register_blueprint(upload_bp)

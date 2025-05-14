@@ -15,6 +15,7 @@ export const useNavigation = () => {
         goInfoDetail: () => navigate(ROUTES.INFO_DETAIL),
         goWrite: () => navigate(ROUTES.WRITE),
         goTextDetail: (id) => navigate(`${ROUTES.TEXT_DETAIL}/${id}`),
-        goEdit: (id) => navigate(`${ROUTES.WRITE}/${id}`)
+        goEdit: (id) => navigate(`${ROUTES.WRITE}/${id}`),
+        goOAuthSuccess: () => navigate(ROUTES.OAUTH_SUCCESS)
     };
 };

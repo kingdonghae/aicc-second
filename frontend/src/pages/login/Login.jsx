@@ -2,13 +2,14 @@ import '@/styles/Login.css';
 import { useState } from 'react';
 import { login } from './services/LoginService';
 import { useNavigation } from '@/hook/useNavigation.js';
+import {useGoogleLogin} from "@/pages/login/hook/useGoogleLogin.js";
 
 const Login = () => {
     const { goSignup } = useNavigation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
+    const { handleGoogleLogin } = useGoogleLogin();
     const handleLogin = async () => {
         if (!email.trim()) {
             setErrorMessage("이메일을 입력해주세요.");
@@ -53,7 +54,7 @@ const Login = () => {
                     {errorMessage || '\u00A0'}
                 </p>
                 <div className='signup'>
-                    <button className='google-signup'>구글로 로그인</button>
+                    <button className='google-signup' onClick={handleGoogleLogin}>구글로 로그인</button>
                     <button className='kakao-signup'>카카오로 로그인</button>
                     <button className='direct-signup' onClick={goSignup}>회원가입</button>
                 </div>
