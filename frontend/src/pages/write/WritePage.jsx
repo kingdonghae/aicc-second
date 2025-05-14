@@ -61,10 +61,9 @@ const WritePage = () => {
 
 
     return (
-        <div className='write-page'>
+        <div className='write-background'>
             <div className='write-box'>
-
-                <div className='content-box'>
+                <div className='create-box'>
                     <div>
                         <input type="text"
                             placeholder="제목을 입력하세요"

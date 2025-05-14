@@ -1,36 +1,4 @@
-@font-face {
-    font-family: 'KIMM_Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
 
-:root {
-    font-family: 'KIMM_Bold';
-    font-size: 1.7rem;
-    color: rgba(0, 0, 0, 0.87);
-    background-color: #ffffff;
-    /* color-scheme: light dark; */
-
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-#root {
-    max-width: 1280px;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    text-align: center;
-}
 
 #top {
     background-color: #DEEBF7;
@@ -45,9 +13,7 @@ body {
 }
 
 
-
-
-#main-header {
+/* #main-header {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -57,38 +23,8 @@ body {
 
 #main-header p {
     font-size: 1rem;
-}
+} */
 
-
-.menu-box {
-    display: flex;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    gap: 1rem;
-}
-
-.menu-button {
-    font-family: 'KIMM_Bold';
-    font-size: 0.6rem;
-    background-color: #6EA8DC;
-    border: none;
-    border-radius: 1rem;
-    padding: 0.5rem 0.8rem;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.menu-button:hover {
-    background-color: #FFF2CC;
-    transform: scale(1.05)
-}
-
-.menu-button:active {
-    transform: scale(1.05) translateY(-2px);
-    filter: brightness(0.92);
-    opacity: 100%;
-}
 
 
 #main-title {
