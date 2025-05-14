@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { getSearchScore } from "../service/ScoreService";
+import { getCombinedScore } from "../service/ScoreService";
+import { useKakaoAddressSearch } from "../../../hook/useKakaoAddressSearch";
 
 
 export function UseScoreSelector({ lat, lng, onSuccess }) {
@@ -8,7 +9,7 @@ export function UseScoreSelector({ lat, lng, onSuccess }) {
 
         const fetchData = async () => {
           try {
-            const data = await getSearchScore(lat, lng);
+            const data = await getCombinedScore(lat, lng);
             console.log("받은 데이터:", data);
             onSuccess?.(data);
           } catch (err) {
@@ -17,5 +18,5 @@ export function UseScoreSelector({ lat, lng, onSuccess }) {
         };
       
         fetchData();
-      }, []);
+      }, [lat, lng]);
 }

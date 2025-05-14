@@ -60,7 +60,8 @@ const MapPage = () => {
             <div className="preview-box">
                 <DetailPreview
                     isDrag={isDrag}
-                    address={address} />
+                    address={address}
+                    coords={coords} />
             </div>
         </div>
     );
