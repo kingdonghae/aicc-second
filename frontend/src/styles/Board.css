@@ -1,0 +1,251 @@
+@font-face {
+  font-family: 'KIMM_Bold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.board-background {
+  /* background-color: #ffffff; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.board-box {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* background-color: gray; */
+  border-radius: 1rem;
+  padding: 0 5rem;
+  margin-top: 2.5rem;
+  width: 85%;
+  height: 95%;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin: 1rem 1rem 0.5rem 1rem;
+  text-align: left;
+  /* background-color: aliceblue; */
+}
+
+.board-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* background-color: yellow; */
+}
+
+.board-title h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.board-title p {
+  font-size: 0.8rem;
+  margin-left: 0;
+}
+
+
+
+/* .functions {
+  margin: 1.5% 0 0 0;
+  flex: 1;
+} */
+
+/* .home-btn {
+  margin: 15px 35px 15px 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+} */
+
+/* .home-btn button {
+  border: 6px solid black;
+  border-radius: 2rem;
+} */
+
+/* .home-btn img {
+  padding: 5px;
+  height: 80px;
+} */
+ .board-menu-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  width: 35%;
+  height: 2.5rem;
+  margin-top: 3rem;
+ }
+
+.content-search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: #ffffff;
+  border-radius: 2rem;
+  width: 80%;
+  height: 80%;
+  border: 2px solid black;
+  /* 요소 간 간격 */
+}
+
+.content-search-box input {
+  background-color: transparent;
+  border: none;
+}
+
+.content-search-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.content-search-btn:hover {
+  transform: scale(1.05);
+}
+
+
+.write-btn {
+  width: 4rem;
+  height: 80%;
+  font-family: 'KIMM_Bold';
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #fffac8;
+}
+
+.write-btn:hover {
+  background-color: #cce5ff;
+}
+
+.write-btn:active {
+  transform: scale(1.02);
+}
+
+/* .write-btn input {
+  font-size: 35px;
+  width: 75%;
+  height: 70px;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  font-family: 'KIMM_Bold';
+  background-color: #cacaca;
+} */
+/* 
+.input-word {
+  flex: 4;
+  margin: 5px;
+  font-size: 25px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.submit-btn {
+  flex: 1;
+  height: 60px;
+  border: none;
+  border-radius: 2rem;
+}
+
+.submit-btn img {
+  height: 45px;
+} */
+
+/* .board-table table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+} */
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem 0.5rem 2.5rem;
+  height: 22.5rem;
+}
+
+ .board-table {
+  min-height: 550px;
+}
+
+.board-table th {
+  padding: 15px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.board-table td {
+  border-bottom: 1px solid #000;
+  padding: 0.35rem;
+  text-align: center;
+  font-size: 0.6rem;
+}
+
+/* 제목 열 왼쪽 정렬, 너비는 테이블 너비의 35%로 지정 */
+.board-table td:nth-child(2) {
+  text-align: left;
+  width: 35%;
+}
+
+.board-table th {
+  background-color: #6EA8DC;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.notice-row {
+  background-color: #fffac8;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+/* 페이지네이션을 아래쪽 끝 정렬 */
+.pagination {
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
+  /* gap: 10px; */
+  /* padding-bottom: 20px; */
+}
+
+.page-number.active {
+  background-color: #6EA8DC;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination button,
+.pagination .page-number {
+  background-color: #f0f8ff;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination .page-number.active {
+  background-color: #cce5ff;
+}

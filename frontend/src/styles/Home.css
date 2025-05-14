@@ -1,210 +1,240 @@
 @font-face {
-  font-family: 'KIMM_Bold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'KIMM_Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
 
 :root {
-  font-family: 'KIMM_Bold';
-  font-size: 1.7rem;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
-      /* color-scheme: light dark; */
+    font-family: 'KIMM_Bold';
+    font-size: 1.7rem;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #ffffff;
+    /* color-scheme: light dark; */
 
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow: hidden;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    text-align: center;
 }
 
 #top {
-  background-color: #DEEBF7;
-  width: 100vw;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+    background-color: #DEEBF7;
+    width: 100vw;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    /* padding-top: 0.5rem; */
 }
 
+
+
+
 #main-header {
-  margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 #main-header p {
-  font-size: 1rem;
+    font-size: 1rem;
 }
+
+
+.menu-box {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    gap: 1rem;
+}
+
+.menu-button {
+    font-family: 'KIMM_Bold';
+    font-size: 0.6rem;
+    background-color: #6EA8DC;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button:hover {
+    background-color: #FFF2CC;
+    transform: scale(1.05)
+}
+
+.menu-button:active {
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(0.92);
+    opacity: 100%;
+}
+
 
 #main-title {
-  font-size: 3.5rem;
-  letter-spacing: 0.3em;
-  margin: 0.5rem;
+    font-size: 3.5rem;
+    letter-spacing: 0.3em;
+    margin: 0;
+    /* margin-bottom: 0.3rem; */
+    margin-top: 1.5rem;
 }
 
-#main-input-box {
-width: 50%;
-height: 3rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: white;
-border: 5px solid black;
-/* margin: 1rem; */
-padding: 0.1rem;
-border-radius: 2rem;
-position: relative;
+.home-container #search-input-box {
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 5px solid black;
+    /* margin-bottom: 1rem; */
+    padding: 0.1rem;
+    border-radius: 2rem;
+    position: relative;
 }
 
-#main-input-box  input {
-  text-align: center;
-  font-family: 'KIMM_Bold', sans-serif;
-  font-size: 100%;
-  text-indent: 3.5rem;
-  width: 90%;
-  height: 90%;
-  border-radius: 2rem;
-  border: none;
-  background-color: transparent;
+.home-container #search-input-box input {
+    text-align: center;
+    font-family: 'KIMM_Bold', sans-serif;
+    font-size: 100%;
+    text-indent: 3.5rem;
+    width: 90%;
+    height: 90%;
+    border-radius: 2rem;
+    border: none;
+    background-color: transparent;
 }
+
+
 
 /* jungeun추가 start*/
 .input-focused {
-  border-radius: 2rem 2rem 0 0
+    border-radius: 2rem 2rem 0 0
 }
+
 .input-blured {
-  border-radius: 2rem
+    border-radius: 2rem
 }
 
 .recommendation-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-radius: 0 0 8px 8px;
-  max-height: 93px;
-  overflow-y: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  list-style: none;
-  margin: -5px;
-  padding: 0;
-  border: 5px solid black;
-  border-top: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 0 0 8px 8px;
+    max-height: 93px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    list-style: none;
+    margin: -5px;
+    padding: 0;
+    border: 5px solid black;
+    border-top: none;
 }
 
 .recommendation-list li {
-  padding: 12px 16px;
-  cursor: pointer;
-  font-size: 15px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 .recommendation-list li:hover {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
+
+
 
 /* jungeun추가 end*/
-input:focus
-  {
-  outline: none;
+
+input:focus {
+    outline: none;
 }
-/* button:focus */
+
+button:focus {
+    outline: none;
+}
 
 #input-button {
-  margin: 1rem;
-  height: 90%;
-  aspect-ratio: 1 / 1;
-  border: none;
-  border-radius: 2rem;
-  background-image: url('../assets/search.png');
+    margin: 1rem;
+    padding-top: 0.2rem;
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: 2rem;
+    /* background-image: url('../assets/search.png');
   background-size: 60%;
   background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  cursor: pointer;
-  transition: transform 0.12s ease;
+  background-repeat: no-repeat; */
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.12s ease;
 }
 
 #input-button:hover {
-  transform: scale(1.2) translateY(-2px);
+    transform: scale(1.2) translateY(-2px);
 }
 
 #input-button:active {
-  transform: scale(1.2) translateY(-2px);
+    transform: scale(1.2) translateY(-2px);
 }
 
+
+
 #bottom {
-  background-color: rgb(255, 255, 255);
-  width: 100vw;
-  height: 20rem;
-  padding-top: 4rem;
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 20rem;
+    padding-top: 4rem;
 }
 
 #button-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #button-box button {
-  margin: 0rem 3.5rem 1rem 3.5rem;
-  background-color: #F2F2F2;
-  border: none;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.08s ease-in; /* 빠르게! */
+    margin: 0rem 3.5rem 1rem 3.5rem;
+    background-color: #F2F2F2;
+    border: none;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.08s ease-in;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 #button-box button:hover {
-  background-color: #b6b6b6;
+    background-color: #b6b6b6;
+    opacity: 70%;
+    transform: scale(1.05)
 }
 
 #button-box button:active {
-  transform: scale(1.05) translateY(-2px);
-  filter: brightness(0.92);
-}
-
-
-#map-button {
-  background-image: url('../assets/locate.png');
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-}
-
-#rank-button {
-  background-image: url('../assets/rank4.png');
-  background-size: 65%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-#speak-button {
-  background-image: url('../assets/speak3.png');
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  cursor: pointer;
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(0.92);
+    opacity: 100%;
 }

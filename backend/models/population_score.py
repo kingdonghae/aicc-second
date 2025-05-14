@@ -38,7 +38,7 @@ with conn.cursor() as cursor:
             avgHouseholdSize DECIMAL(20,10),
             fullAdrs TEXT,
             lat DOUBLE,
-            lon DOUBLE,
+            lng DOUBLE,
             score INT
         )
     """)
@@ -47,7 +47,7 @@ with conn.cursor() as cursor:
         INSERT INTO population_score (
             ID, region, district1, district2, district3,
             numOfHouse, popuDen, numOfHuman, numOfHouseshold,
-            avrAge, avgHouseholdSize, fullAdrs, lat, lon, score
+            avrAge, avgHouseholdSize, fullAdrs, lat, lng, score
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
 
@@ -67,7 +67,7 @@ with conn.cursor() as cursor:
             safe["avgHouseholdSize"],
             safe["fullAdrs"],
             safe["lat"],
-            safe["lon"],
+            safe["lng"],
             int(safe["score"]) if safe["score"] is not None else 0
         ))
 

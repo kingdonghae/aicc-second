@@ -1,125 +1,181 @@
-@font-face {
-  font-family: 'KIMM_Bold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
-
-* {
-  box-sizing: border-box;
-}
-  
-html, body, #root {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  font-family: 'KIMM_Bold';
-}
-  
-#root {
-  background-color: #DEEBF7;
-  text-align: center;
-}
-
-#background {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #DEEBF7;
-}
-
-#house {
-  /* background-image: url('./assets/login_house.png'); */
-  background-image: url('../assets/login_house3.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:contain;
-  width: 65%;
-  height: 65%;
-  background-color: #DEEBF7;
-  /* background-color: transparent; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4rem;
-}
 
 
-#login-box {
-  background-color:#ffffff;
-  /* background-color: transparent; */
-  padding: 20px;
-  border-radius: 0rem 0rem 1rem 1rem;
-  width: 50%;
-  height: 75%;
-  margin-top: 10.5rem;
+.home-menu {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 30;
+    font-family: 'KIMM_Bold';
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    background-color: transparent;
+    border: none;
+    color: #111;
+    text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.3),
+        2px 2px 2px rgba(0, 0, 0, 0.25),
+        3px 3px 3px rgba(0, 0, 0, 0.2),
+        4px 4px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-#login {
-  /* background-color: rgb(240, 240, 240); */
-  background-color: transparent;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20%;
+.home-menu:hover {
+    color: #6EA8DC;
+    text-shadow: 0 0 5px white;
+    transition: all 0.2s ease;
+    text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.3),
+        2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-#login h2 {
-  font-size: 1.8rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.menu-popup {
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    z-index: 30;
 }
 
-#login input {
-  margin: 0.2rem;
-  width: 80%;
-  height: 2rem;
-  border: 2px solid black;
-  border-radius: 2rem;
-  text-align: center;
-  text-indent: 0;
-  font-size: 0.8rem;
+.menu-group {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+    border-radius: 1rem;
+    padding: 2rem 1.8rem;
+    opacity: 90%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#login-password::placeholder{
-  font-family: 'KIMM_Bold';
+.menu-list button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    text-align: center;
+    font-size: 0.8rem;
 }
 
-#login-password {
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
+.menu-list button:hover {
+    color: #6EA8DC;
+    transform: scale(1.05);
 }
 
-span {
-  margin: 0.5rem;
+.menu-list button:active {
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(0.92);
 }
 
-#login button {
-  background-color: #FFF2CC;
-  margin: 0.2rem;
-  /* margin-top: 1rem; */
-  width: 80%;
-  height: 3rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  text-align: center;
-  font-family: 'KIMM_Bold';
-  font-size: 1rem;
-  transition: all 0.2s ease;
+#menu-select button {
+    color: #6EA8DC;
 }
 
-#login button:hover {
-  background-color: #6EA8DC;
-  color: white;
+
+.modal {
+    background-color: #ffffff;
+    /* background-color: transparent; */
+    padding: 20px;
+    border-radius: 1rem;
+    width: 20rem;
+    min-width: 600px;
 }
 
-#login button:active {
-  transform: scale(0.98);
+.login {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+
+.login-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-item input {
+    margin: 0.2rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.login-button {
+    height: 90%;
+    background-color: #FFF2CC;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    font-size: 0.7rem;
+    border: none;
+}
+
+.login-password::placeholder {
+    font-family: 'KIMM_Bold';
+}
+
+.login-password {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.login-error-msg {
+    height: 1.5rem;
+    color: red;
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+
+.login button:hover {
+    background-color: #6EA8DC;
+    color: white;
+}
+
+.login button:active {
+    transform: scale(0.98);
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.signup button {
+    justify-content: center;
+    width: 100%;
+    height: 2rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    font-family: 'KIMM_Bold';
+    font-size: 0.7rem;
+    border: none;
+}
+
+.signup button:hover {
+    background-color: #6EA8DC;
+    color: white;
+}
+
+.signup button:active {
+    transform: scale(0.98);
+}
+
+.local-signup {
+    background-color: #FFF2CC;
+}
+
+.google-signup {
+    background-color: #9b96ff;
+}
+
+.kakao-signup {
+    background-color: #FEE500;
 }

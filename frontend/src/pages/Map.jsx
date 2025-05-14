@@ -1,59 +1,51 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Searchbox from '../components/Searchbox';
+import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
+import MapIcon from '@mui/icons-material/Map';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import SearchBox from '../components/SearchBox';
 import DetailList from '../components/DetailList';
 import DetailPreview from '../components/DetailPreview';
-import '../styles/Map.css'
 import APIMap from "@/components/APIMap.jsx";
+import '../styles/Map.css';
 
 const Map = () => {
-  
-  const [showList, setShowList] = useState(true);
-  const [address, setAddress] = useState('');
-  const [searchAddress, setSearchAddress] = useState('');
-  const [rerenderKey, setRerenderKey] = useState(Date.now());
+    const navigate = useNavigate();
+    const menuRef = useRef();
+    
+    const [menu, setMenu] = useState(false);
+    const [showList, setShowList] = useState(true);
+    const [address, setAddress] = useState('');
+    const [searchAddress, setSearchAddress] = useState('');
+    const [rerenderKey, setRerenderKey] = useState(Date.now());
+    const [isDrag, setIsDrag] = useState(false);
+    const [category, setCategory] = useState({
+        subway: true,
+        school: true,
+        mart: true,
+        hospital: true
+    })
 
-
-  const location = useLocation();
-  const key = location.key || new Date().getTime();
-
-  useEffect(() => {
+    const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
-    const addressUrl = searchParams.get('address') || '';
-    if (addressUrl) {
-      setAddress(addressUrl);
-      setSearchAddress(addressUrl);
+    const key = Number(searchParams.get('key')) || Date.now();
+
+    const toggleMenu = () => {
+        setMenu(prev => !prev)
     }
-  }, [location.search]);
-  
 
-  return (
-    <div className="mapbackground">
-      
-      {searchAddress && (
-        <APIMap address={searchAddress} rerenderkey={key}/>
-      )}
-      {/* <APIMap address={searchAddress} rerenderKey={key}/> */}
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (menu && menuRef.current && !menuRef.current.contains(e.target)) {
+                setMenu(false);
+            }
+        };
 
-      <div className='search-box'>
-        <Searchbox
-        inputValue={address}
-        setInputValue={setAddress}
-        onSearch={(value) => {
-          setAddress(value);
-          setRerenderKey(Date.now());
-        }}/></div>
-
-      {!showList && (<button className='toggle-list-button' onClick={() => setShowList((prev) => !prev)}>항목<br/>보기</button>)}
-      {showList && (<div className='list-box'><DetailList onClose={()=> setShowList(false)}/></div>)}
-
-      <div className='preview-box'><DetailPreview/></div>
-      
-    </div>
-  
-  
-  )
-}
-
-export default Map;
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [menu]);

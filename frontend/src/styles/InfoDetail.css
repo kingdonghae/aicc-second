@@ -3,43 +3,51 @@
     height: 100vh;
     background-color: #DEEBF7;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
-  }
-
-.chart-header {
-    margin-top: 3rem;
 }
 
-.address-info {
+
+
+/* .chart-header {
+    margin-top: 3rem;
+} */
+
+/* .address-info {
+    margin-top: 2.5rem;
     background-color: #F2F2F2;
-    width: 80%;
-    height: 7rem;
+    width: 60%;
+    height: 9rem;
     border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-  
+} */
+
 .chart-area {
     position: relative;
     width: 100%;
-    height: 60%;
-    padding: 0rem 4rem 2rem 4rem;
+    height: 100%;
+    /* padding: 0rem 4rem 2rem 4rem; */
     box-sizing: border-box;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
 }
 
 .chart-box {
     background-color: white;
-    border-radius: 1rem;
-    padding: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     height: 100%;
-  }
-  
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    padding-right: 5rem;
+    /* align-items: flex-start; */
+}
+
 
 .counter-label {
     width: 100%;
@@ -51,4 +59,55 @@
     /* line-height: 30px; */
     overflow: visible;
 }
-  
+
+/* InfoGPT */
+
+.gpt-background {
+    background-color:#DEEBF7;
+    width: 50%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpt-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+    width: 100%;
+    height: 50%;
+    padding: 1rem;
+}
+
+.gpt-box h2 {
+    font-size: 1rem;
+}
+
+.gpt-talk {
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+}
+
+
+
+/* CustomLegend */
+
+.legend-background {
+    background-color: #f2f2f2;
+    height: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* border-radius: 1rem; */
+}

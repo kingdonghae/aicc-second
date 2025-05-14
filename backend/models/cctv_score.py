@@ -39,7 +39,7 @@ with conn.cursor() as cursor:
             parcAdrs TEXT,
             rnAdrs TEXT,
             lat DECIMAL(20,10),
-            lon DECIMAL(20,10),
+            lng DECIMAL(20,10),
             instPur TEXT,
             numOfCam INT,
             full_adrs_admin TEXT,
@@ -51,6 +51,8 @@ with conn.cursor() as cursor:
     insert_sql = """
         INSERT INTO cctv_score (
             ID, parcAdrs, rnAdrs, lat, lon, instPur, numOfCam,
+        INSERT INTO cctv_dong_score (
+            ID, parcAdrs, rnAdrs, lat, lng, instPur, numOfCam,
             full_adrs_admin, dong_admin, score
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
@@ -63,7 +65,7 @@ with conn.cursor() as cursor:
             safe_row["parcAdrs"],
             safe_row["rnAdrs"],
             safe_row["lat"],
-            safe_row["lon"],
+            safe_row["lng"],
             safe_row["instPur"],
             int(safe_row["numOfCam"]),
             safe_row["full_adrs_admin"],
