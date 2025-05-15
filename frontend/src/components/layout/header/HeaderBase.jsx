@@ -7,7 +7,6 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
-import '@/styles/Login.css'; 
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();

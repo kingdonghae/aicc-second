@@ -7,7 +7,6 @@ import {
 import CustomLegend from './components/CustomLegend';
 import InfoGPT from './components/InfoGPT';
 import { getScore } from './service/ScoreService';
-import '@/styles/InfoDetail.css';
 // import { legendList } from './components/legendList';
 import { legendList } from './components/LegendList';
 
