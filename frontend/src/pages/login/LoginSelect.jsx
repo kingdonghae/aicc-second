@@ -52,7 +52,7 @@ const LoginSelect = () => {
 
                 <button className="google-login-button" onClick={handleGoogleLogin}>
                     <img
-                        src="https://developers.google.com/identity/images/g-logo.png"
+                        src="/assets/g-logo.png"
                         alt="google"
                         className="google-icon"
                     />

@@ -99,11 +99,11 @@
     cursor: pointer;
     transition: transform 0.12s ease;
 }
-  
+
 #input-button:hover {
     transform: scale(1.2) translateY(-2px);
 }
-  
+
 #input-button:active {
     transform: scale(1.2) translateY(-2px);
 } */

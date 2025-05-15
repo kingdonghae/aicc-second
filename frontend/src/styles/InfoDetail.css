@@ -32,7 +32,7 @@
     /* /* display: flex; */
     flex-direction: column;
     justify-content: center;
-    align-items: center'
+    align-items: center;
 }
 
 
@@ -59,7 +59,7 @@
     background-color: white;
     border-radius: 1rem;
     width: 100%;
-    height: 50%;
+    height: 600px;
     padding: 1rem;
 }
 
@@ -68,13 +68,13 @@
 }
 
 .gpt-talk {
-    background-color: #333;
     width: 100%;
     height: 100%;
     border-radius: 1rem;
     padding: 1rem;
-    font-size: 0.8rem;
+    font-size: 16px;
     word-wrap: break-word;
+    text-align: left;
 }
 
 

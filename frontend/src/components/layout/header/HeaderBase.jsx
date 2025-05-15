@@ -7,6 +7,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
+import {useShowModal} from "@/utils/showModal.js";
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
@@ -15,8 +16,8 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     const [menu, setMenu] = useState(false);
     const menuRef = useRef();
     const { logout } = useAuth();
-
-    const toggleMenu = () => {setMenu((prev) => !prev);}
+    const showModal = useShowModal();
+    const toggleMenu = () => setMenu((prev) => !prev);
     const closeMenu = () => setMenu(false);
 
     useEffect(() => {
@@ -30,10 +31,15 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     }, []);
 
     const handleLogout = () => {
-        if (window.confirm("로그아웃 하시겠습니까?")) {
-            logout();
-            navigate('/');
-        }
+        showModal({
+            title: '   ',
+            message: '로그아웃 하시겠습니까?',
+            onConfirm: () => {
+                logout();
+                goHome();
+            }, // 확인 누르면 홈으로 이동
+            showCancelButton: true,
+        });
     };
 
     const renderAuthButtons = () => {
@@ -46,7 +52,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
                 </button>
             </>
         );
-        
+
         if (auth?.isLoggedIn) {
             return (
                 <>

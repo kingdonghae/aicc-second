@@ -18,11 +18,13 @@ import MapPage from "@/pages/map/MapPage.jsx";
 import OAuthSuccess from "@/pages/login/OAuthSuccess.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RentReportIframe from "@/pages/RentReportIframe.jsx";
+import AlertModal from "@/components/AlertModal.jsx";
 
 
 function App() {
     return (
-        <Routes>
+        <>
+            <Routes>
             <Route path={ROUTES.HOME} element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path={ROUTES.RANK} element={<Rank />} />
@@ -41,6 +43,8 @@ function App() {
                 <Route path='/rentReport' element={<RentReportIframe />} />
             </Route>
         </Routes>
+    <AlertModal />
+        </>
     );
 }
 
