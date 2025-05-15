@@ -1,4 +1,4 @@
-def get_noise_query():
+def get_dong_by_coords():
     return """
         SELECT full_adrs_admin, score
         FROM noise_score
