@@ -2,6 +2,8 @@ from flask import Flask
 from flask_cors import CORS
 from config.file_config import WRITE_UPLOAD_FOLDER
 from routes.post_route import post_bp
+import decimal
+from flask.json import JSONEncoder
 
 from routes.signup_route import signup_bp
 from routes.login_route import login_bp
@@ -12,8 +14,14 @@ from routes.upload_route import upload_bp
 from routes.user_route import user_bp
 from routes.score_route import score_bp
 
+class CustomJSONEncoder(JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, decimal.Decimal):
+            return float(obj)
+        return super().default(obj)
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
+app.json_encoder = CustomJSONEncoder
 app.config['WRITE_UPLOAD_FOLDER'] = WRITE_UPLOAD_FOLDER
 CORS(app)
 
