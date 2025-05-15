@@ -1,4 +1,4 @@
-def get_infra_query():
+def get_nearest_crime_score():
     return """
         SELECT amenities_score, full_adrs_admin
         FROM amenities_score

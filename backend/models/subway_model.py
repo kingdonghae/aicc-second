@@ -1,4 +1,4 @@
-def get_subway_query():
+def get_dong_by_coords():
     return """
         SELECT full_adrs_admin
         FROM subway_score
