@@ -73,7 +73,7 @@ const InfoDetail = () => {
 
             </div>
 
-            <InfoGPT address={address} />
+            {/* <InfoGPT address={address} /> */}
         </div>
     );
 };
