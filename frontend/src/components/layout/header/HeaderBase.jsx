@@ -70,7 +70,9 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     return (
         <header className="common-header" ref={menuRef}>
             {showMenuButton && (
-                <button className="home-menu" onClick={goHome}>집</button>
+                <button className="home-menu" onClick={goHome}>
+                    <img src="/logo.png" id="logo-img" alt="logo" />
+                </button>
             )}
             <div className="menu-box" ref={menuRef}>
                 {renderAuthButtons()}

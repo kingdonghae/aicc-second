@@ -10,12 +10,12 @@ if not exist venv\Scripts\activate (
 
 
 REM 의존성 설치 (선택: 최초 실행 시만 해도 충분, 필요 시 주석 풀기)
-@REM if exist ../backend/requirements.txt (
-@REM     echo Installing dependencies...
-@REM     pip install -r ../backend/requirements.txt
-@REM ) else (
-@REM     echo [WARN] requirements.txt 파일이 없습니다. 스킵합니다.
-@REM )
+if exist ../backend/requirements.txt (
+    echo Installing dependencies...
+    pip install -r ../backend/requirements.txt
+) else (
+    echo [WARN] requirements.txt 파일이 없습니다. 스킵합니다.
+)
 
 REM Flask 실행
 python ../backend/app.py

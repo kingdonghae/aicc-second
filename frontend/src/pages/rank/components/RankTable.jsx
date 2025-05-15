@@ -15,28 +15,28 @@
 export default function RankTable({ rankData }) {
 
     return (
-        <TableContainer component={Paper} sx={{ minHeight: '280px' }}>
+        <TableContainer component={Paper}>
             <Table sx={{ fontSize: '0.5rem', padding: '0rem' }} aria-label="simple table">
                 <TableBody>
                     {rankData && rankData.length > 0 ? (
                         rankData.map((row) => (
                             <TableRow key={row.keyword}>
-                                <TableCell align="center" sx={{ fontFamily: 'KIMM_Bold', padding: '0rem 1rem' }}>{row.currentRank}</TableCell>
-                                <TableCell align="center" sx={{ fontFamily: 'KIMM_Bold', padding: '0rem' }}>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem 1rem' }}>{row.currentRank}</TableCell>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem' }}>
                                     {row.diffRank === 0 ? (
                                         <RemoveIcon sx={{ fontSize: 16, color: 'gray' }} />
                                     ) : (
                                         <>
                                             {row.diffRank > 0 ? (
-                                                <ArrowUpwardIcon sx={{ fontSize: 16, color: 'red' }} />
+                                                <ArrowUpwardIcon sx={{ fontSize: 18, color: 'red'}} />
                                             ) : (
-                                                <ArrowDownwardIcon sx={{ fontSize: 16, color: 'blue' }} />
+                                                <ArrowDownwardIcon sx={{ fontSize: 18, color: 'blue' }} />
                                             )}
                                             {Math.abs(row.diffRank)}
                                         </>
                                     )}
                                 </TableCell>
-                                <TableCell align="center" sx={{ fontFamily: 'KIMM_Bold', fontSize: '0.85rem', padding: '0.4rem', width: "600px" }}>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', fontSize: '0.7rem', padding: '0.4rem', width: "600px" }}>
                                     {row.keyword}
                                 </TableCell>
                             </TableRow>

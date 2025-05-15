@@ -43,7 +43,7 @@ const SearchBox = ({ defaultValue = '', onSearch }) => {
         <form id='search-input-box' onSubmit={handleSubmit}>
             <input
                 type='text'
-                placeholder='주소를 입력해주세요.'
+                placeholder='어느 동네가 궁금하신가요?'
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
             />
