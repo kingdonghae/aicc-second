@@ -20,6 +20,7 @@ const InfoDetail = () => {
     const [scoreData, setScoreData] = useState([]);
     const [coords, setCoords] = useState(initialCoords);
     const [address, setAddress] = useState(initialAddress);
+    const [score, setScore] = useState(null);
 
     useEffect(() => {
         if (!coords.lat || !coords.lng) return;
@@ -39,6 +40,7 @@ const InfoDetail = () => {
                 ];
 
                 setScoreData(chartData);
+                setScore(score);
             } catch (err) {
                 console.error("❌ 점수 요청 실패:", err);
             }
@@ -49,7 +51,7 @@ const InfoDetail = () => {
 
     return (
         <div className='chart-background'>
-            
+
             <div className='chart-area'>
                 <CustomLegend legends={legendList} />
 
@@ -72,9 +74,8 @@ const InfoDetail = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <InfoGPT address={address}/>
-
             </div>
+            <InfoGPT address={address} score={score} />
 
         </div>
     );

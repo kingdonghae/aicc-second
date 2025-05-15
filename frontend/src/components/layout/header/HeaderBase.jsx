@@ -3,20 +3,20 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef, useEffect } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
+import {useShowModal} from "@/utils/showModal.js";
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
-    const navigate = useNavigate();
     const auth = useRecoilValue(authState);
     const [menu, setMenu] = useState(false);
     const menuRef = useRef();
     const { logout } = useAuth();
-
-    const toggleMenu = () => {setMenu((prev) => !prev);}
+    const showModal = useShowModal();
+    const toggleMenu = () => setMenu((prev) => !prev);
     const closeMenu = () => setMenu(false);
 
     useEffect(() => {
@@ -30,10 +30,15 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     }, []);
 
     const handleLogout = () => {
-        if (window.confirm("로그아웃 하시겠습니까?")) {
-            logout();
-            navigate('/');
-        }
+        showModal({
+            title: '   ',
+            message: '로그아웃 하시겠습니까?',
+            onConfirm: () => {
+                logout();
+                goHome();
+            }, // 확인 누르면 홈으로 이동
+            showCancelButton: true,
+        });
     };
 
     const renderAuthButtons = () => {
@@ -46,7 +51,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
                 </button>
             </>
         );
-        
+
         if (auth?.isLoggedIn) {
             return (
                 <>
@@ -77,7 +82,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
             <div className="menu-box" ref={menuRef}>
                 {renderAuthButtons()}
                 {showMenuButton && (
-                    <button className="menu-button" onClick={(e) => {
+                    <button className="menu-button" onClick={() => {
                         toggleMenu();
                     }}>
                         <MenuIcon />

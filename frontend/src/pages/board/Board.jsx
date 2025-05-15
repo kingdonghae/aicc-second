@@ -35,7 +35,7 @@ const Board = () => {
             </div>
           </section>
 
-          <section className="contents">
+          <section className="board-content">
             <div className="board-table">
               <PostTable
                 posts={posts}

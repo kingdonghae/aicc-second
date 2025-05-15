@@ -16,6 +16,7 @@ def get_cctv_score(lng, lat):
                 print("❌ 행정동 정보 없음")
                 return {"score": 0}
             print(dong_result)
+
             full_adrs_admin = dong_result["full_adrs_admin"]
 
             # ✅ 2. 동 이름으로 CCTV 점수 조회

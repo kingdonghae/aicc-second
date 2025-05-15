@@ -11,7 +11,7 @@ def get_crime_score(lng, lat):
             sql = get_nearest_crime_score()
             cursor.execute(sql, (lng, lat))  # 위도, 경도 순서 주의
             result = cursor.fetchone()
-            
+
             if result and "score" in result:
                 print(f"✅ 찾은 행정동: {result['full_adrs_admin']}")
                 print(f"✅ 범죄 점수: {result['score']}")

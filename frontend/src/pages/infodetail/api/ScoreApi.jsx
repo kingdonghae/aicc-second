@@ -6,17 +6,17 @@ export const fetchScore = async (lat, lng) => {
     // 먼저 숫자로 변환한 후 toFixed() 사용
     const roundedLat = parseFloat(lat).toFixed(6);
     const roundedLng = parseFloat(lng).toFixed(6);
-  
+
     console.log("요청 시작: 좌표", roundedLat, roundedLng);
-    
+
     // 타임아웃 시간 증가 (3초 → 10초)
-    const { data } = await apiClient.post("/score", { 
-      lat: Number(roundedLat), 
-      lng: Number(roundedLng) 
-    }, { 
+    const { data } = await apiClient.post("/score", {
+      lat: Number(roundedLat),
+      lng: Number(roundedLng)
+    }, {
       timeout: 10000  // 타임아웃 10초로 설정
     });
-    
+
     console.log("응답 성공:", data);
     return data;
   } catch (error) {

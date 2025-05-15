@@ -137,7 +137,7 @@
   font-family: 'NPSfontBold';
   background-color: #cacaca;
 } */
-/* 
+/*
 .input-word {
   flex: 4;
   margin: 5px;
@@ -163,7 +163,7 @@
   border-collapse: collapse;
 } */
 
-.contents {
+.board-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

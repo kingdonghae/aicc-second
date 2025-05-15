@@ -1,44 +1,16 @@
-import {useEffect, useState} from "react";
 import WeekSelector from "@/pages/rank/components/WeekSelector.jsx";
 import MonthSelector from "@/pages/rank/components/MonthSelector.jsx";
 import RankTable from "@/pages/rank/components/RankTable.jsx";
-import { useMonthSelector } from "@/pages/rank/hook/UseMonthSelector.jsx";
-import { useWeekSelector } from "@/pages/rank/hook/UseWeekSelector.jsx";
-import { useTodaySelector } from "@/pages/rank/hook/UseTodaySelector.jsx";
-import SearchIcon from '@mui/icons-material/Search';
-import '../../styles/Rank.css';
-import * as React from "react";
-
+import { useMonthSelector } from "@/pages/rank/hook/useMonthSelector.js";
+import { useWeekSelector } from "@/pages/rank/hook/useWeekSelector.js";
+import { useTodaySelector } from "@/pages/rank/hook/useTodaySelector.js";
+import SearchIcon from "@mui/icons-material/Search";
+import '@/styles/Rank.css';
 
 const Rank = () => {
     const { monthRank, monthValue, handleChange: handleMonthChange } = useMonthSelector();
     const { weekRank, weekValue,weekLabel, handleChange: handleWeekChange } = useWeekSelector();
-    const { todayRank , useKeywordRank} = useTodaySelector();
-    console.log("1111"+monthRank)
-    console.log(weekRank)
-    console.log(todayRank)
-    useEffect(() => {
-        console.log(monthRank)
-    }, [monthRank]);
-    const [inputValue, setInputValue] = useState('');
-    const [keywordData, setKeywordData] = useState(null);
-
-    const handleSearchSubmit = async (e) => {
-        e.preventDefault(); // ✅ form 새로고침 방지
-
-        if (!inputValue.trim()) {
-            alert("검색어를 입력해주세요.");
-            return;
-        }
-
-        try {
-            const res = await useKeywordRank(inputValue);
-            setKeywordData(res.rankings[0]?.currentRank ?? '-');
-        } catch (error) {
-            console.error("검색 실패:", error);
-            setKeywordData('-'); // 검색 실패 시 기본값
-        }
-    };
+    const { inputValue, keywordData, setInputValue, handleSearchSubmit, todayRank} = useTodaySelector();
 
 
     return (
@@ -60,7 +32,8 @@ const Rank = () => {
                             onChange={(e) => setInputValue(e.target.value)}
                             onSubmit={(e) => { e.preventDefault(); }}
                         />
-                        <SearchIcon id='input-button'/>
+                        <button id='input-button' type='submit' ><SearchIcon /></button>
+
                     </form>
                     <h3 id="today-rank">오늘의 순위는 <span id='check-number'> {keywordData ? keywordData : '?'}</span>위</h3>
                 </div>

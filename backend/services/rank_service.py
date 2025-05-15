@@ -55,7 +55,7 @@ def fetch_week_ranking(year, week):
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            cursor.execute(get_weekly_rank_query(), (year, week,))
+            cursor.execute(get_weekly_rank_query(), (year, year, week,))
             return cursor.fetchall()
     finally:
         connection.close()
