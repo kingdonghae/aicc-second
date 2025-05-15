@@ -5,9 +5,11 @@ import { kakaoLogin } from '@/pages/login/services/LoginService';
 import { initKakao } from '@/utils/kakaoSignup';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
-import { getToken, saveToken, removeToken } from '@/utils/authService';
+import { getToken, removeToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
+import {useGoogleLogin} from "@/pages/login/hook/useGoogleLogin.js";
 
+const { handleGoogleLogin } = useGoogleLogin();
 const LoginSelect = () => {
     const navigate = useNavigate();
     const setAuth = useSetRecoilState(authState);
@@ -39,7 +41,7 @@ const LoginSelect = () => {
         <div className="login-wrapper">
             <div className="login-container">
                 <h1 className="logo-text">집<span>PT</span></h1>
-                <p className="login-sub">하이 집피티! 내 집 찾아줘</p>
+                <p className="login-sub">로그인하고<br/>내 집 점수 확인하기</p>
 
                 <button className="kakao-login" onClick={handleKakaoLogin}>카카오로 3초 만에 바로시작</button>
                 <button className="email-login-button" onClick={() => navigate('/login/email')}>
@@ -48,7 +50,7 @@ const LoginSelect = () => {
 
                 <div className="divider">또는</div>
 
-                <button className="google-login-button">
+                <button className="google-login-button" onClick={handleGoogleLogin}>
                     <img
                         src="https://developers.google.com/identity/images/g-logo.png"
                         alt="google"

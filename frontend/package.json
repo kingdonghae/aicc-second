@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev:react": "vite",
+    "dev:flask": "cmd /c scripts\\run_flask.bat",
+    "dev": "concurrently \"npm run dev:react\" \"npm run dev:flask\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

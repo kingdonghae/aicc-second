@@ -1,32 +1,5 @@
-.home-menu {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 30;
-    font-family: 'KIMM_Bold';
-    font-size: 2.5rem;
-    letter-spacing: 0.2em;
-    background-color: transparent;
-    border: none;
-    color: #111;
-    text-shadow:
-        1px 1px 1px rgba(0, 0, 0, 0.3),
-        2px 2px 2px rgba(0, 0, 0, 0.25),
-        3px 3px 3px rgba(0, 0, 0, 0.2),
-        4px 4px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.home-menu:hover {
-    color: #6EA8DC;
-    text-shadow: 0 0 5px white;
-    transition: all 0.2s ease;
-    text-shadow:
-        1px 1px 1px rgba(0, 0, 0, 0.3),
-        2px 2px 2px rgba(0, 0, 0, 0.2);
-}
-
 .login-wrapper {
+    font-family: 'Pretendard-Regular';
     background-color: #e6f0fa;
     display: flex;
     justify-content: center;
@@ -44,6 +17,7 @@
 }
 
 .logo-text {
+    font-family: 'KIMM_Bold';
     font-size: 2.5rem;
     font-weight: bold;
 }

@@ -12,7 +12,7 @@ def handle_social_login(provider, user_info):
         create_social_user(provider, provider_id, email, nickname)
         user = get_user_by_provider(provider, provider_id)
 
-    token = generate_jwt(user['id'], provider)
+    token = generate_jwt(user)
 
     return {'message': '소셜 로그인 성공!', 'token': token}, 200
 

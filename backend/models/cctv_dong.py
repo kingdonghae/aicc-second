@@ -23,7 +23,7 @@ df["geometry"] = df.apply(lambda row: Point(row["lng"], row["lat"]), axis=1)
 points_gdf = gpd.GeoDataFrame(df, geometry="geometry", crs="EPSG:4326")
 
 # ▶ 3. 행정동 GeoJSON 파일 로드
-dong_gdf = gpd.read_file("./../HangJeongDong_ver20250401.geojson")
+dong_gdf = gpd.read_file("./HangJeongDong_ver20250401.geojson")
 
 # ▶ 4. 공간 조인 (좌표 기반으로 행정동 찾기)
 joined = gpd.sjoin(points_gdf, dong_gdf, how="left", predicate="within")

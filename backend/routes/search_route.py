@@ -39,7 +39,9 @@ def log_search_route():
     data = request.json or {}
     keyword = data.get("keyword", "").strip()
     user_id = data.get("user_id")
-    ip_address = request.remote_addr
+    client_id = request.cookies.get("client_id")
+    if not client_id:
+        client_id = request.headers.get("X-Client-ID")
 
-    return log_search_keyword(keyword,user_id, ip_address)
+    return log_search_keyword(keyword, user_id, client_id)
 

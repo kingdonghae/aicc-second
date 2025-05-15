@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { getCombinedScore } from "../service/ScoreService";
-import { useKakaoAddressSearch } from "../../../hook/useKakaoAddressSearch";
 
 
 export function UseScoreSelector({ lat, lng, onSuccess }) {

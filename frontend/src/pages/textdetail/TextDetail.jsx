@@ -59,7 +59,7 @@ const TextDetail = () => {
     }
 
     return (
-        <div className='write-page'>
+        <div className='content-background'>
             <div className='comment-list'>
                 <h2>댓글 목록</h2>
                 <hr id='write-hr' />
