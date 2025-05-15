@@ -54,8 +54,7 @@ const EmailLogin = () => {
                 {errorMessage && <p className="login-error-msg">{errorMessage}</p>}
                 <button onClick={handleLogin} className="submit-button">로그인</button>
                 <div className="login-links">
-                    <span>비밀번호 재설정</span> | 
-                    <span onClick={() => navigate('/signup')} className="link">이메일로 가입하기</span>
+                    <span onClick={() => navigate('/login')} className="link" >회원가입</span>
                 </div>
             </div>
         </div>

@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f7fc;
 }
 
 .login-container {
@@ -13,6 +12,18 @@
     width: 22rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
+}
+
+.go-login-select {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    font-size: 1rem;
+}
+
+.go-login-select:hover {
+    background-color: #deebf7;
+    color: #6c757d;
 }
 
 .login-container input {
@@ -55,4 +66,8 @@
     color: #0077ff;
     cursor: pointer;
     text-decoration: underline;
+}
+
+.login-links .link:hover {
+    font-weight: bold;
 }

@@ -31,10 +31,8 @@ function App() {
                 <Route path="/login/email" element={<EmailLogin />} />
                 <Route path="/signup" element={<SignupTerms />} />
                 <Route path="/signup/form" element={<SignupForm />} />
-                <Route path={ROUTES.MYPAGE} element={
-                    <ProtectedRoute><Mypage /></ProtectedRoute>}/>
-                <Route path={ROUTES.WRITE} element={
-                    <ProtectedRoute><WritePage /></ProtectedRoute>}/>
+                <Route path={ROUTES.MYPAGE} element={<Mypage />}/>
+                <Route path={ROUTES.WRITE} element={<WritePage />}/>
                 <Route path={`${ROUTES.TEXT_DETAIL}/:id`} element={<TextDetail />} />
                 <Route path={`${ROUTES.WRITE}/:id`} element={<WritePage />} />
                 <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
