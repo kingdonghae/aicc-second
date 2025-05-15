@@ -6,7 +6,6 @@ export const login = async (data) => {
   try {
     const response = await postLogin(data);
     const token = response.data.token;
-
     const userInfo = jwtDecode(token);
     saveToken(token);
 

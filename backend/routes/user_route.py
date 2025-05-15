@@ -6,6 +6,7 @@ user_bp = Blueprint('user', __name__, url_prefix='/user')
 @user_bp.route('/<int:user_id>', methods=['GET'])
 def get_user(user_id):
     response, status = fetch_user_info(user_id)
+    print(response)
     return jsonify(response), status
 
 @user_bp.route('/<int:user_id>', methods=['PATCH'])

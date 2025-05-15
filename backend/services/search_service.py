@@ -16,11 +16,11 @@ from services.rank_service import insert_search_keyword
 
 
 # 주소 검색 시 로그 저장
-def log_search_keyword(keyword, user_id=None, ip_address=None):
+def log_search_keyword(keyword, user_id=None, client_id=None):
     if not keyword:
         return jsonify({"error": "검색어가 없습니다."}), 400
 
-    if not user_id and not ip_address:
+    if not user_id and not client_id:
         return jsonify({"error": "user_id 또는 ip_address는 필수입니다."}), 400
 
     # 검색 로그 저장
@@ -32,7 +32,7 @@ def log_search_keyword(keyword, user_id=None, ip_address=None):
             cursor.execute(sql, (
                 keyword,
                 user_id,
-                ip_address
+                client_id
             ))
         connection.commit()
         if cursor.rowcount == 0 :

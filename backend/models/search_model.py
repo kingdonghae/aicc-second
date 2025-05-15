@@ -13,9 +13,13 @@ def insert_search_log_query():
     return """
                 INSERT IGNORE INTO SEARCH_LOG
                 ( 
-                    KEYWORD
+                    KEYWORD 
                   , USER_ID
-                  , IP_ADDRESS
+                  , CLIENT_ID
                 )
-                VALUES (%s, %s, %s)
+                VALUES (
+                  %s    /*검색 주소*/
+                , %s    /*검색한 유저 아이디*/
+                , %s    /*쿠키 토큰*/
+                )
        """

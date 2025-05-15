@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import AuthInitializer from "./components/AuthInitializer";
 
 import Layout from "@/components/layout/Layout.jsx";
 import { ROUTES } from "@/constants/routes";
@@ -16,31 +15,36 @@ import TextDetail from "@/pages/textdetail/TextDetail.jsx";
 import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
 import Board from "@/pages/board/Board";
 import MapPage from "@/pages/map/MapPage.jsx";
+import OAuthSuccess from "@/pages/login/OAuthSuccess.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
+import RentReportIframe from "@/pages/RentReportIframe.jsx";
+import AlertModal from "@/components/AlertModal.jsx";
 
 
 function App() {
     return (
-        <Routes>
+        <>
+            <Routes>
             <Route path={ROUTES.HOME} element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path={ROUTES.RANK} element={<Rank />} />
                 <Route path="/login" element={<LoginSelect />} />
+                <Route path={ROUTES.OAUTH_SUCCESS} element={<OAuthSuccess />} />
                 <Route path="/login/email" element={<EmailLogin />} />
                 <Route path="/signup" element={<SignupTerms />} />
                 <Route path="/signup/form" element={<SignupForm />} />
-                <Route path={ROUTES.MYPAGE} element={
-                    <ProtectedRoute><Mypage /></ProtectedRoute>}/>
-                <Route path={ROUTES.WRITE} element={
-                    <ProtectedRoute><WritePage /></ProtectedRoute>}/>
+                <Route path={ROUTES.MYPAGE} element={<Mypage />}/>
+                <Route path={ROUTES.WRITE} element={<WritePage />}/>
                 <Route path={`${ROUTES.TEXT_DETAIL}/:id`} element={<TextDetail />} />
                 <Route path={`${ROUTES.WRITE}/:id`} element={<WritePage />} />
                 <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
                 <Route path={ROUTES.MAP} element={<MapPage />} />
                 <Route path={ROUTES.BOARD} element={<Board />} />
-
+                <Route path='/rentReport' element={<RentReportIframe />} />
             </Route>
         </Routes>
+    <AlertModal />
+        </>
     );
 }
 

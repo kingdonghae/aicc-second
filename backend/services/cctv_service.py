@@ -1,12 +1,13 @@
 from db import get_connection
 from models.cctv_model import get_cctv_query
 from models.cctv_model import get_dong_by_coords  # 좌표로 동 찾기 쿼리
+import pymysql
 
 def get_cctv_score(lng, lat):
     connection = get_connection()
 
     try:
-        with connection.cursor() as cursor:
+        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             # ✅ 1. 좌표로 동 찾기
             dong_sql = get_dong_by_coords()
             cursor.execute(dong_sql, (lng, lat))
@@ -14,6 +15,7 @@ def get_cctv_score(lng, lat):
             if not dong_result or "full_adrs_admin" not in dong_result:
                 print("❌ 행정동 정보 없음")
                 return {"score": 0}
+            print(dong_result)
 
             full_adrs_admin = dong_result["full_adrs_admin"]
 

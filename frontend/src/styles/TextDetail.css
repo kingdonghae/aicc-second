@@ -1,37 +1,14 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
-@font-face {
-    font-family: 'KIMM_Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-comment
-* {
-    box-sizing: border-box;
-}
-
-/* html, body, #root {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    font-family: 'KIMM_Bold';
-    font-weight: 300;
-    background-color: #DEEBF7
-} */
-
-
-.write-page {
+.content-background {
     display: flex;
-    /* flex-direction: column; */
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     height: 100vh;
-    /* background-color: black; */
     padding: 3rem;
-
 }
+
+
+/* comment */
 
 .commend-head {
     display: flex;
@@ -39,19 +16,12 @@ comment
     margin-right: 0.3rem;
 }
 
-.comment-list {
-    width: 30%;
-    height: 26.5rem;
-    margin: 3rem 1rem 0 0;
-    padding: 20px;
-    border-radius: 1rem;
-    border-right: 1px solid #ccc;
-}
+
 
 #delete-commend {
     width: 2rem;
     height: 1.25rem;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
     cursor: pointer;
     margin: 0.2rem 0 0 0;
     background-color: #6EA8DC;
@@ -105,43 +75,15 @@ comment
     padding-right: 8px; /* 스크롤 여유 공간 (선택사항) */
 }
 
-.write-box button {
-    border-radius: 0.1rem;
-    /* font-family: Arial, Helvetica, sans-serif; */
-    font-size: 0.5rem;
-    /* padding: 0.3rem; */
-    /* margin: 0.3rem 0.1rem; */
-}
 
-.write-box {
-    display: flex;
-    width: 80%;
-    margin-top: 3rem;
-}
+
+
 
 /* .menu-header {
     height: 4rem;
 } */
 
-#write-title {
-    font-size: 0.9rem;
-    width: 35rem;
-    height: 2rem;
-    border: none;
-    margin: 0.6rem 0 0 0;
-    background-color: transparent;
-}
-
-#write-hr {
-    border: none;
-    border-radius: 0;
-    width: 90%;
-    background-color: rgb(213, 213, 213);
-    margin: 0;
-}
-
 .comment-list {
-    width: 30%;
     padding: 1rem;
     border-right: 1px solid #ccc;
     font-size: 0.6rem;
@@ -149,17 +91,30 @@ comment
     background-color: #f8f9fa;
 }
 
+.comment-list {
+    width: 15rem;
+    height: 26.5rem;
+    margin: 3rem 1rem 0 0;
+    padding: 20px;
+    border-radius: 1rem;
+    border-right: 1px solid #ccc;
+}
+
+
 .content-box {
-    width: 70%;
     background-color: #ffffff;
     border-radius: 1rem;
     height: 26.5rem;
-    /* padding: 0.5rem; */ 
-    /* margin: 0.5rem 0rem; */
+    padding: 0.5rem; 
+    /* margin: 0rem 0rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-box img {
+    width: 100%;
 }
 
 .title-box {
@@ -167,72 +122,66 @@ comment
     justify-content: space-between;
     align-items: center;
     /* background-color: beige; */
-    width: 85%;
+    width: 90%;
     height: 5rem;
     text-align: left;
+
 }
 
 .title-box h4 {
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
+    font-size: 0.8rem;
 }
 
 #writer {
     font-size: 0.5rem;
-    margin: -1rem 0 0.1rem 0;
+    /* margin: -1rem 0 0.1rem 0; */
 }
 
 .edit-box {
-    width: 8rem;
+    width: 6.5rem;
     height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-size: 0.7rem;
-    /* background-color: firebrick; */
     margin-top: 1.5rem;
 }
 
 .other-content {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     /* background-color: yellow; */
     cursor: pointer;
+    font-size: 0.5rem;
 }
 
 .buttons {
     width: 100%;
-    /* height: 100%; */
     display: flex;
     justify-content: space-between;
-    /* background-color: goldenrod; */
-    gap: 0.2rem;
+}
+
+.buttons button {
+        width: 3rem;
+    height: 1.5rem;
+        font-family: 'NPSfontBold';
+            cursor: pointer;
+                border-radius: 1.5rem;
+    font-size: 0.5rem;
+    border: none;
+
 }
 
 #edit-button {
-    width: 3.5rem;
-    height: 1.5rem;
-    font-family: 'KIMM_Bold';
-    cursor: pointer;
-    /* margin: 0 4rem 0.4rem 4rem; */
     background-color: #6EA8DC;
-    border-radius: 1.5rem;
-    font-size: 0.5rem;
-    border: none;
 }
 
 #list-button {
-    width: 3.5rem;
-    height: 1.5rem;
-    font-family: 'KIMM_Bold';
-    cursor: pointer;
-    /* margin: 0 4rem 0.4rem     4rem; */
     background-color: #DEEBF7;
     color: #6C757D;
-    border-radius: 1.5rem;
-    font-size: 0.5rem;
-    border: none;
 }
 
 #edit-button:hover {
@@ -249,23 +198,39 @@ comment
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.text-box {
-    /* background-color: rgb(152, 152, 152); */
+.content-text-box div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0.8rem 0 0 0;
+    /* justify-content: space-between; */
+    width: 32rem;
+    height: 16rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.content-text-box img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    /* display: block; */
+    margin: 0 0.5rem;
+}
+
+.content-text-box p {
+    /* padding: 0.8rem 0 0 0; */
     /* margin-top: 1rem; */
-    line-height: 1.2rem;
-    width: 90%;
+    line-height: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0;
     /* height: 70%; */
     /* background-color: rgb(255, 255, 255); */
     /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
     border-radius: 0.5rem;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     font-family: 'Pretendard', sans-serif;
+    font-size: 0.6rem;
     text-align: left;
 }
 
@@ -275,13 +240,13 @@ comment
     font-size: 0.6rem;
     outline: none;
     text-align: left;
+}*/
+
+/* .content-text-box .ProseMirror {
+    padding: 0;
 }
 
-.text-box .ProseMirror {
-    padding: 0;
-} */
-
-/* .text-box .ProseMirror img {
+.content-text-box .ProseMirror img {
     max-width: 300px; 
     width: 100%;
     height: auto;
@@ -343,7 +308,7 @@ comment
 
 .comment-box button {
     background-color: #DEEBF7;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
     font-size: 0.7rem;
     border: none;
     width: 3rem;

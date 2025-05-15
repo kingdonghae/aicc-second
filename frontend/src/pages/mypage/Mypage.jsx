@@ -61,7 +61,7 @@ const Mypage = () => {
         getUserInfo(id)
             .then(data => {
                 setUsername(data.username);
-                setBirthdate(data.birthdate);
+                setBirthdate(new Date(data.birthdate).toISOString().split('T')[0]);
                 setPhone(data.phone_number);
                 setEmail(data.email);
                 setAddress(data.address || '');
@@ -74,7 +74,7 @@ const Mypage = () => {
     }, []);
 
     return (
-        <div className="background">
+        <div className="mypage-background">
             <form className="mypage-form" onSubmit={handleSubmit}>
                 <input type="text" value={email} readOnly className='hold-data' />
 

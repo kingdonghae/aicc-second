@@ -1,0 +1,185 @@
+/* 전역 : 상단 메뉴(Header), 검색창(SearchBox), 메뉴 팝업 */
+
+@font-face {
+    font-family: 'NPSfontBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gosanja';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/Gosanja.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Gosanja';
+    font-size: 1.7rem;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #ffffff;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: 'NPSfontBold';
+    background-color: #DEEBF7;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/* 상단 헤더 */
+
+.home-menu {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 30;
+    width: 9rem;
+     height: 3.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#logo-img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+#logo-img:hover {
+    transform: scale(1.02);
+}
+
+.menu-box {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    gap: 1rem;
+}
+
+.menu-button {
+    font-family: 'NPSfontBold';
+    font-size: 0.6rem;
+    background-color: #6EA8DC;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 6;
+}
+
+.menu-button:hover {
+    background-color: #FFF2CC;
+    transform: scale(1.05)
+}
+
+.menu-button:active {
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(0.92);
+    opacity: 100%;
+}
+
+
+/* 메뉴 팝업 */
+
+.menu-popup {
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    z-index: 9999;
+}
+
+.menu-group {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+    border-radius: 1rem;
+    padding: 2rem 1.8rem;
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-list button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'NPSfontBold';
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.menu-list button:hover {
+    color: #6EA8DC;
+    transform: scale(1.05);
+}
+
+.menu-list button:active {
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(0.92);
+}
+
+#menu-select button {
+    color: #6EA8DC;
+}
+
+
+/* 검색창 SearchBox */
+
+#search-input-box {
+    width: 40rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 5px solid black;
+    padding: 0.1rem;
+    border-radius: 2rem;
+}
+
+#search-input-box input {
+    text-align: center;
+    font-size: 90%;
+    text-indent: 3.5rem;
+    width: 90%;
+    height: 90%;
+    border-radius: 2rem;
+    border: none;
+    background-color: transparent;
+}
