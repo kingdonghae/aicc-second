@@ -1,4 +1,4 @@
-
+/* Home */
 
 #top {
     background-color: #DEEBF7;
@@ -8,59 +8,32 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    /* padding-top: 0.5rem; */
+    gap: 0.5rem;
 }
-
-
-/* #main-header {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 0;
-    margin-top: 0;
-}
-
-#main-header p {
-    font-size: 1rem;
-} */
-
-
 
 #main-title {
     font-size: 3.5rem;
     letter-spacing: 0.3em;
-    margin: 0;
-    /* margin-bottom: 0.3rem; */
-    margin-top: 1.5rem;
+    margin: 1rem 0 0 0;
+    font-family: 'Gosanja';
+    font-weight: 200;
+    /* margin-top: 1rem; */
 }
 
-.home-container #search-input-box {
-    width: 50%;
-    height: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    border: 5px solid black;
-    /* margin-bottom: 1rem; */
-    padding: 0.1rem;
-    border-radius: 2rem;
-    position: relative;
+#sub-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.home-container #search-input-box input {
-    text-align: center;
-    font-family: 'KIMM_Bold', sans-serif;
-    font-size: 100%;
-    text-indent: 3.5rem;
-    width: 90%;
-    height: 90%;
-    border-radius: 2rem;
-    border: none;
-    background-color: transparent;
+#sub-text {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
 }
 
+#top span {
+    font-size: 0.7rem;
+    color: #949494;
+}
 
 
 /* jungeun추가 start*/
@@ -119,10 +92,7 @@ button:focus {
     aspect-ratio: 1 / 1;
     border: none;
     border-radius: 2rem;
-    /* background-image: url('../assets/search.png');
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat; */
+
     background-color: transparent;
     cursor: pointer;
     transition: transform 0.12s ease;
@@ -142,7 +112,7 @@ button:focus {
     background-color: rgb(255, 255, 255);
     width: 100vw;
     height: 20rem;
-    padding-top: 4rem;
+    padding-top: 3rem;
 }
 
 #button-box {

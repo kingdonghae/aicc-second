@@ -26,7 +26,7 @@ const MapPage = () => {
                 onDragEnd={() => setIsDrag(false)}
                 setCoords={setCoords}
             />
-            <div className="search-box">
+            <div className="search-position">
                 <div className="search-page">
                     <SearchBox
                         defaultValue={address}

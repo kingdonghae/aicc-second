@@ -1,14 +1,23 @@
+/* 전역 : 상단 메뉴(Header), 검색창(SearchBox), 메뉴 팝업 */
+
 @font-face {
-    font-family: 'KIMM_Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
-    font-weight: 700;
+    font-family: 'NPSfontBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gosanja';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/Gosanja.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -18,7 +27,7 @@
 }
 
 :root {
-    font-family: 'KIMM_Bold';
+    font-family: 'Gosanja';
     font-size: 1.7rem;
     color: rgba(0, 0, 0, 0.87);
     background-color: #ffffff;
@@ -33,10 +42,35 @@ body,
     width: 100%;
     min-height: 100vh;
     min-width: 100vw;
-    font-family: var(--font-main);
+    font-family: 'NPSfontBold';
     background-color: #DEEBF7;
     text-align: center;
     overflow: hidden;
+}
+
+
+/* 상단 헤더 */
+
+.home-menu {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 30;
+    width: 9rem;
+     height: 3.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#logo-img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+#logo-img:hover {
+    transform: scale(1.02);
 }
 
 .menu-box {
@@ -48,7 +82,7 @@ body,
 }
 
 .menu-button {
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
     font-size: 0.6rem;
     background-color: #6EA8DC;
     border: none;
@@ -70,33 +104,8 @@ body,
     opacity: 100%;
 }
 
-.home-menu {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 30;
-    font-family: 'KIMM_Bold';
-    font-size: 2.5rem;
-    letter-spacing: 0.2em;
-    background-color: transparent;
-    border: none;
-    color: #111;
-    text-shadow:
-        1px 1px 1px rgba(0, 0, 0, 0.3),
-        2px 2px 2px rgba(0, 0, 0, 0.25),
-        3px 3px 3px rgba(0, 0, 0, 0.2),
-        4px 4px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
 
-.home-menu:hover {
-    color: #6EA8DC;
-    text-shadow: 0 0 5px white;
-    transition: all 0.2s ease;
-    text-shadow:
-        1px 1px 1px rgba(0, 0, 0, 0.3),
-        2px 2px 2px rgba(0, 0, 0, 0.2);
-}
+/* 메뉴 팝업 */
 
 .menu-popup {
     position: absolute;
@@ -131,7 +140,7 @@ body,
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
     text-align: center;
     font-size: 0.8rem;
 }
@@ -148,4 +157,29 @@ body,
 
 #menu-select button {
     color: #6EA8DC;
+}
+
+
+/* 검색창 SearchBox */
+
+#search-input-box {
+    width: 40rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 5px solid black;
+    padding: 0.1rem;
+    border-radius: 2rem;
+}
+
+#search-input-box input {
+    text-align: center;
+    font-size: 90%;
+    text-indent: 3.5rem;
+    width: 90%;
+    height: 90%;
+    border-radius: 2rem;
+    border: none;
+    background-color: transparent;
 }

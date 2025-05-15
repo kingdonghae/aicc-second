@@ -62,7 +62,7 @@ const TextDetail = () => {
         <div className='content-background'>
             <div className='comment-list'>
                 <h2>댓글 목록</h2>
-                <hr id='write-hr' />
+                <hr className='content-line' />
                 <div className='commends-area'>
                     {comments.length > 0 ? (
                         comments.map((cmt, index) => (
@@ -114,10 +114,10 @@ const TextDetail = () => {
                         </div>
                     </div>
 
-                    <hr id="write-hr" />
+                    <hr className='content-line'/>
 
                     {/* 본문 */}
-                    <div className="text-box">
+                    <div className="content-text-box">
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                     </div>
 

@@ -111,7 +111,7 @@
 .write-btn {
   width: 4rem;
   height: 80%;
-  font-family: 'KIMM_Bold';
+  font-family: 'NPSfontBold';
   border: none;
   border-radius: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -134,7 +134,7 @@
   text-align: center;
   border: none;
   border-radius: 2rem;
-  font-family: 'KIMM_Bold';
+  font-family: 'NPSfontBold';
   background-color: #cacaca;
 } */
 /* 
