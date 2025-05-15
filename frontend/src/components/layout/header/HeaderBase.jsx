@@ -7,7 +7,6 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
-import '@/styles/Login.css'; 
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
@@ -39,7 +38,15 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     };
 
     const renderAuthButtons = () => {
-        if (location.pathname === '/login') return null;
+        if (location.pathname === '/login/email') return null;
+
+        if (location.pathname === '/mypage') return (
+            <>
+                <button className="menu-button" onClick={handleLogout}>
+                    <LogoutIcon />
+                </button>
+            </>
+        );
         
         if (auth?.isLoggedIn) {
             return (
@@ -64,7 +71,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     return (
         <header className="common-header" ref={menuRef}>
             {showMenuButton && (
-                <button className="home-menu" onClick={goHome}>집PT</button>
+                <button className="home-menu" onClick={goHome}>집</button>
             )}
             <div className="menu-box" ref={menuRef}>
                 {renderAuthButtons()}

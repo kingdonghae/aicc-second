@@ -49,8 +49,6 @@ const InfoDetail = () => {
 
     return (
         <div className='chart-background'>
-            {/* infoGPT가 위치가 바뀌었어요! */}
-            <InfoGPT />
             <div className='chart-area'>
                 <CustomLegend legends={legendList} />
 
