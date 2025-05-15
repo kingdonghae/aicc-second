@@ -1,6 +1,6 @@
 from db import get_connection
 import pymysql
-from models.amenities_model import get_nearest_crime_score
+from models.amenities_model import get_amenities_query
 
 def get_amenities_score(lng, lat):
     connection = get_connection()
@@ -8,7 +8,7 @@ def get_amenities_score(lng, lat):
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             # 가장 가까운 위치의 편의시설 점수 가져오기
-            sql = get_nearest_crime_score()
+            sql = get_amenities_query()
             cursor.execute(sql, (lng, lat))
             result = cursor.fetchone()
             
