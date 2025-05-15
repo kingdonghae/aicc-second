@@ -60,7 +60,6 @@ const Mypage = () => {
 
         getUserInfo(id)
             .then(data => {
-                console.log(data)
                 setUsername(data.username);
                 setBirthdate(new Date(data.birthdate).toISOString().split('T')[0]);
                 setPhone(data.phone_number);
