@@ -3,7 +3,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useRef, useEffect } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
@@ -11,7 +11,6 @@ import {useShowModal} from "@/utils/showModal.js";
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
-    const navigate = useNavigate();
     const auth = useRecoilValue(authState);
     const [menu, setMenu] = useState(false);
     const menuRef = useRef();
@@ -83,7 +82,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
             <div className="menu-box" ref={menuRef}>
                 {renderAuthButtons()}
                 {showMenuButton && (
-                    <button className="menu-button" onClick={(e) => {
+                    <button className="menu-button" onClick={() => {
                         toggleMenu();
                     }}>
                         <MenuIcon />

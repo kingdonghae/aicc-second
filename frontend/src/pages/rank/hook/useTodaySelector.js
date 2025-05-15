@@ -1,5 +1,5 @@
-import {getSearchRank, getTodayRanking} from "../services/RankService.jsx";
-import {useEffect, useState} from "react";
+import { getTodayRanking } from "../services/RankService.jsx";
+import { useEffect, useState } from "react";
 
 export function useTodaySelector() {
     const [todayRank, setTodayRank] = useState([]);
