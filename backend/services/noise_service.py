@@ -11,7 +11,7 @@ def get_noise_score(lng, lat):
             sql = get_dong_by_coords()
             cursor.execute(sql, (lng, lat))
             result = cursor.fetchone()
-            
+
             if result and "score" in result:
                 print(f"✅ 찾은 행정동: {result['full_adrs_admin']}")
                 print(f"✅ 소음 점수: {result['score']}")

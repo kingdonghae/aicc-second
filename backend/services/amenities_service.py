@@ -11,7 +11,7 @@ def get_amenities_score(lng, lat):
             sql = get_nearest_crime_score()
             cursor.execute(sql, (lng, lat))
             result = cursor.fetchone()
-            
+
             if result and "amenities_score" in result:
                 print(f"✅ 찾은 행정동: {result['full_adrs_admin']}")
                 print(f"✅ 편의시설 점수: {result['amenities_score']}")
@@ -45,7 +45,7 @@ def get_amenities_score_by_dong(dong_name):
             """
             cursor.execute(sql, (f"%{dong_name}%",))
             result = cursor.fetchone()
-            
+
             if result and "score" in result:
                 print(f"✅ 조회 행정동: {result['full_adrs_admin']}")
                 print(f"✅ 편의시설 점수: {result['score']}")
