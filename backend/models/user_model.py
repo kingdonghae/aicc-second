@@ -74,11 +74,11 @@ def get_user_by_id(user_id):
     connection = get_connection()
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            sql = "SELECT id, username, email, phone_number, address, birthdate FROM users WHERE id = %s"
+            sql = "SELECT id, username, email, phone_number, address, detail_address, birthdate FROM users WHERE id = %s"
             cursor.execute(sql, (user_id,))
             return cursor.fetchone()
     finally:
-        connection.close()
+        connection.close()  
 
 def update_user(user_id, password, phone_number, address):
     connection = get_connection()
