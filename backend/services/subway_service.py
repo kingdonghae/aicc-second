@@ -1,5 +1,5 @@
 from db import get_connection
-from models.subway_model import get_dong_by_coords
+from models.subway_model import get_dong_subway
 import pymysql
 
 def get_subway_score(lng, lat):
@@ -8,7 +8,7 @@ def get_subway_score(lng, lat):
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             # 좌표로 가장 가까운 행정동 찾기
-            dong_sql = get_dong_by_coords()
+            dong_sql = get_dong_subway()
             cursor.execute(dong_sql, (lng, lat))
             dong_result = cursor.fetchone()
 

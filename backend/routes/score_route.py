@@ -18,11 +18,11 @@ def get_combined_score():
     rent = get_rent_score(lng, lat)
     safety = get_weighted_safety_score(lng, lat)  # CCTV와 시설 안전 점수를 가중치 적용
     amenites = get_amenities_score(lng, lat)
-    subway  = get_subway_score(lng,lat)
+    subway = get_subway_score(lng,lat)
     noise  = get_noise_score(lng, lat)
 
     print(f"📍 전달된 좌표: lat={lat}, lng={lng}")
-
+    
     return jsonify({
         "population": population.get("score", 0),
         "rent": rent.get("score", 0),

@@ -34,7 +34,7 @@ const InfoDetail = () => {
                     { name: '교통', uv: score.traffic ?? 5 },
                     { name: '생활 인프라', uv: score.infra ?? 5 },
                     { name: '시세', uv: score.rent ?? 5 },
-                    { name: '치안', uv: score.cctv ?? 5 },
+                    { name: '치안', uv: score.safety ?? 5 },
                     { name: '소음', uv: score.noise ?? 5 },
                     { name: '인구 밀도', uv: score.population ?? 5 }
                 ];
