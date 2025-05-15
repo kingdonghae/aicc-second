@@ -36,12 +36,18 @@
 .kakao-login {
     background-color: #ffe812;
     border: none;
-    padding: 0.8rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
     width: 100%;
-    font-weight: bold;
     margin-top: 2rem;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.kakao-login:hover {
+    font-weight: bold;
+    scale: 1.05;
+    transition: 0.3s;
 }
 
 .email-login-button {
@@ -49,10 +55,18 @@
     background-color: white;
     border: 1px solid #ddd;
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.5rem;
     border-radius: 8px;
+    font-size: 0.8rem;
     cursor: pointer;
 }
+
+.email-login-button:hover {
+    font-weight: bold;
+    scale: 1.05;
+    transition: 0.3s;
+}
+
 
 .divider {
     margin: 1.5rem 0;
@@ -63,6 +77,11 @@
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.google-login-button:hover {
+    scale: 1.05;
+    transition: 0.3s;
 }
 
 .google-icon {
@@ -80,4 +99,8 @@
     color: #0077ff;
     cursor: pointer;
     text-decoration: underline;
+}
+
+.signup-prompt .link:hover {
+    font-weight: bold;
 }

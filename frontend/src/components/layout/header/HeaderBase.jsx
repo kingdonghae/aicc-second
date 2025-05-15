@@ -12,7 +12,6 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
     const navigate = useNavigate();
     const auth = useRecoilValue(authState);
-    const setAuth = useSetRecoilState(authState);
     const [menu, setMenu] = useState(false);
     const menuRef = useRef();
     const { logout } = useAuth();
@@ -38,7 +37,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     };
 
     const renderAuthButtons = () => {
-        if (location.pathname === '/login/email') return null;
+        if (location.pathname === '/login' || location.pathname === '/login/email') return null;
 
         if (location.pathname === '/mypage') return (
             <>
