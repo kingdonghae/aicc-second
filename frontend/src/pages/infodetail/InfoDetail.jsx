@@ -49,6 +49,7 @@ const InfoDetail = () => {
 
     return (
         <div className='chart-background'>
+            
             <div className='chart-area'>
                 <CustomLegend legends={legendList} />
 
@@ -71,9 +72,10 @@ const InfoDetail = () => {
                     </ResponsiveContainer>
                 </div>
 
+                <InfoGPT address={address}/>
+
             </div>
 
-            {/* <InfoGPT address={address} /> */}
         </div>
     );
 };

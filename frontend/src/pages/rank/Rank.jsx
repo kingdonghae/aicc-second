@@ -5,6 +5,7 @@ import RankTable from "@/pages/rank/components/RankTable.jsx";
 import { useMonthSelector } from "@/pages/rank/hook/UseMonthSelector.jsx";
 import { useWeekSelector } from "@/pages/rank/hook/UseWeekSelector.jsx";
 import { useTodaySelector } from "@/pages/rank/hook/UseTodaySelector.jsx";
+import SearchIcon from '@mui/icons-material/Search';
 import '../../styles/Rank.css';
 import * as React from "react";
 
@@ -47,21 +48,21 @@ const Rank = () => {
                     <h1>오늘 검색 순위</h1>
                     <RankTable rankData={todayRank} type="today" />
                 </div>
-                <hr />
+                <hr id="rank-line"/>
                 <div id='check-rank'>
-                    <h1>순위 확인하기</h1>
+                    <h1>주소로 순위 확인하기</h1>
                     <form id='input-box' onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
-                            placeholder='주소를 입력해주세요.'
+                            placeholder='오늘의 순위를 확인해보세요!'
                             id='white-text'
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             onSubmit={(e) => { e.preventDefault(); }}
                         />
-                        <button id='input-button' type='submit' ></button>
+                        <SearchIcon id='input-button'/>
                     </form>
-                    <h3>오늘의 순위 <span id='check-number'> {keywordData}</span>위</h3>
+                    <h3 id="today-rank">오늘의 순위는 <span id='check-number'> {keywordData ? keywordData : '?'}</span>위</h3>
                 </div>
             </section>
 

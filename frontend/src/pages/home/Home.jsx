@@ -13,9 +13,11 @@ const Home = () => {
         <div className="home-container">
             <section id='top'>
                 <h1 id='main-title'>집PT</h1>
-                <p>Zip Place Tool</p>
+                <p id='sub-title'>Zip Personal Tool</p>
                 <SearchBox />
-                <p>e.g. 서울시 영등포구 선유서로 │ 검색 불가 : 코드랩 아카데미, 서울시청</p>
+                <p id='sub-text'>살고 싶은 곳의 주소를 검색해보세요!<br/>
+                <span>e.g. 서울시 영등포구 선유서로 │ 검색 불가 : 코드랩 아카데미, 서울시청</span>
+                </p>
             </section>
 
             <section id='bottom'>
@@ -30,13 +32,13 @@ const Home = () => {
                         <button onClick={goRank}>
                             <TrendingUpIcon style={{ fontSize: '3rem' }} />
                         </button>
-                        <p>검색 순위 보기</p>
+                        <p>순위 보기</p>
                     </div>
                     <div>
                         <button onClick={goBoard}>
                             <Diversity3Icon style={{ fontSize: '3rem' }} />
                         </button>
-                        <p>정보마당</p>
+                        <p>정보 마당</p>
                     </div>
                 </div>
             </section>
