@@ -74,9 +74,9 @@ const InfoDetail = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <InfoGPT address={address} score={score} />
-
             </div>
+            <InfoGPT address={address} score={score} />
+
         </div>
     );
 };
