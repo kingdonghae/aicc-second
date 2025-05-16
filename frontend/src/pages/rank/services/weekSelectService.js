@@ -1,4 +1,4 @@
-import {fetchWeekRanking} from "@/pages/rank/api/PostRankingApi.jsx";
+import { fetchWeekRanking } from "@/pages/rank/api/postRankingApi.js";
 
 export function getISOWeekString(date = new Date()) {
     const tmp = new Date(date.getTime());

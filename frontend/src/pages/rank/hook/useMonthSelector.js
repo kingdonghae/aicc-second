@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getISOMonthString, getMonthRanking} from "@/pages/rank/services/MonthSelectService.jsx";
+import { getISOMonthString, getMonthRanking } from "@/pages/rank/services/monthSelectService.js";
 
 export function useMonthSelector() {
     const [monthValue, setMonthValue] = useState("");

@@ -1,6 +1,6 @@
 import { Image } from '@tiptap/extension-image';
 
-export const AlignedImage = Image.extend({
+export const alignedImage = Image.extend({
   addAttributes() {
     return {
       ...this.parent?.(),

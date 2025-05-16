@@ -1,11 +1,11 @@
-import '@/styles/EmailLogin.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '@/pages/login/services/LoginService';
+import { login } from '@/pages/login/services/loginService';
 import { jwtDecode } from 'jwt-decode';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { saveToken } from '@/utils/authService';
+import '@/styles/EmailLogin.css';
 
 const EmailLogin = () => {
     const navigate = useNavigate();

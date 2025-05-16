@@ -1,4 +1,4 @@
-import { postLogin, postKakaoLogin } from '../api/PostLoginApi';
+import { postLogin, postKakaoLogin } from '../api/postLoginApi';
 import { jwtDecode } from 'jwt-decode';
 import { saveToken } from '@/utils/authService';
 

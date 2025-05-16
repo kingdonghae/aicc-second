@@ -1,4 +1,4 @@
-import {getSearchRank, getTodayRanking} from "../services/RankService.jsx";
+import {getSearchRank, getTodayRanking} from "../services/rankService.js";
 import {useEffect, useState} from "react";
 
 export function useTodaySelector() {

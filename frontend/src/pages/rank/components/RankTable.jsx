@@ -8,9 +8,9 @@
     import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
     import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
     import RemoveIcon from '@mui/icons-material/Remove';
-    import {useMonthSelector} from "@/pages/rank/hook/UseMonthSelector.jsx";
-    import {useWeekSelector} from "@/pages/rank/hook/UseWeekSelector.jsx";
-    import {useTodaySelector} from "@/pages/rank/hook/UseTodaySelector.jsx";
+    import { useMonthSelector } from "@/pages/rank/hook/useMonthSelector.js";
+    import { useWeekSelector } from "@/pages/rank/hook/useWeekSelector.js";
+    import { useTodaySelector } from "@/pages/rank/hook/useTodaySelector.js";
 
 export default function RankTable({ rankData }) {
 

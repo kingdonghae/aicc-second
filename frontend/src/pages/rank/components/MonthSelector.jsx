@@ -1,6 +1,6 @@
-import {useMonthSelector} from "@/pages/rank/hook/UseMonthSelector.jsx";
+import { useMonthSelector } from "@/pages/rank/hook/useMonthSelector.js";
 
-export default function MonthSelector({value,onChange}) {
+export default function MonthSelector({ value,onChange }) {
 
     return (
         <div className='calendar'>

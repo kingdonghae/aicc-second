@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import {uploadImageService} from "@/pages/write/services/uploadImageService.js";
+import { uploadImageService } from "@/pages/write/services/uploadImageService.js";
+
 
 const useImageUpload = (editor) => {
     const fileInputRef = useRef(null);

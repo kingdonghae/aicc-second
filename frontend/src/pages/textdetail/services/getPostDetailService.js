@@ -1,4 +1,4 @@
-import {fetchPostDetail} from "@/pages/textdetail/api/postDetailApi.js";
+import { fetchPostDetail } from "@/pages/textdetail/api/postDetailApi.js";
 
 /**
  * 게시글 상세 조회 서비스

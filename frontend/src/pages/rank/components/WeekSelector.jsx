@@ -1,6 +1,6 @@
-import {useWeekSelector} from "@/pages/rank/hook/UseWeekSelector.jsx";
+import { useWeekSelector } from "@/pages/rank/hook/useWeekSelector.js";
 
-export default function WeekSelector({value,onChange,label}) {
+export default function WeekSelector({ value,onChange,label }) {
 
     return (
         <div className='calendar'>

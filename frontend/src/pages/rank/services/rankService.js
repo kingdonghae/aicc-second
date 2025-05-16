@@ -1,7 +1,7 @@
 import {
     fetchSearchRanking,
     fetchTodayRanking,
-} from '../api/PostRankingApi.jsx';
+} from '../api/postRankingApi.js';
 
 // 투데이 랭킹 조회
 export const getTodayRanking = async () => {

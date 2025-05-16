@@ -1,10 +1,12 @@
-import {useEffect, useState} from 'react';
-import {savePostService, updatePostService} from "@/pages/write/services/savePostService.js";
+import { useEffect, useState } from 'react';
+import { savePostService, updatePostService } from "@/pages/write/services/savePostService.js";
 import { useParams} from "react-router-dom";
-import {usePostDetail} from "@/pages/textdetail/hook/usePostDetail.js";
-import {useNavigation} from "@/hook/useNavigation.js";
+import { usePostDetail } from "@/pages/textdetail/hook/usePostDetail.js";
+import { useNavigation } from "@/hook/useNavigation.js";
+
 
 export const useSavePost = (editor,title,setTitle) => {
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const { goBoard } = useNavigation();

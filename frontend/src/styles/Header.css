@@ -15,8 +15,8 @@
 }
 
 @font-face {
-    font-family: 'Gosanja';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/Gosanja.woff') format('woff');
+    font-family: 'netmarbleB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,7 +27,7 @@
 }
 
 :root {
-    font-family: 'Gosanja';
+    font-family: 'netmarbleB';
     font-size: 1.7rem;
     color: rgba(0, 0, 0, 0.87);
     background-color: #ffffff;
