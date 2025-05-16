@@ -30,10 +30,16 @@ const CustomLegend = ({ legends }) => {
             </ul>
             <div className="legend-desc">
                 <div className='legend-box'>
-                    {displayLegend && legends[displayLegend].description}
+                    {displayLegend && (
+                        <>
+                            <div>{legends[displayLegend].description}
+                            <br />
+                            <span style={{ fontSize: '12px' }}>{legends[displayLegend].description2}</span></div>
+                        </>
+                    )}
                     {!displayLegend && <div>왼쪽 아이콘을 눌러<br/>점수를 확인해보세요</div>}
                 </div>
-                <p>안 맞을 수도 있고 다시 누르면 처음으로</p>
+                <p>제공하는 정보는 행정동을 기준으로 하며<br/>의사결정의 모든 책임은 사용자에게 있습니다</p>
             </div>
 
 

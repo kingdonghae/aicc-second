@@ -10,31 +10,38 @@ export const LegendList = {
   transparents : {
     icon: <SubwayIcon/>,
     label: '교통',
-    description: 'd'
+    description: '지나가는 지하철 노선수로 점수화 ',
+    description2: '출처 : 국가교통부 레일포털'
   },
   facility : {
     icon: <ForestIcon/>,
     label: '생활 인프라',
-    description: '설명',
+    description: '다이소, 병원, 약국의 수로 점수화',
+    description2: '출처 : 카카오맵'
+    
   },
   rent : {
     icon: <MapsHomeWorkIcon/>,
     label: '시세',
-    description: '돈 많았으면 좋겠다',
+    description: '전월세 시세, 건축년도, 층을 점수화',
+    description2: '출처 : 국토 교통부 오픈API',
   },
   safety : {
     icon: <ChildCareIcon/>,
     label: '치안',
-    description: '안전한 곳',
+    description: '교육시설, 경찰서 수를 점수화',
+    description2: '출처 : 오픈API Data'
   },
   noisy : {
     icon: <HeadphonesIcon/>,
     label: '소음',
-    description: '시끄러운 곳 싫어요',
+    description: '야간 평균 소음을 점수화',
+    description2: '출처 : 공공데이터포털'
   },
   population : {
     icon: <Groups2Icon/>,
     label: '인구 밀도',
-    description: '인간이 싫어요',
+    description: '인구밀도를 점수화',
+    description2: '출처 : 통계지리정보서비스'
   },
 }
