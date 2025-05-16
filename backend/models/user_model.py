@@ -49,6 +49,8 @@ def update_user():
         UPDATE users
         SET password = %s,
             phone_number = %s,
-            address = %s
+            address = %s,
+            detail_address = %s,
+            birthdate = %s
         WHERE id = %s
     """

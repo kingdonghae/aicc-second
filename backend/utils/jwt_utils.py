@@ -19,6 +19,7 @@ def generate_jwt(user,expires_in_hours=2):
         "user_id": user["id"],
         "username": user["username"],
         "email": user["email"],
+        "provider": user["provider"],
         "exp": datetime.now(timezone.utc) + timedelta(hours=expires_in_hours),
         "type": "access"
     }
