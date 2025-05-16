@@ -17,29 +17,13 @@ export function useTodaySelector() {
         fetchTodayRanking();
     }, []);
 
-
-    const handleSearchSubmit = async (e) => {
-        e.preventDefault(); //
-
-        if (!inputValue.trim()) {
-            alert("검색어를 입력해주세요.");
-            return;
-        }
-
-        try {
-            const res = await useKeywordRank(inputValue);
-            setKeywordData(res.rankings[0]?.currentRank ?? '-');
-        } catch (error) {
-            console.error("검색 실패:", error);
-            setKeywordData('-'); // 검색 실패 시 기본값
-        }
+    const useKeywordRank = (keyword) => {
+        const shouldFetch = keyword && keyword.length > 0;
+        return (shouldFetch ? getSearchRank(keyword) : null);
     };
 
     return {
-        inputValue,
-        setInputValue,
-        keywordData,
-        handleSearchSubmit,
+        useKeywordRank,
         todayRank
-    }
+    };
 }
