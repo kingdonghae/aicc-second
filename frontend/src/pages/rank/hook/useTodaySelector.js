@@ -1,11 +1,8 @@
-import { getTodayRanking } from "../services/RankService.jsx";
-import { useEffect, useState } from "react";
+import {getSearchRank, getTodayRanking} from "../services/rankService.js";
+import {useEffect, useState} from "react";
 
 export function useTodaySelector() {
     const [todayRank, setTodayRank] = useState([]);
-    const [inputValue, setInputValue] = useState('');
-    const [keywordData, setKeywordData] = useState(null);
-
     useEffect(() => {
         const fetchTodayRanking = async () => {
             try {

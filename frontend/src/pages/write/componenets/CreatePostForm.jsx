@@ -8,7 +8,7 @@ import TextStyle from '@tiptap/extension-text-style';
 import Color from '@tiptap/extension-color';
 import TextAlign from '@tiptap/extension-text-align';
 import Placeholder from '@tiptap/extension-placeholder';
-import { AlignedImage } from '../services/AlignedImage';
+import { alignedImage } from '../services/AlignedImage';
 import useImageUpload from '../hook/useImageUpload';
 import { useSavePost } from '../hook/useSavePost';
 import { useNavigation } from '@/hook/useNavigation';
@@ -31,7 +31,7 @@ const CreatePostForm = () => {
             TextStyle,
             Color,
             TextAlign.configure({ types: ['heading', 'paragraph'] }),
-            AlignedImage.configure({ inline: false, allowBase64: true }),
+            alignedImage.configure({ inline: false, allowBase64: true }),
         ],
         content: '<p><양식><br/>- 내 거주지역 : <br/>- 평가 : 상 / 중 / 하</p>',
     });

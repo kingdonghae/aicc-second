@@ -1,4 +1,4 @@
-import {fetchMonthRanking} from "@/pages/rank/api/PostRankingApi.jsx";
+import { fetchMonthRanking } from "@/pages/rank/api/postRankingApi.js";
 
 export function getISOMonthString(date = new Date()) {
     const year = date.getFullYear();

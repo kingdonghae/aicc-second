@@ -8,8 +8,7 @@ import CustomLegend from './components/CustomLegend';
 import InfoGPT from './components/InfoGPT';
 import { getScore } from './service/ScoreService';
 import '@/styles/InfoDetail.css';
-// import { legendList } from './components/legendList';
-import { legendList } from './components/LegendList';
+import { LegendList } from './components/legendList';
 
 const InfoDetail = () => {
     const location = useLocation();
@@ -53,7 +52,7 @@ const InfoDetail = () => {
         <div className='chart-background'>
 
             <div className='chart-area'>
-                <CustomLegend legends={legendList} />
+                <CustomLegend legends={LegendList} />
 
                 <div className='chart-box'>
                     <ResponsiveContainer width="100%" height={650}>

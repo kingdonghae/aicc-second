@@ -1,5 +1,5 @@
 
-import { postSignup, getCheckEmail } from '../api/PostSignupApi';
+import { postSignup, getCheckEmail } from '../api/postSignupApi';
 
 export const signup = async (userData) => {
     try {

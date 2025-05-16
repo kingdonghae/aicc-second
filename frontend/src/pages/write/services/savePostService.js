@@ -1,6 +1,7 @@
-import {fetchSavePost, fetchUpdatePost} from "@/pages/write/api/postUploadApi.js";
+import { fetchSavePost, fetchUpdatePost } from "@/pages/write/api/postUploadApi.js";
 
 export const savePostService = async (contentData) => {
+    
     return await fetchSavePost(contentData);
 };
 

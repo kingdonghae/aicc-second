@@ -1,9 +1,10 @@
-import '@/styles/Mypage.css';
 import { useState, useEffect } from 'react';
 import { getToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
-import { getUserInfo, patchUserInfo } from './services/UserService';
+import { getUserInfo, patchUserInfo } from './services/userService.js';
 import { useNavigate } from 'react-router-dom';
+import '@/styles/Mypage.css';
+
 
 const Mypage = () => {
     const navigate = useNavigate();

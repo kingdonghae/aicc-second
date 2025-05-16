@@ -3,7 +3,7 @@ import {
     getISOWeekString,
     getMonthWeekLabel,
     getWeekRanking
-} from "@/pages/rank/services/WeekSelectService.jsx";
+} from "@/pages/rank/services/weekSelectService.js";
 
 export function useWeekSelector() {
     const [weekValue, setWeekValue] = useState("");

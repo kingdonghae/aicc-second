@@ -1,9 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { useNavigation } from '@/hook/useNavigation';
-import {useAuth} from "@/hook/useAuth.js";
-import {useShowModal} from "@/utils/showModal.js";
+import { useAuth } from "@/hook/useAuth.js";
+import { useShowModal } from "@/utils/showModal.js";
 
 
 const OAuthSuccess = () => {

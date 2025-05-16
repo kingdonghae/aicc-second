@@ -14,7 +14,6 @@ const CategoryButton = ({ id, label, color, isActive, onToggle }) => {
                     backgroundImage: `url(${CATEGORY_MAP[id].image})`,
                     backgroundColor:"white",
                     filter: isActive ? 'none' : 'grayscale(100%)',
-                    // backgroundColor: isActive ? color : 'gray',
                 }}
             />
             {label}
