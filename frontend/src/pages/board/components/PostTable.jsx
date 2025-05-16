@@ -14,7 +14,7 @@ import Pagination from "@/pages/board/components/Pagination.jsx";
 import '@/styles/Board.css';
 
 const StyledTableCell = styled(TableCell)({
-  backgroundColor: '#6EA8DC',
+  backgroundColor: '#B9DCC4',
   color: 'white',
   fontWeight: 'bold',
   fontFamily: 'KIMM_Bold',

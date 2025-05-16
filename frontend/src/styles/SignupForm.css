@@ -4,14 +4,21 @@ input {
     text-indent: 0;
     text-align: left;
     height: 1.8rem;
+
 }
 
-.background {
+.signup-background {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Pretendard-Regular';
+    font-weight: 600;
+    font-size: 0.65rem;
+
+       
+
 }
 
 .signup-form {
@@ -29,6 +36,12 @@ input:focus {
     outline: none;
 }
 
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+        
+}
+
 .input-group input {
     flex: 1;
     background-color: #f2f2f2;
@@ -38,7 +51,7 @@ input:focus {
 }
 
 .input-group button {
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
     color: white;
     border: none;
     padding: 0rem 1rem;
@@ -50,7 +63,7 @@ input:focus {
 }
 
 .input-group button:hover {
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     color: #6C757D;
     transform: translateY(-2px);
 }
@@ -63,7 +76,8 @@ input[type="email"] {
     background-color: #f2f2f2;
     border: 1px solid #ccc;
     border-radius: 2rem;
-    font-family: 'NPSfontBold';
+    /* font-family: 'NPSfontBold'; */
+
 }
 
 input[type="password"] {
@@ -72,7 +86,6 @@ input[type="password"] {
 
 input::placeholder {
     color: #bbb;
-    font-family: 'NPSfontBold';
 }
 
 #address:focus {
@@ -95,7 +108,8 @@ input::placeholder {
     border: 1px solid #ccc;
     background-color: #f2f2f2;
     border-radius: 2rem;
-    font-family: 'NPSfontBold';
+    font-weight: 600;
+    font-size: 0.65rem;
     color: #bbb;
 }
 
@@ -112,11 +126,11 @@ input::placeholder {
 
 p {
     margin: 3px 1rem;
-    font-size: 0.rem;
+    /* font-size: 0.rem; */
 }
 
 .submit-button {
-    background-color: #6EA8DC;
+    background-color: #7BAE92;
     color: white;
     padding: 0.6rem;
     border: none;
@@ -127,22 +141,23 @@ p {
 }
 
 .submit-button:hover {
-    background-color: #DEEBF7;
-    color: #6C757D;
+    background-color: #97C4A9;
+    color: #6c757d;
 }
 
-.success { 
+.success {
     color: green;
-    font-size: 0.5rem; 
+    font-size: 0.5rem;
 }
 
-.error { 
+.error {
     color: red;
     font-size: 0.5rem;
 }
 
 .message-space {
-    min-height: 0.6rem; /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
+    min-height: 0.6rem;
+    /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
 }
 
 .message {
@@ -156,12 +171,14 @@ p {
 }
 
 .submit-button.disabled:hover {
-    background-color: #cccccc; /* hover 시에도 색상 변화 없음 */
+    background-color: #cccccc;
+    /* hover 시에도 색상 변화 없음 */
     color: #666666;
 }
 
 .social-button {
-    background-color: #fee500; /* 카카오 노란색 */
+    background-color: #fee500;
+    /* 카카오 노란색 */
     color: #000000;
     padding: 0.6rem;
     border: none;
@@ -179,7 +196,7 @@ p {
 }
 
 .direct-button {
-    background-color: #6ea8dc;
+    background-color: #B9DCC4;
     color: white;
     padding: 0.6rem;
     border: none;
@@ -192,7 +209,7 @@ p {
 }
 
 .direct-button:hover {
-    background-color: #deebf7;
+    background-color: #E5F2D6;
     color: #6c757d;
     transform: translateY(-2px);
 }

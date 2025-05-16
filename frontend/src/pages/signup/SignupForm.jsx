@@ -87,7 +87,7 @@ const SignupForm = () => {
     };
 
     return (
-        <div className="background">
+        <div className="signup-background">
             <form className="signup-form" onSubmit={handleSignup}>
                 <div className="input-group">
                     <input

@@ -1,4 +1,3 @@
-// src/pages/infodetail/api/ScoreApi.jsx
 import apiClient from "@/api/apiClient";
 
 export const fetchScore = async (lat, lng) => {

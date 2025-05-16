@@ -10,7 +10,7 @@ export const LegendList = {
   transparents : {
     icon: <SubwayIcon/>,
     label: '교통',
-    description: 'd'
+    description: '행정동 기준으로 인구밀도를 점수화'
   },
   facility : {
     icon: <ForestIcon/>,

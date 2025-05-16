@@ -111,16 +111,17 @@
 .write-btn {
   width: 4rem;
   height: 80%;
-  font-family: 'NPSfontBold';
+  /* font-family: 'NPSfontBold'; */
+  font-size: 0.8rem;
   border: none;
   border-radius: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  background-color: #fffac8;
+  background-color: 	#F6E6A8;
 }
 
 .write-btn:hover {
-  background-color: #cce5ff;
+  background-color: #FFE9A7
 }
 
 .write-btn:active {
@@ -197,13 +198,13 @@
 }
 
 .board-table th {
-  background-color: #6EA8DC;
+  background-color: #B9DCC4;
   color: #ffffff;
   font-weight: bold;
 }
 
 .notice-row {
-  background-color: #fffac8;
+  background-color: #FFF3C4;
   font-weight: bolder;
   font-size: larger;
 }
@@ -223,14 +224,14 @@
 }
 
 .page-number.active {
-  background-color: #6EA8DC;
+  background-color: #B9DCC4;
   color: white;
   font-weight: bold;
 }
 
 .pagination button,
 .pagination .page-number {
-  background-color: #f0f8ff;
+  background-color: #edf5e3;
   border: none;
   padding: 12px;
   font-weight: bold;
@@ -240,5 +241,5 @@
 }
 
 .pagination .page-number.active {
-  background-color: #cce5ff;
+  background-color: #97C4A9;
 }

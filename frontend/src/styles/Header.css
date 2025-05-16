@@ -43,7 +43,7 @@ body,
     min-height: 100vh;
     min-width: 100vw;
     font-family: 'NPSfontBold';
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     text-align: center;
     overflow: hidden;
 }
@@ -84,17 +84,18 @@ body,
 .menu-button {
     font-family: 'NPSfontBold';
     font-size: 0.6rem;
-    background-color: #6EA8DC;
+    background-color: #97C4A9;
     border: none;
     border-radius: 1rem;
     padding: 0.5rem 0.8rem;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 6;
+    height: 2.5rem;
 }
 
 .menu-button:hover {
-    background-color: #FFF2CC;
+    background-color: #7BAE92;
     transform: scale(1.05)
 }
 
@@ -130,7 +131,7 @@ body,
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
         border-radius: 2rem;
 }
 
@@ -185,7 +186,7 @@ body,
 }
 
 .menu-list button:hover {
-    color: #6EA8DC;
+    color: #B9DCC4;
     transform: scale(1.05);
 }
 
@@ -195,7 +196,7 @@ body,
 }
 
 #menu-select button {
-    color: #6EA8DC;
+    color: #B9DCC4;
 }
 
 
