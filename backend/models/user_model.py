@@ -11,9 +11,9 @@ def create_user():
 # 사용자 생성 (구글 소셜)
 def create_google_user():
     return """
-        INSERT INTO users (username, email, provider, provider_id)
-        VALUES (%s, %s, 'google', %s)
-        """
+        INSERT INTO users (username, email, provider, provider_id, agree_privacy)
+        VALUES (%s, %s, 'google', %s, %s)
+    """
 
 # 사용자 생성 (기타 소셜)
 def create_social_user():
@@ -50,7 +50,18 @@ def update_user():
         SET password = %s,
             phone_number = %s,
             address = %s,
+            detail_address = %s
+        WHERE id = %s
+    """
+    
+# 사용자 정보 수정
+def update_add_info_user():
+    return """
+        UPDATE users
+        SET phone_number = %s,
+            address = %s,
             detail_address = %s,
-            birthdate = %s
+            birthdate = %s,
+            agree_privacy = %s
         WHERE id = %s
     """

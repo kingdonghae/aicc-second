@@ -1,5 +1,5 @@
 
-import { postSignup, getCheckEmail } from '../api/postSignupApi';
+import { postSignup, getCheckEmail, postDetailUserInfo } from '../api/postSignupApi';
 
 export const signup = async (userData) => {
     try {
@@ -18,3 +18,13 @@ export const checkEmail = async (email) => {
         throw error.response?.data?.error || '중복 확인 중 에러 발생';
     }
 };
+
+export const addUserInfo = async (userId, updatedData) => {
+    try {
+      const response = await postDetailUserInfo(userId, updatedData);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data?.error || '사용자 정보 추가 실패';
+    }
+  };
+  

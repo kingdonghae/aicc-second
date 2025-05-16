@@ -39,7 +39,7 @@ def process_google_auth(code):
 
             # 없으면 새로 생성
             if not user:
-                cursor.execute(create_google_user(), (name, email, google_id))
+                cursor.execute(create_google_user(), (name, email, google_id, 0))
                 connection.commit()
 
                 # 다시 조회

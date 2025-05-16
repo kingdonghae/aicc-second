@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { getToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
-import { patchUserInfo } from '@/pages/mypage/services/UserService';
+import { addUserInfo } from './services/signupService'
 import { useNavigate } from 'react-router-dom';
 import '@/styles/SignupForm.css';
 
 const SocialExtraForm = () => {
+
     const [userId, setUserId] = useState('');
     const [phone, setPhone] = useState('');
     const [birthdate, setBirthdate] = useState('');
     const [address, setAddress] = useState('');
     const [detailAddress, setDetailAddress] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = getToken();
+        const token = sessionStorage.getItem('confirmedToken');
         if (!token) return;
+0
         const decoded = jwtDecode(token);
-        setUserId(decoded.user_id);
+
+        const id = decoded.user_id;
+        setUserId(id);
+
+        // getUserInfo(id)
+        
     }, []);
 
     const handleAddressSearch = () => {
@@ -33,18 +37,14 @@ const SocialExtraForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password !== confirmPassword) {
-            setMessage('❌ 비밀번호가 일치하지 않습니다.');
-            return;
-        }
-
+                
         try {
-            await patchUserInfo(userId, {
-                password,
+            await addUserInfo(userId, {
                 phone_number: phone,
                 address,
                 detail_address: detailAddress,
                 birthdate,
+                agree_privacy: 1,
             });
             alert('추가 정보 입력 완료!');
             navigate('/');
@@ -57,20 +57,6 @@ const SocialExtraForm = () => {
     return (
         <div className="background">
             <form onSubmit={handleSubmit} className="signup-form">
-                <input
-                    type="password"
-                    placeholder="비밀번호"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="비밀번호 확인"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
                 <input
                     type="text"
                     placeholder="전화번호"

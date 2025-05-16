@@ -12,3 +12,7 @@ export const getCheckEmail = (email) => {
         params: { email: email.trim() }
     });
 };
+
+export const postDetailUserInfo = (userId, updatedData) => { 
+    return apiClient.patch(`/signup/${userId}`, updatedData);
+  };

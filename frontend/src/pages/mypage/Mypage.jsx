@@ -8,7 +8,7 @@ import '@/styles/Mypage.css';
 
 const Mypage = () => {
     const navigate = useNavigate();
-
+    
     const [userId, setUserId] = useState('');
     const [username, setUsername] = useState('');
     const [birthdate, setBirthdate] = useState('');
@@ -19,7 +19,30 @@ const Mypage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
-
+    
+    useEffect(() => {
+        const token = getToken();
+        if (!token) return;
+    
+        const decoded = jwtDecode(token);
+        const id = decoded.user_id;
+        setUserId(id);
+    
+        getUserInfo(id)
+            .then(data => {
+                setUsername(data.username);
+                setBirthdate(new Date(data.birthdate).toISOString().split('T')[0]);
+                setPhone(data.phone_number);
+                setEmail(data.email);
+                setAddress(data.address || '');
+                setDetailAddress(data.detail_address || '');
+            })
+            .catch(err => {
+                console.error(err);
+                alert(err);
+        });
+    }, []);
+    
     const handleAddressSearch = () => {
         new window.daum.Postcode({
             oncomplete: function (data) {
@@ -51,28 +74,6 @@ const Mypage = () => {
         }
     };
     
-    useEffect(() => {
-        const token = getToken();
-        if (!token) return;
-
-        const decoded = jwtDecode(token);
-        const id = decoded.user_id;
-        setUserId(id);
-
-        getUserInfo(id)
-            .then(data => {
-                setUsername(data.username);
-                setBirthdate(new Date(data.birthdate).toISOString().split('T')[0]);
-                setPhone(data.phone_number);
-                setEmail(data.email);
-                setAddress(data.address || '');
-                setDetailAddress(data.detail_address || '');
-            })
-            .catch(err => {
-                console.error(err);
-                alert(err);
-        });
-    }, []);
 
     return (
         <div className="mypage-background">

@@ -2,14 +2,13 @@
 
 import re
 import bcrypt
-import pymysql
 from db import get_connection
-from models.user_model import create_user, get_user_by_email
+from models.user_model import create_user, get_user_by_email, update_add_info_user
 
 def is_email_available(email):
     connection = get_connection()
     try:
-        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+        with connection.cursor() as cursor:
             cursor.execute(get_user_by_email(), (email,))
             user = cursor.fetchone()
             return user is None
@@ -49,3 +48,25 @@ def signup_user(data):
         connection.close()
 
     return {'message': '회원가입 성공!'}, 201
+
+def add_user_info(user_id, data):
+    phone = data.get('phone_number')
+    address = data.get('address')
+    detail_address = data.get('detail_address')
+    birthdate = data.get('birthdate')
+    agree_privacy = data.get('agree_privacy', 0)
+    
+    print("[백엔드 수신]", user_id, phone, address, detail_address, birthdate)
+
+        
+    if not phone or not address or not birthdate:
+        return {'error': '모든 항목을 입력해주세요.'}, 400
+
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(update_add_info_user(), (phone, address, detail_address, birthdate, agree_privacy, user_id))
+        connection.commit()
+        return {'message': '사용자 추가정보가 입력되었습니다.'}, 200
+    finally:
+        connection.close()
