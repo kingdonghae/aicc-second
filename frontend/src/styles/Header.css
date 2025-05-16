@@ -1,4 +1,4 @@
-/* 전역 : 상단 메뉴(Header), 검색창(SearchBox), 메뉴 팝업 */
+/* 전역 : 상단 메뉴(Header), 도움말, 검색창(SearchBox), 메뉴 팝업 */
 
 @font-face {
     font-family: 'NPSfontBold';
@@ -102,6 +102,45 @@ body,
     transform: scale(1.05) translateY(-2px);
     filter: brightness(0.92);
     opacity: 100%;
+}
+
+/* 도움말 */
+
+.help-tooltip {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    /* width: 6rem;
+    height: 3rem; */
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+
+    font-weight: 500;
+}
+
+/* .help-tooltip button {
+    width: 3rem;
+    height: 3rem;
+} */
+
+.tooltip-icon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6EA8DC;
+        border-radius: 2rem;
+}
+
+.tooltip-message {
+    font-size: 0.7rem;
+    width: 100%
+}
+
+.tooltip-info {
+    font-size: 0.8rem;
 }
 
 

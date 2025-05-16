@@ -5,6 +5,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import '@/styles/Home.css';
 import SearchBox from "@/components/SearchBox.jsx";
+import ToolTip from '../../components/ToolTip';
 
 const Home = () => {
     const { goMap, goRank, goBoard } = useNavigation();
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <section id='top'>
+                <ToolTip/>
                 <h1 id='main-title'>집PT</h1>
                 <p id='sub-title'>Zip Personal Tool</p>
                 <SearchBox />
