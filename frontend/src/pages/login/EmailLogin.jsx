@@ -1,11 +1,11 @@
-import '@/styles/EmailLogin.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '@/pages/login/services/LoginService';
+import { login } from '@/pages/login/services/loginService';
 import { jwtDecode } from 'jwt-decode';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { saveToken } from '@/utils/authService';
+import '@/styles/EmailLogin.css';
 
 const EmailLogin = () => {
     const navigate = useNavigate();
@@ -54,8 +54,7 @@ const EmailLogin = () => {
                 {errorMessage && <p className="login-error-msg">{errorMessage}</p>}
                 <button onClick={handleLogin} className="submit-button">로그인</button>
                 <div className="login-links">
-                    <span>비밀번호 재설정</span> | 
-                    <span onClick={() => navigate('/signup')} className="link">이메일로 가입하기</span>
+                    <span onClick={() => navigate('/login')} className="link" >회원가입</span>
                 </div>
             </div>
         </div>

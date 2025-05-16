@@ -34,7 +34,6 @@ input:focus {
 .input-group input {
     flex: 1;
     background-color: #f2f2f2;
-    padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 2rem;
 }
@@ -47,7 +46,7 @@ input:focus {
     border-radius: 2rem;
     cursor: pointer;
     white-space: nowrap;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
     ;
 }
 
@@ -63,7 +62,7 @@ input[type="password"] {
 
 input::placeholder {
     color: #bbb;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
 }
 
 #address:focus {
@@ -86,7 +85,7 @@ input::placeholder {
     border: 1px solid #ccc;
     background-color: #f2f2f2;
     border-radius: 2rem;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
     color: #000000;
 }
 
@@ -120,7 +119,7 @@ p {
     border-radius: 2rem;
     font-size: 0.8rem;
     cursor: pointer;
-    font-family: 'KIMM_Bold';
+    font-family: 'NPSfontBold';
 }
 
 .mypage-button:hover {

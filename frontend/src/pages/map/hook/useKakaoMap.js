@@ -4,6 +4,7 @@ import { DEFAULT_CENTER, DEFAULT_LEVEL } from "@/constants/mapDefaults.js";
 import { createMarkerWithOverlay } from "@/pages/map/utils/createMarkerWithOverlay.js";
 
 export const useKakaoMap = ({ coords, address, onDragStart, onDragEnd, mapRef, setCoords }) => {
+    
     const mapInstanceRef = useRef(null);
     const [center, setCenter] = useState(null);
 

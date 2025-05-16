@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signup, checkEmail } from './services/SignupService';
+import { signup, checkEmail } from './services/signupService';
 import '@/styles/SignupForm.css';
 
 const SignupForm = () => {

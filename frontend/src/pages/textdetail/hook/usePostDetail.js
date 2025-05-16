@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {getPostDetailService} from "@/pages/textdetail/services/getPostDetailService.js";
+import { useEffect, useState } from "react";
+import { getPostDetailService } from "@/pages/textdetail/services/getPostDetailService.js";
 
 /**
  * 게시글 상세 조회 훅

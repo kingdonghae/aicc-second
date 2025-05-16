@@ -6,7 +6,7 @@ import HeadphonesIcon from '@mui/icons-material/Headphones';
 import Groups2Icon from '@mui/icons-material/Groups2';
 
 
-export const legendList = {
+export const LegendList = {
   transparents : {
     icon: <SubwayIcon/>,
     label: '교통',

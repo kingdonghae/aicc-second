@@ -1,6 +1,6 @@
-import {useWeekSelector} from "@/pages/rank/hook/UseWeekSelector.jsx";
+import { useWeekSelector } from "@/pages/rank/hook/useWeekSelector.js";
 
-export default function WeekSelector({value,onChange,label}) {
+export default function WeekSelector({ value,onChange,label }) {
 
     return (
         <div className='calendar'>
@@ -15,7 +15,7 @@ export default function WeekSelector({value,onChange,label}) {
                     }}
                     style={{
                         backgroundColor: "white",
-                        border: "1px solid black",
+                        border: "2px solid black",
                         textAlign: "left",
                     }}
                     onChange={onChange}
@@ -23,10 +23,10 @@ export default function WeekSelector({value,onChange,label}) {
                 <img
                     src="./assets/calender.png"
                     alt="calender"
-                    width="20"
+                    width="18"
                     style={{
                         position: "absolute",
-                        right: "2px",
+                        right: "35px",
                         top: "50%",
                         transform: "translateY(-50%)",
                         pointerEvents: "none"

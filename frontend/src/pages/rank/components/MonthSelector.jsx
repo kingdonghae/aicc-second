@@ -1,6 +1,6 @@
-import {useMonthSelector} from "@/pages/rank/hook/UseMonthSelector.jsx";
+import { useMonthSelector } from "@/pages/rank/hook/useMonthSelector.js";
 
-export default function MonthSelector({value,onChange}) {
+export default function MonthSelector({ value,onChange }) {
 
     return (
         <div className='calendar'>
@@ -9,6 +9,11 @@ export default function MonthSelector({value,onChange}) {
                 id='month-rank'
                 value={value}
                 onChange={onChange}
+                style={{
+                    backgroundColor: 'white',
+                    border: '1px solid black',
+                    paddingLeft: '30px'
+                }}
             />
             <p>달력을 열어 기간을 설정해보세요 ▲</p>
         </div>

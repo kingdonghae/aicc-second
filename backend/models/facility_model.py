@@ -1,30 +1,37 @@
-# backend/models/facility_model.py
+"""
+====================================================================
+파일명   : facility_model.py
+작성자   : guseop
+작성일자 : 2025-05-14
+설명     : - 전체 시설 목록(id, name, lat, lng, description)을 조회
+          - 주어진 좌표와 가장 가까운 시설의 안전 점수(safe_score)를 조회
+====================================================================
+"""
 
+# 시설 전체 목록을 조회하는 SQL 쿼리를 반환
 def get_facilities_query():
     return """
-        SELECT
-            id,
-            name,
-            lat,
-            lng,
-            description
-        FROM
-            facility_score
-    """
-# backend/models/facility_model.py
-
-# 기존 코드 유지
-def get_facilities_query():
-    return """
-        SELECT id, name, lat, lng, description
-        FROM facility_score
+                SELECT
+                    ID              as id             /*키 값*/
+                   ,NAME            as name           /*시설물 명*/
+                   ,LAT             as lat            /*위도*/
+                   ,LNG             as lng            /*경도*/
+                   ,DESCRIPTION     as description    /*설명*/
+                FROM
+                    FACILITY_SCORE
     """
 
-# 새로 추가하는 함수
+# 주어진 좌표(lng, lat)로부터 가장 가까운 시설의 안전 점수(safe_score)를 조회하는 SQL 쿼리를 반환
 def get_facility_safe_score_query():
     return """
-        SELECT safe_score
-        FROM facility_score
-        ORDER BY ST_Distance_Sphere(POINT(lng, lat), POINT(%s, %s)) ASC
-        LIMIT 1
+                SELECT 
+                     SAFE_SCORE   as safe_score     /*안전 점수*/
+                FROM 
+                     FACILITY_SCORE
+                ORDER BY 
+                     ST_DISTANCE_SPHERE(
+                        POINT(LNG, LAT)
+                      , POINT(%s, %s)
+                     ) 
+                LIMIT 1
     """

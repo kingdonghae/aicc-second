@@ -7,8 +7,8 @@ import {
 import CustomLegend from './components/CustomLegend';
 import InfoGPT from './components/InfoGPT';
 import { getScore } from './service/ScoreService';
-// import { legendList } from './components/legendList';
-import { legendList } from './components/LegendList';
+import '@/styles/InfoDetail.css';
+import { LegendList } from './components/legendList';
 
 const InfoDetail = () => {
     const location = useLocation();
@@ -19,6 +19,7 @@ const InfoDetail = () => {
     const [scoreData, setScoreData] = useState([]);
     const [coords, setCoords] = useState(initialCoords);
     const [address, setAddress] = useState(initialAddress);
+    const [score, setScore] = useState(null);
 
     useEffect(() => {
         if (!coords.lat || !coords.lng) return;
@@ -32,12 +33,13 @@ const InfoDetail = () => {
                     { name: '교통', uv: score.traffic ?? 5 },
                     { name: '생활 인프라', uv: score.infra ?? 5 },
                     { name: '시세', uv: score.rent ?? 5 },
-                    { name: '치안', uv: score.cctv ?? 5 },
+                    { name: '치안', uv: score.safety ?? 5 },
                     { name: '소음', uv: score.noise ?? 5 },
                     { name: '인구 밀도', uv: score.population ?? 5 }
                 ];
 
                 setScoreData(chartData);
+                setScore(score);
             } catch (err) {
                 console.error("❌ 점수 요청 실패:", err);
             }
@@ -48,10 +50,9 @@ const InfoDetail = () => {
 
     return (
         <div className='chart-background'>
-            {/* infoGPT가 위치가 바뀌었어요! */}
-            <InfoGPT />
+
             <div className='chart-area'>
-                <CustomLegend legends={legendList} />
+                <CustomLegend legends={LegendList} />
 
                 <div className='chart-box'>
                     <ResponsiveContainer width="100%" height={650}>
@@ -73,8 +74,8 @@ const InfoDetail = () => {
                 </div>
 
             </div>
+            <InfoGPT address={address} score={score} />
 
-            <InfoGPT address={address} />
         </div>
     );
 };

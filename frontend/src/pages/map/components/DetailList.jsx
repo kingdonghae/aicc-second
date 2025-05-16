@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryButton from './CategoryButton';
-import {CATEGORY_MAP} from "@/constants/mapDefaults.js";
+import { CATEGORY_MAP } from "@/constants/mapDefaults.js";
 
 const DetailList = ({ onClose, isDrag, category, setCategory }) => {
     const toggleCategory = (id) => {
