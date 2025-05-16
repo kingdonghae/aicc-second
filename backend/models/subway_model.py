@@ -9,7 +9,7 @@
 """
 
 # 좌표를 기준으로 subway_score 테이블에서 가장 가까운 동을 조회
-def get_dong_by_coords():
+def get_dong_subway():
     return """
         SELECT 
              FULL_ADRS_ADMIN AS full_adrs_admin

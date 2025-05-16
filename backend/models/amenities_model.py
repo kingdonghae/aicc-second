@@ -9,7 +9,7 @@
 """
 
 # 좌표에서 가장 가까운 위치의 생활 편의 데이터(점수, 주소) 조회
-def get_nearest_crime_score():
+def get_amenities_query():
     return """
                 SELECT 
                      AMENITIES_SCORE      AS amenities_score    /*생활 편의 점수*/
