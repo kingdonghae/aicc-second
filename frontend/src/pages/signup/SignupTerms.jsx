@@ -33,11 +33,20 @@ const SignupTerms = () => {
     const handleNext = () => {
         const { age, service, privacy } = agreements;
         if (age && service && privacy) {
-            navigate('/signup/form');
+            const tempToken = sessionStorage.getItem('tempToken');
+            if (tempToken) {
+                sessionStorage.setItem('confirmedToken', tempToken); // 약관 동의 확인
+                sessionStorage.removeItem('tempToken');
+                navigate('/signup/social-form');
+            } else {
+                alert('잘못된 접근입니다.');
+                navigate('/');
+            }
         } else {
             alert('필수 약관에 모두 동의해주세요.');
         }
     };
+    
 
     return (
         <div className="terms-wrapper">
