@@ -2,14 +2,13 @@
 
 import re
 import bcrypt
-import pymysql
 from db import get_connection
 from models.user_model import create_user, get_user_by_email
 
 def is_email_available(email):
     connection = get_connection()
     try:
-        with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+        with connection.cursor() as cursor:
             cursor.execute(get_user_by_email(), (email,))
             user = cursor.fetchone()
             return user is None

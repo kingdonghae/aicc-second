@@ -1,12 +1,11 @@
 import bcrypt
 from models.user_model import get_user_by_id, update_user
 from db import get_connection
-import pymysql
 
 def fetch_user_info(user_id):
     connection = get_connection()
     try:
-        with connection.cursor(pymysql.cursor.DictCursor) as cursor:
+        with connection.cursor() as cursor:
             cursor.execute(get_user_by_id(), (user_id,))
             user = cursor.fetchone()
             if not user:
