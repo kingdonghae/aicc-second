@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from services.signup_service import signup_user, is_email_available
+from services.signup_service import signup_user, is_email_available, add_user_info
 
 signup_bp = Blueprint('signup', __name__, url_prefix='/signup')
 
@@ -21,3 +21,9 @@ def signup():
 
     response, status_code = signup_user(data)
     return jsonify(response), status_code
+
+@signup_bp.route('/<int:user_id>', methods=['PATCH'])
+def add_info_user(user_id):
+    data = request.get_json()
+    response, status = add_user_info(user_id, data)
+    return jsonify(response), status

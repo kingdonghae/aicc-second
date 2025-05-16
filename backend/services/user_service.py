@@ -18,6 +18,7 @@ def modify_user_info(user_id, data):
     password = data.get('password')
     phone = data.get('phone_number')
     address = data.get('address')
+    detail_address = data.get('detail_address')
 
     if not password or not phone or not address:
         return {'error': '모든 항목을 입력해주세요.'}, 400
@@ -27,7 +28,7 @@ def modify_user_info(user_id, data):
     connection = get_connection()
     try:
         with connection.cursor() as cursor:
-            cursor.execute(update_user(), (hashed_password, phone, address, user_id))
+            cursor.execute(update_user(), (hashed_password, phone, address, detail_address, user_id))
         connection.commit()
         return {'message': '사용자 정보가 수정되었습니다.'}, 200
     finally:
