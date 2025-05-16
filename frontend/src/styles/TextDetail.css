@@ -24,7 +24,7 @@
     font-family: 'NPSfontBold';
     cursor: pointer;
     margin: 0.2rem 0 0 0;
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
     border-radius: 1.5rem;
     font-size: 0.5rem;
     border: none;
@@ -35,12 +35,12 @@
 }
 
 .commends-area::-webkit-scrollbar-thumb {
-    background-color: #6EA8DC; /* 스크롤바 핸들 색상 */
+    background-color: #B9DCC4; /* 스크롤바 핸들 색상 */
     border-radius: 10px;
 }
 
 .commends-area::-webkit-scrollbar-track {
-    background-color: #DEEBF7; /* 스크롤 트랙 색상 */
+    background-color: #E5F2D6; /* 스크롤 트랙 색상 */
     border-radius: 10px;
 }
 
@@ -176,11 +176,11 @@
 }
 
 #edit-button {
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
 }
 
 #list-button {
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     color: #6C757D;
 }
 
@@ -192,7 +192,7 @@
 }
 
 #list-button:hover {
-    background-color: #a5d3ff;
+    background-color: #7BAE92;
     color: #6C757D;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -266,7 +266,7 @@
 
 .comment-box {
     width: 95%;
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
     border-radius: 2rem;
     display: flex;
     justify-content: center;
@@ -307,7 +307,7 @@
 }
 
 .comment-box button {
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     font-family: 'NPSfontBold';
     font-size: 0.7rem;
     border: none;

@@ -43,7 +43,7 @@ const LoginSelect = () => {
                 <h1 className="logo-text">집<span>PT</span></h1>
                 <p className="login-sub">로그인하고<br/>내 집 점수 확인하기</p>
 
-                <button className="kakao-login" onClick={handleKakaoLogin}>카카오로 3초 만에 바로시작</button>
+                <button className="kakao-login" onClick={handleKakaoLogin}>카카오로 3초 만에 바로 시작</button>
                 <button className="email-login-button" onClick={() => navigate('/login/email')}>
                     이메일로 로그인하기
                 </button>

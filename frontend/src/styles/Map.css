@@ -34,7 +34,7 @@
 .custom-overlay {
     background: white;
     padding: 10px 15px;
-    border: 2px solid #6EA8DC;
+    border: 2px solid #B9DCC4;
     border-radius: 10px;
     font-size: 14px;
     color: #333;
@@ -65,21 +65,20 @@
     position: absolute;
     z-index: 20;
     bottom: 2rem;
-    right: 2rem;
-    font-family: 'KIMM_Bold', sans-serif;
+    left: 2rem;
     font-size: 1rem;
     width: 4rem;
     height: 4rem;
     border: none;
     border-radius: 2rem;
-    background-color: #6EA8DC;
+    background-color: #7BAE92;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .toggle-list-button:hover {
-    background-color: #6EA8DC;
+    background-color: #7BAE92;
     transform: scale(1.1);
     opacity: 1;
 }
@@ -93,15 +92,15 @@
 /* 선택 항목 팝업 DetailList */
 
 .list-box {
-    position: absolute;
     z-index: 20;
+    position: absolute;
     bottom: 2rem;
-    right: 2rem;
+    left: 1.5rem;
 }
 
 .list-popup {
     background-color: #ffffff;
-    border: 3px solid #6EA8DC;
+    border: 3px solid #B9DCC4;  
     width: 15rem;
     border-radius: 1rem;
     padding: 0.3rem;
@@ -128,15 +127,15 @@
     height: 2rem;
     border: none;
     border-radius: 2rem;
-    font-family: 'KIMM_Bold', sans-serif;
-    background-color: #6EA8DC;
+    font-size: 0.6rem;
+    background-color: #97C4A9;
     margin: 0.5rem 0.5rem 0 0.5rem;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #list-close:hover {
-    background-color: #FFF2CC;
+    background-color: #7BAE92;
     transform: scale(1.1);
 }
 
@@ -172,18 +171,19 @@
 /* 상세보기 팝업 DetailPreview */
 
 .preview-box {
-    position: absolute;
+        position: absolute;
     z-index: 20;
-    top: 8rem;
-    left: 2rem;
+    bottom: 2rem;
+    right: 2rem;
+
 }
 
 .preview-popup {
     background-color: #ffffff;
-    border: 3px solid #6EA8DC;
-    width: 15rem;
+    border: 3px solid #B9DCC4;  
+    width: 14rem;
     border-radius: 1rem;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
 }
 
 .preview-popup.drag {
@@ -199,19 +199,20 @@
 
 .preview-text-frame p {
     font-size: 0.7rem;
-    margin: 0;
+    margin: 0.5rem;
     word-break: keep-all;
     white-space: normal;
-    line-height: 1rem;
+    line-height: 0.5rem;
 }
 
 .preview-text-frame h3 {
     font-size: 1rem;
-    margin: 0;
+    margin-bottom: 0.2rem;
 }
 
+
 /* #preview-text {
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     text-align: center;
     width: 11rem;
     height: 7rem;
@@ -224,18 +225,37 @@
 } */
 
 #detail-move {
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
+    margin: 0.5rem;
     border: none;
     border-radius: 2rem;
-    width: 10rem;
-    height: 3rem;
-    font-family: 'netmarbleB';
-    font-size: 1rem;
+    width: 7rem;
+    height: 2rem;
+    font-family: 'NPSfontBold';
+    font-weight: 500;
+    font-size: 0.8rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
-#detail-move:hover {
-    background-color: #FFF2CC;
+/* #detail-move:hover {
+    background-color: #B9DCC4;
     transform: scale(1.1);
+} */
+
+.disabled-button {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.active-button {
+  background-color: #97C4A9;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.active-button:hover {
+  background-color: #7BAE92;
+  transform: scale(1.1);
 }

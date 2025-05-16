@@ -5,6 +5,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import '@/styles/Home.css';
 import SearchBox from "@/components/SearchBox.jsx";
+import ToolTip from '../../components/ToolTip';
 
 const Home = () => {
     const { goMap, goRank, goBoard } = useNavigation();
@@ -12,10 +13,11 @@ const Home = () => {
     return (
         <div className="home-container">
             <section id='top'>
+                {/* <ToolTip/> */}
                 <h1 id='main-title'>집PT</h1>
-                <p id='sub-title'>Zip Personal Tool</p>
+                <p id='sub-title'>Zip Place Tool</p>
                 <SearchBox />
-                <p id='sub-text'>살고 싶은 곳의 주소를 검색해보세요!<br/>
+                <p id='sub-text'>동네의 모든 것, 집PT가 요약해드립니다!<br/>
                 <span>e.g. 서울시 영등포구 선유서로 │ 검색 불가 : 코드랩 아카데미, 서울시청</span>
                 </p>
             </section>

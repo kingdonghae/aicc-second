@@ -26,92 +26,13 @@ input:focus {
     outline: none;
 }
 
-.input-group {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.input-group input {
-    flex: 1;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 2rem;
-}
-
-.input-group button {
-    background-color: #6EA8DC;
-    color: white;
-    border: none;
-    padding: 0rem 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: 'NPSfontBold';
-    ;
-}
-
-.input-group button:hover {
-    background-color: #DEEBF7;
-    color: #6C757D;
-    transform: translateY(-2px);
-}
-
-input[type="password"] {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-input::placeholder {
-    color: #bbb;
-    font-family: 'NPSfontBold';
-}
-
-#address:focus {
-    outline: none;
-    cursor: no-drop;
-}
-
-#detail-address {
-    margin-top: -0.5rem;
-}
-
-.birth-group {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.birth-group input {
-    flex: 1;
-    padding: 0.8rem 1.4rem;
-    border: 1px solid #ccc;
-    background-color: #f2f2f2;
-    border-radius: 2rem;
-    font-family: 'NPSfontBold';
-    color: #000000;
-}
-
-.check-box {
-    display: flex;
-    white-space: nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.check-box input {
-    height: 0.5rem;
-}
-
-p {
-    margin: 3px 1rem;
-    font-size: 0.8rem;
-}
-
 #modify-box {
     display: flex;
     justify-content: space-between;
 }
 
 .mypage-button {
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
     width: 8rem;
     color: white;
     padding: 0.6rem;
@@ -123,6 +44,6 @@ p {
 }
 
 .mypage-button:hover {
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     color: #6C757D;
 }

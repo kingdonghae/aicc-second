@@ -224,7 +224,7 @@
     font-family: 'KIMM_Bold';
     cursor: pointer;
     margin: 0 4rem 0.4rem 4rem;
-    background-color: #6EA8DC;
+    background-color: #B9DCC4;
     border-radius: 1.5rem;
     font-size: 0.8rem;
     border: none;
@@ -236,7 +236,7 @@
     font-family: 'KIMM_Bold';
     cursor: pointer;
     margin: 0 4rem 0.4rem 4rem;
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     color: #6C757D;
     border-radius: 1.5rem;
     font-size: 0.8rem;
@@ -251,7 +251,7 @@
 }
 
 #cancel-button:hover {
-    background-color: #a5d3ff;
+    background-color: #7BAE92;
     color: #6C757D;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
