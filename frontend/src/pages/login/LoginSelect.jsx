@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { kakaoLogin } from '@/pages/login/services/loginService';
 import { initKakao } from '@/utils/kakaoSignup';
 import { useSetRecoilState } from 'recoil';
@@ -7,11 +6,14 @@ import { authState } from '@/atoms/authState';
 import { getToken, removeToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
 import { useGoogleLogin } from "@/pages/login/hook/useGoogleLogin.js";
+import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/LoginSelect.css';
 
+
 const { handleGoogleLogin } = useGoogleLogin();
+
 const LoginSelect = () => {
-    const navigate = useNavigate();
+    const { goSignup, goHome, goLoginEmail } = useNavigation();
     const setAuth = useSetRecoilState(authState);
 
     useEffect(() => {
@@ -31,7 +33,7 @@ const LoginSelect = () => {
         try {
             const { token, decoded } = await kakaoLogin();
             setAuth({ isLoggedIn: true, user: { id: decoded.user_id }, token });
-            navigate('/');
+            goHome();
         } catch (errMsg) {
             alert(errMsg);
         }
@@ -44,7 +46,7 @@ const LoginSelect = () => {
                 <p className="login-sub">로그인하고<br/>내 집 점수 확인하기</p>
 
                 <button className="kakao-login" onClick={handleKakaoLogin}>카카오로 3초 만에 바로 시작</button>
-                <button className="email-login-button" onClick={() => navigate('/login/email')}>
+                <button className="email-login-button" onClick={() => goLoginEmail()}>
                     이메일로 로그인하기
                 </button>
 
@@ -59,7 +61,7 @@ const LoginSelect = () => {
                 </button>
 
                 <div className="signup-prompt">
-                    아직 회원이 아니신가요? <span onClick={() => navigate('/signup')} className="link">가입하기</span>
+                    아직 회원이 아니신가요? <span onClick={() => goSignup()} className="link">가입하기</span>
                 </div>
             </div>
         </div>

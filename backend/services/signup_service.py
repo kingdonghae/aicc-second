@@ -19,13 +19,13 @@ def is_valid_email(email):
     return re.match(r"[^@]+@[^@]+\.[^@]+", email) is not None
 
 def signup_user(data):
+    email = data.get('email')
     username = data.get('username')
     password = data.get('password')
-    email = data.get('email')
+    birthdate = data.get('birthdate')
     phone_number = data.get('phone_number')
     address = data.get('address')
     detail_address = data.get('detail_address')
-    birthdate = data.get('birthdate')
     agree_privacy = data.get('agree_privacy', 0)
 
     if not email or not password:

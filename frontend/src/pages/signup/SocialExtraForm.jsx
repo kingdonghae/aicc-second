@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { addUserInfo } from './services/signupService'
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/SignupForm.css';
 
-const SocialExtraForm = () => {
 
+const SocialExtraForm = () => {
+    
+    const { goHome } = useNavigation();
     const [userId, setUserId] = useState('');
     const [phone, setPhone] = useState('');
     const [birthdate, setBirthdate] = useState('');
     const [address, setAddress] = useState('');
     const [detailAddress, setDetailAddress] = useState('');
     const [message, setMessage] = useState('');
-    const navigate = useNavigate();
 
     useEffect(() => {
         const token = sessionStorage.getItem('confirmedToken');
         if (!token) return;
-0
         const decoded = jwtDecode(token);
 
         const id = decoded.user_id;
@@ -47,7 +47,7 @@ const SocialExtraForm = () => {
                 agree_privacy: 1,
             });
             alert('추가 정보 입력 완료!');
-            navigate('/');
+            goHome();
         } catch (err) {
             console.error(err);
             alert('오류가 발생했습니다.');
@@ -55,7 +55,7 @@ const SocialExtraForm = () => {
     };
 
     return (
-        <div className="background">
+        <div className="social-extra-form-background">
             <form onSubmit={handleSubmit} className="signup-form">
                 <input
                     type="text"
@@ -86,7 +86,7 @@ const SocialExtraForm = () => {
                     onChange={(e) => setDetailAddress(e.target.value)}
                 />
                 <p className="message">{message}</p>
-                <button type="submit">제출</button>
+                <button type="submit">가입하기</button>
             </form>
         </div>
     );

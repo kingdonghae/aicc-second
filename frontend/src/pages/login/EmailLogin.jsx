@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { login } from '@/pages/login/services/loginService';
 import { jwtDecode } from 'jwt-decode';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { saveToken } from '@/utils/authService';
+import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/EmailLogin.css';
 
+
 const EmailLogin = () => {
-    const navigate = useNavigate();
+    const { goHome, goLogin } = useNavigation();
     const setAuth = useSetRecoilState(authState);
 
     const [email, setEmail] = useState('');
@@ -28,7 +29,7 @@ const EmailLogin = () => {
             const userInfo = jwtDecode(token);
 
             setAuth({ isLoggedIn: true, user: userInfo, token });
-            navigate('/');
+            goHome();
         } catch (error) {
             setErrorMessage(error || '로그인 중 오류 발생');
         }
@@ -54,7 +55,7 @@ const EmailLogin = () => {
                 {errorMessage && <p className="login-error-msg">{errorMessage}</p>}
                 <button onClick={handleLogin} className="submit-button">로그인</button>
                 <div className="login-links">
-                    <span onClick={() => navigate('/login')} className="link" >회원가입</span>
+                    <span onClick={() => goLogin()} className="link" >회원가입</span>
                 </div>
             </div>
         </div>
