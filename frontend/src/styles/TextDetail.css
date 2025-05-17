@@ -203,9 +203,6 @@
     flex-direction: column;
     /* justify-content: space-between; */
     width: 32rem;
-    height: 16rem;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 

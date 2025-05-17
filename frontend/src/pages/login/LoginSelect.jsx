@@ -20,7 +20,7 @@ const LoginSelect = () => {
         if (token) {
             try {
                 const decoded = jwtDecode(token);
-                setAuth({ isLoggedIn: true, user: { id: decoded.user_id }, token });
+                setAuth({ isLoggedIn: true, user: decoded, token });
             } catch {
                 removeToken();
             }
@@ -30,7 +30,7 @@ const LoginSelect = () => {
     const handleKakaoLogin = async () => {
         try {
             const { token, decoded } = await kakaoLogin();
-            setAuth({ isLoggedIn: true, user: { id: decoded.user_id }, token });
+            setAuth({ isLoggedIn: true, user: decoded, token });
             navigate('/');
         } catch (errMsg) {
             alert(errMsg);

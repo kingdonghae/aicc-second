@@ -17,7 +17,6 @@ import InfoDetail from "@/pages/infodetail/InfoDetail.jsx";
 import Board from "@/pages/board/Board";
 import MapPage from "@/pages/map/MapPage.jsx";
 import OAuthSuccess from "@/pages/login/OAuthSuccess.jsx";
-import RentReportIframe from "@/pages/RentReportIframe.jsx";
 import AlertModal from "@/components/AlertModal.jsx";
 
 
@@ -41,7 +40,6 @@ function App() {
                     <Route path={ROUTES.INFO_DETAIL} element={<InfoDetail />} />
                     <Route path={ROUTES.MAP} element={<MapPage />} />
                     <Route path={ROUTES.BOARD} element={<Board />} />
-                    <Route path='/rentReport' element={<RentReportIframe />} />
                 </Route>
             </Routes>
             <AlertModal />

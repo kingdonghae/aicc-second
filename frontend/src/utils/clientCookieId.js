@@ -11,7 +11,6 @@ export function ensureClientCookieId() {
     return cookieMatch[2];
 }
 
-// Fallback: 간단한 UUID v4 생성기
 function generateFallbackUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
         const r = Math.random() * 16 | 0;

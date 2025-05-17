@@ -1,4 +1,3 @@
-// src/hook/useAuth.js
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { saveToken, removeToken } from '@/utils/authService';

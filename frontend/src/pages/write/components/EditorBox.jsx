@@ -1,10 +1,10 @@
 import React from 'react';
 import { EditorContent } from '@tiptap/react';
 
-const EditorBox = ({ editor }) => {
+const EditorBox = ({editorRef, editor }) => {
   return (
     <div className='text-box'>
-      <EditorContent editor={editor} />
+      <EditorContent ref={editorRef} editor={editor} />
     </div>
   );
 };
