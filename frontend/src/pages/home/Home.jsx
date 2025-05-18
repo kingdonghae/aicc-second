@@ -18,7 +18,7 @@ const Home = () => {
                 <p id='sub-title'>Zip Place Tool</p>
                 <SearchBox />
                 <p id='sub-text'>동네의 모든 것, 집PT가 요약해드립니다!<br/>
-                <span>e.g. 서울시 영등포구 선유서로 │ 검색 불가 : 코드랩 아카데미, 서울시청</span>
+                <span>주소를 입력해보세요</span>
                 </p>
             </section>
 
