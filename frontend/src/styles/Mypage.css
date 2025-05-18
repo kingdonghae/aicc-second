@@ -1,10 +1,12 @@
-
 .mypage-background {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Pretendard-Regular';
+    font-weight: 600;
+    font-size: 0.65rem;
 }
 
 .mypage-form {
@@ -15,35 +17,87 @@
     width: 20rem;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.5rem;
 }
 
-.hold-data::placeholder {
-    color: black;
+.mypage-form input {
+    text-indent: 0;
+    text-align: left;
+    height: 1.8rem;
+    padding: 0.8rem 1.4rem;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    font-size: 0.5rem;
 }
 
-input:focus {
+.mypage-form input:focus {
     outline: none;
 }
 
-#modify-box {
+.mypage-form .input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mypage-form .input-group input {
+    flex: 1;
+    border-radius: 2rem;
+}
+
+.mypage-form .input-group button {
+    background-color: #B9DCC4;
+    color: white;
+    border: none;
+    padding: 0rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'NPSfontBold';
+}
+
+.mypage-form .input-group button:hover {
+    background-color: #E5F2D6;
+    color: #6C757D;
+    transform: translateY(-2px);
+}
+
+.mypage-form input[type="password"] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mypage-form .birth-group {
+    gap: 0.5rem;
+}
+
+.mypage-form .birth-group .hold-data {
+    width: 100%;
+}
+
+.mypage-form .hold-data {
+    background-color: #f2f2f2;
+}
+
+.mypage-form .hold-data::placeholder {
+    color: black;
+}
+
+.mypage-form #modify-box {
     display: flex;
     justify-content: space-between;
 }
 
-.mypage-button {
+.mypage-form .mypage-button {
     background-color: #B9DCC4;
     width: 8rem;
     color: white;
     padding: 0.6rem;
-    border: none;
     border-radius: 2rem;
     font-size: 0.8rem;
     cursor: pointer;
     font-family: 'NPSfontBold';
 }
 
-.mypage-button:hover {
+.mypage-form .mypage-button:hover {
     background-color: #E5F2D6;
     color: #6C757D;
 }

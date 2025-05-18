@@ -1,4 +1,4 @@
-.form-background {
+.social-extra-form-background {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -9,7 +9,7 @@
     font-size: 0.65rem;
 }
 
-.signup-form {
+.social-extra-form {
     background-color: #ffffff;
     padding: 1.2rem;
     border: 4px solid black;
@@ -17,10 +17,11 @@
     width: 20rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.8rem;
 }
 
-.signup-form input {
+.social-extra-form input {
+    margin: -0.1rem;
     text-indent: 0;
     text-align: left;
     height: 1.8rem;
@@ -31,21 +32,22 @@
     font-size: 0.5rem;
 }
 
-.signup-form input:focus {
+.social-extra-form input:focus {
     outline: none;
 }
 
-.signup-form .input-group {
+
+.social-extra-form .input-group {
     display: flex;
     gap: 0.5rem;
 }
 
-.signup-form .input-group input {
+.social-extra-form .input-group input {
     flex: 1;
     border-radius: 2rem;
 }
 
-.signup-form .input-group button {
+.social-extra-form .input-group button {
     background-color: #B9DCC4;
     color: white;
     border: none;
@@ -56,54 +58,44 @@
     font-family: 'NPSfontBold';
 }
 
-.signup-form .input-group button:hover {
+.social-extra-form .input-group button:hover {
     background-color: #E5F2D6;
     color: #6C757D;
     transform: translateY(-2px);
 }
 
-.signup-form input[type="password"] {
+.social-extra-form input[type="password"] {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.signup-form input::placeholder {
+.social-extra-form input::placeholder {
     color: #bbb;
 }
 
-.signup-form input[type="date"]:not(:valid) {
+.social-extra-form input[type="date"]:not(:valid) {
     color: #999; /* 흐린 회색 */
   }
 
-.signup-form .birth-group {
+.social-extra-form .birth-group {
     display: flex;
     gap: 0.5rem;
 }
 
-.signup-form p {
-    margin: 3px 1rem;
-    /* font-size: 0.rem; */
+.social-extra-form .birth-group input {
+    flex: 1;
+    font-weight: 600;
 }
 
-.signup-form .success {
-    color: green;
-    font-size: 0.5rem;
-}
-
-.signup-form .error {
-    color: red;
-    font-size: 0.5rem;
-}
-
-.signup-form .message-space {
+.social-extra-form .message-space {
     min-height: 0.6rem;
     /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
 }
 
-.signup-form .message {
+.social-extra-form .message {
     min-height: 0.6rem;
 }
 
-.signup-form .submit-button {
+.social-form-submit {
     background-color: #7BAE92;
     color: white;
     padding: 0.6rem;
@@ -114,18 +106,18 @@
     font-family: 'NPSfontBold';
 }
 
-.signup-form .submit-button:hover {
+.social-form-submit:hover {
     background-color: #97C4A9;
     color: #6c757d;
 }
 
-.signup-form .submit-button.disabled {
+.social-form-submit.disabled {
     background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
 }
 
-.signup-form .submit-button.disabled:hover {
+.social-form-submit.disabled:hover {
     background-color: #cccccc;
     /* hover 시에도 색상 변화 없음 */
     color: #666666;

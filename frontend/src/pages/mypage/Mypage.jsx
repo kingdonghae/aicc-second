@@ -97,7 +97,7 @@ const Mypage = () => {
                 <input type="text" value={username} readOnly className='hold-data' />
 
                 <div className="birth-group">
-                    <input type="date" value={birthdate} readOnly />
+                    <input type="date" value={birthdate} readOnly className='hold-data' />
                 </div>
 
                 <input

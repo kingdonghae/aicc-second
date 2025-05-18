@@ -1,43 +1,10 @@
-.login-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .login-container {
     background-color: #fff;
     padding: 2rem;
     border-radius: 1rem;
     width: 22rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.go-login-select {
-    background-color: transparent;
-    border: none;
-    display: flex;
-    font-size: 1rem;
-}
-
-.go-login-select:hover {
-    background-color: #E5F2D6;
-    color: #6c757d;
-}
-
-.login-container input {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.8rem;
-    border-radius: 2rem;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
-
-.login-container input::placeholder {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
 }
 
 .login-container h2 {
@@ -46,38 +13,68 @@
     font-family: 'netmarble';
 }
 
-.submit-button {
-    padding: 0.8rem;
-    border: none;
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-box .input-group {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 0.5rem;
+}
+
+.login-box .input-group input {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1.4rem;
     border-radius: 2rem;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    height: 1.8rem;
+}
+
+.login-box .input-group input::placeholder {
+    color: #bbb;
+}
+
+.login-box .submit-button {
+    padding: 0.8rem;
+    height: 3rem;
+    width: 20%;
+    border: none;
+    border-radius: 1rem;
     background-color:#7BAE92;
     color: white;
     cursor: pointer;
 }
 
-.submit-button:hover {
+.login-box .submit-button:hover {
     background-color: #97C4A9;
     color: #6c757d;
 }
 
 .login-error-msg {
     color: red;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
+    font-size: 0.5rem;
+    margin: 1rem;
 }
 
-.login-links {
+.signup-link {
     margin-top: 1rem;
     font-size: 0.9rem;
     color: #555;
 }
 
-.login-links .link {
+.signup-link .link {
     color: #0077ff;
     cursor: pointer;
     text-decoration: underline;
 }
 
-.login-links .link:hover {
-    font-weight: bold;
+.signup-link .link:hover {
+    color: #3E6B53
 }

@@ -31,7 +31,8 @@
     gap: 0.5rem;
 }
 
-.submit-button {
+.terms-submit-button {
+    font-size: 0.8rem;
     margin-top: 1.5rem;
     padding: 0.8rem 1rem;
     border-radius: 2rem;
@@ -41,7 +42,7 @@
     cursor: pointer;
 }
 
-.submit-button:hover {
+.terms-submit-button:hover {
     background-color: #97C4A9;
     color: #6c757d;
 }

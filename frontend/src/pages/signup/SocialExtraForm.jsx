@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { addUserInfo } from './services/signupService'
 import { useNavigation } from '@/hook/useNavigation';
-import '@/styles/SignupForm.css';
+import '@/styles/SocialExtraForm.css';
 
 
 const SocialExtraForm = () => {
@@ -54,25 +54,36 @@ const SocialExtraForm = () => {
         }
     };
 
+    const isFormValid = () => {
+        return (
+          phone.length === 11 && 
+          birthdate !== '' && 
+          address !== ''
+        );
+      };
+
     return (
         <div className="social-extra-form-background">
-            <form onSubmit={handleSubmit} className="signup-form">
+            <form onSubmit={handleSubmit} className="social-extra-form">
                 <input
                     type="text"
-                    placeholder="전화번호"
+                    placeholder="휴대폰 번호 입력 ('-' 제외 11자리 입력)" 
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                 />
-                <input
-                    type="date"
-                    value={birthdate}
-                    onChange={(e) => setBirthdate(e.target.value)}
-                    max={new Date().toISOString().split('T')[0]}
-                />
+                <div className="birth-group">
+                    <input 
+                        type="date" 
+                        value={birthdate} 
+                        onChange={(e) => setBirthdate(e.target.value)} 
+                        max={new Date().toISOString().split('T')[0]} 
+                        required 
+                    />
+                </div>
                 <div className="input-group">
                     <input
                         type="text"
-                        placeholder="주소"
+                        placeholder="주소를 검색해주세요" 
                         value={address}
                         onClick={handleAddressSearch}
                         readOnly
@@ -81,12 +92,17 @@ const SocialExtraForm = () => {
                 </div>
                 <input
                     type="text"
-                    placeholder="상세 주소"
+                    placeholder="상세 주소를 입력해주세요" 
                     value={detailAddress}
                     onChange={(e) => setDetailAddress(e.target.value)}
                 />
-                <p className="message">{message}</p>
-                <button type="submit">가입하기</button>
+                <button 
+                    type="submit"
+                    className={`social-form-submit ${!isFormValid() ? 'disabled' : ''}`}
+                    disabled={!isFormValid()}>
+                    가입하기
+                </button>
+                
             </form>
         </div>
     );

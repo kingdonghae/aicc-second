@@ -60,7 +60,7 @@ const SignupTerms = () => {
                 <label><input type="checkbox" checked={agreements.privacy} onChange={() => toggleItem('privacy')} /> [필수] 개인정보 수집 및 이용 동의</label>
                 <label><input type="checkbox" checked={agreements.marketing} onChange={() => toggleItem('marketing')} /> [선택] 마케팅 정보 수신 동의</label>
             </div>
-            <button className="submit-button" onClick={handleNext}>동의하고 가입하기</button>
+            <button className="terms-submit-button" onClick={handleNext}>동의하고 가입하기</button>
         </div>
     );
 };
