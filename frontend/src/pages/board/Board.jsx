@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import '../../styles/Board.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigation } from '@/hook/useNavigation.js';
 import PostTable from '@/pages/board/components/PostTable.jsx';
-import Pagination from '@/pages/board/components/Pagination.jsx';
-import {usePostList} from "@/pages/board/hook/usePosts.js";
+import { usePostList } from "@/pages/board/hook/usePosts.js";
+import { useRequireLoginAction } from "@/pages/textdetail/hook/useRequireLoginAction.js";
+import '@/styles/Board.css';
 
 const Board = () => {
-  const { goWrite } = useNavigation();
+  const { goWrite, goLogin } = useNavigation();
+  const requireLoginAction = useRequireLoginAction();
+  const handleGoWrite = () => {
+    requireLoginAction(goWrite,goLogin);
+  };
   const { searchTerm, setSearchTerm, posts, totalPages, loading, error,handleSearch,page,setPage,limit } = usePostList();
   return (
       <div className="board-background">
@@ -31,7 +34,7 @@ const Board = () => {
                   </button>
                 </form>
               </div>
-              <button type="submit" className="write-btn" onClick={goWrite}>글쓰기</button>
+              <button type="submit" className="write-btn" onClick={handleGoWrite}>글쓰기</button>
             </div>
           </section>
 

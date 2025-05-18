@@ -1,7 +1,8 @@
 from flask import jsonify
 
 from db import get_connection
-from models.post_model import update_views_query, get_post_detail_query, get_posts_query, count_posts_query
+from models.post_model import update_views_query, get_post_detail_query, get_posts_query, count_posts_query, \
+    get_file_query
 
 
 def get_post_list_service(limit, page, search):
@@ -37,6 +38,12 @@ def get_post_detail_service(post_id):
             detail_sql = get_post_detail_query()
             cursor.execute(detail_sql, (post_id,))
             post = cursor.fetchone()
+
+            file_sql = get_file_query()
+            cursor.execute(file_sql, (post_id,))
+            files = cursor.fetchall()
+
+            post['uploadedFiles'] = files
 
         connection.commit()
         if post:

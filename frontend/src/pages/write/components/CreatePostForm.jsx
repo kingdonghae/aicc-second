@@ -1,4 +1,3 @@
-// pages/WritePage.jsx
 import React, { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useEditor } from '@tiptap/react';
@@ -9,15 +8,15 @@ import Color from '@tiptap/extension-color';
 import TextAlign from '@tiptap/extension-text-align';
 import Placeholder from '@tiptap/extension-placeholder';
 import { alignedImage } from '../services/AlignedImage';
-import useImageUpload from '../hook/useImageUpload';
+import useImageUpload from '../hook/useFileUpload.js';
 import { useSavePost } from '../hook/useSavePost';
 import { useNavigation } from '@/hook/useNavigation';
 import EditorToolbar from './EditorToolbar';
 import EditorBox from './EditorBox';
+import AttachmentList from "@/pages/write/components/AttachmentList.jsx";
 
 const CreatePostForm = () => {
     const [title, setTitle] = useState('');
-    const [attachments, setAttachments] = useState([]);
     const { goBoard } = useNavigation();
 
     const editor = useEditor({
@@ -36,13 +35,36 @@ const CreatePostForm = () => {
         content: '<p><양식><br/>- 내 거주지역 : <br/>- 평가 : 상 / 중 / 하</p>',
     });
 
-    const { fileInputRef, handleFileChange } = useImageUpload(editor);
-    const { handleSave, editId } = useSavePost(editor, title, setTitle);
+    const {
+        triggerImageInput,
+        onDelete,
+        triggerFileInput,
+        handleImageChange,
+        handleFileChange,
+        imageInputRef,
+        fileInputRef,
+        uploadedFiles,
+        setUploadedFiles
+    } = useImageUpload(editor);
+
+    const {
+        handleSave,
+        editId,
+        editorRef,
+        titleRef
+    } = useSavePost(
+        editor,
+        title,
+        setTitle,
+        uploadedFiles,
+        setUploadedFiles
+    );
 
     return (
         <div className='create-box'>
             <input
                 type='text'
+                ref={titleRef}
                 placeholder='제목을 입력하세요'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -52,34 +74,18 @@ const CreatePostForm = () => {
 
             <EditorToolbar
                 editor={editor}
+                imageInputRef={imageInputRef}
                 fileInputRef={fileInputRef}
+                triggerImageInput={triggerImageInput}
+                triggerFileInput={triggerFileInput}
+                handleImageChange={handleImageChange}
                 handleFileChange={handleFileChange}
-                setAttachments={setAttachments}
             />
 
-            <EditorBox editor={editor} />
+            <EditorBox editorRef={editorRef} editor={editor} />
 
-            {attachments.length > 0 && (
-                <div className='attachment-list'>
-                    <ul>
-                        {attachments.map((file, index) => (
-                            <li key={index}>
-                                <DeleteIcon
-                                    className='file-delete'
-                                    sx={{ fontSize: '0.8rem' }}
-                                    onClick={() =>
-                                        setAttachments((prev) => prev.filter((_, i) => i !== index))
-                                    }
-                                    title="삭제"
-                                />
-                                <a href={file.url} download={file.name} target="_blank" rel="noreferrer">
-                                    {file.name}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-
-                </div>
+            {uploadedFiles.length > 0 && (
+                <AttachmentList files={uploadedFiles} onDelete={onDelete}/>
             )}
 
             <div className='button-group'>

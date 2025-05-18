@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
-import { getPostDetailService } from "@/pages/textdetail/services/getPostDetailService.js";
+import { useEffect, useState, useMemo } from "react";
+import { useParams } from "react-router-dom";
+import { getPostDetailService } from "@/pages/textdetail/services/getPostDetailService";
 
 /**
  * 게시글 상세 조회 훅
  */
-export const usePostDetail = (postId) => {
+export const usePostDetail = () => {
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { id } = useParams();
+    const postId = parseInt(id);
 
     useEffect(() => {
         if (!postId) return;
@@ -19,5 +22,15 @@ export const usePostDetail = (postId) => {
             .finally(() => setLoading(false));
     }, [postId]);
 
-    return { post, loading, error };
+    const formatted = useMemo(() => {
+        if (!post?.created_at) return '';
+        const date = new Date(post.created_at);
+        const pad = (n) => String(n).padStart(2, '0');
+        return (
+            `${date.getUTCFullYear()}.${pad(date.getUTCMonth() + 1)}.${pad(date.getUTCDate())} ` +
+            `${pad(date.getUTCHours())}:${pad(date.getUTCMinutes())}:${pad(date.getUTCSeconds())}`
+        );
+    }, [post]);
+
+    return { post, loading, error, postId, formatted };
 };

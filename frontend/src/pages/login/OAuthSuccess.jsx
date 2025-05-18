@@ -16,10 +16,8 @@ const OAuthSuccess = () => {
 
         if (token) {
             const decoded = jwtDecode(token);
-            console.log("decoded: ", decoded);
-            console.log("decoded.agree_privacy: ", decoded.agree_privacy)
 
-            // ✅ 필수 약관 미동의자 처리
+            // 필수 약관 미동의자 처리
             if (decoded.agree_privacy === 0 || decoded.agree_privacy === null) {
                 sessionStorage.setItem('tempToken', token); // 약관 페이지용 임시 저장
                 goSignup(); // 약관 페이지로 이동
@@ -27,19 +25,18 @@ const OAuthSuccess = () => {
             }
 
             const username = decoded.username || '사용자';
-            login(username, token);
-
+            login(decoded, token);
             showModal({
                 title: '',
                 message: `${username} 님 환영합니다!`,
-                onConfirm: () => goHome(),
+                onConfirm: goHome,
             });
 
         } else {
             showModal({
                 title: '로그인 실패',
                 message: `유효한 토큰이 존재하지 않습니다.`,
-                onConfirm: () => goLogin(),
+                onConfirm: goLogin,
             });
         }
     }, []);

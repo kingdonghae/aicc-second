@@ -1,7 +1,10 @@
 from flask import Flask
 from flask_cors import CORS
+
+from routes.file_route import file_bp
 from config.file_config import WRITE_UPLOAD_FOLDER
 from config.login_config import LoginConfig
+from routes.comments_route import comment_bp
 from routes.google_auth_route import google_auth
 from routes.post_route import post_bp
 
@@ -51,7 +54,9 @@ app.register_blueprint(google_auth)
 app.register_blueprint(rank_bp, url_prefix='/rank')
 app.register_blueprint(search_bp, url_prefix='/search')
 app.register_blueprint(upload_bp)
+app.register_blueprint(file_bp)
 app.register_blueprint(post_bp)
+app.register_blueprint(comment_bp)
 app.register_blueprint(score_bp)
 app.register_blueprint(user_bp)
 if __name__ == '__main__':

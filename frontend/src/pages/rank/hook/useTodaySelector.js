@@ -1,8 +1,11 @@
-import {getSearchRank, getTodayRanking} from "../services/rankService.js";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import {getSearchRank, getTodayRanking} from "@/pages/rank/services/rankService.js";
 
 export function useTodaySelector() {
     const [todayRank, setTodayRank] = useState([]);
+    const [inputValue, setInputValue] = useState('');
+    const [keywordData, setKeywordData] = useState(null);
+
     useEffect(() => {
         const fetchTodayRanking = async () => {
             try {
@@ -17,13 +20,29 @@ export function useTodaySelector() {
         fetchTodayRanking();
     }, []);
 
-    const useKeywordRank = (keyword) => {
-        const shouldFetch = keyword && keyword.length > 0;
-        return (shouldFetch ? getSearchRank(keyword) : null);
+
+    const handleSearchSubmit = async (e) => {
+        e.preventDefault(); //
+
+        if (!inputValue.trim()) {
+            alert("검색어를 입력해주세요.");
+            return;
+        }
+
+        try {
+            const res = await getSearchRank(inputValue);
+            setKeywordData(res.rankings[0]?.currentRank ?? '-');
+        } catch (error) {
+            console.error("검색 실패:", error);
+            setKeywordData('-'); // 검색 실패 시 기본값
+        }
     };
 
     return {
-        useKeywordRank,
+        inputValue,
+        setInputValue,
+        keywordData,
+        handleSearchSubmit,
         todayRank
-    };
+    }
 }
