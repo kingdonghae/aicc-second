@@ -56,9 +56,6 @@ def add_user_info(user_id, data):
     birthdate = data.get('birthdate')
     agree_privacy = data.get('agree_privacy', 0)
     
-    print("[백엔드 수신]", user_id, phone, address, detail_address, birthdate)
-
-        
     if not phone or not address or not birthdate:
         return {'error': '모든 항목을 입력해주세요.'}, 400
 

@@ -72,8 +72,9 @@
 }
 
 .social-extra-form input[type="date"]:not(:valid) {
-    color: #999; /* 흐린 회색 */
-  }
+    color: #999;
+    /* 흐린 회색 */
+}
 
 .social-extra-form .birth-group {
     display: flex;

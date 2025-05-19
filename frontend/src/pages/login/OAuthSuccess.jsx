@@ -19,8 +19,8 @@ const OAuthSuccess = () => {
 
             // 필수 약관 미동의자 처리
             if (decoded.agree_privacy === 0 || decoded.agree_privacy === null) {
-                sessionStorage.setItem('tempToken', token); // 약관 페이지용 임시 저장
-                goSignup(); // 약관 페이지로 이동
+                sessionStorage.setItem('tempToken', token);
+                goSignup();
                 return;
             }
 

@@ -29,7 +29,6 @@ const useFileUpload = (editor) => {
 
         try {
             const result = await uploadFileService(file);
-            console.log('파일 저장 완료:', result);
             setUploadedFiles((prev) => [...prev, result]);
         } catch (err) {
             console.error('파일 업로드 실패:', err);

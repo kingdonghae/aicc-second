@@ -10,7 +10,6 @@ import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/LoginSelect.css';
 import { useShowModal } from "@/utils/showModal.js";
 
-
 const { handleGoogleLogin } = useGoogleLogin();
 
 const LoginSelect = () => {

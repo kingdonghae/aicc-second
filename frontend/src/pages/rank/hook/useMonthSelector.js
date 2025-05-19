@@ -32,7 +32,6 @@ export function useMonthSelector() {
         try {
             const data = await getMonthRanking(year, month);
             setMonthRank(data.rankings);
-            console.log(monthRank)
         } catch (error) {
             console.error("월간 랭킹 불러오기 실패:", error);
         }

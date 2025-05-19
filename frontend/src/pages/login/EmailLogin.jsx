@@ -6,7 +6,7 @@ import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/EmailLogin.css';
 
 const EmailLogin = () => {
-    const { goHome, goLogin } = useNavigation();
+    const { goHome, goLogin, goSignup } = useNavigation();
     const setAuth = useSetRecoilState(authState);
 
     const [email, setEmail] = useState('');
@@ -52,7 +52,8 @@ const EmailLogin = () => {
                 </div>
                 {errorMessage && <p className="login-error-msg">{errorMessage}</p>}
                 <div className="signup-link">
-                    <span onClick={() => goLogin()} className="link" >회원가입</span>
+                    <div onClick={() => goLogin()} className="link" >돌아가기</div>
+                    <div onClick={() => goSignup()} className="link" >회원가입</div>
                 </div>
             </div>
         </div>

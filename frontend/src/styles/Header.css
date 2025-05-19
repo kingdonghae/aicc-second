@@ -21,7 +21,6 @@
     font-style: normal;
 }
 
-
 * {
     box-sizing: border-box;
 }
@@ -48,16 +47,14 @@ body,
     overflow: hidden;
 }
 
-
 /* 상단 헤더 */
-
 .home-menu {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
     z-index: 30;
     width: 9rem;
-     height: 3.5rem;
+    height: 3.5rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -106,7 +103,6 @@ body,
 }
 
 /* 도움말 */
-
 .help-tooltip {
     position: absolute;
     top: 1.5rem;
@@ -120,11 +116,6 @@ body,
     font-weight: 500;
 }
 
-/* .help-tooltip button {
-    width: 3rem;
-    height: 3rem;
-} */
-
 .tooltip-icon {
     width: 4rem;
     height: 4rem;
@@ -132,7 +123,7 @@ body,
     justify-content: center;
     align-items: center;
     background-color: #B9DCC4;
-        border-radius: 2rem;
+    border-radius: 2rem;
 }
 
 .tooltip-message {
@@ -144,9 +135,7 @@ body,
     font-size: 0.8rem;
 }
 
-
 /* 메뉴 팝업 */
-
 .menu-popup {
     position: absolute;
     top: 3.5rem;
@@ -201,7 +190,6 @@ body,
 
 
 /* 검색창 SearchBox */
-
 #search-input-box {
     width: 40rem;
     height: 3rem;

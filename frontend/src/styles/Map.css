@@ -17,9 +17,7 @@
     z-index: 0;
 }
 
-
 /* 검색창 위치 */
-
 .search-position {
     position: absolute;
     top: 1rem;
@@ -28,9 +26,7 @@
     z-index: 10;
 }
 
-
 /* 지도 말풍선 */
-
 .custom-overlay {
     background: white;
     padding: 10px 15px;
@@ -58,9 +54,7 @@
     color: red;
 }
 
-
 /* 항목 보기 DetailList 열기 */
-
 .toggle-list-button {
     position: absolute;
     z-index: 20;
@@ -90,7 +84,6 @@
 
 
 /* 선택 항목 팝업 DetailList */
-
 .list-box {
     z-index: 20;
     position: absolute;
@@ -100,7 +93,7 @@
 
 .list-popup {
     background-color: #ffffff;
-    border: 3px solid #B9DCC4;  
+    border: 3px solid #B9DCC4;
     width: 15rem;
     border-radius: 1rem;
     padding: 0.3rem;
@@ -118,7 +111,7 @@
 }
 
 .list-top p {
-    margin-top: 1.2rem;
+    margin: 1.2rem 1rem;
     font-size: 0.6rem;
 }
 
@@ -167,20 +160,17 @@
     cursor: pointer;
 }
 
-
 /* 상세보기 팝업 DetailPreview */
-
 .preview-box {
-        position: absolute;
+    position: absolute;
     z-index: 20;
     bottom: 2rem;
     right: 2rem;
-
 }
 
 .preview-popup {
     background-color: #ffffff;
-    border: 3px solid #B9DCC4;  
+    border: 3px solid #B9DCC4;
     width: 14rem;
     border-radius: 1rem;
     padding: 1.5rem;
@@ -210,20 +200,6 @@
     margin-bottom: 0.2rem;
 }
 
-
-/* #preview-text {
-    background-color: #E5F2D6;
-    text-align: center;
-    width: 11rem;
-    height: 7rem;
-    margin: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem;
-    font-size: 1rem;
-} */
-
 #detail-move {
     background-color: #B9DCC4;
     margin: 0.5rem;
@@ -238,24 +214,19 @@
     cursor: pointer;
 }
 
-/* #detail-move:hover {
-    background-color: #B9DCC4;
-    transform: scale(1.1);
-} */
-
 .disabled-button {
-  background-color: #ccc;
-  color: #666;
-  cursor: not-allowed;
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
 }
 
 .active-button {
-  background-color: #97C4A9;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
+    background-color: #97C4A9;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
 }
 
 .active-button:hover {
-  background-color: #7BAE92;
-  transform: scale(1.1);
+    background-color: #7BAE92;
+    transform: scale(1.1);
 }
