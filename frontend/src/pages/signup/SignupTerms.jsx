@@ -1,11 +1,14 @@
-import '@/styles/SignupTerms.css';
 import { useState } from 'react';
 import { useNavigation } from '@/hook/useNavigation';
+import { useShowModal} from "@/utils/showModal.js";
+import '@/styles/SignupTerms.css';
 
 
 
 const SignupTerms = () => {
     const { goSignupSocialForm, goSignupForm } = useNavigation();
+    const showModal = useShowModal();
+
     const [agreeAll, setAgreeAll] = useState(false);
     const [agreements, setAgreements] = useState({
         age: false,
@@ -45,10 +48,14 @@ const SignupTerms = () => {
                 goSignupForm();
             }
         } else {
-            alert('필수 약관에 모두 동의해주세요.');
+            showModal({
+                title: '',
+                message: '필수 약관에 모두 동의해주세요.',
+                showCancelButton: false,
+            });
         }
     };
-    
+
 
     return (
         <div className="terms-wrapper">

@@ -8,11 +8,13 @@ import { jwtDecode } from 'jwt-decode';
 import { useGoogleLogin } from "@/pages/login/hook/useGoogleLogin.js";
 import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/LoginSelect.css';
+import { useShowModal } from "@/utils/showModal.js";
 
 const { handleGoogleLogin } = useGoogleLogin();
 
 const LoginSelect = () => {
     const { goSignup, goHome, goLoginEmail } = useNavigation();
+    const showModal = useShowModal();
     const setAuth = useSetRecoilState(authState);
 
     useEffect(() => {
@@ -34,7 +36,11 @@ const LoginSelect = () => {
             setAuth({ isLoggedIn: true, user: { id: decoded.user_id }, token });
             goHome();
         } catch (errMsg) {
-            alert(errMsg);
+            showModal({
+                title: '오류',
+                message:'잠시 후 다시 시도해 주세요.',
+                showCancelButton: false
+            });
         }
     };
 

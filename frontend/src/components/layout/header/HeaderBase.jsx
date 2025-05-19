@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
-import {useShowModal} from "@/utils/showModal.js";
+import { useShowModal } from "@/utils/showModal.js";
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
