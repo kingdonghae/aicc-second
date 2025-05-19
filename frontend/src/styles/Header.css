@@ -1,4 +1,4 @@
-/* 전역 : 상단 메뉴(Header), 검색창(SearchBox), 메뉴 팝업 */
+/* 전역 : 상단 메뉴(Header), 도움말, 검색창(SearchBox), 메뉴 팝업 */
 
 @font-face {
     font-family: 'NPSfontBold';
@@ -15,19 +15,18 @@
 }
 
 @font-face {
-    font-family: 'Gosanja';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/Gosanja.woff') format('woff');
+    font-family: 'netmarbleB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 
 * {
     box-sizing: border-box;
 }
 
 :root {
-    font-family: 'Gosanja';
+    font-family: 'netmarbleB';
     font-size: 1.7rem;
     color: rgba(0, 0, 0, 0.87);
     background-color: #ffffff;
@@ -43,21 +42,19 @@ body,
     min-height: 100vh;
     min-width: 100vw;
     font-family: 'NPSfontBold';
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     text-align: center;
     overflow: hidden;
 }
 
-
 /* 상단 헤더 */
-
 .home-menu {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
     z-index: 30;
     width: 9rem;
-     height: 3.5rem;
+    height: 3.5rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -84,17 +81,18 @@ body,
 .menu-button {
     font-family: 'NPSfontBold';
     font-size: 0.6rem;
-    background-color: #6EA8DC;
+    background-color: #97C4A9;
     border: none;
     border-radius: 1rem;
     padding: 0.5rem 0.8rem;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 6;
+    height: 2.5rem;
 }
 
 .menu-button:hover {
-    background-color: #FFF2CC;
+    background-color: #7BAE92;
     transform: scale(1.05)
 }
 
@@ -104,9 +102,40 @@ body,
     opacity: 100%;
 }
 
+/* 도움말 */
+.help-tooltip {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    /* width: 6rem;
+    height: 3rem; */
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+
+    font-weight: 500;
+}
+
+.tooltip-icon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B9DCC4;
+    border-radius: 2rem;
+}
+
+.tooltip-message {
+    font-size: 0.7rem;
+    width: 100%
+}
+
+.tooltip-info {
+    font-size: 0.8rem;
+}
 
 /* 메뉴 팝업 */
-
 .menu-popup {
     position: absolute;
     top: 3.5rem;
@@ -146,7 +175,7 @@ body,
 }
 
 .menu-list button:hover {
-    color: #6EA8DC;
+    color: #B9DCC4;
     transform: scale(1.05);
 }
 
@@ -156,12 +185,11 @@ body,
 }
 
 #menu-select button {
-    color: #6EA8DC;
+    color: #B9DCC4;
 }
 
 
 /* 검색창 SearchBox */
-
 #search-input-box {
     width: 40rem;
     height: 3rem;

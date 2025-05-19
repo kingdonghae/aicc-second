@@ -1,18 +1,21 @@
 .chart-background {
     width: 100vw;
     height: 100vh;
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
     /* flex-direction: column; */
     /* justify-content: space-between; */
     /* align-items: flex-start; */
     display: flex;
+    flex-direction: column;
+    font-family: 'Pretendard-Regular';
+    font-weight: 600;
 }
 
-
 .chart-area {
-    width: 38rem;
+    /* width: 38rem; */
     height: 100%;
     margin: 0;
+    display: flex;
     /* padding: 0rem 4rem 2rem 4rem; */
     /* box-sizing: border-box; */
     /* overflow: visible; */
@@ -24,28 +27,23 @@
     background-color: white;
     /* position: relative; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 50%;
     height: 100%;
     margin: 0;
     padding-top: 2rem;
     /* margin-bottom: 4rem; */
-    /* /* display: flex; */
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-
-
-
-
 /* InfoGPT */
-
 .gpt-background {
-    background-color: #DEEBF7;
-    width: 32rem;
+    background-color: #E5F2D6;
+    width: 35rem;
     height: 100%;
-    padding: 4rem;
+    padding: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,12 +57,13 @@
     background-color: white;
     border-radius: 1rem;
     width: 100%;
-    height: 600px;
-    padding: 1rem;
+    height: auto;
+    padding: 1rem 2rem;
 }
 
 .gpt-box h2 {
     font-size: 1rem;
+    font-family: 'NPSfontBold';
 }
 
 .gpt-talk {
@@ -75,19 +74,27 @@
     font-size: 16px;
     word-wrap: break-word;
     text-align: left;
+    font-size: 0.7rem;
+    /* line-height: 1.8; */
 }
 
+.gpt-talk strong {
+    font-weight: bold;
+    color: #5b9e6f;
+    /* 강조 색상 (조정 가능) */
+}
 
 /* CustomLegend */
-
 .legend-background {
     width: 100%;
     background-color: #f2f2f2;
     /* height: 9rem; */
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     height: 8rem;
+    font-family: 'Pretendard-Regular';
+    font-weight: 600;
     /* margin-top: 3rem; */
 
     /* justify-content: space-between; */
@@ -113,34 +120,37 @@
 }
 
 .legend-list:hover {
-    background-color: #DEEBF7;
+    background-color: #7BAE92;
 }
 
 .legend-list.active {
-    background-color: #FFF2CC;
+    background-color: #97C4A9;
 }
-
-
 
 .legend-label {
     font-size: 0.6rem;
 }
 
 .legend-desc {
-    width: 12rem;
-    /* background-color: white; */
-    height: 100%;
-    gap: 0.1rem;
+
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 0 1.5rem;
 }
 
+.legend-box-section {
+    width: 22rem;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .legend-box {
-    width: 100%;
-    height: 70%;
+    width: 80%;
+    height: 85%;
     background-color: white;
     border-radius: 1.5rem;
     display: flex;
@@ -150,14 +160,28 @@
     word-break: keep-all;
 }
 
-.legend-desc p {
-    font-size: 0.5rem;
+.legend-warn {
+    font-size: 0.4rem;
+    text-align: left;
+    color: gray;
+    margin-top: 0;
 }
 
-/* .chart-box {
-    border: 1px dashed red;
+.map-again-button {
+    /* margin-top: 0.5rem; */
+    width: 5rem;
+    height: 5rem;
+    ;
+    /* padding: 0.4rem 0.8rem; */
+    /* border: none; */
+    border-radius: 50%;
+    background-color: #FFE9A7;
+    font-size: 0.6rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 1, 1, 0.1);
 }
 
-.legend-background {
-    border: 1px dashed blue;
-} */
+.map-again-button:hover {
+    background-color: #7BAE92;
+    transform: scale(0.95);
+}

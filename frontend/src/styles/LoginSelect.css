@@ -1,6 +1,7 @@
 .login-wrapper {
     font-family: 'Pretendard-Regular';
-    background-color: #e6f0fa;
+    font-weight: 600;
+    background-color: #E5F2D6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,13 +14,14 @@
     padding: 3rem 2rem;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-text {
-    font-family: 'NPSfontBold';
+    font-family: 'netmarble';
+    font-weight: 500;
     font-size: 2.5rem;
-    font-weight: bold;
+    letter-spacing: 0.3rem;
 }
 
 .logo-text span {
@@ -28,7 +30,7 @@
 
 .login-sub {
     margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #333;
     line-height: 1.5;
 }
@@ -67,9 +69,9 @@
     transition: 0.3s;
 }
 
-
 .divider {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
+    font-size: 0.8rem;
     color: #aaa;
 }
 
@@ -91,8 +93,10 @@
 
 .signup-prompt {
     margin-top: 2rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #555;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
 }
 
 .signup-prompt .link {
@@ -102,5 +106,53 @@
 }
 
 .signup-prompt .link:hover {
-    font-weight: bold;
+    color: #3E6B53
+}
+
+.social-button {
+    background-color: #fee500;
+    /* 카카오 노란색 */
+    color: #000000;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'NPSfontBold';
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.social-button:hover {
+    background-color: #ffea00;
+    transform: translateY(-2px);
+}
+
+.direct-button {
+    background-color: #B9DCC4;
+    color: white;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'NPSfontBold';
+    margin-top: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.direct-button:hover {
+    background-color: #E5F2D6;
+    color: #6c757d;
+    transform: translateY(-2px);
+}
+
+.social-signup-prompt {
+    color: #0077ff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.social-signup-prompt:hover {
+    color: #3E6B53
 }

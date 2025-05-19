@@ -1,0 +1,124 @@
+.social-extra-form-background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pretendard-Regular';
+    font-weight: 600;
+    font-size: 0.65rem;
+}
+
+.social-extra-form {
+    background-color: #ffffff;
+    padding: 1.2rem;
+    border: 4px solid black;
+    border-radius: 1.5rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.social-extra-form input {
+    margin: -0.1rem;
+    text-indent: 0;
+    text-align: left;
+    height: 1.8rem;
+    padding: 0.8rem 1.4rem;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    border-radius: 2rem;
+    font-size: 0.5rem;
+}
+
+.social-extra-form input:focus {
+    outline: none;
+}
+
+.social-extra-form .input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-extra-form .input-group input {
+    flex: 1;
+    border-radius: 2rem;
+}
+
+.social-extra-form .input-group button {
+    background-color: #B9DCC4;
+    color: white;
+    border: none;
+    padding: 0rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'NPSfontBold';
+}
+
+.social-extra-form .input-group button:hover {
+    background-color: #E5F2D6;
+    color: #6C757D;
+    transform: translateY(-2px);
+}
+
+.social-extra-form input[type="password"] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.social-extra-form input::placeholder {
+    color: #bbb;
+}
+
+.social-extra-form input[type="date"]:not(:valid) {
+    color: #999;
+    /* 흐린 회색 */
+}
+
+.social-extra-form .birth-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-extra-form .birth-group input {
+    flex: 1;
+    font-weight: 600;
+}
+
+.social-extra-form .message-space {
+    min-height: 0.6rem;
+    /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
+}
+
+.social-extra-form .message {
+    min-height: 0.6rem;
+}
+
+.social-form-submit {
+    background-color: #7BAE92;
+    color: white;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: 'NPSfontBold';
+}
+
+.social-form-submit:hover {
+    background-color: #97C4A9;
+    color: #6c757d;
+}
+
+.social-form-submit.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.social-form-submit.disabled:hover {
+    background-color: #cccccc;
+    /* hover 시에도 색상 변화 없음 */
+    color: #666666;
+}

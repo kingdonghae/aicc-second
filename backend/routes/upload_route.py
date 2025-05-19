@@ -23,10 +23,10 @@ def save_post():
     title = data.get('title')
     content = data.get('content')
     writer = data.get('writer')
+    attachments = data.get('attachments', [])
 
     try:
-        save_post_service(title, content, writer)
-        return jsonify({ 'status': 'success' })
+        return save_post_service(title, content, writer, attachments)
     except Exception as e:
         return jsonify({ 'error': str(e) }), 500
 
@@ -35,10 +35,10 @@ def update_post(post_id):
     data = request.get_json()
     title = data.get('title')
     content = data.get('content')
+    new_attachments = data.get('attachments', [])
 
     try:
-        update_post_service(title, content, post_id)
-        return jsonify({ 'status': 'success' })
+        return update_post_service(title, content, post_id, new_attachments)
     except Exception as e:
         return jsonify({ 'error': str(e) }), 500
 

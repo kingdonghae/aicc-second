@@ -1,9 +1,14 @@
-import '@/styles/SignupTerms.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '@/hook/useNavigation';
+import { useShowModal} from "@/utils/showModal.js";
+import '@/styles/SignupTerms.css';
+
+
 
 const SignupTerms = () => {
-    const navigate = useNavigate();
+    const { goSignupSocialForm, goSignupForm } = useNavigation();
+    const showModal = useShowModal();
+
     const [agreeAll, setAgreeAll] = useState(false);
     const [agreements, setAgreements] = useState({
         age: false,
@@ -33,11 +38,23 @@ const SignupTerms = () => {
     const handleNext = () => {
         const { age, service, privacy } = agreements;
         if (age && service && privacy) {
-            navigate('/signup/form');
+            const tempToken = sessionStorage.getItem('tempToken');
+            if (tempToken) {
+                sessionStorage.setItem('confirmedToken', tempToken); // 약관 동의 확인
+                sessionStorage.removeItem('tempToken');
+                goSignupSocialForm();
+            } else {
+                goSignupForm();
+            }
         } else {
-            alert('필수 약관에 모두 동의해주세요.');
+            showModal({
+                title: '',
+                message: '필수 약관에 모두 동의해주세요.',
+                showCancelButton: false,
+            });
         }
     };
+
 
     return (
         <div className="terms-wrapper">
@@ -49,7 +66,7 @@ const SignupTerms = () => {
                 <label><input type="checkbox" checked={agreements.privacy} onChange={() => toggleItem('privacy')} /> [필수] 개인정보 수집 및 이용 동의</label>
                 <label><input type="checkbox" checked={agreements.marketing} onChange={() => toggleItem('marketing')} /> [선택] 마케팅 정보 수신 동의</label>
             </div>
-            <button className="submit-button" onClick={handleNext}>동의하고 가입하기</button>
+            <button className="terms-submit-button" onClick={handleNext}>동의하고 가입하기</button>
         </div>
     );
 };

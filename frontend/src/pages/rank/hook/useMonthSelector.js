@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getISOMonthString, getMonthRanking} from "@/pages/rank/services/MonthSelectService.jsx";
+import { getISOMonthString, getMonthRanking } from "@/pages/rank/services/monthSelectService.js";
 
 export function useMonthSelector() {
     const [monthValue, setMonthValue] = useState("");
@@ -32,7 +32,6 @@ export function useMonthSelector() {
         try {
             const data = await getMonthRanking(year, month);
             setMonthRank(data.rankings);
-            console.log(monthRank)
         } catch (error) {
             console.error("월간 랭킹 불러오기 실패:", error);
         }

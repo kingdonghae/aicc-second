@@ -25,7 +25,7 @@
 }
 
 #two {
-    background-color: #DEEBF7;
+    background-color: #E5F2D6;
 }
 
 #two p {
@@ -34,18 +34,16 @@
     margin: 0.3rem 0.2rem 0.3rem 0;
 }
 
-
 #search-header {
     height: 1rem;
 }
-
 
 #rank-line {
     width: 100%;
     height: 0.2rem;
     margin-top: 1.5rem;
-    background-color: #6EA8DC;
-    border: 1px solid #6EA8DC;
+    background-color: #B9DCC4;
+    border: 1px solid #B9DCC4;
     border-radius: 2rem;
 }
 
@@ -80,37 +78,10 @@
     background-color: white;
 }
 
-/* input:focus {
-    outline: none;
-} */
-
-/* #input-button {
-    margin: 1rem;
-    height: 90%;
-    aspect-ratio: 1 / 1;
-    border: none;
-    border-radius: 2rem;
-    background-image: url('../assets/search.png');
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    cursor: pointer;
-    transition: transform 0.12s ease;
-}
-
-#input-button:hover {
-    transform: scale(1.2) translateY(-2px);
-}
-
-#input-button:active {
-    transform: scale(1.2) translateY(-2px);
-} */
-
 #check-number {
     margin-left: 0.5rem;
     font-size: 3rem;
-    color: #0070C0;
+    color: #3E6B53;
 }
 
 #today-rank {

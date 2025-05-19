@@ -14,7 +14,7 @@ import Pagination from "@/pages/board/components/Pagination.jsx";
 import '@/styles/Board.css';
 
 const StyledTableCell = styled(TableCell)({
-  backgroundColor: '#6EA8DC',
+  backgroundColor: '#B9DCC4',
   color: 'white',
   fontWeight: 'bold',
   fontFamily: 'KIMM_Bold',
@@ -88,15 +88,31 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
                     </TableCell>
                   </TableRow>
               ) : (
-                posts.map((row) => (
-                  <TableRow key={row.id} sx={{cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
-                    <NoticeTableCell align="center">{row.id}</NoticeTableCell>
-                    <NoticeTableCell align="left">{row.title}</NoticeTableCell>
-                    <NoticeTableCell align="center">{row.writer}</NoticeTableCell>
-                    <NoticeTableCell align="center">{formatTime(row.created_at)}</NoticeTableCell>
-                    <NoticeTableCell align="center">{row.view_count}</NoticeTableCell>
-                  </TableRow>
-                ))
+                  posts.map((row) => (
+                      <TableRow key={row.id} sx={{ cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
+                        <NoticeTableCell align="center">{row.id}</NoticeTableCell>
+
+                        {/* ✅ 제목과 댓글 수 함께 표시 */}
+                        <NoticeTableCell align="left" className="flex items-center gap-2">
+                          <span className="flex items-center gap-1 truncate">
+                            <span className="truncate">{row.title}</span>
+                            {(row.comment_count) >= 1 && (
+                                <span className="text-blue-400 ml-1 whitespace-nowrap">[{row.comment_count}]</span>
+                            )}
+
+                          {row.has_attachment===1 &&
+                              <img className="text-gray-400 ml-1" src='/assets/clip.svg' width='20' height='20'
+                              // className="ml-1" 
+                              alt='첨부파일'/>
+                          }
+                          </span>
+                        </NoticeTableCell>
+
+                        <NoticeTableCell align="center">{row.username}</NoticeTableCell>
+                        <NoticeTableCell align="center">{formatTime(row.created_at)}</NoticeTableCell>
+                        <NoticeTableCell align="center">{row.view_count}</NoticeTableCell>
+                      </TableRow>
+                  ))
               )}
             </TableBody>
           </Table>

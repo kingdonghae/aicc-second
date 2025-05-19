@@ -1,70 +1,89 @@
-// pages/MapPage.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '@/styles/Map.css';
-import KakaoMap from "@/pages/map/components/KakaoMap.jsx";
-import SearchBox from "@/components/SearchBox.jsx";
-import DetailList from "@/pages/map/components/DetailList.jsx";
-import DetailPreview from "@/pages/map/components/DetailPreview.jsx";
-import { useMapController } from "@/pages/map/hook/useMapController.js";
+import KakaoMap from '@/pages/map/components/KakaoMap';
+import SearchBox from '@/components/SearchBox';
+import DetailList from '@/pages/map/components/DetailList';
+import DetailPreview from '@/pages/map/components/DetailPreview';
+import { useMapController } from '@/pages/map/hook/useMapController';
+import { getScore } from '@/services/ScoreService';
+import { useGPT } from '@/hook/useGPT';
+import {useRecoilValue} from "recoil";
+import {authState} from "@/atoms/authState.js";
 
 const MapPage = () => {
-    const {
-        address, setAddress,
-        coords, setCoords,
-        showList, setShowList,
-        isDrag, setIsDrag,
-        category, setCategory
-    } = useMapController();
+  const {
+    address, setAddress,
+    coords, setCoords,
+    showList, setShowList,
+    isDrag, setIsDrag,
+    category, setCategory
+  } = useMapController();
 
-    return (
-        <div className="mapbackground">
-            <KakaoMap
-                address={address}
-                coords={coords}
-                category={category}
-                onDragStart={() => setIsDrag(true)}
-                onDragEnd={() => setIsDrag(false)}
-                setCoords={setCoords}
-            />
-            <div className="search-position">
-                <div className="search-page">
-                    <SearchBox
-                        defaultValue={address}
-                        onSearch={(newAddress, newCoords) => {
-                            setAddress(newAddress);
-                            setCoords(newCoords);
-                        }}
-                    />
-                </div>
-            </div>
+  const { isLoggedIn, user } = useRecoilValue(authState);
 
-            {!showList && (
-                <button
-                    className="toggle-list-button"
-                    onClick={() => setShowList((prev) => !prev)}
-                >
-                    항목<br />보기
-                </button>
-            )}
-            {showList && (
-                <div className="list-box">
-                    <DetailList
-                        isDrag={isDrag}
-                        onClose={() => setShowList(false)}
-                        category={category}
-                        setCategory={setCategory}
-                    />
-                </div>
-            )}
+  const [score, setScore] = useState(null);
+  const { gpt } = useGPT({ address, score });
 
-            <div className="preview-box">
-                <DetailPreview
-                    isDrag={isDrag}
-                    address={address}
-                    coords={coords} />
-            </div>
+  useEffect(() => {
+    if (!coords?.lat || !coords?.lng || !address) return;
+
+    const fetchData = async () => {
+      const result = await getScore(coords.lat, coords.lng);
+      setScore(result);
+    };
+
+    fetchData();
+  }, [coords, address]);
+
+  return (
+    <div className="mapbackground">
+      <KakaoMap
+        address={address}
+        coords={coords}
+        category={category}
+        onDragStart={() => setIsDrag(true)}
+        onDragEnd={() => setIsDrag(false)}
+        setCoords={setCoords}
+      />
+
+      <div className="search-position">
+        <SearchBox
+          defaultValue={address}
+          onSearch={(newAddress, newCoords) => {
+            setAddress(newAddress);
+            setCoords(newCoords);
+          }}
+          user_id={isLoggedIn ? user?.user_id : null}
+        />
+      </div>
+
+      {!showList && (
+        <button className="toggle-list-button" onClick={() => setShowList(true)}>
+          항목<br />보기
+        </button>
+      )}
+      {showList && (
+        <div className="list-box">
+          <DetailList
+            isDrag={isDrag}
+            onClose={() => setShowList(false)}
+            category={category}
+            setCategory={setCategory}
+          />
         </div>
-    );
+      )}
+
+      <div className="preview-box">
+        <DetailPreview
+          isDrag={isDrag}
+          address={address}
+          coords={coords}
+          score={score}
+          gpt={gpt}
+        />
+      </div>
+    </div>
+  );
 };
 
 export default MapPage;

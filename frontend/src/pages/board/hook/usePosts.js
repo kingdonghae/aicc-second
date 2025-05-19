@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {getPostCountService, getPostListService} from "@/pages/board/services/getPostsService.js";
+import { getPostCountService, getPostListService } from "@/pages/board/services/getPostsService.js";
 
 /**
  * 게시글 리스트 및 총 개수 조회 훅

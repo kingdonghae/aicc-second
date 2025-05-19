@@ -1,14 +1,12 @@
-import '@/styles/EmailLogin.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '@/pages/login/services/LoginService';
-import { jwtDecode } from 'jwt-decode';
+import { login } from '@/pages/login/services/loginService';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
-import { saveToken } from '@/utils/authService';
+import { useNavigation } from '@/hook/useNavigation';
+import '@/styles/EmailLogin.css';
 
 const EmailLogin = () => {
-    const navigate = useNavigate();
+    const { goHome, goLogin, goSignup } = useNavigation();
     const setAuth = useSetRecoilState(authState);
 
     const [email, setEmail] = useState('');
@@ -22,13 +20,9 @@ const EmailLogin = () => {
         }
 
         try {
-            const result = await login({ email, password });
-            const token = result.token;
-            saveToken(token);
-            const userInfo = jwtDecode(token);
-
-            setAuth({ isLoggedIn: true, user: userInfo, token });
-            navigate('/');
+            const { token, user } = await login({ email, password });
+            setAuth({ isLoggedIn: true, user, token });
+            goHome();
         } catch (error) {
             setErrorMessage(error || '로그인 중 오류 발생');
         }
@@ -38,23 +32,28 @@ const EmailLogin = () => {
         <div className="login-wrapper">
             <div className="login-container">
                 <h2>이메일로 로그인</h2>
-                <input
-                    type="email"
-                    placeholder="이메일 주소 입력"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="비밀번호 입력"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-                />
+                <div className='login-box'>
+                    <div className='input-group'>
+                        <input
+                            type="email"
+                            placeholder="이메일 주소 입력"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            placeholder="비밀번호 입력"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
+                        />
+                    </div>
+                    <button className="submit-button" onClick={handleLogin}>로 그 인</button>
+                </div>
                 {errorMessage && <p className="login-error-msg">{errorMessage}</p>}
-                <button onClick={handleLogin} className="submit-button">로그인</button>
-                <div className="login-links">
-                    <span onClick={() => navigate('/login')} className="link" >회원가입</span>
+                <div className="signup-link">
+                    <div onClick={() => goLogin()} className="link" >돌아가기</div>
+                    <div onClick={() => goSignup()} className="link" >회원가입</div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 .terms-wrapper {
     font-family: 'Pretendard-Regular';
+    font-weight: 600;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    background-color: #f4f7fc;
+    background-color: #f6fcf4;
     border-radius: 1rem;
     padding: 2rem;
     width: 20rem;
@@ -24,23 +25,24 @@
 }
 
 .checkbox-group label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.submit-button {
+.terms-submit-button {
+    font-size: 0.8rem;
     margin-top: 1.5rem;
     padding: 0.8rem 1rem;
     border-radius: 2rem;
     border: none;
-    background-color: #6ea8dc;
+    background-color: #7BAE92;
     color: white;
     cursor: pointer;
 }
 
-.submit-button:hover {
-    background-color: #deebf7;
+.terms-submit-button:hover {
+    background-color: #97C4A9;
     color: #6c757d;
 }

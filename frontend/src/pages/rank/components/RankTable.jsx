@@ -16,9 +16,9 @@ export default function RankTable({ rankData }) {
             <Table sx={{ fontSize: '0.5rem', padding: '0rem' }} aria-label="simple table">
                 <TableBody>
                     {rankData && rankData.length > 0 ? (
-                        rankData.map((row) => (
+                        rankData.map((row,index) => (
                             <TableRow key={row.keyword}>
-                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem 1rem' }}>{row.currentRank}</TableCell>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem 1rem' }}>{index+1}</TableCell>
                                 <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem' }}>
                                     {row.diffRank === 0 ? (
                                         <RemoveIcon sx={{ fontSize: 16, color: 'gray' }} />
