@@ -2,8 +2,8 @@
 
 #top {
     /* background-color: #E5F2D6; */
-    width: 100vw;
-    height: 20rem;
+    /* width: 100vw;     */
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,7 +73,7 @@ button:focus {
 #bottom {
     background-color: rgb(255, 255, 255);
     width: 100vw;
-    height: 20rem;
+    height: 40vh;
     padding-top: 3rem;
 }
 
