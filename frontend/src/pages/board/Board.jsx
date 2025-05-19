@@ -23,10 +23,11 @@ const Board = () => {
 
             <div className="board-menu-box">
               <div className="content-search-box">
-                <form style={{display:"flex",alignItems:"center"}} onSubmit={handleSearch}>
+                <form style={{display:"flex",alignItems:"center", width:'100%'}} onSubmit={handleSearch}>
                   <input
                       type="text"
                       value={searchTerm}
+                      style={{width:'80%', padding:'0 30px'}}
                       onChange={(e) => setSearchTerm(e.target.value)}
                   />
                   <button type="submit" className="content-search-btn">
