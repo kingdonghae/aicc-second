@@ -118,7 +118,8 @@
 }
 
 .list-top p {
-    margin-top: 1.2rem;
+    margin: 1.2rem 1rem;
+
     font-size: 0.6rem;
 }
 
