@@ -16,9 +16,8 @@ import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
 import ImageIcon from '@mui/icons-material/Image';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 
-const EditorToolbar = ({ editor, fileInputRef, handleFileChange, setAttachments }) => {
+const EditorToolbar = ({ editor, imageInputRef, fileInputRef, handleImageChange, handleFileChange, triggerImageInput,triggerFileInput }) => {
   const [isImageSelected, setIsImageSelected] = useState(false);
-  const attachmentInputRef = useRef(null);
 
   useEffect(() => {
     if (!editor) return;
@@ -29,18 +28,6 @@ const EditorToolbar = ({ editor, fileInputRef, handleFileChange, setAttachments 
     return () => editor.off('selectionUpdate', updateSelection);
   }, [editor]);
 
-  const handleFileAttach = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const fileURL = URL.createObjectURL(file);
-    const fileName = file.name;
-
-
-    setAttachments(prev => [...prev, { name: fileName, url: fileURL }]);
-
-    e.target.value = '';
-  };
 
   return (
     <div className='toolbar' style={{ position: 'relative' }}>
@@ -65,19 +52,19 @@ const EditorToolbar = ({ editor, fileInputRef, handleFileChange, setAttachments 
         type='file'
         accept='image/*'
         style={{ display: 'none' }}
-        ref={fileInputRef}
-        onChange={(e) => handleFileChange(e)}
+        ref={imageInputRef}
+        onChange={(e) => handleImageChange(e)}
       />
-      <button onClick={() => fileInputRef.current.click()}><ImageIcon /></button>
+      <button onClick={triggerImageInput}><ImageIcon /></button>
 
       <input
         type='file'
         accept='*'
         style={{ display: 'none' }}
-        ref={attachmentInputRef}
-        onChange={handleFileAttach}
+        ref={fileInputRef}
+        onChange={(e) => handleFileChange(e)}
       />
-      <button onClick={() => attachmentInputRef.current.click()}><AttachFileIcon /></button>
+      <button onClick={triggerFileInput}><AttachFileIcon /></button>
 
       {isImageSelected && (
         <div className='image-float-toolbar'>

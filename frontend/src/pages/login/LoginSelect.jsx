@@ -22,7 +22,7 @@ const LoginSelect = () => {
         if (token) {
             try {
                 const decoded = jwtDecode(token);
-                setAuth({ isLoggedIn: true, user: { id: decoded.user_id }, token });
+                setAuth({ isLoggedIn: true, user: decoded, token });
             } catch {
                 removeToken();
             }

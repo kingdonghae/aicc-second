@@ -7,6 +7,8 @@ import DetailPreview from '@/pages/map/components/DetailPreview';
 import { useMapController } from '@/pages/map/hook/useMapController';
 import { getScore } from '@/service/ScoreService';
 import { useGPT } from '@/hook/useGPT';
+import {useRecoilValue} from "recoil";
+import {authState} from "@/atoms/authState.js";
 
 const MapPage = () => {
   const {
@@ -16,6 +18,8 @@ const MapPage = () => {
     isDrag, setIsDrag,
     category, setCategory
   } = useMapController();
+
+  const { isLoggedIn, user } = useRecoilValue(authState);
 
   const [score, setScore] = useState(null);
   const { gpt } = useGPT({ address, score });
@@ -49,6 +53,7 @@ const MapPage = () => {
             setAddress(newAddress);
             setCoords(newCoords);
           }}
+          user_id={isLoggedIn ? user?.user_id : null}
         />
       </div>
 

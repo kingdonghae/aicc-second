@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useKakaoAddressSearch } from '@/hook/useKakaoAddressSearch.js';
 import { logSearchKeyword } from '@/pages/home/services/homeService.js';
 
-const SearchBox = ({ defaultValue = '', onSearch }) => {
+const SearchBox = ({ defaultValue = '', onSearch, user_id }) => {
     const [address, setAddress] = useState(defaultValue);
     const { searchAddress } = useKakaoAddressSearch();
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const SearchBox = ({ defaultValue = '', onSearch }) => {
         await searchAddress(
             trimmed,
             (coords) => {
-                logSearchKeyword(trimmed);
+                logSearchKeyword(trimmed, user_id);
                 if (onSearch) {
                     onSearch(trimmed, coords);
                 } else {

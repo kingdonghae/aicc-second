@@ -9,6 +9,19 @@ export const fetchUploadImages = (image) => {
     })
 }
 
+export const fetchUploadFile = (file) => {
+    return apiClient.post('/upload-file', file, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        }
+    })
+}
+
+export const fetchFileByFilename = (filename) => {
+    return apiClient.get(`/api/files/${filename}`, {
+        responseType: 'blob'
+    });
+};
 export const fetchSavePost = (content) => {
     return apiClient.post('/save-post', content);
 };

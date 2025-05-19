@@ -19,7 +19,7 @@ const AuthInitializer = () => {
         }
         setAuth({
           isLoggedIn: true,
-          user: { id: decoded.user_id },
+          user: decoded,
           token,
         });
       } catch {
