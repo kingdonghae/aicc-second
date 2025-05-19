@@ -10,7 +10,7 @@ import '@/styles/Rank.css';
 const Rank = () => {
     const { monthRank, monthValue, handleChange: handleMonthChange } = useMonthSelector();
     const { weekRank, weekValue,weekLabel, handleChange: handleWeekChange } = useWeekSelector();
-    const { inputValue, keywordData, setInputValue, handleSearchSubmit, todayRank} = useTodaySelector();
+    const { inputValue, keywordData, setInputValue, handleSearchSubmit, todayRank,inputRef} = useTodaySelector();
 
 
     return (
@@ -27,6 +27,7 @@ const Rank = () => {
                         <input
                             type="text"
                             placeholder='오늘의 순위를 확인해보세요!'
+                            ref={inputRef}
                             id='white-text'
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}

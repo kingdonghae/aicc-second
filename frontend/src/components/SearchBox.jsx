@@ -3,18 +3,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
 import { useKakaoAddressSearch } from '@/hook/useKakaoAddressSearch.js';
 import { logSearchKeyword } from '@/pages/home/services/homeService.js';
+import { useShowModal } from "@/utils/showModal.js";
 
 const SearchBox = ({ defaultValue = '', onSearch, user_id }) => {
     const [address, setAddress] = useState(defaultValue);
     const { searchAddress } = useKakaoAddressSearch();
     const navigate = useNavigate();
+    const showModal = useShowModal();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const trimmed = address.trim();
         if (!trimmed) {
-            alert('주소를 입력해주세요.');
-            return;
+            showModal({
+                title: '',
+                message: '주소를 입력해주세요.',
+                showCancelButton: false,
+            });
         }
 
         await searchAddress(
@@ -34,7 +39,11 @@ const SearchBox = ({ defaultValue = '', onSearch, user_id }) => {
                 }
             },
             () => {
-                alert('정확한 주소를 입력해 주세요.');
+                showModal({
+                    title: '',
+                    message: '정확한 주소를 입력해 주세요.',
+                    showCancelButton: false,
+                });
             }
         );
     };

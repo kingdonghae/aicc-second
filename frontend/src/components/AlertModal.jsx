@@ -46,7 +46,7 @@ export default function AlertModal() {
                         </button>
                     )}
                     <button
-                        className="px-3 py-1.5 bg-blue-500 text-white text-[20px] rounded-full hover:bg-blue-600 transition"
+                        className="px-3 py-1.5 bg-[rgb(151,196,169)] text-white text-[20px] rounded-full hover:bg-[rgb(123,174,146)] transition"
                         onClick={handleConfirm}
                     >
                         확  인

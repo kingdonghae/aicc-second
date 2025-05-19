@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { checkEmail, signup } from './services/signupService';
 import { useNavigation } from '@/hook/useNavigation';
+import { useShowModal } from "@/utils/showModal.js";
 import '@/styles/SignupForm.css';
 
 const SocialExtraForm = () => {
     const { goLoginEmail } = useNavigation();
+    const showModal = useShowModal();
     const [isEmailAvailable, setIsEmailAvailable] = useState(false);
     const [checkMessage, setCheckMessage] = useState('');
 
@@ -78,10 +80,18 @@ const SocialExtraForm = () => {
 
         try {
             const result = await signup(userData);
-            alert(result.message || '회원가입 성공');
-            goLoginEmail();
+            showModal({
+                title: '',
+                message: result.message || '회원가입 성공',
+                showCancelButton: false,
+                onConfirm:goLoginEmail
+            });
         } catch (err) {
-            alert(err);
+            showModal({
+                title: '오류',
+                message: '잠시 후 다시 시도해 주세요',
+                showCancelButton: false,
+            });
         }
     };
 

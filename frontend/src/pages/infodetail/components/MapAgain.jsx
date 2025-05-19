@@ -1,16 +1,21 @@
 import { useNavigation } from "@/hook/useNavigation";
 import { useLocation } from "react-router-dom";
+import { useShowModal } from "@/utils/showModal.js";
 
 const MapAgain = () => {
   const { goMapWithState } = useNavigation();
   const location = useLocation();
   const { coords, address, score, gpt } = location.state || {};
-
+  const showModal = useShowModal();
   const handleClick = () => {
     if (coords && address) {
       goMapWithState(coords, address, score, gpt);
     } else {
-      alert("돌아갈 데이터가 없습니다");
+      showModal({
+        title: '오류',
+        message:'돌아갈 데이터가 없습니다',
+        showCancelButton: false,
+      });
     }
   };
 

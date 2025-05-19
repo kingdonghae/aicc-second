@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { addUserInfo } from './services/signupService'
 import { useNavigation } from '@/hook/useNavigation';
+import { useShowModal } from "@/utils/showModal.js";
 import '@/styles/SocialExtraForm.css';
 
 const SocialExtraForm = () => {
     const { goLogin } = useNavigation();
+    const showModal = useShowModal();
     const [userId, setUserId] = useState('');
     const [phone, setPhone] = useState('');
     const [birthdate, setBirthdate] = useState('');
@@ -38,11 +40,21 @@ const SocialExtraForm = () => {
                 birthdate,
                 agree_privacy: 1,
             });
-            alert('추가 정보 입력 완료!');
-            goLogin();
+            showModal({
+                title: '',
+                message: '추가 정보가 입력 되었습니다.',
+                showCancelButton: false,
+                onConfirm:goLogin
+            });
         } catch (err) {
             console.error(err);
-            alert('오류가 발생했습니다.');
+            showModal({
+                title: '오류',
+                message: "잠시 후 다시 시도해 주세요.",
+                showCancelButton: false,
+                onConfirm:false
+
+            });
         }
     };
 
