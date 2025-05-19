@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { savePostService, updatePostService } from "@/pages/write/services/savePostService.js";
 import { useParams}  from "react-router-dom";
 import { usePostDetail } from "@/pages/textdetail/hook/usePostDetail.js";
