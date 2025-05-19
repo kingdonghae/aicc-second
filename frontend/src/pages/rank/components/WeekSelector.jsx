@@ -17,6 +17,7 @@ export default function WeekSelector({ value,onChange,label }) {
                         backgroundColor: "white",
                         border: "2px solid black",
                         textAlign: "left",
+                        padding: '0 30px'
                     }}
                     onChange={onChange}
                 />
