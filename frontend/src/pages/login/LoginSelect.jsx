@@ -9,7 +9,6 @@ import { useGoogleLogin } from "@/pages/login/hook/useGoogleLogin.js";
 import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/LoginSelect.css';
 
-
 const { handleGoogleLogin } = useGoogleLogin();
 
 const LoginSelect = () => {
