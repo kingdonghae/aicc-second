@@ -25,7 +25,7 @@ export const useSavePost = (editor, title, setTitle, uploadedFiles, setUploadedF
             setUploadedFiles(post.uploadedFiles)
         }
     }, [editId, post, editor, setTitle]);
-    
+
     const handleSave = async () => {
         setLoading(true);
         setError(null);
@@ -82,15 +82,27 @@ export const useSavePost = (editor, title, setTitle, uploadedFiles, setUploadedF
                 : await savePostService(payload);
 
             if (result?.data?.status === 'ok') {
-                alert('저장 완료!');
-                goBoard();
+                showModal({
+                    title: '성공',
+                    message: '저장 완료!',
+                    showCancelButton: false,
+                    onConfirm: goBoard,
+                });
             } else {
-                alert('저장에 실패했습니다.');
+                showModal({
+                    title: '오류',
+                    message: '저장에 실패했습니다.<br/> 잠시 후 다시 시도하세요',
+                    showCancelButton: false,
+                });
             }
         } catch (err) {
             console.error('저장 실패:', err);
             setError(err?.response?.data?.error || '저장 실패');
-            alert('저장 중 오류 발생');
+            showModal({
+                title: '에러',
+                message: '저장 중 오류가 발생했습니다. <br/> 관리자에게 문의하세요.',
+                showCancelButton: false,
+            });
         } finally {
             setLoading(false);
         }

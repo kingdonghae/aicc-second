@@ -4,11 +4,12 @@ import { jwtDecode } from 'jwt-decode';
 import { getUserInfo, patchUserInfo } from './services/userService.js';
 import { useNavigate } from 'react-router-dom';
 import '@/styles/Mypage.css';
+import { useShowModal } from "@/utils/showModal.js";
 
 
 const Mypage = () => {
     const navigate = useNavigate();
-    
+    const showModal = useShowModal();
     const [userId, setUserId] = useState('');
     const [username, setUsername] = useState('');
     const [birthdate, setBirthdate] = useState('');
@@ -19,15 +20,15 @@ const Mypage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
-    
+
     useEffect(() => {
         const token = getToken();
         if (!token) return;
-    
+
         const decoded = jwtDecode(token);
         const id = decoded.user_id;
         setUserId(id);
-    
+
         getUserInfo(id)
             .then(data => {
                 setUsername(data.username);
@@ -39,10 +40,14 @@ const Mypage = () => {
             })
             .catch(err => {
                 console.error(err);
-                alert(err);
+                showModal({
+                    title: '오류',
+                    message: '잠시 후 다시 시도해주세요.',
+                    showCancelButton: false,
+                });
         });
     }, []);
-    
+
     const handleAddressSearch = () => {
         new window.daum.Postcode({
             oncomplete: function (data) {
@@ -66,14 +71,22 @@ const Mypage = () => {
                 address,
                 detail_address: detailAddress,
             });
-            alert('사용자 정보가 성공적으로 수정되었습니다.');
+            showModal({
+                title: '',
+                message: '사용자 정보가 성공적으로 수정되었습니다.',
+                showCancelButton: false,
+            });
             navigate('/');
         } catch (err) {
             console.error(err);
-            alert(err);
+            showModal({
+                title: '오류',
+                message:'잠시 후 다시 시도해 주세요.',
+                showCancelButton: false
+            });
         }
     };
-    
+
 
     return (
         <div className="mypage-background">
