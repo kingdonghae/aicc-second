@@ -1,6 +1,6 @@
 // ✅ hooks/useGPT.js
 import { useEffect, useState } from 'react';
-import { fetchGPTResponse } from '@/service/GPTService';
+import { fetchGPTResponse } from '@/services/GPTService';
 
 export const useGPT = ({ address, score, preload }) => {
   const [gpt, setGpt] = useState(preload || '');

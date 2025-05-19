@@ -5,7 +5,7 @@ import SearchBox from '@/components/SearchBox';
 import DetailList from '@/pages/map/components/DetailList';
 import DetailPreview from '@/pages/map/components/DetailPreview';
 import { useMapController } from '@/pages/map/hook/useMapController';
-import { getScore } from '@/service/ScoreService';
+import { getScore } from '@/services/ScoreService';
 import { useGPT } from '@/hook/useGPT';
 import {useRecoilValue} from "recoil";
 import {authState} from "@/atoms/authState.js";

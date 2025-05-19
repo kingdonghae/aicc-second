@@ -101,7 +101,9 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
                             )}
 
                           {row.has_attachment===1 &&
-                              <img className="text-gray-400 ml-1" src='/assets/clip.svg' width='20' height='20' className="ml-1" alt='첨부파일'/>
+                              <img className="text-gray-400 ml-1" src='/assets/clip.svg' width='20' height='20'
+                              // className="ml-1" 
+                              alt='첨부파일'/>
                           }
                           </span>
                         </NoticeTableCell>

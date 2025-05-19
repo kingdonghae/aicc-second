@@ -79,6 +79,11 @@
     gap: 0.5rem;
 }
 
+.signup-form .birth-group input {
+    flex: 1;
+    font-weight: 600;
+}
+
 .signup-form p {
     margin: 3px 1rem;
     /* font-size: 0.rem; */

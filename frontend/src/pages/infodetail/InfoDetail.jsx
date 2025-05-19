@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 import CustomLegend from './components/CustomLegend';
 import GPTReport from '@/components/GPTReport';
-import { getScore } from '@/service/ScoreService';
+import { getScore } from '@/services/ScoreService';
 import '@/styles/InfoDetail.css';
 import { LegendList } from './components/legendList';
 
