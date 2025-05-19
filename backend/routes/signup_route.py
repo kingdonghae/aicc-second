@@ -15,8 +15,6 @@ def check_email():
 @signup_bp.route('', methods=['POST'])
 def signup():
     data = request.get_json()
-    print("data: ", data)
-    print("Received signup data:", data)  # 로그로 확인
     if data is None:
         return jsonify({'error': '요청 본문이 비어 있습니다.'}), 400
 
