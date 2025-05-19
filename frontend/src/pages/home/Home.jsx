@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <section id='top'>
-                 <ToolTip/>
+                 {/* <ToolTip/> */}
                 <h1 id='main-title'>집PT</h1>
                 <p id='sub-title'>Zip Place Tool</p>
                 <SearchBox user_id={isLoggedIn ? user?.user_id : null}/>
