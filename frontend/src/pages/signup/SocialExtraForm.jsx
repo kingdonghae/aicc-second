@@ -53,7 +53,6 @@ const SocialExtraForm = () => {
                 message: "잠시 후 다시 시도해 주세요.",
                 showCancelButton: false,
                 onConfirm:false
-
             });
         }
     };
