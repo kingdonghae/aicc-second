@@ -44,7 +44,7 @@
   margin-left: 0;
 }
 
- .board-menu-box {
+.board-menu-box {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -52,7 +52,7 @@
   width: 35%;
   height: 2.5rem;
   margin-top: 3rem;
- }
+}
 
 .content-search-box {
   display: flex;
@@ -83,7 +83,6 @@
   transform: scale(1.05);
 }
 
-
 .write-btn {
   min-width: 2.5rem;
   height: 80%;
@@ -92,7 +91,7 @@
   border-radius: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  background-color: 	#F6E6A8;
+  background-color: #F6E6A8;
 }
 
 .write-btn:hover {
@@ -102,42 +101,6 @@
 .write-btn:active {
   transform: scale(1.02);
 }
-
-/* .write-btn input {
-  font-size: 35px;
-  width: 75%;
-  height: 70px;
-  text-align: center;
-  border: none;
-  border-radius: 2rem;
-  font-family: 'NPSfontBold';
-  background-color: #cacaca;
-} */
-/*
-.input-word {
-  flex: 4;
-  margin: 5px;
-  font-size: 25px;
-  border: none;
-  background-color: #ffffff;
-}
-
-.submit-btn {
-  flex: 1;
-  height: 60px;
-  border: none;
-  border-radius: 2rem;
-}
-
-.submit-btn img {
-  height: 45px;
-} */
-
-/* .board-table table {
-  width: 80%;
-  margin: 0 auto;
-  border-collapse: collapse;
-} */
 
 .board-content {
   display: flex;
@@ -149,7 +112,7 @@
   height: 22.5rem;
 }
 
- .board-table {
+.board-table {
   min-height: 550px;
 }
 
@@ -186,7 +149,6 @@
 
 /* 페이지네이션을 아래쪽 끝 정렬 */
 .pagination {
-  /* position: absolute; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,8 +156,6 @@
   position: sticky;
   bottom: 0;
   padding: 1rem;
-  /* gap: 10px; */
-  /* padding-bottom: 20px; */
 }
 
 .page-number.active {

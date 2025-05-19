@@ -103,8 +103,6 @@
     border-radius: 4px;
 }
 
-
-
 .text-box {
     /* background-color: rgb(152, 152, 152); */
     padding: 0.5rem 1.5rem;
@@ -141,38 +139,38 @@
 
 .image-float-toolbar {
     position: absolute;
-            top: 3.2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 0.5rem;
-            padding: 0.3rem 0.5rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            gap: 0.5rem
+    top: 3.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    gap: 0.5rem
 }
 
 .attachment-list {
-  margin-top: 1rem;
-  width: 90%;
-  font-size: 0.6rem;
-  background-color: #f9f9f9;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ddd;
+    margin-top: 1rem;
+    width: 90%;
+    font-size: 0.6rem;
+    background-color: #f9f9f9;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ddd;
 }
 
 
 .attachment-list ul {
-  /* padding-left: 1rem; */
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.2rem;
+    /* padding-left: 1rem; */
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
 }
 
 .attachment-list li {
@@ -181,29 +179,26 @@
 }
 
 .file-delete {
-  cursor: pointer;
-  color: #666;
+    cursor: pointer;
+    color: #666;
 }
 
 
 .file-delete:hover {
-  color: red;
+    color: red;
 }
 
-
-
 .attachment-list a {
-  text-decoration: none;
-  color: #333;
-  padding: 0.3rem 0.5rem;
-  border-radius: 0.3rem;
-  font-size: 0.5rem;
+    text-decoration: none;
+    color: #333;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.5rem;
 }
 
 .attachment-list a:hover {
-  background-color: #e0e0e0;
+    background-color: #e0e0e0;
 }
-
 
 .is-editor-empty::before {
     content: attr(data-placeholder);
@@ -213,7 +208,6 @@
     height: 0;
     font-size: 0.8rem;
 }
-
 
 .button-group {
     margin-top: 1rem;

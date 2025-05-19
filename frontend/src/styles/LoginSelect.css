@@ -14,7 +14,7 @@
     padding: 3rem 2rem;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-text {
@@ -69,7 +69,6 @@
     transition: 0.3s;
 }
 
-
 .divider {
     margin: 1rem 0;
     font-size: 0.8rem;
@@ -102,7 +101,7 @@
 
 .signup-prompt .link {
     color: #0077ff;
-    cursor: pointer;    
+    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -150,7 +149,7 @@
 
 .social-signup-prompt {
     color: #0077ff;
-    cursor: pointer;    
+    cursor: pointer;
     text-decoration: underline;
 }
 
