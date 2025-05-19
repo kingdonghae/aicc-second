@@ -44,7 +44,7 @@ const SocialExtraForm = () => {
     }, [password, confirmPassword]);
 
     const handleCheckEmail = async () => {
-        if (!email) return console.log("email이 없습니다.")
+        if (!email) return setCheckMessage("email이 없습니다.")
 
         try {
             const res = await checkEmail(email);

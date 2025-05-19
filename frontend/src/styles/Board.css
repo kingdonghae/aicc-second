@@ -44,29 +44,6 @@
   margin-left: 0;
 }
 
-
-
-/* .functions {
-  margin: 1.5% 0 0 0;
-  flex: 1;
-} */
-
-/* .home-btn {
-  margin: 15px 35px 15px 15px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-} */
-
-/* .home-btn button {
-  border: 6px solid black;
-  border-radius: 2rem;
-} */
-
-/* .home-btn img {
-  padding: 5px;
-  height: 80px;
-} */
  .board-menu-box {
   display: flex;
   justify-content: space-between;
@@ -88,7 +65,6 @@
   width: 80%;
   height: 80%;
   border: 2px solid black;
-  /* 요소 간 간격 */
 }
 
 .content-search-box input {
@@ -109,10 +85,9 @@
 
 
 .write-btn {
-  width: 4rem;
+  min-width: 2.5rem;
   height: 80%;
-  /* font-family: 'NPSfontBold'; */
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   border: none;
   border-radius: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);

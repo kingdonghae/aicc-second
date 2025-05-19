@@ -6,8 +6,6 @@ export const fetchScore = async (lat, lng) => {
     const roundedLat = parseFloat(lat).toFixed(6);
     const roundedLng = parseFloat(lng).toFixed(6);
 
-    console.log("요청 시작: 좌표", roundedLat, roundedLng);
-
     // 타임아웃 시간 증가 (3초 → 10초)
     const { data } = await apiClient.post("/score", {
       lat: Number(roundedLat),
@@ -15,8 +13,6 @@ export const fetchScore = async (lat, lng) => {
     }, {
       timeout: 10000  // 타임아웃 10초로 설정
     });
-
-    console.log("응답 성공:", data);
     return data;
   } catch (error) {
     // 오류 처리 개선
