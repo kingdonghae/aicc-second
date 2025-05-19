@@ -3,9 +3,8 @@ import { checkEmail, signup } from './services/signupService';
 import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/SignupForm.css';
 
-
 const SocialExtraForm = () => {
-    const { goHome } = useNavigation();
+    const { goLoginEmail } = useNavigation();
     const [isEmailAvailable, setIsEmailAvailable] = useState(false);
     const [checkMessage, setCheckMessage] = useState('');
 
@@ -80,7 +79,7 @@ const SocialExtraForm = () => {
         try {
             const result = await signup(userData);
             alert(result.message || '회원가입 성공');
-            goHome();
+            goLoginEmail();
         } catch (err) {
             alert(err);
         }

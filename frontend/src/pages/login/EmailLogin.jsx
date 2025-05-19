@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { login } from '@/pages/login/services/loginService';
-import { jwtDecode } from 'jwt-decode';
 import { useSetRecoilState } from 'recoil';
 import { authState } from '@/atoms/authState';
-import { saveToken } from '@/utils/authService';
 import { useNavigation } from '@/hook/useNavigation';
 import '@/styles/EmailLogin.css';
-
 
 const EmailLogin = () => {
     const { goHome, goLogin } = useNavigation();
@@ -23,12 +20,8 @@ const EmailLogin = () => {
         }
 
         try {
-            const result = await login({ email, password });
-            const token = result.token;
-            saveToken(token);
-            const userInfo = jwtDecode(token);
-
-            setAuth({ isLoggedIn: true, user: userInfo, token });
+            const { token, user } = await login({ email, password });
+            setAuth({ isLoggedIn: true, user, token });
             goHome();
         } catch (error) {
             setErrorMessage(error || '로그인 중 오류 발생');
@@ -60,9 +53,8 @@ const EmailLogin = () => {
                 {errorMessage && <p className="login-error-msg">{errorMessage}</p>}
                 <div className="signup-link">
                     <span onClick={() => goLogin()} className="link" >회원가입</span>
-                </div>    
+                </div>
             </div>
-            
         </div>
     );
 };
