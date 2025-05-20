@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-import {usePostList} from "@/pages/board/hook/usePosts.js";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,10 +5,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
-import React, {useState} from "react";
 import {useNavigation} from "@/hook/useNavigation.js";
 import Pagination from "@/pages/board/components/Pagination.jsx";
+import { styled } from '@mui/material/styles';
 import '@/styles/Board.css';
 
 const StyledTableCell = styled(TableCell)({
@@ -102,7 +99,7 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
 
                           {row.has_attachment===1 &&
                               <img className="text-gray-400 ml-1" src='/assets/clip.svg' width='20' height='20'
-                              // className="ml-1" 
+                              // className="ml-1"
                               alt='첨부파일'/>
                           }
                           </span>
