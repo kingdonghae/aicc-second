@@ -13,8 +13,8 @@ import os, sys
 import io
 
 # UTF-8 인코딩 강제 설정 (이모지 출력 문제 해결)
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', line_buffering=True)
 
 # 환경 변수를 통한 Python 버퍼링 비활성화
 os.environ['PYTHONUNBUFFERED'] = '1'
