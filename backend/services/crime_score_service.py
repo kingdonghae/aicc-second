@@ -1,4 +1,3 @@
-
 from services.facility_service import get_facility_safe_score
 from services.cctv_service import get_cctv_score
 from services.crime_service import get_crime_score
@@ -16,8 +15,8 @@ def get_weighted_safety_score(lng, lat):
 
     facility_weight = 0.33
     cctv_weight = 0.33
-    crime_weight = 0.34  
-    
+    crime_weight = 0.34
+
     combined_score = (facility_score * facility_weight) + \
                 (cctv_score * cctv_weight) + \
                 (crime_score * crime_weight)

@@ -1,4 +1,3 @@
-
 import apiClient from "@/api/ApiClient";
 
 export const postSignup = (userData) => {
@@ -11,6 +10,6 @@ export const getCheckEmail = (email) => {
     });
 };
 
-export const postDetailUserInfo = (userId, updatedData) => { 
+export const postDetailUserInfo = (userId, updatedData) => {
     return apiClient.patch(`/signup/${userId}`, updatedData);
   };

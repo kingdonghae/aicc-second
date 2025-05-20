@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-import {usePostList} from "@/pages/board/hook/usePosts.js";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,8 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import React, {useState} from "react";
-import {useNavigation} from "@/hook/useNavigation.js";
+import { useNavigation } from "@/hook/useNavigation.js";
 import Pagination from "@/pages/board/components/Pagination.jsx";
 import '@/styles/Board.css';
 
@@ -17,10 +14,6 @@ const StyledTableCell = styled(TableCell)({
   backgroundColor: '#B9DCC4',
   color: 'white',
   fontWeight: 'bold',
-  fontFamily: 'KIMM_Bold',
-});
-
-const FontChangedTableCell = styled(TableCell)({
   fontFamily: 'KIMM_Bold',
 });
 
@@ -35,9 +28,6 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
 
   if (loading) return <p>로딩 중...</p>;
   if (error) return <p>에러 발생: {error.message}</p>;
-
-  const noticeRows = posts.filter(p => p.title.includes('공지 │'));
-  const normalRows = posts.filter(p => !p.title.includes('공지 │'));
 
   const formatTime = (dateString) => {
     const date = new Date(dateString);

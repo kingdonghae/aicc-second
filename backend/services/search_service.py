@@ -1,4 +1,3 @@
-
 from flask import jsonify
 
 from db import get_connection

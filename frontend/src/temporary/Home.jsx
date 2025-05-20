@@ -1,5 +1,5 @@
-import '../styles/Home.css';
 import {useNavigate} from "react-router-dom";
+import '@/styles/Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Home = () => {
     </section>
 
     <section id='bottom'>
-      
+
       <div id='button-box'>
 
         <div>
@@ -45,7 +45,7 @@ const Home = () => {
 
   </div>
 )
-  
+
 }
 
 export default Home

@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import {useNavigation} from "@/hook/useNavigation.js";
 import MapIcon from '@mui/icons-material/Map';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import SearchBox from "@/components/SearchBox.jsx";
-import ToolTip from '@/components/ToolTip';
-import {useRecoilValue} from "recoil";
-import {authState} from "@/atoms/authState.js";
+import { useNavigation } from "@/hook/useNavigation.js";
+import { useRecoilValue } from "recoil";
+import { authState } from "@/atoms/authState.js";
 import '@/styles/Home.css';
 
 

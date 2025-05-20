@@ -1,11 +1,9 @@
 import { useRecoilValue } from 'recoil';
-import { useNavigate } from 'react-router-dom';
 import { useShowModal } from '@/utils/showModal';
 import { authState } from "@/atoms/authState.js";
 
 export const useRequireLoginAction = () => {
     const { isLoggedIn } = useRecoilValue(authState);
-    const navigate = useNavigate();
     const showModal = useShowModal();
 
     return (actionCallback, goLogin) => {

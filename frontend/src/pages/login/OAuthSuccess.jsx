@@ -39,8 +39,6 @@ const OAuthSuccess = () => {
             });
         }
     }, []);
-
-    return ;
 };
 
 export default OAuthSuccess;

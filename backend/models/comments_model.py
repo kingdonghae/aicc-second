@@ -7,21 +7,21 @@ def insert_comment_query():
                  , WRITER
                 )
                 VALUES (
-                   %s       /* 게시물 아이디 */
-                 , %s       /* 댓글 내용 */
-                 , %s       /* 작성자 아이디 */
+                   %s       
+                 , %s       
+                 , %s      
                 )
     """
 
 def get_comments_by_post_query():
     return """
         SELECT
-             c.ID             AS id             /* 키 값 */
-           , c.POST_ID        AS post_id        /* 게시물 아이디 */
-           , c.CONTENT        AS content        /* 댓글 내용 */  
-           , c.WRITER         AS writer         /* 작성자 아이디 */
-           , c.CREATED_AT     AS created_at     /* 작성 시간 */
-           , u.USERNAME       AS username       /* 작성자 명 */ 
+             c.ID             AS id            
+           , c.POST_ID        AS post_id        
+           , c.CONTENT        AS content        
+           , c.WRITER         AS writer        
+           , c.CREATED_AT     AS created_at     
+           , u.USERNAME       AS username      
         FROM
              COMMENTS c
         JOIN 
@@ -29,19 +29,19 @@ def get_comments_by_post_query():
           ON 
              writer = u.id       
         WHERE
-            POST_ID = %s                      /* 게시물 아이디 */  
+            POST_ID = %s                     
         ORDER BY CREATED_AT 
     """
 
 def select_comment_by_id_query():
     return """
         SELECT 
-              c.ID             AS id             /* 키 값 */
-            , c.POST_ID        AS post_id        /* 게시물 아이디 */
-            , c.CONTENT        AS content        /* 댓글 내용 */  
-            , c.WRITER         AS writer         /* 작성자 아이디 */
-            , c.CREATED_AT     AS created_at     /* 작성 시간 */
-            , u.USERNAME       AS username       /* 작성자 명 */ 
+              c.ID             AS id             
+            , c.POST_ID        AS post_id        
+            , c.CONTENT        AS content        
+            , c.WRITER         AS writer         
+            , c.CREATED_AT     AS created_at     
+            , u.USERNAME       AS username       
         FROM 
               COMMENTS c
         JOIN 
@@ -49,7 +49,7 @@ def select_comment_by_id_query():
           ON 
               writer = u.id
         WHERE 
-              c.ID = %s                           /* 댓글 아이디 */
+              c.ID = %s                           
     """
 
 def delete_comment_by_id_query():

@@ -2,7 +2,7 @@
 def get_dong_by_coords():
     return """
                 SELECT 
-                     FULL_ADRS_ADMIN  AS full_adrs_admin   /*행정동 주소*/
+                     FULL_ADRS_ADMIN  AS full_adrs_admin   
                 FROM 
                      CCTV_SCORE
                 ORDER BY 
@@ -16,7 +16,7 @@ def get_dong_by_coords():
 def get_cctv_query():
     return """
                 SELECT 
-                     SCORE      AS score    /*안전 점수*/
+                     SCORE      AS score    
                 FROM 
                      CCTV_SCORE 
                 WHERE 

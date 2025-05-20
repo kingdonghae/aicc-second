@@ -7,8 +7,8 @@ import { getToken, removeToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
 import { useGoogleLogin } from "@/pages/login/hook/useGoogleLogin.js";
 import { useNavigation } from '@/hook/useNavigation';
-import '@/styles/LoginSelect.css';
 import { useShowModal } from "@/utils/showModal.js";
+import '@/styles/LoginSelect.css';
 
 const { handleGoogleLogin } = useGoogleLogin();
 

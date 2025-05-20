@@ -1,4 +1,3 @@
-
 import { fetchUserInfo, updateUserInfo } from '../api/userapi.js';
 
 export const getUserInfo = async (userId) => {

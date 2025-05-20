@@ -2,11 +2,11 @@
 def get_daily_rank_query():
     return """
                 SELECT
-                      KEYWORD                             AS keyword         # 검색어
-                    , COUNT                               AS count           # 검색 수
-                    , CURRENT_RANKING                     AS currentRank     # 현재 순위    
-                    , DIFF_RANK                           AS diffRank        # 변동율    
-                    , 'daily'                             AS periodType      # 기간 구분
+                      KEYWORD                             AS keyword        
+                    , COUNT                               AS count           
+                    , CURRENT_RANKING                     AS currentRank     
+                    , DIFF_RANK                           AS diffRank        
+                    , 'daily'                             AS periodType      
                 FROM SEARCH_RANKING_DAILY
                 WHERE DATE(START_DATE) = DATE(now())
                 ORDER BY COUNT DESC
@@ -16,11 +16,11 @@ def get_daily_rank_query():
 def get_weekly_rank_query():
     return """
                 SELECT
-                    KEYWORD                 AS keyword,         -- 검색어
-                    COUNT                   AS count,           -- 검색 수
-                    CURRENT_RANK            AS currentRank,     -- 현재 순위
-                    DIFF_RANK               AS diffRank,        -- 변동율
-                    'weekly'                AS periodType       -- 기간 구분
+                    KEYWORD                 AS keyword,        
+                    COUNT                   AS count,           
+                    CURRENT_RANK            AS currentRank,     
+                    DIFF_RANK               AS diffRank,        
+                    'weekly'                AS periodType       
                 FROM search_ranking_weekly
                 WHERE WEEK_START = DATE_ADD(
                     STR_TO_DATE(CONCAT(%s, '-01-04'), '%%Y-%%m-%%d')
@@ -34,11 +34,11 @@ def get_weekly_rank_query():
 def get_monthly_rank_query():
     return """
                 SELECT
-                      KEYWORD                                    AS keyword             # 검색어
-                    , COUNT                                      AS count               # 검색 수
-                    , ROW_NUMBER() OVER (ORDER BY COUNT DESC)    AS currentRank         # 현재 순위
-                    , DIFF_RANK                                  AS diffRank            # 변동율    
-                    , 'monthly'                                  AS periodType          # 기간 구분
+                      KEYWORD                                    AS keyword            
+                    , COUNT                                      AS count               
+                    , ROW_NUMBER() OVER (ORDER BY COUNT DESC)    AS currentRank         
+                    , DIFF_RANK                                  AS diffRank             
+                    , 'monthly'                                  AS periodType          
                 FROM SEARCH_RANKING_MONTHLY
                 WHERE YEAR = %s AND MONTH = %s
                 ORDER BY COUNT DESC
@@ -48,9 +48,9 @@ def get_monthly_rank_query():
 def get_keyword_rank_query():
     return """
                 SELECT
-                      KEYWORD                   AS keyword         # 검색어
-                    , COUNT                     AS count           # 검색 수
-                    , CURRENT_RANKING           AS currentRank     # 현재 순위
+                      KEYWORD                   AS keyword         
+                    , COUNT                     AS count           
+                    , CURRENT_RANKING           AS currentRank     
                 FROM SEARCH_RANKING_DAILY
                 WHERE KEYWORD = %s 
                 and start_date = current_date

@@ -1,4 +1,3 @@
-
 from db import get_connection
 from models.rank_model import (
     get_daily_rank_query,
@@ -7,24 +6,6 @@ from models.rank_model import (
     get_keyword_rank_query,
     insert_search_keyword_query
 )
-
-
-def fetch_all_rankings():
-    connection = get_connection()
-    try:
-        with connection.cursor() as cursor:
-            combined_query = f"""
-                ({get_daily_rank_query()})
-                UNION ALL
-                ({get_weekly_rank_query()})
-                UNION ALL
-                ({get_monthly_rank_query()});
-            """
-            cursor.execute(combined_query)
-            results = cursor.fetchall()
-            return results
-    finally:
-        connection.close()
 
 
 def fetch_keyword_ranking(keyword):

@@ -1,4 +1,3 @@
-
 from flask import jsonify
 from db import get_connection
 from models.comments_model import insert_comment_query, get_comments_by_post_query, delete_comment_by_id_query, \

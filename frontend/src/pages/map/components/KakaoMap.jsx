@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
-import { useKakaoMap } from "@/pages/map/hook/useKakaoMap.js";
 import Marker from './Marker';
+import { useRef } from 'react';
+import { useKakaoMap } from "@/pages/map/hook/useKakaoMap.js";
 
 function KakaoMap({ address, coords, onDragStart, onDragEnd, category }) {
     const mapContainerRef = useRef(null);

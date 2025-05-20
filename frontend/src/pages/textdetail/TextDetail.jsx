@@ -7,9 +7,9 @@ import {useSaveComment} from "@/pages/textdetail/hook/useSaveComment.js";
 import {useComments} from "@/pages/textdetail/hook/useComments.js";
 import {useRecoilValue} from "recoil";
 import {authState} from "@/atoms/authState.js";
-import '@/styles/TextDetail.css';
 import {useRequireLoginAction} from "@/pages/textdetail/hook/useRequireLoginAction.js";
 import AttachmentList from "@/pages/write/components/AttachmentList.jsx";
+import '@/styles/TextDetail.css';
 
 const TextDetail = () => {
     const {isLoggedIn,user} = useRecoilValue(authState);
@@ -31,7 +31,6 @@ const TextDetail = () => {
         title,
         writer,
         username,
-        created_at,
         view_count,
         content,
         total_count,
@@ -77,7 +76,7 @@ const TextDetail = () => {
                             <div dangerouslySetInnerHTML={{ __html: content }} />
                         </div>
                     </div>
-                    
+
                     <CommentForm
                         comment={comment}
                         setComment={setComment}

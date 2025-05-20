@@ -1,8 +1,7 @@
 from flask import jsonify
 
 from db import get_connection
-from models.post_model import update_views_query, get_post_detail_query, get_posts_query, count_posts_query, \
-    get_file_query
+from models.post_model import update_views_query, get_post_detail_query, get_posts_query, count_posts_query, get_file_query
 
 
 def get_post_list_service(limit, page, search):
