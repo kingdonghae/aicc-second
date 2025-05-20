@@ -1,13 +1,4 @@
-"""
-====================================================================
-파일명   : post_model.py
-작성자   : jungeun
-작성일자 : 2025-05-08
-설명     : 게시물 추가 및 조회 관련 데이터 관리
-====================================================================
-"""
 
-# 게시물 데이터 추가
 def insert_post_query():
     return """
                 INSERT INTO POSTS (
@@ -20,9 +11,6 @@ def insert_post_query():
                   , %s     /*작성자*/
                 );
            """
-
-
-# 게시물 수정
 def update_post_query():
     return """
                 UPDATE POSTS
@@ -59,9 +47,6 @@ def get_posts_query(search):
 
     return base_query + where_clause + order_limit_clause
 
-
-
-# 게시물 상세 조회 (+ 전체 게시물 수 포함)
 def get_post_detail_query():
     return """
                 SELECT 
@@ -85,7 +70,6 @@ def get_post_detail_query():
                  WHERE p.ID = %s
            """
 
-# 첨부파일 조회
 def get_file_query():
     return """
                 SELECT 
@@ -98,8 +82,6 @@ def get_file_query():
                      POST_ID = %s
      """
 
-
-# 조회수 증가
 def update_views_query():
     return """
                 UPDATE POSTS 

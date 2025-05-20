@@ -36,7 +36,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
             onConfirm: () => {
                 logout();
                 goHome();
-            }, // 확인 누르면 홈으로 이동
+            }, 
             showCancelButton: true,
         });
     };

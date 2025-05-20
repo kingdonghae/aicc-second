@@ -2,9 +2,6 @@
     width: 100vw;
     height: 100vh;
     background-color: #E5F2D6;
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    /* align-items: flex-start; */
     display: flex;
     flex-direction: column;
     font-family: 'Pretendard-Regular';
@@ -12,33 +9,23 @@
 }
 
 .chart-area {
-    /* width: 38rem; */
     height: 100%;
     margin: 0;
     display: flex;
-    /* padding: 0rem 4rem 2rem 4rem; */
-    /* box-sizing: border-box; */
-    /* overflow: visible; */
-    /* display: flex; */
-    /* flex-direction: column; */
 }
 
 .chart-box {
     background-color: white;
-    /* position: relative; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 50%;
     height: 100%;
     margin: 0;
     padding-top: 2rem;
-    /* margin-bottom: 4rem; */
-    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-/* InfoGPT */
 .gpt-background {
     background-color: #E5F2D6;
     width: 35rem;
@@ -75,29 +62,22 @@
     word-wrap: break-word;
     text-align: left;
     font-size: 0.7rem;
-    /* line-height: 1.8; */
 }
 
 .gpt-talk strong {
     font-weight: bold;
     color: #5b9e6f;
-    /* 강조 색상 (조정 가능) */
 }
 
-/* CustomLegend */
 .legend-background {
     width: 100%;
     background-color: #f2f2f2;
-    /* height: 9rem; */
     display: flex;
     align-items: center;
     justify-content: center;
     height: 8rem;
     font-family: 'Pretendard-Regular';
     font-weight: 600;
-    /* margin-top: 3rem; */
-
-    /* justify-content: space-between; */
 }
 
 .legend-container {
@@ -168,12 +148,8 @@
 }
 
 .map-again-button {
-    /* margin-top: 0.5rem; */
     width: 5rem;
     height: 5rem;
-    ;
-    /* padding: 0.4rem 0.8rem; */
-    /* border: none; */
     border-radius: 50%;
     background-color: #FFE9A7;
     font-size: 0.6rem;

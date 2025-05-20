@@ -7,9 +7,8 @@ def get_crime_score(lng, lat):
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 가장 가까운 위치의 범죄 점수 가져오기
             sql = get_nearest_crime_score()
-            cursor.execute(sql, (lng, lat))  # 위도, 경도 순서 주의
+            cursor.execute(sql, (lng, lat))
             result = cursor.fetchone()
 
             if result and "score" in result:

@@ -2,9 +2,6 @@ import { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { getPostDetailService } from "@/pages/textdetail/services/getPostDetailService";
 
-/**
- * 게시글 상세 조회 훅
- */
 export const usePostDetail = () => {
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);

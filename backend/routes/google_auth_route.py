@@ -1,11 +1,4 @@
-"""
-====================================================================
-파일명   : google_auth_route.py
-작성자   : jungeun
-작성일자 : 2025-05-14
-설명     : 구글 OAuth 인증을 위한 라우팅 처리
-====================================================================
-"""
+
 from flask import Blueprint, redirect, request, jsonify, current_app
 from services.google_service import process_google_auth
 

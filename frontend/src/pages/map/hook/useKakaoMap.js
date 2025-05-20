@@ -10,7 +10,7 @@ export const useKakaoMap = ({ coords, address, onDragStart, onDragEnd, mapRef, s
 
     useEffect(() => {
         const initMap = async () => {
-            if (!mapRef.current) return; // DOM 연결 확인
+            if (!mapRef.current) return;
 
             await loadKakaoMapScript();
 

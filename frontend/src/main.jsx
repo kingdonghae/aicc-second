@@ -8,12 +8,10 @@ import './index.css'
 
 
 createRoot(document.getElementById('root')).render(
-    <StrictMode>
         <RecoilRoot>
             <BrowserRouter>
                 <AuthInitializer />
                 <App />
             </BrowserRouter>
         </RecoilRoot>
-    </StrictMode>
 );

@@ -17,7 +17,6 @@ const OAuthSuccess = () => {
         if (token) {
             const decoded = jwtDecode(token);
 
-            // 필수 약관 미동의자 처리
             if (decoded.agree_privacy === 0 || decoded.agree_privacy === null) {
                 sessionStorage.setItem('tempToken', token);
                 goSignup();

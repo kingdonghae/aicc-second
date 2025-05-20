@@ -1,4 +1,4 @@
-// components/EditorToolbar.jsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import FormatBoldIcon from '@mui/icons-material/FormatBold';
 import FormatItalicIcon from '@mui/icons-material/FormatItalic';

@@ -3,10 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useShowModal } from '@/utils/showModal';
 import { authState } from "@/atoms/authState.js";
 
-/**
- * 로그인 확인 후 특정 행동을 수행하는 재사용 훅
- * @returns {function} requireLoginAction(callback)
- */
 export const useRequireLoginAction = () => {
     const { isLoggedIn } = useRecoilValue(authState);
     const navigate = useNavigate();

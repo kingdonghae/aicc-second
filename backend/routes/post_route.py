@@ -1,11 +1,4 @@
-"""
-====================================================================
-파일명   : post_route.py
-작성자   : jungeun
-작성일자 : 2025-05-01
-설명     : 게시글 리스트, 상세 조회, 게시글 수 관련 API
-====================================================================
-"""
+
 from flask import Blueprint, request, jsonify
 from services.post_service import get_post_list_service, get_post_detail_service, get_count_posts
 

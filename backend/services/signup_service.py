@@ -1,4 +1,3 @@
-# signup_service.py
 
 import re
 import bcrypt

@@ -40,12 +40,10 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
   const normalRows = posts.filter(p => !p.title.includes('공지 │'));
 
   const formatTime = (dateString) => {
-    const date = new Date(dateString); // UTC 기준
+    const date = new Date(dateString);
 
-    // pad 함수로 두 자리 맞춤
     const pad = (n) => String(n).padStart(2, '0');
 
-    // UTC 기준 날짜 추출
     const y = date.getUTCFullYear();
     const m = pad(date.getUTCMonth() + 1);
     const d = pad(date.getUTCDate());
@@ -57,7 +55,6 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
     const todayM = today.getUTCMonth() + 1;
     const todayD = today.getUTCDate();
 
-    // 날짜 비교도 UTC 기준으로
     const isToday =
         y === todayY &&
         (m == pad(todayM)) &&
@@ -92,7 +89,6 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
                       <TableRow key={row.id} sx={{ cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
                         <NoticeTableCell align="center">{row.id}</NoticeTableCell>
 
-                        {/* ✅ 제목과 댓글 수 함께 표시 */}
                         <NoticeTableCell align="left" className="flex items-center gap-2">
                           <span className="flex items-center gap-1 truncate">
                             <span className="truncate">{row.title}</span>
@@ -102,7 +98,6 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
 
                           {row.has_attachment===1 &&
                               <img className="text-gray-400 ml-1" src='/assets/clip.svg' width='20' height='20'
-                              // className="ml-1" 
                               alt='첨부파일'/>
                           }
                           </span>

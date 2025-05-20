@@ -1,5 +1,5 @@
-import apiClient from "@/api/apiClient.js";
 
+import apiClient from "@/api/apiClient.js";
 
 export const fetchUploadImages = (image) => {
     return apiClient.post('/upload-image', image, {

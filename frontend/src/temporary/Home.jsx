@@ -8,7 +8,6 @@ const Home = () => {
     <div>
 
     <section id='top'>
-      {/* <nav></nav> */}
       <header id='main-header'>
         <h1 id='main-title'>집PT</h1>
         <p>Zip Place Tool</p>

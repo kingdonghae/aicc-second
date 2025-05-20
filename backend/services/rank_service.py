@@ -1,14 +1,3 @@
-"""
-====================================================================
-파일명   : rank_service.py
-작성자   : jungeun
-작성일자 : 2025-04-30
-설명     : 주소 검색 순위 조회 비즈니스 로직 처리
-           - 일간/주간/월간 주소 검색 순위 통합 조회
-           - 특정 주소 키워드의 현재 순위 조회
-           - DB 연결 및 쿼리 실행 처리 포함
-====================================================================
-"""
 
 from db import get_connection
 from models.rank_model import (
@@ -20,7 +9,6 @@ from models.rank_model import (
 )
 
 
-# 일간/주간/월간 별 주소 검색 순위 테이블 데이터 조회
 def fetch_all_rankings():
     connection = get_connection()
     try:
@@ -39,7 +27,6 @@ def fetch_all_rankings():
         connection.close()
 
 
-# 특정 주소 키워드의 일간 랭킹 데이터 조회
 def fetch_keyword_ranking(keyword):
     connection = get_connection()
     try:
@@ -50,7 +37,6 @@ def fetch_keyword_ranking(keyword):
         connection.close()
 
 
-# 주별 기간 검색 옵션에 따른 데이터 조회
 def fetch_week_ranking(year, week):
     connection = get_connection()
     try:
@@ -61,7 +47,6 @@ def fetch_week_ranking(year, week):
         connection.close()
 
 
-# 오늘자 검색 데이터 순위 조회
 def fetch_today_ranking():
     connection = get_connection()
     try:
@@ -71,7 +56,6 @@ def fetch_today_ranking():
     finally:
         connection.close()
 
-# 월별 기간 검색 옵션에 따른 데이터 조회
 def fetch_month_ranking(year, month):
     connection = get_connection()
     try:
@@ -82,7 +66,6 @@ def fetch_month_ranking(year, month):
         connection.close()
 
 
-# 당일 검색어 순위 테이블 데이터 삽입
 def insert_search_keyword(keyword):
     sql = insert_search_keyword_query()
     conn = get_connection()

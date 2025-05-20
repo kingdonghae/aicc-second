@@ -1,4 +1,4 @@
-// components/GPTReport.jsx
+
 import React, { useEffect } from "react";
 import { useGPT } from "@/hook/useGPT";
 

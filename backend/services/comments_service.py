@@ -1,20 +1,11 @@
-"""
-====================================================================
-파일명   : comment_service.py
-작성자   : jungeun
-작성일자 : 2025-05-16
-설명     : 댓글 생성 비즈니스 로직 처리
-           - 댓글 DB 저장
-           - DB 연결 및 쿼리 실행 처리 포함
-====================================================================
-"""
+
 from flask import jsonify
 from db import get_connection
 from models.comments_model import insert_comment_query, get_comments_by_post_query, delete_comment_by_id_query, \
     select_comment_by_id_query
 
 
-# 댓글 저장
+
 def save_comment(post_id, content, writer):
     if not post_id:
         return jsonify({"error": "게시물 정보가 없습니다."}), 400
@@ -42,7 +33,6 @@ def save_comment(post_id, content, writer):
     finally:
         connection.close()
 
-# 댓글 삭제
 def delete_comment_by_id(comment_id):
     if not comment_id:
         return jsonify({"error": "댓글 정보가 없습니다."}), 400
@@ -59,7 +49,6 @@ def delete_comment_by_id(comment_id):
         connection.close()
 
 
-# 게시물 댓글 조회
 def fetch_comments_by_post(post_id):
     if not post_id:
         return jsonify({"error": "게시물 정보가 없습니다."}), 400

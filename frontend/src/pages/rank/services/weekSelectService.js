@@ -26,7 +26,6 @@ export function getMonthWeekLabel(weekStr) {
     return `${month}월 ${weekOfMonth}번째 주`;
 }
 
-// 주별 기간 옵션 랭킹 조회
 export const getWeekRanking = async (year, week) => {
     const { data } = await fetchWeekRanking({year, week});
     return data;

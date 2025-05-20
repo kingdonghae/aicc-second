@@ -1,11 +1,4 @@
-"""
-====================================================================
-파일명   : comment_route.py
-작성자   : jungeun
-작성일자 : 2025-05-16
-설명     : 게시글에 대한 댓글 생성 라우팅 처리
-====================================================================
-"""
+
 from flask import Blueprint, request, jsonify
 from services.comments_service import save_comment, fetch_comments_by_post, delete_comment_by_id
 

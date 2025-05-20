@@ -1,4 +1,4 @@
-// src/api/userapi.js
+
 import apiClient from '@/api/apiClient';
 
 export const fetchUserInfo = (userId) => {

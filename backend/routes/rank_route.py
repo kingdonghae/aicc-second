@@ -1,11 +1,4 @@
-"""
-====================================================================
-파일명   : rank_route.py
-작성자   : jungeun
-작성일자 : 2025-04-30
-설명     : 주소 검색 순위 조회 API (오늘, 이번주, 이번달)
-====================================================================
-"""
+
 from flask import Blueprint, jsonify, request
 from services.rank_service import (fetch_all_rankings,
                                    fetch_keyword_ranking,
@@ -13,7 +6,6 @@ from services.rank_service import (fetch_all_rankings,
 
 rank_bp = Blueprint('rank', __name__)
 
-# 일자 별 랭킹 테이블 데이터 조회
 @rank_bp.route('/search-rankings', methods=['GET'])
 def get_search_rankings():
     """
@@ -39,7 +31,6 @@ def get_search_rankings():
     result = fetch_all_rankings()
     return jsonify({"rankings": result})
 
-# 검색 키워드 입력 시 해당 랭킹 조회
 @rank_bp.route('/search-ranking', methods=['POST'])
 def get_search_ranking():
     """
@@ -67,7 +58,6 @@ def get_search_ranking():
     result = fetch_keyword_ranking(keyword)
     return jsonify({"rankings": result})
 
-# 오늘자 검색 데이터 순위 조회
 @rank_bp.route('/today-ranking', methods=['GET'])
 def get_today_ranking():
     """
@@ -92,7 +82,6 @@ def get_today_ranking():
     result = fetch_today_ranking()
     return jsonify({"rankings": result})
 
-# 주별 기간 검색 옵션에 따른 데이터 조회
 @rank_bp.route('/week-ranking', methods=['GET'])
 def get_week_ranking():
     """
@@ -123,8 +112,6 @@ def get_week_ranking():
     result = fetch_week_ranking(year, week)
     return jsonify({"rankings": result})
 
-
-# 월별 기간 검색 옵션에 따른 데이터 조회
 @rank_bp.route('/month-ranking', methods=['GET'])
 def get_month_ranking():
     """

@@ -1,13 +1,4 @@
-"""
-====================================================================
-파일명   : comments_model.py
-작성자   : jungeun
-작성일자 : 2025-05-16
-설명     : - 댓글 저장을 위한 SQL 쿼리 정의
-====================================================================
-"""
 
-# 댓글을 저장하는 SQL 쿼리를 반환
 def insert_comment_query():
     return """
                 INSERT INTO COMMENTS (
@@ -22,7 +13,6 @@ def insert_comment_query():
                 )
     """
 
-# 게시글 댓글 조회
 def get_comments_by_post_query():
     return """
         SELECT
@@ -62,7 +52,6 @@ def select_comment_by_id_query():
               c.ID = %s                           /* 댓글 아이디 */
     """
 
-# 댓글 삭제
 def delete_comment_by_id_query():
     return """
         DELETE FROM COMMENTS
