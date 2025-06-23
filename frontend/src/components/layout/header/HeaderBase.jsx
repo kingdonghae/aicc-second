@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -36,7 +35,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
             onConfirm: () => {
                 logout();
                 goHome();
-            }, // 확인 누르면 홈으로 이동
+            },
             showCancelButton: true,
         });
     };

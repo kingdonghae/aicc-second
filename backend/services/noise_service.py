@@ -7,7 +7,6 @@ def get_noise_score(lng, lat):
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 가장 가까운 위치의 소음 점수 가져오기
             sql = get_dong_noise()
             cursor.execute(sql, (lng, lat))
             result = cursor.fetchone()

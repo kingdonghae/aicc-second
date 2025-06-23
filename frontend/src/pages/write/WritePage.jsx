@@ -1,6 +1,5 @@
-import React from 'react';
 import CreatePostForm from './components/CreatePostForm';
-import '../../styles/Write.css';
+import '@/styles/Write.css';
 
 const WritePage = () => {
   return (

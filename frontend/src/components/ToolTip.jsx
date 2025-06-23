@@ -4,9 +4,6 @@ import { Tooltip } from 'react-tooltip';
 const ToolTip = () => {
     return (
         <div className='help-tooltip'>
-            {/* <button>
-                <img src="/logo_house.png" alt="" />
-            </button> */}
             <div className='tooltip-icon'>
                 <a id="clickable">❁´◡`❁</a>
                 <Tooltip anchorSelect="#clickable" clickable style={{ width: '10rem', margin: '0.5rem' }}>

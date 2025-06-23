@@ -3,7 +3,7 @@ export function ensureClientCookieId() {
     if (!cookieMatch) {
         const newId = typeof crypto.randomUUID === 'function'
             ? crypto.randomUUID()
-            : generateFallbackUUID(); // fallback 함수 사용
+            : generateFallbackUUID();
 
         document.cookie = `client_id=${newId}; path=/; max-age=31536000`;
         return newId;

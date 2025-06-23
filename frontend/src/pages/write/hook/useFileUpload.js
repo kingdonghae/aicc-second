@@ -53,11 +53,6 @@ const useFileUpload = (editor) => {
         uploadedFiles,
         setUploadedFiles
     };
-    // return {
-    //     fileInputRef,
-    //     triggerFileInput,
-    //     handleFileChange,
-    // };
 };
 
 export default useFileUpload;

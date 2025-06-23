@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { checkEmail, signup } from './services/signupService';
 import { useNavigation } from '@/hook/useNavigation';
 import { useShowModal } from "@/utils/showModal.js";

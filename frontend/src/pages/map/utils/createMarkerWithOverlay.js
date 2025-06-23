@@ -48,7 +48,6 @@ export function createMarkerWithOverlay(map, position, addressText, setCoords) {
     });
   };
 
-  // 공통 처리 함수
   const updateMarkerPosition = (latLng, withOverlay = true) => {
     marker.setPosition(latLng);
     overlay.setPosition(latLng);

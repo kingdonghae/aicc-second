@@ -1,5 +1,3 @@
-import { useWeekSelector } from "@/pages/rank/hook/useWeekSelector.js";
-
 export default function WeekSelector({ value,onChange,label }) {
 
     return (

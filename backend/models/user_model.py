@@ -1,4 +1,4 @@
-# 사용자 생성 (일반 가입)
+
 def create_user():
     return """
         INSERT INTO users (
@@ -8,14 +8,12 @@ def create_user():
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'local')
     """
 
-# 사용자 생성 (구글 소셜)
 def create_google_user():
     return """
         INSERT INTO users (username, email, provider, provider_id, agree_privacy)
         VALUES (%s, %s, 'google', %s, %s)
     """
 
-# 사용자 생성 (기타 소셜)
 def create_social_user():
     return """
         INSERT INTO users (
@@ -24,18 +22,15 @@ def create_social_user():
         VALUES (%s, %s, 'kakao', %s, 1, 0)
     """
 
-# 이메일로 사용자 조회 (local 가입자만)
 def get_user_by_email():
     return "SELECT * FROM users WHERE email = %s AND provider = 'local'"
 
-# 소셜 정보로 사용자 조회
 def get_user_by_provider(): 
     return """
         SELECT * FROM users 
         WHERE provider = %s AND provider_id = %s
     """
 
-# 사용자 ID로 조회하는 쿼리 반환 함수
 def get_user_by_id():
     return """
         SELECT id, username, email, phone_number, address, detail_address, birthdate 
@@ -43,7 +38,6 @@ def get_user_by_id():
         WHERE id = %s
     """
 
-# 사용자 정보 수정
 def update_user():
     return """
         UPDATE users
@@ -53,8 +47,7 @@ def update_user():
             detail_address = %s
         WHERE id = %s
     """
-    
-# 사용자 정보 수정
+
 def update_add_info_user():
     return """
         UPDATE users

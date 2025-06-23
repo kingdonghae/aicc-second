@@ -1,13 +1,4 @@
-"""
-====================================================================
-파일명   : comments_model.py
-작성자   : jungeun
-작성일자 : 2025-05-16
-설명     : - 댓글 저장을 위한 SQL 쿼리 정의
-====================================================================
-"""
 
-# 댓글을 저장하는 SQL 쿼리를 반환
 def insert_comment_query():
     return """
                 INSERT INTO COMMENTS (
@@ -16,22 +7,21 @@ def insert_comment_query():
                  , WRITER
                 )
                 VALUES (
-                   %s       /* 게시물 아이디 */
-                 , %s       /* 댓글 내용 */
-                 , %s       /* 작성자 아이디 */
+                   %s       
+                 , %s       
+                 , %s      
                 )
     """
 
-# 게시글 댓글 조회
 def get_comments_by_post_query():
     return """
         SELECT
-             c.ID             AS id             /* 키 값 */
-           , c.POST_ID        AS post_id        /* 게시물 아이디 */
-           , c.CONTENT        AS content        /* 댓글 내용 */  
-           , c.WRITER         AS writer         /* 작성자 아이디 */
-           , c.CREATED_AT     AS created_at     /* 작성 시간 */
-           , u.USERNAME       AS username       /* 작성자 명 */ 
+             c.ID             AS id            
+           , c.POST_ID        AS post_id        
+           , c.CONTENT        AS content        
+           , c.WRITER         AS writer        
+           , c.CREATED_AT     AS created_at     
+           , u.USERNAME       AS username      
         FROM
              COMMENTS c
         JOIN 
@@ -39,19 +29,19 @@ def get_comments_by_post_query():
           ON 
              writer = u.id       
         WHERE
-            POST_ID = %s                      /* 게시물 아이디 */  
+            POST_ID = %s                     
         ORDER BY CREATED_AT 
     """
 
 def select_comment_by_id_query():
     return """
         SELECT 
-              c.ID             AS id             /* 키 값 */
-            , c.POST_ID        AS post_id        /* 게시물 아이디 */
-            , c.CONTENT        AS content        /* 댓글 내용 */  
-            , c.WRITER         AS writer         /* 작성자 아이디 */
-            , c.CREATED_AT     AS created_at     /* 작성 시간 */
-            , u.USERNAME       AS username       /* 작성자 명 */ 
+              c.ID             AS id             
+            , c.POST_ID        AS post_id        
+            , c.CONTENT        AS content        
+            , c.WRITER         AS writer         
+            , c.CREATED_AT     AS created_at     
+            , u.USERNAME       AS username       
         FROM 
               COMMENTS c
         JOIN 
@@ -59,10 +49,9 @@ def select_comment_by_id_query():
           ON 
               writer = u.id
         WHERE 
-              c.ID = %s                           /* 댓글 아이디 */
+              c.ID = %s                           
     """
 
-# 댓글 삭제
 def delete_comment_by_id_query():
     return """
         DELETE FROM COMMENTS

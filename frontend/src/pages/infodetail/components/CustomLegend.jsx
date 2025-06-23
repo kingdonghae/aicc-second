@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MapAgain from './MapAgain';
 
 const CustomLegend = ({ legends }) => {
@@ -48,9 +48,6 @@ const CustomLegend = ({ legends }) => {
                 <p className='legend-warn'>* 제공하는 정보는 행정동을 기준으로 하며 의사결정의 모든 책임은 사용자에게 있습니다.</p>
 
             </div>
-
-
-
         </div>
     );
 };

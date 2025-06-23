@@ -1,6 +1,4 @@
-# routes/upload_route.py
 from flask import Blueprint, request, jsonify
-
 from services.upload_service import save_uploaded_file, save_post_service, update_post_service
 
 upload_bp = Blueprint('upload', __name__)

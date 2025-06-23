@@ -38,7 +38,7 @@ export const useSavePost = (editor, title, setTitle, uploadedFiles, setUploadedF
                 message: '제목을 입력하세요.',
                 showCancelButton: false,
                 onConfirm: () => {
-                    titleRef.current?.focus(); // 제목 인풋 포커싱
+                    titleRef.current?.focus();
                 },
             });
             setLoading(false);
@@ -51,7 +51,7 @@ export const useSavePost = (editor, title, setTitle, uploadedFiles, setUploadedF
                 message: '내용을 입력하세요.',
                 showCancelButton: false,
                 onConfirm: () => {
-                    editor.commands.focus(); // tiptap 에디터 포커싱
+                    editor.commands.focus();
                 },
             });
             setLoading(false);

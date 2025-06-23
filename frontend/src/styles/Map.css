@@ -1,4 +1,3 @@
-/* MapPage(페이지 내 검색창 위치, 주소 말풍선 = overlay), DetailList, InfoDetail */
 
 .mapbackground {
     width: 100vw;
@@ -17,7 +16,6 @@
     z-index: 0;
 }
 
-/* 검색창 위치 */
 .search-position {
     position: absolute;
     top: 1rem;
@@ -26,7 +24,6 @@
     z-index: 10;
 }
 
-/* 지도 말풍선 */
 .custom-overlay {
     background: white;
     padding: 10px 15px;
@@ -54,7 +51,6 @@
     color: red;
 }
 
-/* 항목 보기 DetailList 열기 */
 .toggle-list-button {
     position: absolute;
     z-index: 20;
@@ -82,8 +78,6 @@
     opacity: 1;
 }
 
-
-/* 선택 항목 팝업 DetailList */
 .list-box {
     z-index: 20;
     position: absolute;
@@ -160,7 +154,6 @@
     cursor: pointer;
 }
 
-/* 상세보기 팝업 DetailPreview */
 .preview-box {
     position: absolute;
     z-index: 20;

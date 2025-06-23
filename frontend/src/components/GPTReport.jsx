@@ -1,5 +1,4 @@
-// components/GPTReport.jsx
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useGPT } from "@/hook/useGPT";
 
 const GPTReport = ({ address, score, preload, onDone }) => {

@@ -6,8 +6,6 @@ export function getISOMonthString(date = new Date()) {
     return `${year}-${month}`;
 }
 
-
-// 월별 기간 옵션 랭킹 조회
 export const getMonthRanking = async (year, month) => {
     const { data } = await fetchMonthRanking({year, month});
     return data;

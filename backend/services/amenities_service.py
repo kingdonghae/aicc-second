@@ -7,7 +7,6 @@ def get_amenities_score(lng, lat):
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 가장 가까운 위치의 편의시설 점수 가져오기
             sql = get_amenities_query()
             cursor.execute(sql, (lng, lat))
             result = cursor.fetchone()
@@ -27,7 +26,6 @@ def get_amenities_score(lng, lat):
     finally:
         connection.close()
 
-# 행정동 기준으로 편의시설 점수 조회 (추가 기능)
 def get_amenities_score_by_dong(dong_name):
     connection = get_connection()
 

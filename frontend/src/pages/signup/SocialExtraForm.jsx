@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { addUserInfo } from './services/signupService'
 import { useNavigation } from '@/hook/useNavigation';

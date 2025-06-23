@@ -2,10 +2,6 @@ import { useCallback } from 'react';
 import {deleteCommentService} from "@/pages/textdetail/services/getPostDetailService.js";
 import { useShowModal } from '@/utils/showModal';
 
-/**
- * 댓글 삭제 훅
- * @param {function} setComments - 댓글 목록 상태 갱신 함수
- */
 export const useDeleteComment = (setComments) => {
     const showModal = useShowModal();
 

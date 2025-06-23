@@ -1,6 +1,6 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { useNavigation } from '@/hook/useNavigation.js';
 import PostTable from '@/pages/board/components/PostTable.jsx';
+import { useNavigation } from '@/hook/useNavigation.js';
 import { usePostList } from "@/pages/board/hook/usePosts.js";
 import { useRequireLoginAction } from "@/pages/textdetail/hook/useRequireLoginAction.js";
 import '@/styles/Board.css';

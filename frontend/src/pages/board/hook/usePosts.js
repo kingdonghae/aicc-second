@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getPostCountService, getPostListService } from "@/pages/board/services/getPostsService.js";
 
-/**
- * 게시글 리스트 및 총 개수 조회 훅
- */
 export const usePostList = () => {
     const [posts, setPosts] = useState([]);
     const [totalPages, setTotalPages] = useState(1);

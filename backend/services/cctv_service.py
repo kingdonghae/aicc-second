@@ -1,6 +1,6 @@
 from db import get_connection
 from models.cctv_model import get_cctv_query
-from models.cctv_model import get_dong_by_coords  # 좌표로 동 찾기 쿼리
+from models.cctv_model import get_dong_by_coords 
 import pymysql
 
 def get_cctv_score(lng, lat):
@@ -8,7 +8,6 @@ def get_cctv_score(lng, lat):
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # ✅ 1. 좌표로 동 찾기
             dong_sql = get_dong_by_coords()
             cursor.execute(dong_sql, (lng, lat))
             dong_result = cursor.fetchone()
@@ -19,7 +18,6 @@ def get_cctv_score(lng, lat):
 
             full_adrs_admin = dong_result["full_adrs_admin"]
 
-            # ✅ 2. 동 이름으로 CCTV 점수 조회
             cctv_sql = get_cctv_query()
             cursor.execute(cctv_sql, (full_adrs_admin,))
             score_result = cursor.fetchone()

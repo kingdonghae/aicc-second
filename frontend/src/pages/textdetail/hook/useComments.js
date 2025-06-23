@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import {getCommentsByPostService} from "@/pages/textdetail/services/getPostDetailService.js";
 
-/**
- * 댓글 목록 조회 훅
- */
 export const useComments = (postId) => {
     const [comments, setComments] = useState([]);
     const [loading, setLoading] = useState(true);

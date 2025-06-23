@@ -1,4 +1,4 @@
-import {fetchFileByFilename, fetchUploadFile, fetchUploadImages} from "@/pages/write/api/postUploadApi.js";
+import { fetchUploadFile, fetchUploadImages} from "@/pages/write/api/postUploadApi.js";
 
 export const uploadImageService = async (file) => {
     const formData = new FormData();

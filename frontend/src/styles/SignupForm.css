@@ -72,7 +72,6 @@
 
 .signup-form input[type="date"]:not(:valid) {
     color: #999;
-    /* 흐린 회색 */
 }
 
 .signup-form .birth-group {
@@ -87,7 +86,6 @@
 
 .signup-form p {
     margin: 3px 1rem;
-    /* font-size: 0.rem; */
 }
 
 .signup-form .success {
@@ -102,7 +100,6 @@
 
 .signup-form .message-space {
     min-height: 0.6rem;
-    /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
 }
 
 .signup-form .message {
@@ -133,6 +130,5 @@
 
 .signup-form .submit-button.disabled:hover {
     background-color: #cccccc;
-    /* hover 시에도 색상 변화 없음 */
     color: #666666;
 }
