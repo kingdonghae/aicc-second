@@ -12,5 +12,6 @@ export const ROUTES = {
     WRITE: '/write',
     TEXT_DETAIL: '/textdetail',
     INFO_DETAIL: '/infodetail',
-    OAUTH_SUCCESS: '/oauth/success'
+    OAUTH_SUCCESS: '/oauth/success',
+    CUSTOM : '/custom'
 };

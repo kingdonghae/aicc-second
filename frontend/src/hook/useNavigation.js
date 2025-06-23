@@ -22,6 +22,7 @@ export const useNavigation = () => {
         goWrite: () => navigate(ROUTES.WRITE),
         goTextDetail: (id) => navigate(`${ROUTES.TEXT_DETAIL}/${id}`),
         goEdit: (id) => navigate(`${ROUTES.WRITE}/${id}`),
-        goOAuthSuccess: () => navigate(ROUTES.OAUTH_SUCCESS)
+        goOAuthSuccess: () => navigate(ROUTES.OAUTH_SUCCESS),
+        goCustom: () => navigate(ROUTES.CUSTOM)
     };
 };

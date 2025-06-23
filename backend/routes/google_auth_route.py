@@ -1,4 +1,3 @@
-
 from flask import Blueprint, redirect, request, jsonify, current_app
 from services.google_service import process_google_auth
 
