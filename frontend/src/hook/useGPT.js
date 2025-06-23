@@ -1,4 +1,3 @@
-// ✅ hooks/useGPT.js
 import { useEffect, useState } from 'react';
 import { fetchGPTResponse } from '@/services/GPTService';
 

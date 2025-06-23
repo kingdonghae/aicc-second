@@ -73,7 +73,6 @@
 
 .social-extra-form input[type="date"]:not(:valid) {
     color: #999;
-    /* 흐린 회색 */
 }
 
 .social-extra-form .birth-group {
@@ -88,7 +87,6 @@
 
 .social-extra-form .message-space {
     min-height: 0.6rem;
-    /* 필요에 따라 조절, 예: 0.6rem 또는 16px */
 }
 
 .social-extra-form .message {
@@ -119,6 +117,5 @@
 
 .social-form-submit.disabled:hover {
     background-color: #cccccc;
-    /* hover 시에도 색상 변화 없음 */
     color: #666666;
 }

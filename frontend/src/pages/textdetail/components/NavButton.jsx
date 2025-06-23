@@ -1,5 +1,3 @@
-import CommentList from "@/pages/textdetail/components/CommentList.jsx";
-
 const NavButton = ({direction, condition, onClick}) => {
     return (
         <div

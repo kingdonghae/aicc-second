@@ -8,17 +8,17 @@ const Pagination = ({ page, setPage, totalPages, limit, blockSize = 10 }) => {
 
     const goPrevBlock = () => {
         if (hasPrevBlock) {
-            setPage(startPage - blockSize); // 이전 블럭의 첫 페이지
+            setPage(startPage - blockSize);
         } else {
-            setPage(startPage); // 현재 블럭의 시작 페이지
+            setPage(startPage);
         }
     };
 
     const goNextBlock = () => {
         if (hasNextBlock) {
-            setPage(endPage + 1); // 다음 블럭의 첫 페이지
+            setPage(endPage + 1);
         } else {
-            setPage(totalPages); // 마지막 페이지
+            setPage(totalPages);
         }
     };
 

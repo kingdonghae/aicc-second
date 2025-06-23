@@ -1,13 +1,4 @@
-"""
-====================================================================
-파일명   : post_model.py
-작성자   : jungeun
-작성일자 : 2025-05-08
-설명     : 게시물 추가 및 조회 관련 데이터 관리
-====================================================================
-"""
 
-# 게시물 데이터 추가
 def insert_post_query():
     return """
                 INSERT INTO POSTS (
@@ -15,14 +6,11 @@ def insert_post_query():
                   , CONTENT    
                   , WRITER      
                 ) VALUES (
-                    %s     /*제목*/     
-                  , %s     /*내용*/ 
-                  , %s     /*작성자*/
+                    %s     
+                  , %s     
+                  , %s     
                 );
            """
-
-
-# 게시물 수정
 def update_post_query():
     return """
                 UPDATE POSTS
@@ -62,24 +50,22 @@ def get_posts_query(search):
     return f"{base_query} {where_clause} {group_by} {order_limit_clause}"
 
 
-
-# 게시물 상세 조회 (+ 전체 게시물 수 포함)
 def get_post_detail_query():
     return """
                 SELECT 
-                       p.ID                   AS id              /* 글 번호 */              
-                     , p.TITLE                AS title           /* 제목 */
-                     , p.CONTENT              AS content         /* 내용 */   
-                     , p.WRITER               AS writer          /* 작성자 아이디 */   
-                     , u.USERNAME             AS username          /* 작성자 명 */   
-                     , p.VIEW_COUNT           AS view_count      /* 조회수 */          
-                     , p.CREATED_AT           AS created_at      /* 작성 시간 */            
+                       p.ID                   AS id                    
+                     , p.TITLE                AS title          
+                     , p.CONTENT              AS content         
+                     , p.WRITER               AS writer          
+                     , u.USERNAME             AS username         
+                     , p.VIEW_COUNT           AS view_count          
+                     , p.CREATED_AT           AS created_at         
                      ,(
                         SELECT 
                              COUNT(*) 
                         FROM 
                              posts
-                      )                     AS total_count      /* 총 게시글 수 */
+                      )                     AS total_count      
                  FROM 
                       POSTS p 
                  JOIN USERS u
@@ -87,7 +73,6 @@ def get_post_detail_query():
                  WHERE p.ID = %s
            """
 
-# 첨부파일 조회
 def get_file_query():
     return """
                 SELECT 
@@ -100,8 +85,6 @@ def get_file_query():
                      POST_ID = %s
      """
 
-
-# 조회수 증가
 def update_views_query():
     return """
                 UPDATE POSTS 
@@ -112,7 +95,6 @@ def update_views_query():
      """
 
 
-# 게시물 총 개수 조회 (검색 키워드 조건 포함)
 def count_posts_query(search):
     base_query = """
                     SELECT 

@@ -1,13 +1,13 @@
+import CustomLegend from './components/CustomLegend';
+import GPTReport from '@/components/GPTReport';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer
 } from 'recharts';
-import CustomLegend from './components/CustomLegend';
-import GPTReport from '@/components/GPTReport';
 import { getScore } from '@/services/ScoreService';
-import '@/styles/InfoDetail.css';
 import { LegendList } from './components/legendList';
+import '@/styles/InfoDetail.css';
 
 const InfoDetail = () => {
   const location = useLocation();
@@ -77,8 +77,6 @@ const InfoDetail = () => {
           />
         </div>
       </div>
-
-
     </div>
   );
 };

@@ -1,5 +1,3 @@
-# signup_service.py
-
 import re
 import bcrypt
 from db import get_connection
@@ -55,7 +53,7 @@ def add_user_info(user_id, data):
     detail_address = data.get('detail_address')
     birthdate = data.get('birthdate')
     agree_privacy = data.get('agree_privacy', 0)
-    
+
     if not phone or not address or not birthdate:
         return {'error': '모든 항목을 입력해주세요.'}, 400
 

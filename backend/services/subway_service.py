@@ -7,7 +7,6 @@ def get_subway_score(lng, lat):
 
     try:
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
-            # 좌표로 가장 가까운 행정동 찾기
             dong_sql = get_dong_subway()
             cursor.execute(dong_sql, (lng, lat))
             dong_result = cursor.fetchone()
@@ -19,7 +18,6 @@ def get_subway_score(lng, lat):
             full_adrs_admin = dong_result["full_adrs_admin"]
             print(f"✅ 찾은 행정동: {full_adrs_admin}")
 
-            # 행정동 기준으로 지하철 점수 조회
             subway_sql = """
                 SELECT subway_score as score
                 FROM subway_score

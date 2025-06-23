@@ -12,8 +12,7 @@ def handle_social_login(provider, user_info):
         with connection.cursor() as cursor:
             cursor.execute(get_user_by_provider(), ('kakao', provider_id))
             user = cursor.fetchone()
-            
-            # 없으면 새로 생성
+
             if not user:
                 cursor.execute(create_social_user(), (name, email, provider_id))
                 connection.commit()

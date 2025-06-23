@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from services.population_service import get_population_score
 from services.rent_service import get_rent_score
-from services.crime_score_service import get_weighted_safety_score  # 수정된 임포트
+from services.crime_score_service import get_weighted_safety_score
 from services.amenities_service import get_amenities_score
 from services.subway_service import get_subway_score
 from services.noise_service import get_noise_score
@@ -16,7 +16,7 @@ def get_combined_score():
 
     population = get_population_score(lng, lat)
     rent = get_rent_score(lng, lat)
-    safety = get_weighted_safety_score(lng, lat)  # CCTV와 시설 안전 점수를 가중치 적용
+    safety = get_weighted_safety_score(lng, lat)
     amenites = get_amenities_score(lng, lat)
     subway = get_subway_score(lng,lat)
     noise  = get_noise_score(lng, lat)

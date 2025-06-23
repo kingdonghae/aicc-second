@@ -1,10 +1,8 @@
-# backend/services/facility_service.py
 import pymysql
 from flask import jsonify
 from db import get_connection
 from models.facility_model import get_facilities_query, get_facility_safe_score_query
 
-# 기존 함수 유지
 def get_facilities():
     connection = get_connection()
     try:
@@ -18,7 +16,6 @@ def get_facilities():
     finally:
         connection.close()
 
-# 새로 추가하는 함수 - 안전 점수 가져오기
 def get_facility_safe_score(lng, lat):
     connection = get_connection()
 

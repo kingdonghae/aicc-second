@@ -1,4 +1,4 @@
-import { CATEGORY_MAP } from "../../../constants/mapDefaults";
+import { CATEGORY_MAP } from "@/constants/mapDefaults.js";
 
 const CategoryButton = ({ id, label, color, isActive, onToggle }) => {
     return (

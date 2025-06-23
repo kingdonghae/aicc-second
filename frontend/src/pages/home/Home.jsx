@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import {useNavigation} from "@/hook/useNavigation.js";
 import MapIcon from '@mui/icons-material/Map';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import SearchBox from "@/components/SearchBox.jsx";
-import ToolTip from '@/components/ToolTip';
-import {useRecoilValue} from "recoil";
-import {authState} from "@/atoms/authState.js";
+import { useNavigation } from "@/hook/useNavigation.js";
+import { useRecoilValue } from "recoil";
+import { authState } from "@/atoms/authState.js";
 import '@/styles/Home.css';
 
 
@@ -16,7 +14,6 @@ const Home = () => {
     return (
         <div className="home-container">
             <section id='top'>
-                 {/* <ToolTip/> */}
                 <h1 id='main-title'>집PT</h1>
                 <p id='sub-title'>Zip Place Tool</p>
                 <SearchBox user_id={isLoggedIn ? user?.user_id : null}/>

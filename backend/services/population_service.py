@@ -5,7 +5,7 @@ def get_population_score(lng, lat):
     connection = get_connection()
     
     if not lng or not lat:
-        return {"score": 0}  # 간단히 0점 반환 (에러로 처리해도 됨)
+        return {"score": 0}
 
     try:
         with connection.cursor() as cursor:

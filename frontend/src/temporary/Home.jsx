@@ -1,5 +1,5 @@
-import '../styles/Home.css';
 import {useNavigate} from "react-router-dom";
+import '@/styles/Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -8,7 +8,6 @@ const Home = () => {
     <div>
 
     <section id='top'>
-      {/* <nav></nav> */}
       <header id='main-header'>
         <h1 id='main-title'>집PT</h1>
         <p>Zip Place Tool</p>
@@ -22,7 +21,7 @@ const Home = () => {
     </section>
 
     <section id='bottom'>
-      
+
       <div id='button-box'>
 
         <div>
@@ -46,7 +45,7 @@ const Home = () => {
 
   </div>
 )
-  
+
 }
 
 export default Home

@@ -1,4 +1,3 @@
-import React from 'react';
 import DownloadIcon from '@mui/icons-material/Download';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -14,7 +13,7 @@ const AttachmentList = ({ files = [], onDelete }) => {
                         key={index}
                         className="flex items-center justify-between bg-gray-50 px-5 py-1 rounded-md shadow-sm hover:bg-gray-100 transition"
                     >
-                        {/* 파일명 */}
+
                         <span
                             className="text-gray-700 text-[18px] truncate max-w-[65%]"
                             title={file.original_name}
@@ -22,7 +21,6 @@ const AttachmentList = ({ files = [], onDelete }) => {
                           {file.original_name}
                         </span>
 
-                        {/* 버튼 그룹 */}
                         <div className="flex items-center gap-x-2 shrink-0">
                             <a
                                 href={`${import.meta.env.VITE_API_URL}${file.url}`}
@@ -34,7 +32,6 @@ const AttachmentList = ({ files = [], onDelete }) => {
                             >
                                 <DownloadIcon fontSize="small" />
                             </a>
-
 
                             {onDelete && (
                                 <button

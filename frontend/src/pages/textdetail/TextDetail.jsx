@@ -7,9 +7,9 @@ import {useSaveComment} from "@/pages/textdetail/hook/useSaveComment.js";
 import {useComments} from "@/pages/textdetail/hook/useComments.js";
 import {useRecoilValue} from "recoil";
 import {authState} from "@/atoms/authState.js";
-import '@/styles/TextDetail.css';
 import {useRequireLoginAction} from "@/pages/textdetail/hook/useRequireLoginAction.js";
 import AttachmentList from "@/pages/write/components/AttachmentList.jsx";
+import '@/styles/TextDetail.css';
 
 const TextDetail = () => {
     const {isLoggedIn,user} = useRecoilValue(authState);
@@ -31,7 +31,6 @@ const TextDetail = () => {
         title,
         writer,
         username,
-        created_at,
         view_count,
         content,
         total_count,
@@ -44,7 +43,6 @@ const TextDetail = () => {
             <div className="write-box">
                 <div className="content-box">
 
-                    {/* 제목, 작성 정보 */}
                     <div className="title-box">
                         <div>
                             <h4>{title}</h4>
@@ -54,7 +52,6 @@ const TextDetail = () => {
                             </div>
                         </div>
 
-                        {/* 이전/다음글, 수정/목록 버튼 */}
                         <div className="edit-box">
                             <div className="other-content">
                                 <NavButton direction={'prev'} condition={postId < total_count} onClick={() => goTextDetail(postId + 1)}/>
@@ -73,14 +70,13 @@ const TextDetail = () => {
 
                     <hr className='content-line'/>
 
-                    {/* 본문 */}
                     <div style={{height:'16rem', overflowY:'auto',overflowX:'hidden'}}>
                         <AttachmentList files={uploadedFiles}/>
                         <div className="content-text-box">
                             <div dangerouslySetInnerHTML={{ __html: content }} />
                         </div>
                     </div>
-                    {/* 댓글 */}
+
                     <CommentForm
                         comment={comment}
                         setComment={setComment}
