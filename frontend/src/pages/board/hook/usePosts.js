@@ -11,23 +11,33 @@ export const usePostList = () => {
     const [page, setPage] = useState(1);
     const limit = 8;
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchPosts = async () => {
             setLoading(true);
             try {
-                const [list, count] = await Promise.all([
-                    getPostListService(page, limit, search),
-                    getPostCountService(search)
-                ]);
+                console.time('post list fetch');
+                const list = await getPostListService(page, limit, search);
+                console.timeEnd('post list fetch');
                 setPosts(list);
-                setTotalPages(Math.max(1, Math.ceil(count.data.count / limit)))
             } catch (err) {
                 setError(err);
             } finally {
                 setLoading(false);
             }
         };
-        fetchData();
+        fetchPosts();
     }, [page, limit, search]);
+    
+    useEffect(() => {
+        const fetchCount = async () => {
+            try {
+                const count = await getPostCountService(search);
+                setTotalPages(Math.max(1, Math.ceil(count.data.count / limit)));
+            } catch (err) {
+                setError(err);
+            }
+        };
+        fetchCount();
+    }, [search]);
     const handleSearch = (e) => {
         e.preventDefault();
         setSearch(searchTerm);

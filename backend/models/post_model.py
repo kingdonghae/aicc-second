@@ -23,31 +23,32 @@ def update_post_query():
 
 def get_posts_query(search):
     base_query = """
-                    SELECT
-                        p.ID                         AS id,
-                        p.TITLE                      AS title,
-                        p.WRITER                     AS writer,
-                        u.USERNAME                   AS username,
-                        p.CONTENT                    AS content,
-                        p.VIEW_COUNT                 AS view_count,
-                        p.CREATED_AT                 AS created_at,
-                        COUNT(DISTINCT c.ID)         AS comment_count,
-                        COUNT(DISTINCT f.ID) > 0     AS has_attachment   
-                    FROM
-                        POSTS p
-                    LEFT JOIN COMMENTS c ON p.ID = c.POST_ID
-                    LEFT JOIN FILES f ON p.ID = f.POST_ID
-                    JOIN USERS u ON p.WRITER = u.ID
-        """
-    where_clause = " WHERE p.TITLE LIKE %s" if search else ""
-    group_by = """
-        GROUP BY
-            p.ID, p.CREATED_AT, p.TITLE, p.WRITER,
-            u.USERNAME, p.CONTENT, p.VIEW_COUNT
+        SELECT
+            p.ID                         AS id,
+            p.TITLE                      AS title,
+            p.WRITER                     AS writer,
+            u.USERNAME                   AS username,
+            p.CONTENT                    AS content,
+            p.VIEW_COUNT                 AS view_count,
+            p.CREATED_AT                 AS created_at,
+            (
+                SELECT COUNT(*) 
+                FROM COMMENTS c 
+                WHERE c.POST_ID = p.ID
+            ) AS comment_count,
+            (
+                SELECT COUNT(*) > 0 
+                FROM FILES f 
+                WHERE f.POST_ID = p.ID
+            ) AS has_attachment
+        FROM
+            POSTS p
+        JOIN USERS u ON p.WRITER = u.ID
     """
+    where_clause = " WHERE p.TITLE LIKE %s" if search else ""
     order_limit_clause = " ORDER BY p.CREATED_AT DESC, p.ID DESC LIMIT %s OFFSET %s"
 
-    return f"{base_query} {where_clause} {group_by} {order_limit_clause}"
+    return f"{base_query} {where_clause} {order_limit_clause}"
 
 
 def get_post_detail_query():
