@@ -17,6 +17,7 @@ export const usePostDetail = () => {
             .then(setPost)
             .catch((err) => setError(err))
             .finally(() => setLoading(false));
+
     }, [postId]);
 
     const formatted = useMemo(() => {

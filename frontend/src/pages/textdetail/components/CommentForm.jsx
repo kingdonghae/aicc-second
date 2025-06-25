@@ -2,7 +2,11 @@ const CommentForm = ({ comment,setComment,onSubmit, isLoggedIn, user }) => {
     if (!isLoggedIn||!user.username) {
         return (
             <div className="comment-box">
-                <textarea readOnly={true} style={{fontFamily:'NPSfontBold',fontSize:'20px', paddingTop:'20px', textAlign:"center"}}>댓글 작성은 로그인 후 이용 가능합니다.</textarea>
+                <textarea
+                    readOnly={true}
+                    style={{fontFamily:'NPSfontBold',fontSize:'20px', paddingTop:'20px', textAlign:"center"}}
+                    defaultValue="댓글 작성은 로그인 후 이용 가능합니다."
+                />
             </div>
         );
     }

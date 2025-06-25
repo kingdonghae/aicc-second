@@ -1,4 +1,6 @@
-const Pagination = ({ page, setPage, totalPages, limit, blockSize = 10 }) => {
+import React from 'react';
+
+const Pagination = React.memo(({ page, setPage, totalPages, limit, blockSize = 10 }) => {
     const currentBlock = Math.floor((page - 1) / blockSize);
     const startPage = currentBlock * blockSize + 1;
     const endPage = Math.min(startPage + blockSize - 1, totalPages);
@@ -65,6 +67,6 @@ const Pagination = ({ page, setPage, totalPages, limit, blockSize = 10 }) => {
             </button>
         </div>
     );
-};
+});
 
 export default Pagination;
