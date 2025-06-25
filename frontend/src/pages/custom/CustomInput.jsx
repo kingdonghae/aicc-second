@@ -12,7 +12,6 @@ const CustomInput = () => {
 
     const selected = useCustomSelection();
 
-
     return (
         <div className='custom-background'>
             <div className='custom-area'>
