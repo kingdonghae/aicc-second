@@ -6,7 +6,7 @@ import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer
 } from 'recharts';
 import { getScore } from '@/services/ScoreService';
-import { LegendList } from './components/legendList';
+import { itemData } from '@/constants/itemData';
 import '@/styles/InfoDetail.css';
 
 const InfoDetail = () => {
@@ -56,7 +56,7 @@ const InfoDetail = () => {
   return (
     <div className="chart-background">
 
-      <CustomLegend legends={LegendList} />
+      <CustomLegend legends={itemData} />
       <div className="chart-area">
         <div className="chart-box">
           <ResponsiveContainer width="100%" height={650}>
