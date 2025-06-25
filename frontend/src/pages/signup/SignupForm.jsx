@@ -154,6 +154,7 @@ const SocialExtraForm = () => {
                     placeholder="이름을 입력해주세요."
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    maxLength={5}
                     required
                 />
                 <div className="birth-group">
