@@ -13,5 +13,6 @@ export const ROUTES = {
     TEXT_DETAIL: '/textdetail',
     INFO_DETAIL: '/infodetail',
     OAUTH_SUCCESS: '/oauth/success',
-    CUSTOM : '/custom'
+    CUSTOM : '/custom',
+    CUSTOM_INPUT : '/custom/input'
 };
