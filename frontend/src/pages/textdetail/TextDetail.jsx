@@ -22,10 +22,9 @@ const TextDetail = () => {
     const handleGoWrite = () => {
         requireLoginAction(goWrite,goLogin);
     };
-    if (postLoading || commentLoading) return <p>로딩 중...</p>;
-
-    if (postError || !post) return <p>게시글을 불러오지 못했습니다.</p>;
-    if (commentError) return <p>댓글을 불러오지 못했습니다.</p>;
+    // if (postLoading || commentLoading) return <p>로딩 중...</p>;
+    if (postError || !post) return ;
+    // if (commentError) return <p>댓글을 불러오지 못했습니다.</p>;
 
     const {
         title,

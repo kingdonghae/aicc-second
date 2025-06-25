@@ -1,3 +1,4 @@
+import React, { useCallback } from 'react' ;
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -22,11 +23,16 @@ const NoticeTableCell = styled(TableCell)({
   fontWeight: "bolder",
 });
 
-export default function PostTable({ posts, totalPages, loading, error, page, setPage, limit }) {
+export default React.memo(function PostTable({ posts, totalPages, error, page, setPage, limit }) {
   const { goTextDetail } = useNavigation();
 
+  // goTextDetail 함수가 매번 재생성되지 않도록 useCallback 사용
+  const memoizedGoTextDetail = useCallback((id) => {
+    goTextDetail(id);
+  }, [goTextDetail]); // goTextDetail이 변경될 때만 재생성
 
-  if (loading) return <p>로딩 중...</p>;
+
+  // if (loading) return <p>로딩 중...</p>;
   if (error) return <p>에러 발생: {error.message}</p>;
 
   const formatTime = (dateString) => {
@@ -76,7 +82,7 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
                   </TableRow>
               ) : (
                   posts.map((row) => (
-                      <TableRow key={row.id} sx={{ cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
+                      <TableRow key={row.id} sx={{ cursor: 'pointer' }} onClick={() => memoizedGoTextDetail(row.id)}>
                         <NoticeTableCell align="center">{row.id}</NoticeTableCell>
 
                         <NoticeTableCell align="left" className="flex items-center gap-2">
@@ -110,4 +116,4 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
         />
       </>
   );
-}
+})
