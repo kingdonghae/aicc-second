@@ -23,6 +23,11 @@ export const useNavigation = () => {
         goTextDetail: (id) => navigate(`${ROUTES.TEXT_DETAIL}/${id}`),
         goEdit: (id) => navigate(`${ROUTES.WRITE}/${id}`),
         goOAuthSuccess: () => navigate(ROUTES.OAUTH_SUCCESS),
-        goCustom: () => navigate(ROUTES.CUSTOM)
+        goCustom: (selected) => navigate(ROUTES.CUSTOM, {
+            state: { selectedItem: selected }
+        }),
+        goCustomInput: (selected) => navigate(ROUTES.CUSTOM_INPUT, {
+            state: { selectedItem: selected }
+        })
     };
 };
