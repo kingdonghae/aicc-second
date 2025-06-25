@@ -7,7 +7,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useNavigation } from "@/hook/useNavigation.js";
 import Pagination from "@/pages/board/components/Pagination.jsx";
-import { styled } from '@mui/material/styles';
 import '@/styles/Board.css';
 
 const StyledTableCell = styled(TableCell)({

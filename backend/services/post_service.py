@@ -1,10 +1,12 @@
 from flask import jsonify
+import time
 
 from db import get_connection
 from models.post_model import update_views_query, get_post_detail_query, get_posts_query, count_posts_query, get_file_query
 
 
 def get_post_list_service(limit, page, search):
+    start_time = time.time()
     if not limit or not page:
         return jsonify({"limit or page": "페이지 정보가 없습니다."}), 400
     offset = (page - 1) * limit
@@ -23,6 +25,8 @@ def get_post_list_service(limit, page, search):
 
     finally:
         connection.close()
+        print(f"⚡ SQL 실행 시간: {round((time.time() - start_time)*1000)} ms")
+
 
 def get_post_detail_service(post_id):
     if not post_id:
