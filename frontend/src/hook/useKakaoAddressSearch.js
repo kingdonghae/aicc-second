@@ -1,4 +1,4 @@
-import {loadKakaoMapScript} from "@/pages/home/utils/loadKakaoMapScript.js";
+import { loadKakaoMapScript } from "@/pages/home/utils/loadKakaoMapScript.js";
 
 export const useKakaoAddressSearch = () => {
     const searchAddress = async (address, onSuccess, onFail) => {
