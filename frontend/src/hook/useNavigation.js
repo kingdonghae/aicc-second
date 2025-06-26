@@ -27,14 +27,16 @@ export const useNavigation = () => {
             state: { selectedItem: selected }
         }),
         goCustomInput: (selected, inputs) => navigate(ROUTES.CUSTOM_INPUT, {
-            state: { selectedItem: selected,
+            state: {
+                selectedItem: selected,
                 inputValues: inputs
-             }
+            }
         }),
         goCustomResult: (selected, inputs) => navigate(ROUTES.CUSTOM_RESULT, {
-            state: { selectedItem: selected,
+            state: {
+                selectedItem: selected,
                 inputValues: inputs
-             }
+            }
         })
     };
 };

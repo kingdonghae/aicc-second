@@ -3,7 +3,9 @@ import { itemData } from '@/constants/itemData';
 import { useCustomToggle } from './hook/useCustomToggle';
 import '@/styles/Custom.css';
 
+
 const Custom = () => {
+    
     const { goCustomInput } = useNavigation();
 
     const { selected, toggleSelect } = useCustomToggle(3);
