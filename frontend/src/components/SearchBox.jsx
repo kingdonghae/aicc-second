@@ -40,8 +40,20 @@ const SearchBox = ({ defaultValue = '', onSearch, user_id }) => {
 
         await searchAddress(
             trimmed,
-            (coords) => {
-                logSearchKeyword(trimmed, user_id);
+            (coords, fullAddressResult) => { // onSuccess 콜백에 fullAddressResult 추가
+                let keywordToLog = trimmed;
+                if (fullAddressResult){
+                    console.log(fullAddressResult)
+                    if(fullAddressResult.road_address?.region_1depth_name) {
+                        const { region_2depth_name, region_3depth_name } = fullAddressResult.road_address;
+                        keywordToLog = `${region_2depth_name} ${region_3depth_name}`;
+                    }
+                    else {
+                        const { region_2depth_name, region_3depth_name, region_3depth_h_name } = fullAddressResult.address;
+                        keywordToLog = `${region_2depth_name} ${region_3depth_h_name || region_3depth_name}`;
+                    } 
+                    logSearchKeyword(trimmed, keywordToLog, user_id);
+                }
                 if (onSearch) {
                     onSearch(trimmed, coords);
                 } else {
