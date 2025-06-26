@@ -20,6 +20,7 @@ import OAuthSuccess from "@/pages/login/OAuthSuccess.jsx";
 import AlertModal from "@/components/AlertModal.jsx";
 import Custom from "@/pages/custom/Custom";
 import CustomInput from "./pages/custom/CustomInput";
+import CustomResult from "./pages/custom/CustomResult";
 
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
                     <Route path={ROUTES.MAP} element={<MapPage />} />
                     <Route path={ROUTES.BOARD} element={<Board />} />
                     <Route path={ROUTES.CUSTOM} element={<Custom />}/>
-                    <Route path={ROUTES.CUSTOM_INPUT} element={<CustomInput/>}></Route>
+                    <Route path={ROUTES.CUSTOM_INPUT} element={<CustomInput/>} />
+                    <Route path={ROUTES.CUSTOM_RESULT} element={<CustomResult />} />
                 </Route>
             </Routes>
             <AlertModal />

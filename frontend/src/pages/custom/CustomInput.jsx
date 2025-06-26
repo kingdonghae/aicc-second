@@ -1,16 +1,15 @@
 import React from 'react';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { itemData } from '@/constants/itemData';
-import { useCustomSelection } from './hook/useCustomSelection';
-import '@/styles/Custom.css';
-
+import { useCustomData } from './hook/useCustomData';
 
 
 const CustomInput = () => {
 
-    const { goCustom } = useNavigation();
 
-    const selected = useCustomSelection();
+    const { goCustom, goCustomResult } = useNavigation();
+    const { selected, inputs, handleChange } = useCustomData();
+
 
     return (
         <div className='custom-background'>
@@ -20,14 +19,20 @@ const CustomInput = () => {
                     {selected.map((id) => {
                         const { icon: Icon, label } = itemData[id];
                         return (
-                            <li className="custom-selection">
+                            <li className="custom-selection"
+                                key={id}>
                                 <span><Icon />{label}</span>
-                                <input type="text" />
+                                <input type="text"
+                                    value={inputs[id] ?? ''}
+                                    onChange={(e) => handleChange(id, e.target.value)} />
                             </li>
                         )
                     })}
                 </ul>
                 <p onClick={() => goCustom(selected)}>이전으로</p>
+                <p
+                    onClick={() => goCustomResult(selected, inputs)}
+                >다음으로</p>
             </div>
         </div>
     )
