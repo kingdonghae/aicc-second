@@ -1,6 +1,7 @@
 .custom-background {
     width: 100vw;
     height: 100vh;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +93,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    font-size: 0.7rem;
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
@@ -103,10 +104,6 @@
     font-size: 1.4rem;
     color: inherit;
     margin-bottom: 5px;
-}
-
-.custom-selection span {
-    font-size: 0.7rem;
 }
 
 
@@ -121,3 +118,105 @@
     text-align: center;
     color: #333;
 }
+
+
+
+/* 커스텀 결과 페이지ㅣ */
+
+.custom-result-area {
+    position: absolute;
+    bottom: 0.5rem;
+    width: 100%;
+    height: 85%;
+    /* padding: 1rem; */
+}
+
+.custom-group {
+    position: relative;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-list {
+    /* background-color: orange; */
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.custom-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 19rem;
+    height: 90%;
+    /* padding: 1rem; */
+    gap: 0.5rem;
+}
+
+.custom-card h1 {
+    font-size: 1.6rem;
+}
+
+.custom-map {
+    background-color: rgb(73, 73, 73);
+    width: 85%;
+    height: 9rem;
+    /* margin: 0.5rem; */
+}
+
+.result-container {
+    /* background-color: rgb(202, 255, 202); */
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.selected-result {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+    /* background-color: #ffaeae; */
+    width: 100%;
+    height: 4rem;
+}
+
+
+.selected-result span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #E5F2D6;
+}
+
+.selected-result p {
+    background-color: #e3e3e3;
+    width: 11rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+}
+
