@@ -5,7 +5,7 @@ import '@/styles/Custom.css';
 
 
 const Custom = () => {
-    
+
     const { goCustomInput } = useNavigation();
 
     const { selected, toggleSelect } = useCustomToggle(3);
@@ -29,7 +29,14 @@ const Custom = () => {
                         </li>
                     ))}
                 </ul>
-                <p onClick={() => goCustomInput(selected)}>다음으로</p>
+                <button
+                    className={selected.length > 0 ? 'active' : 'disabled'}
+                    onClick={() => {
+                        if (selected.length > 0) goCustomInput(selected);
+                    }}
+                >
+                    다음으로
+                </button>
             </div>
         </div>
     );

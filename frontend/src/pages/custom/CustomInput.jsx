@@ -28,10 +28,10 @@ const CustomInput = () => {
                         )
                     })}
                 </ul>
-                <p onClick={() => goCustom(selected)}>이전으로</p>
-                <p
+                <button onClick={() => goCustom(selected)}>이전으로</button>
+                <button
                     onClick={() => customSubmit({ selectedItem: selected, inputs, goCustomResult })}
-                >다음으로</p>
+                >다음으로</button>
             </div>
         </div>
     )
