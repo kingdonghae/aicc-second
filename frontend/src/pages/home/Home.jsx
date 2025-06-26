@@ -47,7 +47,7 @@ const Home = () => {
                     </div>
                     {isLoggedIn && (
                         <div>
-                            <button onClick={goCustom}>
+                            <button onClick={() => goCustom([])}>
                                 <SavedSearchIcon style={{ fontSize: '3rem' }} />
                             </button>
                             <p>맞춤 지역</p>
