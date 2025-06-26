@@ -29,7 +29,7 @@ const SearchBox = ({ defaultValue = '', onSearch, user_id }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const trimmed = useraddress.trim() || address.trim();
+        const trimmed = address.trim() || useraddress.trim();
         if (!trimmed) {
             showModal({
                 title: '',
