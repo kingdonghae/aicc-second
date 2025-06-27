@@ -6,7 +6,7 @@ import '@/styles/Custom.css';
 
 const CustomResult = () => {
 
-    const { selected, inputs } = useCustomData();
+    const { selected, inputs, result } = useCustomData();
 
     return (
         <div className="custom-background">
@@ -34,11 +34,17 @@ const CustomResult = () => {
                             <div className='custom-map'></div>
                             <ul className='result-container'>
                                 <li className="selected-result">
-                                    <span>label</span><p>지하철역</p></li>
+                                    <span>총합 점수</span>
+                                    <p>{result?.totalScore}</p>
+                                </li>
                                 <li className="selected-result">
-                                    <span>label</span><p>지하철역</p></li>
+                                    <span>입력 수</span>
+                                    <p>{result?.inputCount}</p>
+                                </li>
                                 <li className="selected-result">
-                                    <span>label</span><p>안전해요~</p></li>
+                                    <span>메시지</span>
+                                    <p>{result?.message}</p>
+                                </li>
                             </ul>
                         </div>
                         <div className='custom-card'>

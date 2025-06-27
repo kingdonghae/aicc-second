@@ -2,14 +2,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import PostTable from '@/pages/board/components/PostTable.jsx';
 import { useNavigation } from '@/hook/useNavigation.js';
 import { usePostList } from "@/pages/board/hook/usePosts.js";
-import { useRequireLoginAction } from "@/pages/textdetail/hook/useRequireLoginAction.js";
+import { useRequireLoginAction } from "@/hook/useRequireLoginAction.js";
 import '@/styles/Board.css';
 
 const Board = () => {
   const { goWrite, goLogin } = useNavigation();
   const requireLoginAction = useRequireLoginAction();
   const handleGoWrite = () => {
-    requireLoginAction(goWrite,goLogin);
+    requireLoginAction(goWrite, goLogin);
   };
   const { searchTerm, setSearchTerm, posts, totalPages, loading, error,handleSearch,page,setPage,limit } = usePostList();
   return (

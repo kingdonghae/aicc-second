@@ -32,10 +32,11 @@ export const useNavigation = () => {
                 inputValues: inputs
             }
         }),
-        goCustomResult: (selected, inputs) => navigate(ROUTES.CUSTOM_RESULT, {
+        goCustomResult: (selected, inputs, result) => navigate(ROUTES.CUSTOM_RESULT, {
             state: {
                 selectedItem: selected,
-                inputValues: inputs
+                inputValues: inputs,
+                result: result
             }
         })
     };

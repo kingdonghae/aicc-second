@@ -3,16 +3,16 @@ import { usePostDetail } from "@/pages/textdetail/hook/usePostDetail.js";
 import CommentList from "@/pages/textdetail/components/CommentList.jsx";
 import CommentForm from "@/pages/textdetail/components/CommentForm.jsx";
 import NavButton from "@/pages/textdetail/components/NavButton.jsx";
-import {useSaveComment} from "@/pages/textdetail/hook/useSaveComment.js";
-import {useComments} from "@/pages/textdetail/hook/useComments.js";
-import {useRecoilValue} from "recoil";
-import {authState} from "@/atoms/authState.js";
-import {useRequireLoginAction} from "@/pages/textdetail/hook/useRequireLoginAction.js";
+import { useSaveComment } from "@/pages/textdetail/hook/useSaveComment.js";
+import { useComments } from "@/pages/textdetail/hook/useComments.js";
+import { useRecoilValue } from "recoil";
+import { authState } from "@/atoms/authState.js";
+import { useRequireLoginAction } from "@/hook/useRequireLoginAction.js";
 import AttachmentList from "@/pages/write/components/AttachmentList.jsx";
 import '@/styles/TextDetail.css';
 
 const TextDetail = () => {
-    const {isLoggedIn,user} = useRecoilValue(authState);
+    const { isLoggedIn, user } = useRecoilValue(authState);
     const { goBoard,goLogin, goEdit, goWrite, goTextDetail } = useNavigation();
     const { post, loading: postLoading, error: postError, formatted, postId } = usePostDetail();
     const { comments, setComments, loading: commentLoading, error: commentError } = useComments(postId);
