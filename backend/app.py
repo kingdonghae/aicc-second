@@ -7,6 +7,7 @@ from config.login_config import LoginConfig
 from routes.comments_route import comment_bp
 from routes.google_auth_route import google_auth
 from routes.post_route import post_bp
+from routes.custom_route import custom_bp
 
 import os, sys
 import io
@@ -25,6 +26,7 @@ from routes.rank_route import rank_bp
 from routes.upload_route import upload_bp
 from routes.user_route import user_bp
 from routes.score_route import score_bp
+from routes.custom_route import custom_bp
 
 import decimal
 from flask.json.provider import DefaultJSONProvider
@@ -55,6 +57,7 @@ app.register_blueprint(post_bp)
 app.register_blueprint(comment_bp)
 app.register_blueprint(score_bp)
 app.register_blueprint(user_bp)
+app.register_blueprint(custom_bp)
 
 if __name__ == '__main__':
     print("서버 시작: 로그 즉시 출력 및 UTF-8 인코딩 활성화됨 ✅")

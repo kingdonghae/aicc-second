@@ -2,8 +2,13 @@ import { useNavigation } from "@/hook/useNavigation.js";
 import { itemData } from '@/constants/itemData';
 import { useCustomToggle } from './hook/useCustomToggle';
 import '@/styles/Custom.css';
+import { useRequireLoginAction } from "../../hook/useRequireLoginAction";
+
 
 const Custom = () => {
+
+    useRequireLoginAction(true);
+
     const { goCustomInput } = useNavigation();
 
     const { selected, toggleSelect } = useCustomToggle(3);
@@ -27,7 +32,14 @@ const Custom = () => {
                         </li>
                     ))}
                 </ul>
-                <p onClick={() => goCustomInput(selected)}>다음으로</p>
+                <button
+                    className={selected.length > 0 ? 'active' : 'disabled'}
+                    onClick={() => {
+                        if (selected.length > 0) goCustomInput(selected);
+                    }}
+                >
+                    다음으로
+                </button>
             </div>
         </div>
     );

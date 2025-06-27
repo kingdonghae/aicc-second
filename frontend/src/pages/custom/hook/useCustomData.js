@@ -3,7 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 
 export const useCustomData = () => {
+    
   const location = useLocation();
+  const result = location.state?.result;
 
   const selected = location.state?.selectedItem || [];
   const initInput = location.state?.inputValues || {};
@@ -18,5 +20,6 @@ export const useCustomData = () => {
     selected,
     inputs,
     handleChange,
+    result
   };
 };
