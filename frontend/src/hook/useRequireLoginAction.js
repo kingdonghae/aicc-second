@@ -4,13 +4,13 @@ import { authState } from "@/atoms/authState.js";
 import { useEffect } from "react";
 import { useNavigation } from './useNavigation';
 
-export const useRequireLoginAction = (autoRedirect = false) => {
+export const useRequireLoginAction = () => {
     const { isLoggedIn } = useRecoilValue(authState);
     const showModal = useShowModal();
     const { goLogin } = useNavigation();
 
     useEffect(() => {
-        if (autoRedirect && !isLoggedIn) {
+        if (!isLoggedIn) {
             showModal({
                 title: '로그인이 필요합니다',
                 message: `이 페이지는 로그인 후 이용할 수 있습니다.`,
@@ -21,7 +21,7 @@ export const useRequireLoginAction = (autoRedirect = false) => {
                 onCancel: () => { },
             });
         }
-    }, [autoRedirect, isLoggedIn, showModal, goLogin]);
+    }, [isLoggedIn, showModal, goLogin]);
 
 
     return (actionCallback, goLogin) => {
