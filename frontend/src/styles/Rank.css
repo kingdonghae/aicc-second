@@ -16,7 +16,7 @@
 
 .rank-section h1 {
     font-size: 1.3rem;
-    margin: 3rem 0 1rem 0;
+    margin-top: 3rem;
 }
 
 #one {
@@ -85,7 +85,21 @@
 }
 
 #today-rank {
-    margin: 1.5rem 1rem 1rem 13rem;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+#guide {
+    margin-bottom: 1rem;
+    font-size: 15px;
+    color: gray;
+}
+
+#nosearch {
+    margin-left: auto;
+    margin-right: 1rem;
+    font-size: 15px;
+    color: gray;
 }
 
 .table-with-input {

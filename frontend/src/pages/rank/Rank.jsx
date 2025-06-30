@@ -10,7 +10,16 @@ import '@/styles/Rank.css';
 const Rank = () => {
     const { monthRank, monthValue, handleChange: handleMonthChange } = useMonthSelector();
     const { weekRank, weekValue,weekLabel, handleChange: handleWeekChange } = useWeekSelector();
-    const { inputValue, keywordData, setInputValue, handleSearchSubmit, todayRank,inputRef} = useTodaySelector();
+    const { 
+        inputValue, 
+        setInputValue, 
+        keywordTodayRank, 
+        handleSearchSubmit, 
+        todayRank, 
+        inputRef, 
+        searchKeyword, 
+        searchCount // useTodaySelector에서 반환된 searchCount
+    } = useTodaySelector();
 
 
     return (
@@ -23,6 +32,7 @@ const Rank = () => {
                 <hr id="rank-line"/>
                 <div id='check-rank'>
                     <h1>주소로 순위 확인하기</h1>
+                    <p id='guide'>지역 검색 순위는 동 단위까지 확인이 가능합니다.</p>
                     <form id='input-box' onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
@@ -36,7 +46,9 @@ const Rank = () => {
                         <button id='input-button' type='submit' ><SearchIcon /></button>
 
                     </form>
-                    <h3 id="today-rank">오늘의 순위는 <span id='check-number'> {keywordData ? keywordData : '?'}</span>위</h3>
+                    <h3 id="today-rank">{searchKeyword ? searchKeyword + ' ' : ''} <span id='check-number'> {keywordTodayRank ? keywordTodayRank : '?'}</span>위</h3>
+                    {(keywordTodayRank == '-') && 
+                        <p id='nosearch'>당신은 얼리어답터? 오늘 검색한 적이 없는 지역이에요.</p>}
                 </div>
             </section>
 
