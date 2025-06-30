@@ -17,7 +17,7 @@ const TextDetail = () => {
     const { post, loading: postLoading, error: postError, formatted, postId } = usePostDetail();
     const { comments, setComments, loading: commentLoading, error: commentError } = useComments(postId);
     const { comment,setComment, onSubmit } = useSaveComment(postId, user, setComments);
-    const requireLoginAction = useRequireLoginAction();
+    useRequireLoginAction(true);
 
     const handleGoWrite = () => {
         requireLoginAction(goWrite,goLogin);

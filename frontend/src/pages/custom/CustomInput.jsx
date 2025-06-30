@@ -3,9 +3,12 @@ import { useNavigation } from "@/hook/useNavigation.js";
 import { itemData } from '@/constants/itemData';
 import { useCustomData } from './hook/useCustomData';
 import { customSubmit } from './services/customService';
+import { useRequireLoginAction } from "@/hook/useRequireLoginAction";
 
 
 const CustomInput = () => {
+
+    useRequireLoginAction(true);
 
     const { goCustom, goCustomResult } = useNavigation();
     const { selected, inputs, handleChange } = useCustomData();

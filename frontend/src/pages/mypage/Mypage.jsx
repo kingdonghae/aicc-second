@@ -4,10 +4,14 @@ import { jwtDecode } from 'jwt-decode';
 import { getUserInfo, patchUserInfo } from './services/userService.js';
 import { useNavigate } from 'react-router-dom';
 import { useShowModal } from "@/utils/showModal.js";
+import { useRequireLoginAction } from "@/hook/useRequireLoginAction";
 import '@/styles/Mypage.css';
 
 
 const Mypage = () => {
+
+    useRequireLoginAction(true);
+
     const navigate = useNavigate();
     const showModal = useShowModal();
     const [userId, setUserId] = useState('');

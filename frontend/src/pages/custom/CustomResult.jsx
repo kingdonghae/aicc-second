@@ -1,10 +1,13 @@
 import React from 'react';
 import { itemData } from '@/constants/itemData';
 import { useCustomData } from './hook/useCustomData';
+import { useRequireLoginAction } from "@/hook/useRequireLoginAction";
 import '@/styles/Custom.css';
 
 
 const CustomResult = () => {
+
+    useRequireLoginAction(true);
 
     const { selected, inputs, result } = useCustomData();
 
