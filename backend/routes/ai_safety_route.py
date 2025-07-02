@@ -6,7 +6,7 @@ import time
 ai_safety_bp = Blueprint('ai_safety', __name__)
 
 # Colab AI 모델 URL (실제 ngrok URL로 변경)
-COLAB_API_URL = "https://dfd2-104-198-30-255.ngrok-free.app"
+COLAB_API_URL = "https://021a-104-198-30-255.ngrok-free.app"
 
 @ai_safety_bp.route('/api/safety-check', methods=['POST'])
 def safety_check():
