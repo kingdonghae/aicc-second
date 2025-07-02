@@ -4,7 +4,6 @@ const DetailPreview = ({ isDrag, address, coords, score, gpt }) => {
     const { goInfoDetail } = useNavigation();
 
     const handleClick = () => {
-        
         goInfoDetail(coords, address, score, gpt);
     };
 
@@ -26,8 +25,8 @@ const DetailPreview = ({ isDrag, address, coords, score, gpt }) => {
                     </>
                 ) : (
                     <>
-                    <h3>이 동네, 어떤가요?</h3>
-                    <p>주소를 입력하면</p><p>분석 리포트를 보여드려요!</p>
+                        <h3>이 동네, 어떤가요?</h3>
+                        <p>주소를 입력하면</p><p>분석 리포트를 보여드려요!</p>
                     </>
                 )}
             </div>

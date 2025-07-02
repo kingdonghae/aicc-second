@@ -5,12 +5,11 @@ import App from './App.jsx';
 import AuthInitializer from './components/AuthInitializer';
 import './index.css'
 
-
 createRoot(document.getElementById('root')).render(
-        <RecoilRoot>
-            <BrowserRouter>
-                <AuthInitializer />
-                <App />
-            </BrowserRouter>
-        </RecoilRoot>
+    <RecoilRoot>
+        <BrowserRouter>
+            <AuthInitializer />
+            <App />
+        </BrowserRouter>
+    </RecoilRoot>
 );

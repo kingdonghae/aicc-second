@@ -51,7 +51,7 @@ const InfoDetail = () => {
     };
 
     fetchScore();
-  }, [coords, score]);
+  }, [coords, score, address]);
 
   return (
     <div className="chart-background">
