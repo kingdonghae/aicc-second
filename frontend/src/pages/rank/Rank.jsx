@@ -48,7 +48,7 @@ const Rank = () => {
                     </form>
                     <h3 id="today-rank">{searchKeyword ? searchKeyword + ' ' : ''} <span id='check-number'> {keywordTodayRank ? keywordTodayRank : '?'}</span>위</h3>
                     {(keywordTodayRank == '-') && 
-                        <p id='nosearch'>당신은 얼리어답터? 오늘 검색한 적이 없는 지역이에요.</p>}
+                        <p id='nosearch'>오늘 검색 기록이 없는 지역이에요. 가장 먼저 해당 지역을 검색해보세요!</p>}
                 </div>
             </section>
 
