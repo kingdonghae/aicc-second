@@ -44,14 +44,14 @@ const TextDetail = () => {
 
                     <div className="title-box">
                         <div>
-                            <h4>{title}</h4>
-                            <div id="writer">
+                            <h4 style={{'font-family': 'Pretendard'}}>{title}</h4>
+                            <div id="writer" style={{'font-family': 'Pretendard'}}>
                                 작성자 : <span>{username}</span> │ 작성 시간 : <span>{formatted}</span>
                                 │ 조회수 : <span>{view_count}</span>
                             </div>
                         </div>
 
-                        <div className="edit-box">
+                        <div className="edit-box" style={{'font-family': 'Pretendard'}}>
                             <div className="other-content">
                                 <NavButton direction={'prev'} condition={postId < total_count} onClick={() => goTextDetail(postId + 1)}/>
                                 <NavButton direction={'next'} condition={postId > 1} onClick={() => goTextDetail(postId - 1)}/>
@@ -82,6 +82,7 @@ const TextDetail = () => {
                         onSubmit={onSubmit}
                         user={user}
                         isLoggedIn={isLoggedIn}
+                        
                     />
                 </div>
             </div>

@@ -8,6 +8,7 @@ export default function MonthSelector({ value,onChange }) {
                 value={value}
                 onChange={onChange}
                 style={{
+                    fontFamily: 'Pretendard',
                     backgroundColor: 'white',
                     border: '1px solid black',
                     paddingLeft: '30px'

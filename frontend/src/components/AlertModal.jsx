@@ -21,7 +21,7 @@ export default function AlertModal() {
   if (!modal.isOpen) return null;
 
     return (
-        <div className="fixed inset-0 flex justify-center items-center bg-[rgba(0,0,0,0.17)] z-50 pointer-events-none">
+        <div className="fixed inset-0 flex justify-center items-center bg-[rgba(0,0,0,0.17)] z-50 pointer-events-none" style={{ fontFamily: 'Pretendard'}}>
             <div
                 className="bg-white backdrop-brightness rounded-2xl px-5 py-6 w-[90%] md:w-1/2 lg:w-1/4 max-w-sm text-center shadow-xl pointer-events-auto animate-fade-in"
             >

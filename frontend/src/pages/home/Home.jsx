@@ -17,8 +17,8 @@ const Home = () => {
     return (
         <div className="home-container">
             <section id='top'>
-                <h1 id='main-title'>집PT</h1>
-                <p id='sub-title'>Zip Place Tool</p>
+                <h1 id='main-title' style={{fontFamily:'NPSfontBold'}}>집PT</h1>
+                <p id='sub-title' style={{fontFamily:'NPSfontBold'}}>Zip Place Tool</p>
                 <SearchBox user_id={isLoggedIn ? user?.user_id : null} />
                 <p id='sub-text'>동네의 모든 것, 집PT가 요약해드립니다!<br />
                     <span>주소를 입력해보세요</span>

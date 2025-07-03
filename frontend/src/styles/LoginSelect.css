@@ -1,5 +1,5 @@
 .login-wrapper {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard';
     font-weight: 600;
     background-color: #E5F2D6;
     display: flex;
@@ -117,7 +117,7 @@
     border-radius: 2rem;
     font-size: 0.9rem;
     cursor: pointer;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
     margin-bottom: 0.5rem;
     transition: transform 0.2s;
 }
@@ -135,7 +135,7 @@
     border-radius: 2rem;
     font-size: 0.9rem;
     cursor: pointer;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
     margin-top: 0.5rem;
     transition: transform 0.2s;
 }

@@ -1,5 +1,6 @@
 
 .mapbackground {
+    font-family: 'Pretendard';
     width: 100vw;
     height: 100vh;
     justify-content: center;
@@ -200,7 +201,6 @@
     border-radius: 2rem;
     width: 7rem;
     height: 2rem;
-    font-family: 'NPSfontBold';
     font-weight: 500;
     font-size: 0.8rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

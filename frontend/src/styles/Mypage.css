@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard';
     font-weight: 600;
     font-size: 0.65rem;
 }
@@ -52,7 +52,7 @@
     border-radius: 1rem;
     cursor: pointer;
     white-space: nowrap;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
 }
 
 .mypage-form .input-group button:hover {
@@ -94,7 +94,7 @@
     border-radius: 2rem;
     font-size: 0.8rem;
     cursor: pointer;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
 }
 
 .mypage-form .mypage-button:hover {

@@ -15,11 +15,11 @@ const StyledTableCell = styled(TableCell)({
   backgroundColor: '#B9DCC4',
   color: 'white',
   fontWeight: 'bold',
-  fontFamily: 'KIMM_Bold',
+  fontFamily: 'Pretendard',
 });
 
 const NoticeTableCell = styled(TableCell)({
-  fontFamily: 'KIMM_Bold',
+  fontFamily: 'Pretendard',
   fontWeight: "bolder",
 });
 
@@ -62,11 +62,11 @@ export default React.memo(function PostTable({ posts, totalPages, error, page, s
 
   return (
       <>
-        <TableContainer component={Paper} sx={{minHeight:410}}>
+        <TableContainer component={Paper} sx={{minHeight:410}} >
           <Table sx={{ minWidth: 650}} aria-label="게시판 테이블">
             <TableHead>
               <TableRow>
-                <StyledTableCell align="center">No</StyledTableCell>
+                <StyledTableCell align="center" >No</StyledTableCell>
                 <StyledTableCell align="center">제목</StyledTableCell>
                 <StyledTableCell align="center">작성자</StyledTableCell>
                 <StyledTableCell align="center">작성시간</StyledTableCell>
@@ -76,7 +76,7 @@ export default React.memo(function PostTable({ posts, totalPages, error, page, s
             <TableBody>
               {posts.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} align="center" sx={{ minHeight: '280px', fontSize: '20px', padding: '140px 0' }}>
+                    <TableCell colSpan={5} align="center" sx={{ minHeight: '280px', fontSize: '20px', padding: '140px 0' }} >
                       게시물이 없습니다.
                     </TableCell>
                   </TableRow>
@@ -86,10 +86,10 @@ export default React.memo(function PostTable({ posts, totalPages, error, page, s
                         <NoticeTableCell align="center">{row.id}</NoticeTableCell>
 
                         <NoticeTableCell align="left" className="flex items-center gap-2">
-                          <span className="flex items-center gap-1 truncate">
+                          <span className="flex items-center gap-1 truncate" >
                             <span className="truncate">{row.title}</span>
                             {(row.comment_count) >= 1 && (
-                                <span className="text-blue-400 ml-1 whitespace-nowrap">[{row.comment_count}]</span>
+                                <span className="text-blue-400 ml-1 whitespace-nowrap" >[{row.comment_count}]</span>
                             )}
 
                           {row.has_attachment===1 &&

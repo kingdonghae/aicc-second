@@ -13,13 +13,13 @@ export default function RankTable({ rankData }) {
 
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ fontSize: '0.5rem', padding: '0rem' }} aria-label="simple table">
-                <TableBody>
+            <Table sx={{ fontSize: '0.5rem', padding: '0rem' }} aria-label="simple table" >
+                <TableBody >
                     {rankData && rankData.length > 0 ? (
                         rankData.map((row,index) => (
                             <TableRow key={row.keyword}>
-                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem 1rem' }}>{index+1}</TableCell>
-                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', padding: '0rem' }}>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard', fontWeight: '600', padding: '0rem 1rem' }}>{index+1}</TableCell>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard', fontWeight: '600', padding: '0rem' }}>
                                     {row.diffRank === 0 ? (
                                         <RemoveIcon sx={{ fontSize: 16, color: 'gray' }} />
                                     ) : (
@@ -33,7 +33,7 @@ export default function RankTable({ rankData }) {
                                         </>
                                     )}
                                 </TableCell>
-                                <TableCell align="center" sx={{ fontFamily: 'Pretendard-Regular', fontWeight: '600', fontSize: '0.7rem', padding: '0.4rem', width: "600px" }}>
+                                <TableCell align="center" sx={{ fontFamily: 'Pretendard', fontWeight: '600', fontSize: '0.7rem', padding: '0.4rem', width: "600px" }}>
                                     {row.keyword}
                                 </TableCell>
                             </TableRow>

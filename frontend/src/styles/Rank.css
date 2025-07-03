@@ -1,4 +1,5 @@
 .whole-section {
+    font-family: 'Pretendard';
     margin: 0;
     padding: 0;
     width: 100%;
@@ -117,7 +118,7 @@
     width: 9rem;
     height: 1.8rem;
     border-radius: 0.5rem;
-    font-family: 'NPSfontBold', serif;
+    font-family: 'Pretendard', serif;
     text-align: center;
     letter-spacing: 0.1rem;
     font-size: 0.6rem;
@@ -128,7 +129,7 @@
     width: 9rem;
     height: 1.8rem;
     border-radius: 0.5rem;
-    font-family: 'NPSfontBold', serif;
+    font-family: 'Pretendard', serif;
     text-align: center;
     letter-spacing: 0.1rem;
     font-size: 0.6rem;
