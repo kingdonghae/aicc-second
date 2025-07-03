@@ -11,7 +11,7 @@ const CommentForm = ({ comment, setComment, onSubmit, isLoggedIn, user }) => {
                 <textarea 
                     readOnly={true} 
                     style={{
-                        fontFamily:'NPSfontBold',
+                        fontFamily:'Pretendard',
                         fontSize:'20px', 
                         paddingTop:'20px', 
                         textAlign:"center"

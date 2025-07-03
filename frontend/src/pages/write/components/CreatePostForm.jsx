@@ -144,6 +144,7 @@ const CreatePostForm = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 id='write-title'
+                style={{ fontFamily: 'Pretendard'}}
             />
             <hr id='write-hr' />
 

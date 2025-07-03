@@ -5,9 +5,9 @@ const CommentList = ({ comments, setComments, user }) => {
 
     return (
         <div className='comment-list'>
-            <h2>댓글 목록</h2>
+            <h2 style={{'font-family': 'Pretendard'}}>댓글 목록</h2>
             <hr className='content-line' />
-            <div className='commends-area'>
+            <div className='commends-area' style={{'font-family': 'Pretendard'}}>
                 {comments.length > 0 ? (
                     comments.map((cmt) => (
                         <div key={cmt.id} className='commends'>
