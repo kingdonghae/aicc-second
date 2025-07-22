@@ -33,4 +33,16 @@ export const CATEGORY_MAP = {
         label: '병원',
         image: '/icons/hospital5.png',
     },
+    daiso: {
+        code: '',
+        label: '다이소',
+        image: '/icons/mart5.png',
+        color: '#6f42c1',
+    },
+    culture: {
+        code: 'CT1',
+        label: '문화시설',
+        image: '/icons/mart5.png',
+        color: '#ff69b4',
+    },
 };

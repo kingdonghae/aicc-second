@@ -14,12 +14,13 @@ const DetailList = ({ onClose, isDrag, category, setCategory }) => {
 
             </div>
             <div className="custom-button-group">
-                {Object.entries(CATEGORY_MAP).map(([id, { label, color }]) => (
+                {Object.entries(CATEGORY_MAP).map(([id, { label, color, image }]) => (
                     <CategoryButton
                         key={id}
                         id={id}
                         label={label}
                         color={color}
+                        image={image}
                         isActive={category[id]}
                         onToggle={toggleCategory}
                     />

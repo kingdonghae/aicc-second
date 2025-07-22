@@ -15,6 +15,8 @@ export const useMapController = () => {
         school: true,
         mart: true,
         hospital: true,
+        daiso: true,
+        culture: true,
     });
 
     return {
