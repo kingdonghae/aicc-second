@@ -36,13 +36,13 @@ export const CATEGORY_MAP = {
     daiso: {
         code: '',
         label: '다이소',
-        image: '/icons/mart5.png',
+        image: '/icons/daiso.png',
         color: '#6f42c1',
     },
     culture: {
         code: 'CT1',
         label: '문화시설',
-        image: '/icons/mart5.png',
+        image: '/icons/culture.png',
         color: '#ff69b4',
     },
 };
