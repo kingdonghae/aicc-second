@@ -1,7 +1,10 @@
 import requests
 from flask import current_app
 from db import get_connection
-from models.user_model import get_user_by_provider, create_google_user
+from models.user_model import (
+    get_user_by_provider, 
+    create_google_user
+)
 from utils.jwt_utils import generate_jwt
 
 def process_google_auth(code):

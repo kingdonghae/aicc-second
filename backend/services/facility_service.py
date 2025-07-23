@@ -1,7 +1,10 @@
 import pymysql
 from flask import jsonify
 from db import get_connection
-from models.facility_model import get_facilities_query, get_facility_safe_score_query
+from models.facility_model import (
+    get_facilities_query, 
+    get_facility_safe_score_query
+)
 
 def get_facilities():
     connection = get_connection()

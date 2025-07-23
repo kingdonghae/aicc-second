@@ -1,5 +1,8 @@
 import bcrypt
-from models.user_model import get_user_by_id, update_user
+from models.user_model import (
+    get_user_by_id, 
+    update_user
+)
 from db import get_connection
 
 def fetch_user_info(user_id):

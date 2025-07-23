@@ -1,9 +1,11 @@
 
 from flask import Blueprint, jsonify, request
-from services.rank_service import (fetch_keyword_ranking,
-                                   fetch_week_ranking,
-                                   fetch_month_ranking,
-                                   fetch_today_ranking)
+from services.rank_service import (
+    fetch_keyword_ranking,
+    fetch_week_ranking,
+    fetch_month_ranking,
+    fetch_today_ranking
+)
 
 rank_bp = Blueprint('rank', __name__)
 

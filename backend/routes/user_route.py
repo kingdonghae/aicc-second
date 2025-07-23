@@ -1,5 +1,8 @@
 from flask import Blueprint, request, jsonify
-from services.user_service import fetch_user_info, modify_user_info
+from services.user_service import (
+    fetch_user_info, 
+    modify_user_info
+)
 
 user_bp = Blueprint('user', __name__, url_prefix='/user')
 
