@@ -8,7 +8,7 @@ def get_daily_rank_query():
                     , DIFF_RANK                           AS diffRank        
                     , 'daily'                             AS periodType      
                 FROM SEARCH_RANKING_DAILY
-                WHERE DATE(START_DATE) = DATE(now())
+                WHERE START_DATE = CURDATE()
                 ORDER BY COUNT DESC
                 LIMIT 5
            """
@@ -21,12 +21,12 @@ def get_weekly_rank_query():
                     CURRENT_RANK            AS currentRank,     
                     DIFF_RANK               AS diffRank,        
                     'weekly'                AS periodType       
-                FROM search_ranking_weekly
+                FROM SEARCH_RANKING_WEEKLY
                 WHERE WEEK_START = DATE_ADD(
                     STR_TO_DATE(CONCAT(%s, '-01-04'), '%%Y-%%m-%%d')
                         - INTERVAL WEEKDAY(STR_TO_DATE(CONCAT(%s, '-01-04'), '%%Y-%%m-%%d')) DAY,
                     INTERVAL (%s - 1) WEEK
-                )
+                ) 
                 ORDER BY COUNT DESC
                 LIMIT 5;
     """
