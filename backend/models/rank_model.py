@@ -2,15 +2,15 @@
 def get_daily_rank_query():
     return """
                 SELECT
-                      KEYWORD                             AS keyword        
-                    , COUNT                               AS count           
-                    , CURRENT_RANKING                     AS currentRank     
-                    , DIFF_RANK                           AS diffRank        
-                    , 'daily'                             AS periodType      
+                    KEYWORD                             AS keyword,
+                    COUNT                               AS count,
+                    CURRENT_RANKING                     AS currentRank,
+                    DIFF_RANK                           AS diffRank,
+                    'daily'                             AS periodType
                 FROM SEARCH_RANKING_DAILY
                 WHERE START_DATE = CURDATE()
                 ORDER BY COUNT DESC
-                LIMIT 5
+                LIMIT 5;
            """
 
 def get_weekly_rank_query():
@@ -34,41 +34,41 @@ def get_weekly_rank_query():
 def get_monthly_rank_query():
     return """
                 SELECT
-                      KEYWORD                                    AS keyword            
-                    , COUNT                                      AS count               
-                    , ROW_NUMBER() OVER (ORDER BY COUNT DESC)    AS currentRank         
-                    , DIFF_RANK                                  AS diffRank             
-                    , 'monthly'                                  AS periodType          
+                    KEYWORD                                    AS keyword,
+                    COUNT                                      AS count,
+                    ROW_NUMBER() OVER (ORDER BY COUNT DESC)    AS currentRank,
+                    DIFF_RANK                                  AS diffRank,
+                    'monthly'                                  AS periodType
                 FROM SEARCH_RANKING_MONTHLY
                 WHERE YEAR = %s AND MONTH = %s
                 ORDER BY COUNT DESC
-                LIMIT 5
+                LIMIT 5;
     """
 
 def get_keyword_rank_query():
     return """
                 SELECT
-                      KEYWORD                   AS keyword         
-                    , COUNT                     AS count           
-                    , CURRENT_RANKING           AS currentRank     
+                    KEYWORD                   AS keyword,
+                    COUNT                     AS count,
+                    CURRENT_RANKING           AS currentRank
                 FROM SEARCH_RANKING_DAILY
-                WHERE KEYWORD = %s 
-                and start_date = current_date
+                WHERE KEYWORD = %s
+                AND satart_date = CURRENT_DATE;
     """
 
 def check_search_keyword_duplicate():
     return """
-               SELECT 
-                     COUNT(1)
-               FROM 
-                     SEARCH_LOG
-               WHERE 
-                      (
-                        (USER_ID = %s AND KEYWORD = %s)
-                         OR (IP_ADDRESS = %s AND KEYWORD = %s)
-                      )
-                     AND DATE(SEARCHED_AT)   = DATE(NOW());
-           """
+            SELECT 
+                COUNT(1)
+            FROM 
+                SEARCH_LOG
+            WHERE 
+                (
+                (USER_ID = %s AND KEYWORD = %s)
+                    OR (IP_ADDRESS = %s AND KEYWORD = %s)
+                )
+                AND DATE(SEARCHED_AT)   = DATE(NOW());
+    """
 
 def insert_search_keyword_query():
     return """
