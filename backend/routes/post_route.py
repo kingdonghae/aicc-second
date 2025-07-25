@@ -1,5 +1,9 @@
 from flask import Blueprint, request, jsonify
-from services.post_service import get_post_list_service, get_post_detail_service, get_count_posts
+from services.post_service import (
+    get_post_list_service, 
+    get_post_detail_service, 
+    get_count_posts
+)
 
 post_bp = Blueprint('post', __name__)
 

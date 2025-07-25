@@ -3,7 +3,10 @@ import uuid
 from db import get_connection
 from flask import jsonify
 from werkzeug.utils import secure_filename
-from models.file_model import insert_file_query, select_file_by_filename_query
+from models.file_model import (
+    insert_file_query, 
+    select_file_by_filename_query
+)
 
 UPLOAD_FOLDER = "uploads"
 
