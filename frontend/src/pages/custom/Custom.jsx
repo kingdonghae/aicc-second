@@ -1,17 +1,18 @@
 import { useNavigation } from "@/hook/useNavigation.js";
 import { itemData } from '@/constants/itemData';
 import { useCustomToggle } from './hook/useCustomToggle';
-import { useRequireLoginAction } from "@/hook/useRequireLoginAction";
+// import { useRequireLoginAction } from "@/hook/useRequireLoginAction";
 import '@/styles/Custom.css';
 
 
 const Custom = () => {
 
-    useRequireLoginAction(true);
+    // useRequireLoginAction(true);
 
     const { goCustomInput } = useNavigation();
 
-    const { selected, toggleSelect } = useCustomToggle(3);
+    const { selected, toggleSelect, resetSelect } = useCustomToggle(3);
+
 
     return (
         <div className='custom-background'>
@@ -32,14 +33,21 @@ const Custom = () => {
                         </li>
                     ))}
                 </ul>
-                <button
-                    className={selected.length > 0 ? 'active' : 'disabled'}
-                    onClick={() => {
-                        if (selected.length > 0) goCustomInput(selected);
-                    }}
-                >
-                    다음으로
-                </button>
+                <div>
+                    {selected.length > 0 && (
+                        <button onClick={resetSelect}>
+                            다시 선택하기
+                        </button>
+                    )}
+                    <button
+                        className={selected.length > 0 ? 'active' : 'disabled'}
+                        onClick={() => {
+                            if (selected.length > 0) goCustomInput(selected);
+                        }}
+                    >
+                        다음으로
+                    </button>
+                </div>
             </div>
         </div>
     );

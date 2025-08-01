@@ -7,6 +7,7 @@ import { authState } from '@/atoms/authState';
 import { useNavigation } from "@/hook/useNavigation.js";
 import { useAuth } from '@/hook/useAuth';
 import { useShowModal } from "@/utils/showModal.js";
+import { useCustomSessionReset } from '@/hook/useCustomReset';
 
 const HeaderBase = ({ children, showMenuButton = true }) => {
     const { goMyPage, goLogin, goHome } = useNavigation();
@@ -17,6 +18,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     const showModal = useShowModal();
     const toggleMenu = () => setMenu((prev) => !prev);
     const closeMenu = () => setMenu(false);
+    const { clearSelected } = useCustomSessionReset()
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -74,7 +76,7 @@ const HeaderBase = ({ children, showMenuButton = true }) => {
     return (
         <header className="common-header" ref={menuRef}>
             {showMenuButton && (
-                <button className="home-menu" onClick={goHome}>
+                <button className="home-menu" onClick={() => { clearSelected(); goHome(); }}>
                     <img src="/logo.png" id="logo-img" alt="logo" />
                 </button>
             )}
