@@ -22,5 +22,10 @@ export const useCustomToggle = (max = 3) => {
         }
     };
 
-    return { selected, toggleSelect };
+    const resetSelect = () => {
+        setSelected([]);
+        sessionStorage.removeItem('selected');
+    };
+
+    return { selected, toggleSelect, resetSelect };
 };
