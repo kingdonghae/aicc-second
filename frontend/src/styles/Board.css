@@ -49,6 +49,16 @@
   margin-top: 3rem;
 }
 
+.content-search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.content-search-form input {
+  width: 80%;
+  padding: 0 30px;
+}
+
 .content-search-box {
   display: flex;
   flex-direction: row;
