@@ -8,7 +8,7 @@ ai_score_bp = Blueprint('ai_score', __name__) # 블루프린트 이름 변경
 
 # Colab AI 모델 URL (Colab에서 얻은 실제 ngrok URL로 변경)
 # 🚨🚨🚨 이 값을 현재 활성화된 Colab 서버의 ngrok URL로 업데이트해야 합니다! 🚨🚨🚨
-COLAB_API_URL = "https://b717f16842cd.ngrok-free.app" # 예시 URL
+COLAB_API_URL = "https://77875278a376.ngrok-free.app" # 예시 URL
 
 @ai_score_bp.route('/api/custom-score', methods=['POST'])
 def get_custom_score():

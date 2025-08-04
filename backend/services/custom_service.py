@@ -6,7 +6,7 @@ from models.custom_model import get_all_dong_scores_query
 import requests
 import json
 
-COLAB_API_URL = "https://b717f16842cd.ngrok-free.app"
+COLAB_API_URL = "https://77875278a376.ngrok-free.app"
 
 def get_custom_result(selected_item, inputs):
     print(f"[DEBUG] 함수 시작 - selected_item: {selected_item}, inputs: {inputs}")

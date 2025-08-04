@@ -53,7 +53,7 @@ def get_keyword_rank_query():
                     CURRENT_RANKING           AS currentRank
                 FROM SEARCH_RANKING_DAILY
                 WHERE KEYWORD = %s
-                AND satart_date = CURRENT_DATE;
+                AND start_date = CURRENT_DATE;
     """
 
 def check_search_keyword_duplicate():
