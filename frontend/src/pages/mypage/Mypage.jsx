@@ -2,17 +2,13 @@ import { useState, useEffect } from 'react';
 import { getToken } from '@/utils/authService';
 import { jwtDecode } from 'jwt-decode';
 import { getUserInfo, patchUserInfo } from './services/userService.js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '@/hook/useNavigation';
 import { useShowModal } from "@/utils/showModal.js";
-import { useRequireLoginAction } from "@/hook/useRequireLoginAction";
 import '@/styles/Mypage.css';
 
 
 const Mypage = () => {
-
-    useRequireLoginAction(true);
-
-    const navigate = useNavigate();
+    const { goHome } = useNavigation();
     const showModal = useShowModal();
     const [userId, setUserId] = useState('');
     const [username, setUsername] = useState('');
@@ -80,7 +76,6 @@ const Mypage = () => {
                 message: '사용자 정보가 성공적으로 수정되었습니다.',
                 showCancelButton: false,
             });
-            navigate('/');
         } catch (err) {
             console.error(err);
             showModal({
@@ -147,7 +142,7 @@ const Mypage = () => {
 
                 <div id='modify-box'>
                     <button type="submit" className="mypage-button">수정하기</button>
-                    <button type="button" className="mypage-button" onClick={() => navigate(-1)}>취소</button>
+                    <button type="button" className="mypage-button" onClick={() => goHome()}>취소</button>
                 </div>
             </form>
         </div>
