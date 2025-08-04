@@ -19,8 +19,6 @@ def get_custom_score():
     try:
         data = request.get_json()
         text = data.get('text', '').strip()
-        # 클라이언트가 어떤 모델의 점수를 원하는지 지정합니다.
-        # 예: "amenities", "crime", "facility", "noise", "population", "subway"
         model_type = data.get('model_type', '').strip().lower()
 
         if not text:
@@ -30,7 +28,7 @@ def get_custom_score():
             }), 400
         
         # 유효한 model_type인지 확인 (Colab 서버의 model_names와 일치해야 함)
-        valid_model_types = ["amenities", "crime", "facility", "noise", "population", "subway"]
+        valid_model_types = ["amenities", "crime", "facility", "noise", "population", "subway", "rent"]
         if model_type not in valid_model_types:
             return jsonify({
                 'success': False,
