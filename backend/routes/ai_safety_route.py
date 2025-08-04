@@ -1,12 +1,17 @@
 from flask import Blueprint, request, jsonify
 import requests
 import time
+import os
+from dotenv import load_dotenv
+
+# .env 파일 로드
+load_dotenv()
 
 # 블루프린트 생성
 ai_safety_bp = Blueprint('ai_safety', __name__)
 
-# Colab AI 모델 URL (실제 ngrok URL로 변경)
-COLAB_API_URL = "https://1037-34-23-161-52.ngrok-free.app"
+# Colab AI 모델 URL (환경 변수에서 로드)
+COLAB_API_URL = os.getenv("COLAB_API_URL")
 
 @ai_safety_bp.route('/api/safety-check', methods=['POST'])
 def safety_check():
@@ -92,18 +97,4 @@ def ai_status():
     except:
         return jsonify({'status': 'offline', 'message': 'AI 모델 연결 실패'})
 
-@ai_safety_bp.route('/api/update-model-url', methods=['POST'])
-def update_model_url():
-    """AI 모델 URL 업데이트 (개발용)"""
-    global COLAB_API_URL
-    data = request.get_json()
-    new_url = data.get('url', '').strip()
-    
-    if new_url:
-        COLAB_API_URL = new_url
-        return jsonify({
-            'success': True, 
-            'message': f'AI 모델 URL이 {new_url}로 업데이트되었습니다.'
-        })
-    else:
-        return jsonify({'success': False, 'message': 'URL이 필요합니다.'}), 400
+
