@@ -12,21 +12,29 @@ const CustomLegend = ({ legends }) => {
 
 
             <ul className="legend-container">
-                {Object.entries(legends).map(([key, { icon, label }]) => (
-                    <li
-                        key={key}
-                        className={`legend-list ${selectedLegend === key ? 'active' : ''}`}
-                        onClick={() =>
-                            setSelectedLegend(prev => (prev === key ? null : key))
-                        }
-                        onMouseEnter={() => setHoverLegend(key)}
-                        onMouseLeave={() => setHoverLegend(null)}
-                    >
-                        {icon && <div>{icon}</div>}
-                        <span className="legend-label">{label}</span>
-                    </li>
-                ))}
+                {Object.entries(legends).map(([key, { icon, label }]) => {
+                    const Icon = icon;
+                    return (
+                        <li
+                            key={key}
+                            className={`legend-list ${selectedLegend === key ? 'active' : ''}`}
+                            onClick={() =>
+                                setSelectedLegend(prev => (prev === key ? null : key))
+                            }
+                            onMouseEnter={() => setHoverLegend(key)}
+                            onMouseLeave={() => setHoverLegend(null)}
+                        >
+                            {Icon && (
+                                <div>
+                                    <Icon />
+                                </div>
+                            )}
+                            <span className="legend-label">{label}</span>
+                        </li>
+                    );
+                })}
             </ul>
+
             <div className="legend-desc">
                 <div className='legend-box-section'>
                     <div className='legend-box'>

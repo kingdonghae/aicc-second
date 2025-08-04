@@ -1,12 +1,14 @@
 import { useRecoilValue } from 'recoil';
 import { useShowModal } from '@/utils/showModal';
 import { authState } from "@/atoms/authState.js";
+import { useNavigation } from './useNavigation';
 
 export const useRequireLoginAction = () => {
     const { isLoggedIn } = useRecoilValue(authState);
     const showModal = useShowModal();
+    const { goLogin } = useNavigation();
 
-    return (actionCallback, goLogin) => {
+    return (actionCallback) => {
         if (isLoggedIn) {
             actionCallback();
         } else {

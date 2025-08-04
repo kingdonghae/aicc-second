@@ -1,7 +1,11 @@
 import re
 import bcrypt
 from db import get_connection
-from models.user_model import create_user, get_user_by_email, update_add_info_user
+from models.user_model import (
+    create_user, 
+    get_user_by_email, 
+    update_add_info_user
+)
 
 def is_email_available(email):
     connection = get_connection()

@@ -1,6 +1,9 @@
-
 from flask import Blueprint, request, jsonify
-from services.comments_service import save_comment, fetch_comments_by_post, delete_comment_by_id
+from services.comments_service import (
+    save_comment, 
+    fetch_comments_by_post, 
+    delete_comment_by_id
+)
 
 comment_bp = Blueprint('comment', __name__)
 

@@ -2,16 +2,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import PostTable from '@/pages/board/components/PostTable.jsx';
 import { useNavigation } from '@/hook/useNavigation.js';
 import { usePostList } from "@/pages/board/hook/usePosts.js";
-import { useRequireLoginAction } from "@/pages/textdetail/hook/useRequireLoginAction.js";
+import { useRequireLoginAction } from "@/hook/useRequireLoginAction.js";
 import '@/styles/Board.css';
 
 const Board = () => {
-  const { goWrite, goLogin } = useNavigation();
+  const { goWrite } = useNavigation();
   const requireLoginAction = useRequireLoginAction();
   const handleGoWrite = () => {
-    requireLoginAction(goWrite,goLogin);
+    requireLoginAction(goWrite);
   };
-  const { searchTerm, setSearchTerm, posts, totalPages, loading, error,handleSearch,page,setPage,limit } = usePostList();
+  const { searchTerm, setSearchTerm, posts, totalPages, loading, error,handleSearch,page, setPage, limit } = usePostList();
   return (
       <div className="board-background">
         <div className="board-box">
@@ -23,7 +23,7 @@ const Board = () => {
 
             <div className="board-menu-box">
               <div className="content-search-box">
-                <form style={{display:"flex",alignItems:"center", width:'100%'}} onSubmit={handleSearch}>
+                <form className="content-search-form" onSubmit={handleSearch}>
                   <input
                       type="text"
                       value={searchTerm}

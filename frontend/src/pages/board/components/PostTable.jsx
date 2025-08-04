@@ -1,3 +1,4 @@
+import React, { useCallback } from 'react' ;
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -5,7 +6,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import { useNavigation } from "@/hook/useNavigation.js";
 import Pagination from "@/pages/board/components/Pagination.jsx";
 import { styled } from '@mui/material/styles';
@@ -15,19 +15,24 @@ const StyledTableCell = styled(TableCell)({
   backgroundColor: '#B9DCC4',
   color: 'white',
   fontWeight: 'bold',
-  fontFamily: 'KIMM_Bold',
+  fontFamily: 'Pretendard',
 });
 
 const NoticeTableCell = styled(TableCell)({
-  fontFamily: 'KIMM_Bold',
+  fontFamily: 'Pretendard',
   fontWeight: "bolder",
 });
 
-export default function PostTable({ posts, totalPages, loading, error, page, setPage, limit }) {
+export default React.memo(function PostTable({ posts, totalPages, error, page, setPage, limit }) {
   const { goTextDetail } = useNavigation();
 
+  // goTextDetail 함수가 매번 재생성되지 않도록 useCallback 사용
+  const memoizedGoTextDetail = useCallback((id) => {
+    goTextDetail(id);
+  }, [goTextDetail]); // goTextDetail이 변경될 때만 재생성
 
-  if (loading) return <p>로딩 중...</p>;
+
+  // if (loading) return <p>로딩 중...</p>;
   if (error) return <p>에러 발생: {error.message}</p>;
 
   const formatTime = (dateString) => {
@@ -57,11 +62,11 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
 
   return (
       <>
-        <TableContainer component={Paper} sx={{minHeight:410}}>
+        <TableContainer component={Paper} sx={{minHeight:410}} >
           <Table sx={{ minWidth: 650}} aria-label="게시판 테이블">
             <TableHead>
               <TableRow>
-                <StyledTableCell align="center">No</StyledTableCell>
+                <StyledTableCell align="center" >No</StyledTableCell>
                 <StyledTableCell align="center">제목</StyledTableCell>
                 <StyledTableCell align="center">작성자</StyledTableCell>
                 <StyledTableCell align="center">작성시간</StyledTableCell>
@@ -71,20 +76,20 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
             <TableBody>
               {posts.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} align="center" sx={{ minHeight: '280px', fontSize: '20px', padding: '140px 0' }}>
+                    <TableCell colSpan={5} align="center" sx={{ minHeight: '280px', fontSize: '20px', padding: '140px 0' }} >
                       게시물이 없습니다.
                     </TableCell>
                   </TableRow>
               ) : (
                   posts.map((row) => (
-                      <TableRow key={row.id} sx={{ cursor: 'pointer' }} onClick={() => goTextDetail(row.id)}>
+                      <TableRow key={row.id} sx={{ cursor: 'pointer' }} onClick={() => memoizedGoTextDetail(row.id)}>
                         <NoticeTableCell align="center">{row.id}</NoticeTableCell>
 
                         <NoticeTableCell align="left" className="flex items-center gap-2">
-                          <span className="flex items-center gap-1 truncate">
+                          <span className="flex items-center gap-1 truncate" >
                             <span className="truncate">{row.title}</span>
                             {(row.comment_count) >= 1 && (
-                                <span className="text-blue-400 ml-1 whitespace-nowrap">[{row.comment_count}]</span>
+                                <span className="text-blue-400 ml-1 whitespace-nowrap" >[{row.comment_count}]</span>
                             )}
 
                           {row.has_attachment===1 &&
@@ -111,4 +116,4 @@ export default function PostTable({ posts, totalPages, loading, error, page, set
         />
       </>
   );
-}
+})

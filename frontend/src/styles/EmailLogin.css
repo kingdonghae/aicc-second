@@ -52,7 +52,7 @@
     font-size: 0.6rem;
     cursor: pointer;
     white-space: nowrap;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
 }
 
 .login-box .submit-button:hover {
@@ -83,7 +83,7 @@
     border-radius: 2rem;
     font-size: 0.5rem;
     cursor: pointer;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
 }
 
 .signup-link .link:hover {

@@ -7,7 +7,6 @@ from models.rank_model import (
     insert_search_keyword_query
 )
 
-
 def fetch_keyword_ranking(keyword):
     connection = get_connection()
     try:

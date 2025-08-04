@@ -3,3 +3,6 @@ node_modules/
 .env
 temporary/
 *.iml
+/backend/uploads/
+/presentation
+.gemini/

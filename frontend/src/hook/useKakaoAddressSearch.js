@@ -1,4 +1,4 @@
-import {loadKakaoMapScript} from "@/pages/home/utils/loadKakaoMapScript.js";
+import { loadKakaoMapScript } from "@/pages/home/utils/loadKakaoMapScript.js";
 
 export const useKakaoAddressSearch = () => {
     const searchAddress = async (address, onSuccess, onFail) => {
@@ -9,7 +9,7 @@ export const useKakaoAddressSearch = () => {
             geocoder.addressSearch(address, (result, status) => {
                 if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
                     const { x, y } = result[0];
-                    onSuccess({ lat: y, lng: x });
+                    onSuccess({ lat: y, lng: x }, result[0]); // result[0]을 onSuccess 콜백에 추가로 전달
                 } else {
                     onFail?.();
                 }

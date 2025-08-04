@@ -4,9 +4,8 @@ from db import get_connection
 from models.search_model import insert_search_log_query
 from services.rank_service import insert_search_keyword
 
-
-def log_search_keyword(keyword, user_id=None, client_id=None):
-    if not keyword:
+def log_search_keyword(input_address, keyword, user_id=None, client_id=None):
+    if not input_address or not keyword:
         return jsonify({"error": "검색어가 없습니다."}), 400
 
     if not user_id and not client_id:
@@ -21,6 +20,7 @@ def log_search_keyword(keyword, user_id=None, client_id=None):
     try:
         with connection.cursor() as cursor:
             cursor.execute(sql, (
+                input_address,
                 keyword,
                 user_id,
                 client_id

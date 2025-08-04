@@ -42,6 +42,7 @@ export default function WeekSelector({ value,onChange,label }) {
                     pointerEvents: "none",
                     width: 0,
                     height: 0,
+                    fontFamily: 'Pretendard'
                 }}
             />
             <p>달력을 열어 기간을 설정해보세요 ▲</p>

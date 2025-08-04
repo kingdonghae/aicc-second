@@ -16,7 +16,7 @@
 #delete-commend {
     width: 2rem;
     height: 1.25rem;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
     cursor: pointer;
     margin: 0.2rem 0 0 0;
     background-color: #B9DCC4;
@@ -147,7 +147,7 @@
 .buttons button {
     width: 3rem;
     height: 1.5rem;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
     cursor: pointer;
     border-radius: 1.5rem;
     font-size: 0.5rem;
@@ -178,6 +178,7 @@
 }
 
 .content-text-box div {
+    font-family: 'Pretendard';
     display: flex;
     flex-direction: column;
     width: 32rem;
@@ -241,7 +242,7 @@
 
 .comment-box button {
     background-color: #E5F2D6;
-    font-family: 'NPSfontBold';
+    font-family: 'Pretendard';
     font-size: 0.7rem;
     border: none;
     width: 3rem;

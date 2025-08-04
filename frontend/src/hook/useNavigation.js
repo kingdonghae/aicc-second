@@ -22,6 +22,22 @@ export const useNavigation = () => {
         goWrite: () => navigate(ROUTES.WRITE),
         goTextDetail: (id) => navigate(`${ROUTES.TEXT_DETAIL}/${id}`),
         goEdit: (id) => navigate(`${ROUTES.WRITE}/${id}`),
-        goOAuthSuccess: () => navigate(ROUTES.OAUTH_SUCCESS)
+        goOAuthSuccess: () => navigate(ROUTES.OAUTH_SUCCESS),
+        goCustom: (selected = []) => navigate(ROUTES.CUSTOM, {
+            state: { selectedItem: selected }
+        }),
+        goCustomInput: (selected, inputs) => navigate(ROUTES.CUSTOM_INPUT, {
+            state: {
+                selectedItem: selected,
+                inputValues: inputs
+            }
+        }),
+        goCustomResult: (selected, inputs, result) => navigate(ROUTES.CUSTOM_RESULT, {
+            state: {
+                selectedItem: selected,
+                inputValues: inputs,
+                result: result
+            }
+        })
     };
 };

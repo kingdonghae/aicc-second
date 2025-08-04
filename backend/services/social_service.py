@@ -1,5 +1,8 @@
 from db import get_connection
-from models.user_model import get_user_by_provider, create_social_user
+from models.user_model import (
+    get_user_by_provider, 
+    create_social_user
+)
 from utils.jwt_utils import generate_jwt
 
 def handle_social_login(provider, user_info):

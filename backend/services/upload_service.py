@@ -4,8 +4,16 @@ from werkzeug.utils import secure_filename
 from flask import current_app, jsonify
 
 from db import get_connection
-from models.file_model import update_file_query, update_files_unlink_query, update_files_link_query
-from models.post_model import insert_post_query, update_post_query, get_file_query
+from models.file_model import (
+    update_file_query, 
+    update_files_unlink_query, 
+    update_files_link_query
+)
+from models.post_model import (
+    insert_post_query, 
+    update_post_query, 
+    get_file_query
+)
 
 
 def save_uploaded_file(file):
