@@ -22,7 +22,7 @@ const CustomResult = () => {
                 <CustomCard
                   key={area.dong || index}
                   rank={index + 1}
-                  areaName={area.dong}
+                  areaName={area.full_adr}
                   score={area.score}
                 />
               ))

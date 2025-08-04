@@ -27,6 +27,7 @@ from routes.upload_route import upload_bp
 from routes.user_route import user_bp
 from routes.score_route import score_bp
 from routes.ai_safety_route import ai_safety_bp  # 🔥 AI 안전성 블루프린트 추가
+from routes.ai_score_route import ai_score_bp
 
 import decimal
 from flask.json.provider import DefaultJSONProvider
@@ -58,6 +59,7 @@ app.register_blueprint(comment_bp)
 app.register_blueprint(score_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(ai_safety_bp)
+app.register_blueprint(ai_score_bp)
 app.register_blueprint(custom_bp)
 
 if __name__ == '__main__':

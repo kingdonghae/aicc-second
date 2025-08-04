@@ -1,3 +1,4 @@
+// 📁 src/pages/custom/hook/useMapHighlight.js
 import { useEffect } from 'react';
 import { loadKakaoMapScript } from '@/pages/home/utils/loadKakaoMapScript';
 
@@ -18,30 +19,25 @@ export const useMapHighlight = ({ map, areaName, onClick }) => {
         const lat = parseFloat(result[0].y);
         const lng = parseFloat(result[0].x);
         const center = new window.kakao.maps.LatLng(lat, lng);
+        const coords = { lat, lng }; 
 
         map.setCenter(center);
 
         new window.kakao.maps.Marker({ map, position: center });
 
-        const dummyPath = [
-          new window.kakao.maps.LatLng(lat + 0.001, lng - 0.001),
-          new window.kakao.maps.LatLng(lat + 0.001, lng + 0.001),
-          new window.kakao.maps.LatLng(lat - 0.001, lng + 0.001),
-          new window.kakao.maps.LatLng(lat - 0.001, lng - 0.001)
-        ];
-
-        const polygon = new window.kakao.maps.Polygon({
+        const circle = new window.kakao.maps.Circle({
           map,
-          path: dummyPath,
-          strokeWeight: 2,
-          strokeColor: '#004c80',
-          strokeOpacity: 0.8,
-          fillColor: '#A2D0F1',
-          fillOpacity: 0.5
+          center: center,
+          radius: 500, // 원의 반지름
+          strokeWeight: 1, // 선의 두께
+          strokeColor: '#004c80', // 선의 색깔
+          strokeOpacity: 0.8, // 선의 불투명도
+          fillColor: '#A2D0F1', // 채우기 색깔
+          fillOpacity: 0.3 // 채우기 불투명도
         });
 
         if (onClick) {
-          window.kakao.maps.event.addListener(polygon, 'click', () => onClick(areaName));
+          window.kakao.maps.event.addListener(circle, 'click', () => onClick(areaName, coords));
         }
       });
     };

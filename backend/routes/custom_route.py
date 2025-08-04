@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from services.custom_service import custom_request
+from services.custom_service import get_custom_result
 
 custom_bp = Blueprint('custom', __name__)
 
@@ -9,5 +9,5 @@ def handle_custom():
     selected_item = data.get('selectedItem')
     inputs = data.get('inputs')
     
-    result = custom_request(selected_item, inputs)
+    result = get_custom_result(selected_item, inputs)
     return jsonify(result)

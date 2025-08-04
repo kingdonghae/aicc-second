@@ -34,7 +34,7 @@ const HeaderMenuBtn = ({ menuRef }) => {
                     </button>
                 </li>
                 {isLoggedIn && (
-                    <li className="menu-list" id={isActive(ROUTES.CUSTOM) ? 'menu-select' : undefined} onClick={goCustom}>
+                    <li className="menu-list" id={isActive(ROUTES.CUSTOM) ? 'menu-select' : undefined} onClick={() => goCustom()}   >
                         <button>
                             <SavedSearchIcon style={{ fontSize: '2.5rem' }} />맞춤 지역
                         </button>
