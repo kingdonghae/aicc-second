@@ -104,7 +104,7 @@ def call_colab_ai(user_text):
             "noise": colab_predictions.get("noise", 0),
             "population": colab_predictions.get("population", 0),
             "subway": colab_predictions.get("subway", 0),
-            "rent": 0,  # rent는 Colab 모델에서 제공하지 않음
+            "rent": colab_predictions.get("rent", 0),  # rent는 Colab 모델에서 제공하지 않음
         }
 
         print(f"[DEBUG 5] 최종 predicted 딕셔너리: {predicted}")
