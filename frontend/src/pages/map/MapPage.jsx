@@ -1,4 +1,4 @@
-// MapPage.jsx
+// 📁 src/pages/map/MapPage.jsx
 import KakaoMap from '@/pages/map/components/KakaoMap';
 import SearchBox from '@/components/SearchBox';
 import DetailList from '@/pages/map/components/DetailList';
@@ -11,6 +11,7 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import { authState } from "@/atoms/authState.js";
 import { analysisState } from "@/atoms/analysisState.js";
 import '@/styles/Map.css';
+import { useLocation } from 'react-router-dom'; // <-- 이 줄은 그대로 필요합니다.
 
 const MapPage = () => {
   const {
@@ -23,47 +24,54 @@ const MapPage = () => {
 
   const { isLoggedIn, user } = useRecoilValue(authState);
   const [analysis, setAnalysis] = useRecoilState(analysisState);
+  const location = useLocation(); // <-- 이 줄은 그대로 필요합니다.
 
-  // useGPT 훅 호출: analysisState에서 필요한 값을 전달
-  // useGPT는 내부적으로 GPT 응답을 관리하고 반환합니다.
   const { gpt: fetchedGpt, loading: gptLoading } = useGPT({
     address: analysis.address,
     score: analysis.score,
     preload: analysis.gpt
   });
 
+  // CustomCard에서 전달받은 주소로 초기 검색을 수행하는 useEffect
+  useEffect(() => {
+    // location.state.address를 확인합니다.
+    if (location.state?.address) {
+      const initialAddressFromState = location.state.address;
+      // SearchBox의 initialSearchValue prop으로 전달될 것이므로, 여기서는 직접 address 상태를 설정하지 않습니다.
+      // SearchBox 내부에서 initialSearchValue를 감지하여 검색을 트리거할 것입니다.
+    }
+  }, [location.state?.address]); // location.state.address가 변경될 때마다 실행
+
   // 첫 번째 useEffect: 주소 또는 좌표가 변경될 때 점수를 가져오고 analysisState를 업데이트
   useEffect(() => {
-    // 현재 주소와 이미 분석된 주소가 일치하고, 점수가 이미 있다면 API 호출을 건너뜁니다.
-    if (analysis.address === address && analysis.score) {
+    // 초기 로드 시 location.state.address가 있다면, 해당 주소로 강제 설정합니다.
+    const currentAddressToUse = location.state?.address || address;
+
+    if (analysis.address === currentAddressToUse && analysis.score && analysis.coords === coords) {
       return;
     }
 
-    if (!coords?.lat || !coords?.lng || !address) {
-      // 주소나 좌표가 없으면 analysisState를 초기화합니다.
-      setAnalysis({ score: null, gpt: '', address: '', coords: null });
-      return;
+    if (!coords?.lat || !coords?.lng || !currentAddressToUse) {
+        setAnalysis({ score: null, gpt: '', address: '', coords: null });
+        return;
     }
 
     const fetchData = async () => {
-      // 새로운 분석을 시작할 때 이전 분석 결과를 초기화 (GPT는 useGPT에서 다시 로드될 것임)
       setAnalysis(prev => ({ ...prev, score: null, gpt: '' }));
       const result = await getScore(coords.lat, coords.lng);
-      // 점수와 현재 주소/좌표를 analysisState에 저장합니다.
       setAnalysis(prev => ({
         ...prev,
         score: result,
-        address: address,
+        address: currentAddressToUse, // 현재 사용되는 주소로 업데이트
         coords: coords,
       }));
     };
 
     fetchData();
-  }, [address, coords]);
+  }, [address, coords, location.state?.address]); // dependency array에 location.state.address 추가
 
   // 두 번째 useEffect: useGPT 훅에서 반환된 GPT 응답이 변경될 때 analysisState의 gpt를 업데이트
   useEffect(() => {
-    // fetchedGpt가 존재하고, 현재 analysisState의 gpt와 다르고, GPT 로딩 중이 아닐 때만 업데이트
     if (fetchedGpt && fetchedGpt !== analysis.gpt && !gptLoading) {
       setAnalysis(prev => ({ ...prev, gpt: fetchedGpt }));
     }
@@ -83,6 +91,8 @@ const MapPage = () => {
       <div className="search-position">
         <SearchBox
           defaultValue={address}
+          // CustomCard에서 넘어온 주소가 있다면 그 주소를 SearchBox의 initialSearchValue로 전달합니다.
+          initialSearchValue={location.state?.address} // <-- 이 줄을 수정합니다.
           onSearch={(newAddress, newCoords) => {
             setAddress(newAddress);
             setCoords(newCoords);
@@ -112,8 +122,8 @@ const MapPage = () => {
           isDrag={isDrag}
           address={address}
           coords={coords}
-          score={analysis.score} // Recoil 상태에서 가져온 score
-          gpt={analysis.gpt}     // Recoil 상태에서 가져온 gpt
+          score={analysis.score}
+          gpt={analysis.gpt}
         />
       </div>
     </div>
